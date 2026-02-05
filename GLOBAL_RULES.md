@@ -66,6 +66,7 @@ Explore → Plan → Code → Commit → Log discovery
 ### Insight Prompt (Low Friction)
 - If a key insight is confirmed (99% confidence + evidence), **ask once at end of session** to log it.
 - Keep it one-line. If user declines, do not ask again that session.
+- **Web research**: If key insight comes from web sources, log it to KB with citations/links.
 
 ### KnowledgeBase Access (Default)
 - **Read access**: ON by default (use KB for answers).
