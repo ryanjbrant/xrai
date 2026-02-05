@@ -1,7 +1,18 @@
 # Claude Code Official Best Practices
 
 **Source**: code.claude.com/docs (February 2026)
-**Last Updated**: 2026-02-04
+**Last Updated**: 2026-02-05
+
+---
+
+## Related Resources
+
+| Topic | File |
+|-------|------|
+| Architecture Deep Dive | `_archive/_CLAUDE_CODE_ARCHITECTURE_DEEP_DIVE.md` |
+| Hooks Reference | `_CLAUDE_CODE_HOOKS.md` |
+| Subagent Patterns | `_CLAUDE_CODE_SUBAGENTS.md` |
+| Unity Workflow | `_CLAUDE_CODE_UNITY_WORKFLOW.md` |
 
 ---
 
@@ -460,6 +471,89 @@ Works for any database with CLI, MCP, or API.
 - Ask Claude to generate **visual HTML presentations** explaining code
 - Request **ASCII diagrams** of protocols and codebases
 - Build **spaced-repetition learning skill**: explain understanding → Claude asks follow-ups → stores result
+
+---
+
+## Advanced Configuration (Feb 2026 Research)
+
+### Environment Variables (Recommended)
+
+Add to `~/.claude/settings.json` under `"env"`:
+
+| Variable | Value | Purpose |
+|----------|-------|---------|
+| `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | `75` | Auto-compact at 75% context |
+| `MAX_THINKING_TOKENS` | `10000` | Budget for extended thinking |
+| `BASH_DEFAULT_TIMEOUT_MS` | `60000` | 60s bash timeout |
+| `CLAUDE_CODE_MAX_OUTPUT_TOKENS` | `16384` | Max response tokens |
+| `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS` | `16384` | Max tokens per file read |
+| `BASH_MAX_OUTPUT_LENGTH` | `100000` | Max bash output chars |
+| `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR` | `1` | Keep cwd in project |
+| `SLASH_COMMAND_TOOL_CHAR_BUDGET` | `25000` | Budget for skills |
+| `ENABLE_TOOL_SEARCH` | `auto:5` | Auto-search >5 tools |
+
+### Hook Events (Complete List)
+
+| Hook | Trigger | Use Case |
+|------|---------|----------|
+| `SessionStart` | Session begins | Load context, health checks |
+| `Stop` | Session ends | Save state, cleanup |
+| `UserPromptSubmit` | Before processing | Auto-detect keywords, validate |
+| `PreToolUse` | Before tool runs | Validate bash commands, safety |
+| `PostToolUse` | After tool success | Track changes, logging |
+| `PostToolUseFailure` | After tool fails | Error logging, escalation |
+| `PreCompact` | Before auto-compact | Preserve critical context |
+| `Notification` | Needs attention | Desktop alerts |
+| `TodoUpdated` | Todo list changes | Sync with external systems |
+| `SubagentStart` | Subagent spawns | Logging, resource tracking |
+| `SubagentComplete` | Subagent finishes | Collect results |
+
+**Missing in most setups**: PreToolUse, PostToolUseFailure, PreCompact
+
+### Skills Architecture
+
+Create `.claude/skills/skill-name.md`:
+
+```markdown
+---
+name: my-skill
+description: What this skill does
+tools: Read, Grep, Glob, Bash
+---
+
+# Skill Instructions
+
+When invoked via /my-skill:
+1. First action
+2. Second action
+```
+
+**Invoke with**: `/my-skill` or `/my-skill arguments`
+
+### Context Optimization Techniques
+
+| Technique | Savings | Method |
+|-----------|---------|--------|
+| Lazy loading | 54% | Load skills on-demand, not in CLAUDE.md |
+| Context editing | 84% | Use `/compact` with focus areas |
+| Skills vs CLAUDE.md | 60% | Move specialized content to skills |
+| Path-scoped rules | 40% | Rules only load for matching files |
+
+**Target**: CLAUDE.md < 500 lines, use skills for domain-specific content.
+
+### Agent Memory
+
+For agents that learn from sessions:
+
+```markdown
+# .claude/agents/learner.md
+---
+name: learner
+memory: project    # Persists learning to project
+---
+```
+
+Memory modes: `none` (default), `session`, `project`
 
 ---
 

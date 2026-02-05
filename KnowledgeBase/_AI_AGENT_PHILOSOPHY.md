@@ -251,9 +251,9 @@
 **Application**: This philosophy informs every protocol in the AI Agent Core Directive. The directive tells you WHAT to do. This file tells you WHY.
 
 **Related**:
-- **Core Directive**: `~/.claude/AI_AGENT_CORE_DIRECTIVE_V2.md` (the "what/how")
-- **Quick Reference**: `~/.claude/AI_AGENT_QUICK_REFERENCE.md` (daily checklist)
-- **Full Spec**: `~/.claude/docs/specs/global/AI_AGENT_INTELLIGENCE_AMPLIFICATION_SPEC.md`
+- **Core Directive**: `~/.claude/AI_AGENT_CORE_DIRECTIVE_V4.md` (current, ~2.9K tokens)
+- **Minimal Version**: `~/.claude/AI_AGENT_CORE_DIRECTIVE_V3.md` (ultra-compact, ~0.9K tokens)
+- **Archived**: `KnowledgeBase/_archive/AI_AGENT_CORE_DIRECTIVE_V2.md`, `AI_AGENT_QUICK_REFERENCE.md`
 
 **Sources**: Naval Ravikant (leverage), Elon Musk (first principles), Jeff Bezos (long-term), cognitive science research, compound learning theory
 

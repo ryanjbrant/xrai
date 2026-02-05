@@ -24,7 +24,8 @@
 
 ### Research
 - `_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md` - 520+ repos
-- `_CLAUDE_CODE_ARCHITECTURE_DEEP_DIVE.md` - How CC works
+- `_CLAUDE_CODE_OFFICIAL_BEST_PRACTICES.md` - How CC works
+- `_TRUSTED_COMMUNITY_SOURCES.md` - Forums, subreddits, experts
 
 ### Tools
 - `_TOKEN_EFFICIENCY_COMPLETE.md` - Token optimization
