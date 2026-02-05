@@ -52,6 +52,15 @@ Explore → Plan → Code → Commit → Log discovery
 - **KB Index**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_KB_INDEX.md`
 - **Official sources + updates**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_OFFICIAL_SOURCES_LATEST_UPDATES.md`
 
+### Session Start Choices (Ask Once)
+- `toolchain` | `scope` | `verbosity` | `kb_access` | `commit_policy`
+- Example: `Claude+Rider+Unity | portals_v4 | concise | KB read/write | PRs required`
+
+### Insight Prompt (When 99% Confidence + Evidence)
+- If a breakthrough, repeated failure, or notable improvement is confirmed, ask to log it:
+  - Local: `docs/dev/<username>/`
+  - Global KB: PR to `Unity-XR-AI` (branch + evidence + cross-refs)
+
 ### KnowledgeBase Access & Contributions (Optional)
 - **Read/write access**: use `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/` (or symlink your tool to it).
 - **Local dev notes**: add research/insights to `docs/dev/<username>/` in the project repo.

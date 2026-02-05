@@ -13,6 +13,15 @@ Search KB → Plan → Code → Commit → Log discovery
 ## Session Start Check
 - If `GLOBAL_RULES.md` is not loaded in context, ask the user to load it now.
 
+## Session Start Choices (Ask Once)
+- Ask user to set: `toolchain`, `scope`, `verbosity`, `kb_access`, `commit_policy`.
+- Example: `Claude+Rider+Unity | portals_v4 | concise | KB read/write | PRs required`
+
+## Insight Prompt (When 99% Confidence + Evidence)
+- If a breakthrough, repeated failure, or notable improvement is confirmed, ask to log it:
+  - Local: `docs/dev/<username>/`
+  - Global KB: PR to `Unity-XR-AI` (branch + evidence + cross-refs)
+
 ## Before Any Change
 1. **Need it?** Check KB for existing solution
 2. **Side effects?** Keep changes minimal, reversible
