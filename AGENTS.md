@@ -60,7 +60,7 @@ Search KB → Plan → Code → Commit → Log discovery
 - Ignoring verification criteria
 
 ## KnowledgeBase
-Location: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/`
+Location: `~/KnowledgeBase/`
 - `_QUICK_FIX.md` - Error fixes
 - `_VFX_MASTER_PATTERNS.md` - VFX patterns
 - `_TOKEN_EFFICIENCY_COMPLETE.md` - Token optimization

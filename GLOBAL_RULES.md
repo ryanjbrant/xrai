@@ -49,8 +49,8 @@ Explore → Plan → Code → Commit → Log discovery
 - **User patterns**: See `_USER_PATTERNS_JAMES.md`
 - **Agents guide**: Keep `AGENTS.md` synchronized with codebase/docs/specs/KB and `CLAUDE.md`.
 - **Cross-tool sync**: Keep docs/rules/memory aligned across Codex, Claude Code, and Gemini.
-- **KB Index**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_KB_INDEX.md`
-- **Official sources + updates**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_OFFICIAL_SOURCES_LATEST_UPDATES.md`
+- **KB Index**: `~/KnowledgeBase/_KB_INDEX.md`
+- **Official sources + updates**: `~/KnowledgeBase/_OFFICIAL_SOURCES_LATEST_UPDATES.md`
 
 ### Session Start Defaults (No Prompt)
 - Defaults: `toolchain=auto-detect`, `scope=project-only`, `verbosity=concise`.
@@ -70,7 +70,7 @@ Explore → Plan → Code → Commit → Log discovery
 - **Maintainer flow** (jt5d/admin): periodically pull `docs/developer/` from projects, triple‑verify, then PR into KB.
 
 ### KnowledgeBase Access & Contributions (Optional)
-- **Read/write access**: use `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/` (or symlink your tool to it).
+- **Read/write access**: use `~/KnowledgeBase/` (or symlink your tool to it).
 - **Local dev notes**: add research/insights to `docs/dev/<username>/` in the project repo.
 - **Upstream KB contributions** (opt‑in):
   1. Create a branch in `Unity-XR-AI` KB repo.
@@ -153,7 +153,7 @@ Error/Question arrives
 ```
 ~/GLOBAL_RULES.md                    ← This file
 ~/AGENTS.md                          ← Codex compatibility
-~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/  ← Pattern library
+~/KnowledgeBase/  ← Pattern library
 ```
 
 **GitHub Repos**:
@@ -516,9 +516,9 @@ tail -500 ~/.claude/history.jsonl | grep -i "keyword"
 └── project/CLAUDE.md          ← Project overrides
 
 Knowledgebase (all tools access):
-~/.claude/knowledgebase/       → Unity-XR-AI/KnowledgeBase/
-~/.windsurf/knowledgebase/     → Unity-XR-AI/KnowledgeBase/
-~/.cursor/knowledgebase/       → Unity-XR-AI/KnowledgeBase/
+~/.claude/knowledgebase/       → ~/KnowledgeBase/
+~/.windsurf/knowledgebase/     → ~/KnowledgeBase/
+~/.cursor/knowledgebase/       → ~/KnowledgeBase/
 ```
 
 ### MCP Consistency (No Conflicts)
@@ -542,7 +542,7 @@ codex     # 128K context
 Read these for context:
 1. ~/GLOBAL_RULES.md - Universal rules
 2. ~/Documents/GitHub/Unity-XR-AI/CLAUDE.md - Project overview
-3. ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_QUICK_FIX.md - Error fixes
+3. ~/KnowledgeBase/_QUICK_FIX.md - Error fixes
 ```
 
 **Full guide**: `KnowledgeBase/_CROSS_TOOL_ROLLOVER_GUIDE.md`
