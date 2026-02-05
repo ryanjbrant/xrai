@@ -4,6 +4,8 @@
 
 This repository contains production-ready code patterns, 520+ GitHub repo references, 10 visualization frontends, and the MetavidoVFX Unity project.
 
+**Global Rules:** Load `GLOBAL_RULES.md` at session start (repo root or `~/GLOBAL_RULES.md`). If your tool doesn't auto-load it, open it manually first.
+
 ---
 
 ## 📂 Repository Structure

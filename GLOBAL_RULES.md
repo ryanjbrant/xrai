@@ -10,12 +10,46 @@ Explore → Plan → Code → Commit → Log discovery
 
 **Shortcut for simple tasks**: Search KB → Act → Done
 
+### Highest Leverage Practice: Verification Criteria
+**Single most impactful thing**: Give Claude a way to verify its work.
+
+| Before | After |
+|--------|-------|
+| "implement email validation" | "write validateEmail. tests: user@example.com=true, invalid=false. run tests after" |
+| "make dashboard look better" | "[paste screenshot] implement this. take screenshot of result and compare" |
+| "build is failing" | "build fails with [error]. fix and verify build succeeds. address root cause" |
+
+### ⚠️ Before ANY Change - Ask Two Questions
+
+**ALWAYS ask before implementing:**
+
+1. **"Do we really need this?"**
+   - Is this solving a real problem or a hypothetical one?
+   - Is there a simpler alternative?
+   - Does the KB already have a solution?
+
+2. **"Could this cause other issues?"**
+   - What are the side effects?
+   - What breaks if this fails?
+   - Is this reversible?
+
+**Examples of good skepticism:**
+- Disabling file watchers → Could break git sync detection
+- Adding new dependencies → Could conflict with existing packages
+- Changing global configs → Could affect other projects
+- Auto-fixing without understanding → Could mask root cause
+
+**When in doubt**: Ask user, keep changes minimal, prefer reversible options.
+
 ### Quick Reference
 - **Session start**: `mcp-kill-dupes`
-- **Before coding**: Search `KnowledgeBase/` first
+- **Before coding**: Search `KnowledgeBase/` first → start with `_KB_INDEX.md`
 - **On error**: Check `_QUICK_FIX.md`
 - **Discovery**: Append to `LEARNING_LOG.md`
 - **User patterns**: See `_USER_PATTERNS_JAMES.md`
+- **Agents guide**: Keep `AGENTS.md` synchronized with codebase/docs/specs/KB and `CLAUDE.md`.
+- **Cross-tool sync**: Keep docs/rules/memory aligned across Codex, Claude Code, and Gemini.
+- **KB Index**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_KB_INDEX.md`
 
 ### KB Search Commands (Zero Tokens - Always Try First)
 
@@ -23,11 +57,35 @@ Explore → Plan → Code → Commit → Log discovery
 # Priority order (fastest to slowest, all zero main tokens)
 kbfix "CS0246"        # 1. Error → Fix lookup (instant)
 kbtag "vfx"           # 2. Find pattern files by tag
-kb "hologram depth"   # 3. Search all 116 KB files
+kb "hologram depth"   # 3. Search all 137 KB files
 kbrepo "hand track"   # 4. Search 520+ GitHub repos
 ss                    # 5. Screenshot for visual context (→ paste)
 ssu                   # 6. Unity window screenshot
 ```
+
+**Smart Search Patterns**:
+```bash
+# Combine terms (AND)
+kb "depth AND texture"
+
+# Error code + context
+kbfix "CS0246" && kb "namespace unity"
+
+# Find then read
+kbtag "mcp" | head -3  # → see which files match
+
+# Chain searches
+kb "VFX" | grep -i "buffer"  # VFX files mentioning buffer
+```
+
+**Common Lookups** (memorize these):
+| Need | Command | File |
+|------|---------|------|
+| Fix error | `kbfix "error"` | _QUICK_FIX.md |
+| VFX patterns | `kbtag "vfx"` | _VFX25_*.md |
+| MCP reference | `kb "batch_execute"` | _UNITY_MCP_*.md |
+| GitHub repos | `kbrepo "hand"` | _MASTER_GITHUB_*.md |
+| Token tips | `kb "token"` | _TOKEN_EFFICIENCY_*.md |
 
 **KB + Tool Integration** (holistic decision flow):
 ```
@@ -60,190 +118,81 @@ Error/Question arrives
 
 ---
 
-## 🏗️ HOLISTIC ARCHITECTURE (How Everything Connects)
+## Architecture Overview
 
-### System Overview
+**Full Reference**: `KnowledgeBase/_CROSS_TOOL_ARCHITECTURE.md`
+
+### Shared Resources (All Tools)
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        USER (James)                              │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-         ┌────────────────────┼────────────────────┐
-         ▼                    ▼                    ▼
-┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-│ Claude Code │      │   Gemini    │      │    Codex    │
-│  (Primary)  │      │   (FREE)    │      │   (Fast)    │
-└──────┬──────┘      └──────┬──────┘      └──────┬──────┘
-       │                    │                    │
-       └────────────────────┼────────────────────┘
-                            │
-              ┌─────────────┴─────────────┐
-              ▼                           ▼
-     ┌────────────────┐          ┌────────────────┐
-     │  SHARED FILES  │          │   MCP SERVERS  │
-     │  (Memory Layer)│          │  (Tool Layer)  │
-     └────────────────┘          └────────────────┘
-              │                           │
-    ┌─────────┴─────────┐       ┌─────────┴─────────┐
-    ▼                   ▼       ▼                   ▼
-┌────────┐      ┌────────────┐ ┌────────┐    ┌──────────┐
-│GLOBAL  │      │KnowledgeBase│ │ Unity  │    │JetBrains │
-│RULES.md│      │ (116 files) │ │  MCP   │    │   MCP    │
-└────────┘      └────────────┘ └────────┘    └──────────┘
-                      │              │              │
-                      ▼              ▼              ▼
-               ┌───────────┐  ┌───────────┐  ┌───────────┐
-               │claude-mem │  │Unity Editor│  │   Rider   │
-               │ (ChromaDB)│  │  (6400)   │  │  (63342)  │
-               └───────────┘  └───────────┘  └───────────┘
+~/GLOBAL_RULES.md                    ← This file
+~/AGENTS.md                          ← Codex compatibility
+~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/  ← Pattern library
 ```
 
-### Layer Breakdown
+**GitHub Repos**:
+- KB: [imclab/xrai](https://github.com/imclab/xrai) (Unity-XR-AI)
+- portals_v4: [ryanjbrant/portals_v4](https://github.com/ryanjbrant/portals_v4)
+- MetavidoVFX: See `_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md` (520+ repos)
 
-| Layer | Components | Purpose | Token Cost |
-|-------|------------|---------|------------|
-| **Rules** | GLOBAL_RULES.md, CLAUDE.md | Universal behavior | ~2K (loaded once) |
-| **Memory** | KnowledgeBase/, LEARNING_LOG.md | Persistent knowledge | 0 (grep) |
-| **Semantic** | claude-mem (ChromaDB) | Fuzzy recall | ~500/query |
-| **Tools** | Unity MCP, JetBrains MCP | IDE/Editor control | ~300/call |
-| **Context** | Project files, git status | Current state | Variable |
+### Tool Selection
+| Task | Tool | Notes |
+|------|------|-------|
+| Implementation | Claude Code + MCP | Primary, best integration |
+| Research | Gemini CLI / Antigravity | FREE 1M context |
+| Quick edits | Windsurf | Cascade for multi-file |
+| Code gen | Codex | AGENTS.md compatible |
+| Navigation | Rider + JetBrains MCP | Indexed search |
 
-### File-Based Memory (Primary - Zero Tokens)
-
-```
-~/GLOBAL_RULES.md                    ← Universal rules (this file)
-~/Documents/GitHub/Unity-XR-AI/
-├── KnowledgeBase/                   ← 116 pattern files
-│   ├── _QUICK_FIX.md               ← Error → Fix lookup
-│   ├── _PATTERN_TAGS.md            ← Find files by topic
-│   ├── _KB_SEARCH_COMMANDS.md      ← Search reference
-│   └── LEARNING_LOG.md             ← Discoveries journal
-├── CLAUDE.md                        ← Project context
-└── specs/                           ← Specifications
+### Project Quick Commands
+**portals_v4** (Unity + React Native):
+```bash
+./scripts/build_minimal.sh          # Incremental (~5 min)
+./scripts/nuclear_clean_build.sh    # Full rebuild (~10 min)
+./scripts/capture_device_logs.sh 10 "Unity|Bridge"  # Debug
 ```
 
-**Access from any tool**: `kb "topic"`, `kbfix "error"`, `kbtag "vfx"`
-
-### MCP Server Architecture
-
-| Server | Port | Purpose | When to Use |
-|--------|------|---------|-------------|
-| **UnityMCP** | 6400 | Editor automation | Scene, GameObject, VFX ops |
-| **JetBrains** | 63342 | Code intelligence | Search, refactor, symbols |
-| **claude-mem** | — | Semantic memory | Fuzzy recall, context |
-| **github** | — | Repo operations | PRs, issues, commits |
-
-**Startup**: `mcp-kill-dupes && unity-mcp-cleanup`
-
-### IDE/Tool Integration
-
-| Tool | Config Location | Reads GLOBAL_RULES | Has MCP |
-|------|-----------------|-------------------|---------|
-| Claude Code | `~/.claude/` | ✅ Yes | ✅ Full |
-| Gemini CLI | `.ai/mcp/`, `.gemini/` | ✅ Via grep | ✅ Full |
-| Codex CLI | `~/.codex/` | ✅ Via grep | ❌ No |
-| Cursor | `~/.cursor/` | ✅ Yes | ✅ Limited |
-| Windsurf | `~/.windsurf/` | ✅ Yes | ✅ Limited |
-| Rider | Built-in | ❌ No | ✅ Via MCP |
-| VS Code | `.vscode/` | ❌ No | ✅ Via extensions |
-
-**Gemini Specific Tuning**:
-- **Priority**: Always use JetBrains MCP over `grep` for project searches.
-- **Verification**: Mandatory `refresh_unity` + `read_console` after every code edit.
-- **Efficiency**: Use `batch_execute` for multiple scene/VFX operations.
-- **Inspection**: Use `find_gameobjects` (ID-only) before `manage_gameobject`.
-- **Reference**: `KnowledgeBase/_GEMINI_UNITY_MCP_SETUP.md`
-
-### Context Sharing Between Tools
-
-**Shared (All Tools Access)**:
-- `~/GLOBAL_RULES.md` - Universal rules
-- `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/` - Pattern library
-- `~/Documents/GitHub/Unity-XR-AI/CLAUDE.md` - Project context
-- Git repo state - Commits, branches, status
-- Filesystem - All source files
-
-**Tool-Specific (Not Shared)**:
-- Conversation history - Each session isolated
-- MCP connections - Claude Code only
-- claude-mem memories - Claude Code only (query via grep for others)
-
-### Agent Architecture
-
-| Agent Type | Purpose | Tokens | Speed | When to Use |
-|------------|---------|--------|-------|-------------|
-| **Explore** (haiku) | Codebase search | Independent | **Fastest** | Find files, grep patterns |
-| **Plan** | Architecture design | Independent | Medium | Multi-file changes |
-| **Task** | Parallel execution | Independent | Parallel | Background work, research |
-| **Subagent** | Verification | Independent | Parallel | Code review, testing |
-
-**Agent Offloading Decision Matrix** (holistic - considers all tools):
-
-| Task | Best Approach | Tool Chain | Tokens |
-|------|---------------|------------|--------|
-| Find 3+ files | ✅ **Explore** agent | Agent → grep | Independent |
-| Research topic | ✅ **Task** agent | Agent → WebSearch | Independent |
-| Verify code | ✅ **Subagent** | Agent → Read/Grep | Independent |
-| KB pattern lookup | ❌ **Direct** `kbfix` | Shell alias | **0** |
-| Unity console check | ❌ **Direct** MCP | read_console | ~50 |
-| 1 C# file search | ❌ **Direct** JetBrains | search_in_files | ~100 |
-| Simple edit | ❌ **Direct** Edit | Claude Edit | ~50 |
-| Multi-file refactor | ✅ **Plan** agent | Agent → Edit × N | Independent |
-| Scene exploration | ❌ **Direct** MCP | find_gameobjects | ~100 |
-| claude-mem query | ❌ **Direct** MCP | chroma_query | ~500 |
-
-**Optimal Tool Selection by Context**:
-```
-                    ┌─────────────────────────────────────┐
-                    │         TASK ARRIVES                │
-                    └──────────────┬──────────────────────┘
-                                   │
-              ┌────────────────────┼────────────────────┐
-              ▼                    ▼                    ▼
-     ┌────────────────┐   ┌────────────────┐   ┌────────────────┐
-     │ Known Pattern? │   │ Multi-step?    │   │ Need Research? │
-     │ Check KB first │   │ Use Agent      │   │ Use Agent      │
-     └───────┬────────┘   └───────┬────────┘   └───────┬────────┘
-             │                    │                    │
-             ▼                    ▼                    ▼
-     ┌────────────────┐   ┌────────────────┐   ┌────────────────┐
-     │ kbfix/kbtag    │   │ Explore/Plan   │   │ Task agent     │
-     │ (0 tokens)     │   │ (independent)  │   │ (background)   │
-     └────────────────┘   └────────────────┘   └────────────────┘
+**MetavidoVFX** (VFX Graph):
+```bash
+manage_vfx(action="vfx_set_float", target="Effect", parameter="Intensity", value=1.5)
+batch_execute([{...}, {...}], parallel=true)  # Multiple VFX ops
 ```
 
-**Parallel Agent Patterns**:
+**See**: Project `CLAUDE.md` for full build details
 
-| Pattern | Agents | Use Case | Speedup |
-|---------|--------|----------|---------|
-| **Fan-out search** | 3× Explore | Find files across domains | 3x |
-| **Research + Code** | Task + Plan | Learn then implement | 2x |
-| **Verify pipeline** | 3× Subagent | Review, test, security | 3x |
-| **Full spec** | Explore + Plan + Task | New feature design | 5x |
+### MCP Servers
+| Server | Port | Use |
+|--------|------|-----|
+| UnityMCP | 6400 | Editor ops |
+| JetBrains | 63342 | Search/refactor |
+| claude-mem | — | Semantic memory |
 
+**Startup**: `mcp-kill-dupes`
+
+### Agent Decision
+- **3+ step task** → Use agent (independent budget)
+- **KB lookup** → `kbfix "error"` (0 tokens)
+- **Simple edit** → Direct Edit tool
+
+**Agent Chaining** (output → input):
 ```
-# Example: Full feature implementation (parallel)
-Agent 1: Explore (haiku) "find existing patterns"     ─┐
-Agent 2: Task "research best practices"               ─┼─ Parallel
-Agent 3: Plan "design implementation"                 ─┘
-→ Results combine → Code with full context
+Explore "find auth files"
+    │ returns: [file1, file2, file3]
+    ▼
+Plan "design auth refactor for: {files}"
+    │ returns: implementation plan
+    ▼
+Code (direct) using plan
+    │
+    ▼
+Subagent "verify changes in: {files}"
 ```
 
-**Agent + MCP + Memory Integration**:
-
-| Scenario | Agent | MCP Tools | Memory | Total Tokens |
-|----------|-------|-----------|--------|--------------|
-| Debug Unity error | — | read_console, get_file | — | ~150 |
-| Find & fix pattern | Explore | JetBrains search | grep KB | ~0 main |
-| New feature | Plan | Unity hierarchy | claude-mem | Independent |
-| Code review | Subagent | — | LEARNING_LOG | Independent |
-
-**Speed Tips**:
-- `model: "haiku"` for Explore = 0.3x cost, 3x speed
-- `run_in_background: true` = non-blocking, continue working
-- `resume: <agent_id>` = preserves context, no re-explain
-- Parallel agents = single message with multiple Task calls
-- Max 10 concurrent (additional queue)
+**When NOT to Use Agents** (faster direct):
+- Single grep/read operation
+- Edit to file already in context
+- MCP call with known parameters
+- KB lookup (`kbfix`, `kbtag`)
+- Screenshot paste (`ss`, `ssu`)
 
 ### Plugin/Extension Ecosystem
 
@@ -269,6 +218,12 @@ Priority (highest to lowest):
 ```
 
 ### Cross-Tool Workflows
+
+**Token Budget Rules**:
+- Stay <95% weekly limit, warn at 80%
+- Auto-reduce verbosity when approaching limit
+- Use subagents for 3+ step tasks (independent budgets)
+- Never run out before reset - switch tools early
 
 **Rollover (Token Limit)**:
 ```
@@ -312,6 +267,52 @@ Unity: Play mode testing
 | `ai-usage-advisor.sh` | Before task | Suggest AI vs manual |
 | LaunchAgent backups | Daily | Archive configs |
 
+### Headless Mode (CI/Scripts)
+```bash
+# One-off query
+claude -p "Explain what this project does"
+
+# Structured output
+claude -p "List all API endpoints" --output-format json
+
+# Streaming for real-time
+claude -p "Analyze this log file" --output-format stream-json
+
+# Fan-out pattern (parallel file processing)
+for file in $(cat files.txt); do
+  claude -p "Migrate $file to Vue. Return OK or FAIL." --allowedTools "Edit"
+done
+
+# Lint integration
+"lint:claude": "claude -p 'look at changes vs main, report typos. filename:line then description.'"
+
+# DUPLICATION CHECK (run in CI)
+"check:duplication": "claude -p 'Analyze the codebase for duplicated code. Look for: (1) copy-pasted functions, (2) similar logic that could be abstracted, (3) utilities that exist but are reimplemented elsewhere. Report: file:line, duplicate of file:line, suggested refactor. Exit 1 if critical duplication found.'"
+
+# CODE REVIEW (CI pre-merge)
+"review:pr": "claude -p 'Review changes in this PR for: (1) code duplication, (2) missing reuse of existing utilities, (3) patterns that contradict codebase conventions. Reference existing code when suggesting improvements.'"
+```
+
+### CI Code Review Checks
+Add to CI pipeline:
+```yaml
+# .github/workflows/code-review.yml
+- name: Check for duplication
+  run: claude -p "Find duplicated code in changes vs main. Report file:line pairs." --output-format json
+
+- name: Check for missed reuse
+  run: claude -p "Check if any new code reimplements existing utilities in src/utils/ or src/helpers/. List violations."
+```
+
+### Writer/Reviewer Pattern (Quality Boost)
+Use separate sessions for writing and reviewing (fresh context = unbiased review):
+
+| Session A (Writer) | Session B (Reviewer) |
+|-------------------|---------------------|
+| `Implement rate limiter` | |
+| | `Review @src/middleware/rateLimiter.ts for edge cases, race conditions` |
+| `Apply feedback: [B's output]` | |
+
 ---
 
 ## ⚠️ TOKEN LIMIT (CHECK EVERY RESPONSE)
@@ -336,100 +337,144 @@ claude mcp remove memory filesystem fetch 2>/dev/null
 ```
 
 ## Rider + Claude Code + Unity (PRIMARY WORKFLOW)
+### Codex Alignment (Required)
 
-### Tool Selection (Always Pick Best)
+Codex also follows the Cross-Tool Integration and Unity MCP Optimization guidance below.
+
+Codex uses the same Tool Selection and Fast Workflows tables below.
+
+#### Tool Selection (Always Pick Best)
 
 | Task | Tool | Params |
 |------|------|--------|
-| Find files | JetBrains `find_files_by_name_keyword` | fileCountLimit=25 |
-| Search code | JetBrains `search_in_files_by_text` | maxUsageCount=50, fileMask="*.cs" |
-| Read C# | JetBrains `get_file_text_by_path` | maxLinesCount=300 |
-| Edit C# | Claude `Edit` | (not Write) |
-| Symbol info | JetBrains `get_symbol_info` | line, column |
-| Rename | JetBrains `rename_refactoring` | project-wide |
-| Find objects | Unity `find_gameobjects` | page_size=10 |
-| Check errors | Unity `read_console` | types=["error"], count=5 |
-| Components | Unity `manage_components` | include_properties=false first |
+| Find files | JetBrains find_files_by_name_keyword | fileCountLimit=25 |
+| Search code | JetBrains search_in_files_by_text | maxUsageCount=50, fileMask="*.cs" |
+| Read C# | JetBrains get_file_text_by_path | maxLinesCount=300 |
+| Edit C# | Claude Edit | (not Write) |
+| Symbol info | JetBrains get_symbol_info | line, column |
+| Rename | JetBrains rename_refactoring | project-wide |
+| Find objects | Unity find_gameobjects | page_size=10 |
+| Check errors | Unity read_console | types=["error"], count=5 |
+| Components | Unity manage_components | include_properties=false first |
 
-### Fast Workflows
+#### Fast Workflows
 
-**Fix Error** (3 calls):
-1. `read_console(types=["error"], count=3)`
-2. `get_file_text_by_path(path, maxLinesCount=100)`
-3. `Edit(file, old, new)`
+**Fix Error (3 calls):**
+1) read_console(types=["error"], count=3)
+2) get_file_text_by_path(path, maxLinesCount=100)
+3) Edit(file, old, new)
 
-**Implement Feature** (4 calls):
-1. `search_in_files_by_text("pattern", fileMask="*.cs", maxUsageCount=5)`
-2. `get_file_text_by_path(match)`
-3. `Edit(file, old, new)`
-4. `read_console(types=["error"], count=3)`
+**Implement Feature (4 calls):**
+1) search_in_files_by_text("pattern", fileMask="*.cs", maxUsageCount=5)
+2) get_file_text_by_path(match)
+3) Edit(file, old, new)
+4) read_console(types=["error"], count=3)
 
-**Debug Runtime** (4 calls):
-1. `read_console(types=["error","warning"], count=10)`
-2. `find_gameobjects(search_term="Name", page_size=5)`
-3. `manage_components(target=id, include_properties=true, page_size=5)`
-4. `get_file_text_by_path(script)`
+**Debug Runtime (4 calls):**
+1) read_console(types=["error","warning"], count=10)
+2) find_gameobjects(search_term="Name", page_size=5)
+3) manage_components(target=id, include_properties=true, page_size=5)
+4) get_file_text_by_path(script)
 
-**Rapid Debug Loop** (MCP-powered, 30-60% faster):
-```
+**Rapid Debug Loop (MCP-powered, 30-60% faster):**
 Error in Console
   ↓
-1. read_console(types=["error"], count=5)    → AI sees error
+1) read_console(types=["error"], count=5)
   ↓
-2. find_in_file() OR get_file_text_by_path() → Locate source
+2) find_in_file() OR get_file_text_by_path()
   ↓
-3. Edit(file, old, new)                      → Apply fix
+3) Edit(file, old, new)
   ↓
-4. refresh_unity(mode="if_dirty")            → Recompile
+4) refresh_unity(mode="if_dirty")
   ↓
-5. read_console(types=["error"], count=5)    → Verify fix
+5) read_console(types=["error"], count=5)
   ↓
-6. run_tests() (optional)                    → Regression check
-```
+6) run_tests() (optional)
 
-### Additional Fast Workflows
+#### Additional Fast Workflows
 
-**Refactor/Rename** (2 calls):
-1. `rename_refactoring(path, oldName, newName)` - project-wide
-2. `read_console(types=["error"], count=5)`
+**Refactor/Rename (2 calls):**
+1) rename_refactoring(path, oldName, newName) - project-wide
+2) read_console(types=["error"], count=5)
 
-**Multi-File Edit** (2 calls):
-1. `[Edit(f1,...), Edit(f2,...), Edit(f3,...)]` - parallel
-2. `read_console(types=["error"], count=10)` - single verify
+**Multi-File Edit (2 calls):**
+1) [Edit(f1,...), Edit(f2,...), Edit(f3,...)] - parallel
+2) read_console(types=["error"], count=10) - single verify
 
-**VFX Tuning** (1 call):
-```
-batch_execute([
+**VFX Tuning (1 call):**
+1) batch_execute([
   {"tool":"manage_vfx","params":{...}},
   {"tool":"manage_vfx","params":{...}}
 ], parallel=true)
-```
 
-**Run Tests** (2 calls):
-1. `run_tests(mode="EditMode")` → job_id
-2. `get_test_job(job_id, wait_timeout=60)` - waits
+**Run Tests (2 calls):**
+1) run_tests(mode="EditMode") → job_id
+2) get_test_job(job_id, wait_timeout=60)
 
-### Session Triggers
-- `/compact`: Context >100K, switching sub-tasks
-- `/clear`: Unrelated task, context >150K
+#### Session Triggers
+- /compact: Context >100K, switching sub-tasks
+- /clear: Unrelated task, context >150K
 - New session: Context >180K, >2 hours, different project
 
-### Common C# Fixes (Don't Research)
-- CS0246 → Add `using`
-- CS0103 → Check spelling or add `using`
+#### Session Persistence (Prevent Chat Loss)
+**Before ending ANY session with uncommitted work:**
+```bash
+# 1. Commit all changes to git (primary persistence)
+git add -A && git commit -m "WIP: <summary>"
+
+# 2. Name session for easy resume
+/rename <descriptive-name>
+
+# 3. For complex work, use /save skill
+/save  # Creates claude-mem summary
+
+# 4. Check for uncommitted repos
+git status  # This repo
+cd ~/Documents/GitHub/Unity-XR-AI && git status  # KB repo
+```
+
+**Recovery when session lost:**
+```bash
+# Find recent sessions
+ls -lat ~/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/*.jsonl | head -10
+
+# Resume by name (if named)
+claude --resume <session-name>
+
+# Or resume most recent
+claude --continue
+
+# Search history for context
+tail -500 ~/.claude/history.jsonl | grep -i "keyword"
+```
+
+**Session data locations:**
+| Type | Location | Persistence |
+|------|----------|-------------|
+| Conversations | `~/.claude/projects/<project>/` | Automatic |
+| Named sessions | `~/.claude/projects/<project>/sessions-index.json` | Use /rename |
+| History | `~/.claude/history.jsonl` | User prompts only |
+| Todos | `~/.claude/todos/` | Per-session |
+| claude-mem | `~/.claude-mem/chroma/` + `.db` | Semantic memories |
+
+**Best practice**: Commit + /rename before any `/clear` or session end.
+
+#### Common C# Fixes (Don't Research)
+- CS0246 → Add using
+- CS0103 → Check spelling or add using
 - CS0029 → Add explicit cast
 - NullRef in AR → TryGetTexture pattern
 
-### Anti-Patterns (Never Do)
-- ❌ Grep/Read when Rider open (use JetBrains)
-- ❌ Write when Edit works
-- ❌ Full hierarchy when find_gameobjects suffices
-- ❌ Console check after every micro-edit
-- ❌ Re-read files just edited
-- ❌ Search without fileMask scope
-- ❌ include_properties=true on first pass
-- ❌ Sequential edit→verify per file (batch instead)
-- ❌ Polling test status (use wait_timeout)
+#### Anti-Patterns (Never Do)
+- Grep/Read when Rider open (use JetBrains)
+- Write when Edit works
+- Full hierarchy when find_gameobjects suffices
+- Console check after every micro-edit
+- Re-read files just edited
+- Search without fileMask scope
+- include_properties=true on first pass
+- Sequential edit→verify per file (batch instead)
+- Polling test status (use wait_timeout)
 
 ---
 
@@ -454,31 +499,6 @@ All IDE tools use same Unity MCP config (v9.0.1):
 - Claude Code: `~/.claude/settings.json`
 - Windsurf: `~/.windsurf/mcp.json`
 - Cursor: `~/.cursor/mcp.json`
-
-### Multi-AI Orchestration (Research-Backed)
-
-### When AI Helps vs Hurts (RCT Evidence)
-| Developer Level | AI Impact | Strategy |
-|-----------------|-----------|----------|
-| Junior (0-2 yrs) | +35-55% faster | Use AI extensively |
-| Mid (2-5 yrs) | +20-30% faster | AI for boilerplate, manual for logic |
-| Senior (5-10 yrs) | +8-16% faster | AI for exploration, manual for familiar code |
-| Expert (10+ yrs, own repos) | **-19% slower** | AI for new domains only |
-
-**Source**: METR RCT (arXiv:2507.09089), Microsoft/Accenture RCT (SSRN:4945566)
-
-### Why Experts Slow Down
-1. <44% AI suggestion acceptance rate in mature codebases
-2. Tacit knowledge AI can't access
-3. Review/edit overhead exceeds generation benefits
-4. Context-switching between thinking modes
-
-### Tool Selection Matrix
-| Tool | Best For | Context | Cost |
-|------|----------|---------|------|
-| Claude Code | Implementation, complex code | 200K | $$$ |
-| Gemini CLI | Research, large docs | 1M | FREE |
-| Codex CLI | Quick fixes, automation | 128K | $$ |
 
 ### Rollover When Token Limits Reached
 When Claude Code hits limits, switch to Gemini or Codex:
@@ -516,32 +536,9 @@ See: `KnowledgeBase/_TOOL_INTEGRATION_MAP.md`
 | Read | `get_file_text_by_path` | 2x |
 | LSP | `get_symbol_info` | Native |
 
-**Optimal Parameters**:
-```
-search_in_files_by_text:
-  searchText: "query"
-  maxUsageCount: 50          # Cap results (default unlimited)
-  caseSensitive: false       # Faster when false
-  fileMask: "*.cs"           # Narrow scope
-  timeout: 10000             # 10s max
+**Key params**: `maxUsageCount=50`, `fileMask="*.cs"`, `maxLinesCount=500`
 
-find_files_by_name_keyword:
-  nameKeyword: "Manager"
-  fileCountLimit: 25         # Cap results
-  timeout: 5000
-
-get_file_text_by_path:
-  pathInProject: "Assets/Scripts/File.cs"
-  maxLinesCount: 500         # Limit large files
-  truncateMode: "MIDDLE"     # Keep start+end
-
-get_symbol_info:
-  filePath: "path/to/file.cs"
-  line: 42                   # 1-based
-  column: 15                 # 1-based
-```
-
-**Enforcement**: If Rider is open, NEVER use raw Grep/Glob/Read for project files.
+**Rule**: If Rider is open, NEVER use raw Grep/Glob/Read for project files.
 
 ### Unity MCP Optimization (Token-Efficient)
 
@@ -676,9 +673,110 @@ manage_editor(action="telemetry_status")
 - Don't fetch hierarchy to find one object (use find_gameobjects)
 - Don't get_components when you only need transform
 
+**Scene/Component Wiring (MANDATORY)**:
+**ALL scenes MUST have components with NO missing and NO extra properties.**
+
+Before considering any scene setup complete:
+1. **No missing properties** - Every serialized field has a valid reference
+2. **No extra properties** - No orphaned objects, no legacy patterns, no broken refs
+3. **Validate via console** - Zero errors, zero "missing reference" warnings
+4. **Audit systematically** - Grep/search scene files to verify component counts
+
+**Always check**:
+- Serialized references (not null, valid GUID)
+- Asset references (PanelSettings, Materials, Prefabs)
+- Singleton dependencies (do required singletons exist in scene?)
+- Architecture patterns (using current approach per project CLAUDE.md)
+
 ### Context Management
 - `/compact` - Mid-task when context grows
 - `/clear` - Fresh start for new tasks
+- `/rewind` or `Esc+Esc` - Restore to checkpoint
+- `/rename <name>` - Name sessions for later resume
+- `claude --continue` - Resume most recent session
+- `claude --resume <name>` - Resume by name
+- `claude --from-pr 123` - Resume session linked to PR
+- `claude --fork-session` - Branch conversation, preserve history
+- `claude --dangerously-skip-permissions` - Bypass all checks (use in sandbox only)
+- `claude --permission-mode plan` - Start in read-only plan mode
+- `claude --add-dir ../other-repo` - Include additional directories
+- `claude --print-system-prompt` - Debug: show full system prompt
+- `claude --verbose` - Show detailed execution info
+
+### Common Failure Patterns (Avoid These)
+
+| Pattern | Problem | Fix |
+|---------|---------|-----|
+| Kitchen sink session | Context full of unrelated info | `/clear` between tasks |
+| Repeated corrections | Failed approaches pollute context | After 2 failures, `/clear` + better prompt |
+| Over-specified CLAUDE.md | Rules get ignored | Ruthlessly prune, convert to hooks |
+| Trust-then-verify gap | Plausible but broken code | Always provide verification criteria |
+| Infinite exploration | Context consumed by investigation | Scope narrowly or use subagents |
+
+### Git Worktrees for Parallel Sessions
+```bash
+git worktree add ../project-feature-a -b feature-a  # Create isolated worktree
+cd ../project-feature-a && claude                    # Run Claude in isolation
+git worktree list                                    # Manage worktrees
+git worktree remove ../project-feature-a            # Clean up when done
+
+# Shell aliases for instant switching (team favorite)
+alias za='cd ~/worktrees/project-a && claude'
+alias zb='cd ~/worktrees/project-b && claude'
+alias zc='cd ~/worktrees/project-c && claude'
+```
+
+**Pro tip**: Dedicated "analysis" worktree for read-only work (logs, BigQuery).
+
+### Power Prompts (Claude Code Team Tips)
+
+| Technique | Prompt |
+|-----------|--------|
+| Challenge | "Grill me on these changes and don't make a PR until I pass your test" |
+| Prove it | "Prove to me this works" - diff behavior main vs feature |
+| Elegant redo | "Knowing everything you know now, scrap this and implement the elegant solution" |
+| Self-improve | "Update your CLAUDE.md so you don't make that mistake again" |
+| Interview | "Interview me about this feature using AskUserQuestion. Ask about edge cases, tradeoffs, UI/UX" |
+| Visual verify | "[paste screenshot] implement this. take screenshot of result and compare" (use Chrome extension) |
+
+### Notes Directory Pattern
+Maintain a `notes/` directory per task/project, updated after every PR. Point CLAUDE.md at it:
+```markdown
+# In CLAUDE.md
+See @notes/ for task-specific context and decisions.
+```
+
+### Plan Mode Mastery
+- Start **every complex task** in plan mode (`Shift+Tab` twice)
+- Pour energy into the plan → Claude 1-shots implementation
+- **When sideways**: Switch back to plan mode, don't keep pushing
+- Use plan mode for **verification steps**, not just builds
+
+### MANDATORY: Reuse Check Before Implementation
+**Before writing new code, ALWAYS search for existing solutions:**
+
+1. **Codebase** - `grep`/`search_in_files` for similar functions, utilities, patterns
+2. **Knowledgebase** - `kbfix`, `kbtag`, `kb "pattern"` for documented solutions
+3. **GitHub repos** - `kbrepo "topic"` for reference implementations (520+ repos)
+4. **Online docs** - Unity/React/platform docs for built-in solutions
+
+```
+# In plan mode, always include:
+"Search codebase for existing utilities that could handle X"
+"Check if similar pattern exists in KB or referenced repos"
+"Look for built-in API/framework solution before custom code"
+```
+
+**Anti-pattern**: Writing new code when reusable function exists elsewhere.
+
+### Subagent Patterns
+- Append **"use subagents"** to any request for more compute
+- Offload individual tasks → keeps main context clean
+- Example: "investigate auth token refresh using subagents"
+
+### Voice Dictation (3x Faster Prompts)
+- **macOS**: Press `fn` twice → speak → detailed prompts
+- More specific = better output
 
 ---
 
@@ -754,6 +852,7 @@ All features must be:
 - **Future-proof** - Interfaces over concrete types, version tolerance
 - **Debuggable** - Clear logging, debug flags, inspector exposure
 - **Maintainable** - Consistent naming, documented edge cases, test coverage
+- **DRY** - Search for existing solutions BEFORE writing new code (see Reuse Check)
 
 ### Research Strategy
 - **Verify Sources**: Official docs, trusted repos, expert forums
@@ -769,89 +868,27 @@ All features must be:
 - One active task at a time, mark done immediately
 - Add discovered tasks as they emerge
 
-### Spec-Kit Workflow (github.com/github/spec-kit)
-**Reference**: `knowledgebase/_SPEC_KIT_METHODOLOGY.md`
+### Spec-Kit Workflow
+**Reference**: `KnowledgeBase/_SPEC_KIT_METHODOLOGY.md`
 
-**Core Philosophy**: Specs are shared context between humans and AI agents. They prevent scope creep, enable parallel work, and create audit trails.
-
-**Workflow Stages**:
 ```
-Constitution → Specify → Clarify → Plan → Tasks → Implement
+/speckit.specify → /speckit.plan → /speckit.tasks → /speckit.implement
 ```
 
-**Commands** (Slash Commands or Tool Calls):
-- `/speckit.specify <feature>` - Generate spec.md from description
-- `/speckit.plan` - Create implementation plan from spec
-- `/speckit.tasks` - Generate tasks.md with checkboxes
-- `/speckit.implement` - Execute tasks with auto-checkin
-
-**Spec Structure** (spec.md):
-```markdown
-# Spec: Feature Name (ID: spec-XXX)
-## Overview - One paragraph
-## Goals - Bullet points
-## Non-Goals - Explicit exclusions
-## Technical Approach - Architecture decisions
-## Interfaces - Public APIs, data contracts
-## Dependencies - External requirements
-## Risks - Known challenges
-## Success Criteria - Measurable outcomes
-```
-
-**Tasks Structure** (tasks.md):
-```markdown
-# Tasks: Feature Name
-## Phase 1: Foundation
-- [ ] Task 1 - Create X
-- [ ] Task 2 - Wire Y
-## Phase 2: Integration
-- [x] Task 3 - Connect Z (completed)
-```
-
-**When to Use Specs**:
-- New features (>100 LOC)
-- Architecture changes
-- Multi-file refactors
-- Cross-team handoffs
-- Anything reviewable
-
-**When to Skip Specs**: Bug fixes, <50 LOC changes, config tweaks, urgent hotfixes
+**Use specs for**: >100 LOC, architecture changes, cross-team work
+**Skip specs for**: Bug fixes, <50 LOC, config tweaks
 
 ---
 
-## Metacognitive Intelligence & Persistent Learning
+## Self-Improvement & Pattern Learning
 
-### Persistent Long-Term Memory
-Every successful pattern MUST be encoded in:
-- `GLOBAL_RULES.md` (cross-project)
-- Project `CLAUDE.md` (project-specific)
-- `LEARNING_LOG.md` (discoveries)
+**Encode patterns to**: GLOBAL_RULES.md, project CLAUDE.md, LEARNING_LOG.md
 
-### Self-Improvement Loop
-Execute → Observe → Extract pattern → Encode → Verify persistence
+**After correction**: "Update your CLAUDE.md so you don't make that mistake again."
 
-### Resource-Aware Thinking
-- MORE tokens: multi-system debugging, repeated failures, high rebuild costs
-- FEWER tokens: isolated issues, obvious fixes
-- Goal: OUTCOME QUALITY, not token minimization
+**After 3 failures**: Step back, audit approach, try different strategy
 
-### Self-Audit Triggers
-- After 3 failed attempts: step back, audit approach
-- After successful complex fix: extract and document pattern
-- When context compacted: verify key learnings survived
-
----
-
-## Automatic Pattern Extraction
-
-Before session ends, automatically check for:
-- Solved non-obvious problem
-- Found reusable pattern (2+ projects)
-- Discovered anti-pattern
-- Saved significant time
-
-If YES → Log to `LEARNING_LOG.md` and create MCP memory entity
-**Reference**: `knowledgebase/_PATTERN_EXTRACTION_PROTOCOL.md`
+**New discovery?** → Log to `LEARNING_LOG.md`
 
 ---
 
@@ -923,276 +960,43 @@ After Unity Build: MCP stops during headless builds. Restart Unity Editor to rec
 
 ---
 
-## Unity Intelligence Patterns (REQUIRED)
+## Intelligence Patterns (Auto-Active)
 
-**For ALL Unity projects**: Say **"Using Unity Intelligence patterns"** to activate 500+ repository patterns.
+| Domain | Activation | Reference |
+|--------|------------|-----------|
+| Unity | "Using Unity Intelligence patterns" | `_UNITY_INTELLIGENCE_PATTERNS.md` |
+| WebGL | "Using WebGL Intelligence patterns" | `_WEBGL_INTELLIGENCE_PATTERNS.md` |
+| 3DVis | "Using 3DVis Intelligence patterns" | `_3DVIS_INTELLIGENCE_PATTERNS.md` |
 
-**Covered Domains**:
-- ARFoundation depth/body tracking → VFX Graph
-- Million-particle optimization (DOTS, Burst, Jobs)
-- Particle brush systems (Open Brush patterns)
-- Hand tracking + gesture recognition (Barracuda)
-- Audio reactive VFX (FFT analysis)
-- Networking (Normcore, Netcode for GameObjects)
-- Platform optimization (Quest, iOS, visionOS)
-
-**Reference**: `knowledgebase/_UNITY_INTELLIGENCE_PATTERNS.md`, `_UNITY_PATTERNS_BY_INTEREST.md`
-
----
-
-## WebGL Intelligence Patterns (REQUIRED)
-
-**For ALL WebGL/Three.js projects**: Say **"Using WebGL Intelligence patterns"** to activate web 3D patterns.
-
-**Covered Domains**:
-- WebGPU compute shaders (million particles)
-- Three.js core (InstancedMesh, BufferGeometry, GLSL)
-- React Three Fiber (R3F) + Drei helpers
-- WebXR (VR/AR in browser)
-- Gaussian splatting (LumaSplatsThree)
-- Performance (LOD, pooling, disposal)
-
-**Reference**: `knowledgebase/_WEBGL_INTELLIGENCE_PATTERNS.md`
-
----
-
-## 3DVis Intelligence Patterns (REQUIRED)
-
-**For ALL data visualization projects**: Say **"Using 3DVis Intelligence patterns"** to activate visualization algorithms.
-
-**Covered Domains**:
-- Sorting algorithms (Z-sort, radix, bitonic)
-- Clustering (K-means, DBSCAN, hierarchical)
-- Pattern recognition (shape descriptors, template matching)
-- Anomaly detection (isolation forest, statistical outliers)
-- Force-directed graph layouts (Barnes-Hut)
-- Spatial data structures (Octree, KD-Tree)
-- Semantic query parsing
-
-**Reference**: `knowledgebase/_3DVIS_INTELLIGENCE_PATTERNS.md`
+**Covers**: AR/VFX, DOTS optimization, WebGPU, Three.js, data visualization algorithms
 
 ---
 
 ## Token Efficiency (MANDATORY)
 
-**Goal**: Stay below 95% of weekly/session limits. Prioritize outcome quality with minimal token expenditure.
-**Reference**: `KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md` for full details.
+**Goal**: Stay below 95% weekly limit. **Full Reference**: `KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md`
 
-### Session Management
-- Start fresh session vs compress (saves 10-50K tokens)
-- `/compact <focus>` when context >100K (include focus instruction)
-- `/clear` between distinct tasks (not mid-task)
-- `/cost` or `/stats` to check usage
-- Target <100K tokens per session (50% utilization)
-- Checklists for migrations/bulk changes (systematic, not one massive prompt)
+### Quick Rules
+- `/clear` between tasks, `/compact` when >100K context
+- Agents use independent budgets - use for 3+ step tasks
+- JetBrains MCP over raw tools (5-10x faster)
+- Edit over Write, parallel tool calls
+- `.claudeignore` for Unity (saves 180K+ tokens)
 
-### Context Commands (Official Best Practices)
-| Command | Purpose |
-|---------|---------|
-| `/cost` | Check token usage (API users) |
-| `/stats` | Check usage (Max/Pro subscribers) |
-| `/clear` | Start fresh for unrelated work |
-| `/compact <focus>` | Shrink context with specific focus |
-| `/context` | See MCP server overhead |
-| `/mcp` | Disable unused servers mid-session |
-| `/model` | Switch to cheaper model (Sonnet) |
-| `/rewind` | Restore to previous checkpoint |
-| `Shift+Tab` | Enter plan mode |
-| `Escape` | Stop current direction |
-| `Double-Escape` | Restore conversation + code |
+### Model Selection
+| Task | Model |
+|------|-------|
+| Simple edits | Haiku (0.3x) |
+| Standard work | Sonnet (1x) |
+| Architecture | Opus (3x) |
+| Research | Gemini (FREE) |
 
-### Environment Variables (settings.json)
-```json
-{
-  "env": {
-    "ENABLE_TOOL_SEARCH": "auto:5",    // Dynamic tool loading at 5% context
-    "MAX_THINKING_TOKENS": "10000",    // Reduce from default 31999
-    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "16384"
-  }
-}
-```
-
-### Hook Preprocessing (High Impact)
-Use PreToolUse hooks to filter verbose output BEFORE Claude sees it:
-- Test output filtering (show failures only)
-- Log truncation
-- Build output summarization
-**Result**: 50-80% token savings on CI/test operations
-
-### Planning Before Implementation
-- Ask Claude to explore and plan BEFORE coding
-- Prevents wasted tokens on false starts
-- "Steps #1-#2 are crucial—without them, Claude jumps straight to coding"
-
-### Pre-configured Permissions
-- Set allowed tools in `.claude/settings.json`
-- Avoid repeated permission dialogs
-- Use stored slash commands for reusable operations
-
-### .claudeignore (CRITICAL for Unity)
-- Excludes Library/, Temp/, Logs/, Builds/ → 95% token reduction (190K → 10K)
-- Verify exists before Unity work
-
-### Agent Usage (Independent Token Budgets)
-- Agents don't count toward main session budget
-- Use Explore (haiku) for fast searches
-- Use research-agent for KB research
-- Rule: 3+ step tasks → use agent
-- Up to 10 concurrent subagents (additional queue)
-- Resume subagents instead of restarting (preserves context)
-- Background agents: "run in background" or Ctrl+B (no MCP access)
-
-### Subagent Patterns (Optimal: 3-4 specialized)
-| Pattern | Token Cost | Best For |
-|---------|-----------|----------|
-| Single-threaded | 1x | Simple tasks |
-| 3-4 sequential agents | 2-3x | Reviews with file handoffs |
-| 10+ parallel agents | 4-5x | Independent exploration |
-
-### Thinking Budget Triggers
-| Phrase | Reasoning Depth | Cost |
-|--------|-----------------|------|
-| "think" | Baseline | 1x |
-| "think hard" | Increased | 2x |
-| "think harder" | Deep analysis | 3x |
-| "ultrathink" | Maximum | 4x+ |
-
-**Default**: `MAX_THINKING_TOKENS=10000` (vs 31,999)
-
-**Smart Mode Auto-Escalation** (thinking + quality):
-- Spec/architecture tasks → Auto "think hard" + high quality
-- 2+ failed attempts → Auto "think harder" + extra validation
-- Complex debugging → Auto increased reasoning
-- Simple edits → Baseline thinking, low overhead
-
-**Token-Free Quality Wins** (from Anthropic official + automation):
-- Use `/clear` between distinct tasks (saves 10-50K tokens)
-- Explore→Plan→Code→Commit workflow (prevents rework)
-- Subagent verification instead of re-reading (parallel, no main context)
-- CLAUDE.md ≤200 lines (move details to per-folder files)
-- Screenshots: `ss` or `ssu` (automated, then Ctrl+V to paste)
-- KB first: `kbfix "error"` before any MCP/agent call (0 tokens)
-
-### Model Selection & Visibility
-- Haiku: Simple agents, checks (0.3x cost)
-- Sonnet: 95% of tasks (1x cost)
-- Opus: Complex architecture only (3-5x cost)
-- Use `/model` to switch mid-session
-
-**Show Current Model**: Run `/model` or check first response
-**Current Session**: Claude Opus 4.5 (claude-opus-4-5-20251101)
-
-**When to Use Each**:
-| Task | Model | Why |
-|------|-------|-----|
-| Quick fixes, simple edits | Haiku | Fast, cheap |
-| Standard coding, debugging | Sonnet | Best value |
-| Architecture, complex refactors | Opus | Highest quality |
-| Research, large context | Gemini | FREE, 1M context |
-
-### Visual Communication
-- One image = 500-2000 words saved
-- Use for: errors, UI, visual bugs, design refs
-
-### Tool Usage
-- Skip reads for files already seen this session
-- Use `head_limit` on Grep/Glob to cap results
-- Prefer JetBrains MCP tools (indexed) over raw searches
-- Use `haiku` model for simple Task agents
-- Batch independent tool calls in parallel
-- Use Task/Explore agent for open-ended searches (single call vs many)
-- Avoid re-reading files to "verify" edits
-- Use `offset` param to paginate large results
-- Skip Unity console checks unless actively debugging
-- Minimal TodoWrite usage - only for 3+ step tasks
-- One Grep pattern with regex OR (`a|b|c`) vs multiple searches
-- Use `glob` filter on Grep to narrow file scope
-- Skip LSP lookups when file context is sufficient
-- Avoid WebSearch/WebFetch unless explicitly needed
-- Don't fetch full PR/issue details when title suffices
+### Key Commands
+`/cost` `/stats` `/clear` `/compact` `/model` `/rename` `/rewind`
 
 ### Responses
-- No code blocks unless requested
-- Bullets over paragraphs
-- Skip preambles ("let me", "I'll", "sure")
-- Omit explanations unless asked
-- No emoji
-- No summaries of what was just done
-- Single-line answers when possible
-- Skip file path repetition if obvious from context
-- No rhetorical questions
-- No "feel free to ask" closers
-- Truncate long lists with "..." if pattern is clear
-- Reference line numbers, don't quote code back
-- Say "done" not "I have successfully completed..."
-
-### Planning
-- Ask clarifying questions upfront to avoid rework
-- No speculative exploration
-- Direct action over research when path is clear
-- Skip insight blocks unless high educational value
-- Assume reasonable defaults, don't ask obvious questions
-- One plan, not multiple options
-- Skip background/context if user knows the codebase
-
-### Memory (claude-mem)
-- Query sparingly, targeted searches only
-- Skip saves for routine/trivial tasks
-- Combine related memories into single save
-- Don't query memory for tasks with full context provided
-- Don't save what's already in project docs
-
-### Code
-- Edit over Write (smaller diffs)
-- Reuse existing patterns/utilities in codebase
-- Minimal whitespace changes
-
-**Smart Mode** (DEFAULT - auto-adjusts quality by context):
-
-| Context | Quality Level | Behavior |
-|---------|---------------|----------|
-| Spec creation | **High** | Full docstrings, types, defensive checks |
-| Public APIs | **High** | Complete documentation, type annotations |
-| Persistent issues (3+ attempts) | **High** | Extra validation, verbose logging |
-| Architecture/refactors | **High** | Design comments, interface docs |
-| Complex algorithms | **High** | Step-by-step comments, edge case handling |
-| Bug fixes | **Medium** | Fix + minimal guard, brief comment |
-| Simple edits | **Low** | Minimal overhead, trust existing code |
-| Exploratory/prototyping | **Low** | Fast iteration, skip formalities |
-| Debugging/logging | **Low** | Quick checks, temporary code OK |
-
-**Auto-Triggers for High Quality**:
-- File contains `spec`, `interface`, `abstract`, `public class`
-- Task mentions "architecture", "design", "spec", "API"
-- Previous attempt failed (escalate quality)
-- Creating new files (vs editing existing)
-- User says "production", "ship", "release"
-
-**Manual Overrides**:
-- "quality mode" → Force high quality everything
-- "speed mode" → Force minimal overhead
-- "hybrid mode" → Explicit smart mode (same as default)
-
-### Git/GitHub
-- Short commit messages (one line when possible)
-- Skip PR body unless required
-- Don't read git history unless needed
-- Assume main branch unless told otherwise
-
-### What NOT To Do
-- Announce tool usage before calling
-- Repeat user's question back
-- Provide multiple options when one is clearly best
-- Add safety caveats for routine operations
-- Explain obvious code
-- Warn about "potential issues" speculatively
-- Suggest tests unless asked
-- Offer to do more after completing task
-- List files about to read/edit
-- Describe reasoning unless asked
-
-### Session Management
-- Reuse context from earlier in conversation
+- Concise, no preambles, bullets over prose
+- No emoji, no summaries, no "feel free to ask"
 - Don't re-summarize previous work
 - Trust that user remembers recent exchanges
 - End turns promptly when task complete
@@ -1223,97 +1027,23 @@ See `KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md` for full details.
 
 ---
 
-## Performance Monitoring & Self-Healing (ALWAYS ACTIVE)
+## Self-Healing
 
-**Principle**: Never slow down Mac, Rider, Unity, Claude Code, or other tools.
+**Thresholds**: CPU >90% → kill bg, Memory >95% → `purge`, MCP >30s → `mcp-kill-dupes`, Tokens >150K → `/compact`
 
-### System Health Thresholds
-
-| Resource | OK | Warning | Critical | Action |
-|----------|-----|---------|----------|--------|
-| CPU | <70% | 70-90% | >90% | Kill background processes |
-| Memory | <80% | 80-95% | >95% | `purge`, close apps |
-| MCP Response | <5s | 5-15s | >30s | `mcp-kill-dupes` |
-| Token Usage | <80K | 80-150K | >150K | `/compact` |
-| Unity FPS | >45 | 30-45 | <30 | Reduce complexity |
-
-### Quick Health Check (Run Periodically)
-```bash
-top -l 1 | head -3              # CPU/Memory
-lsof -i :6400,63342 | wc -l     # MCP connections
-```
-
-### Self-Healing Triggers
-
-| Issue | Detection | Auto-Fix |
-|-------|-----------|----------|
-| MCP timeout | No response 30s | `mcp-kill-dupes` |
-| Memory pressure | >90% | `purge` |
-| Duplicate servers | >2 connections | Kill duplicates |
-| Broken symlink | File read fails | Recreate |
-| Token overflow | >180K | Force compact |
-
-### Proactive Bottleneck Prevention
-
-1. **Session Start**: Run `mcp-kill-dupes && unity-mcp-cleanup`
-2. **Mid-Session**: Check `/cost` before large operations
-3. **Before Builds**: Verify Unity console clean
-4. **After Errors**: Log to FAILURE_LOG.md, create pattern
-
+**Session start**: `mcp-kill-dupes && unity-mcp-cleanup`
 **Reference**: `KnowledgeBase/_SELF_HEALING_SYSTEM.md`
 
 ---
 
-## Intelligence Systems (CONTINUOUS LEARNING)
+## Automation & Agents
 
-**Core Pattern**: Extract → Log → Compound → Accelerate
+**Hooks**: `~/.claude/hooks/` (auto-detect modes, failure tracking, health checks)
 
-### Active Systems
+**Key Agents**: `unity-error-fixer`, `vfx-tuner`, `parallel-researcher`, `tech-lead`, `mcp-tools-specialist`
 
-| System | File | Purpose |
-|--------|------|---------|
-| Continuous Learning | `_CONTINUOUS_LEARNING_SYSTEM.md` | Pattern extraction |
-| Self-Healing | `_SELF_HEALING_SYSTEM.md` | Auto-recovery |
-| Auto-Fixes | `_AUTO_FIX_PATTERNS.md` | Common fix library |
-| Intelligence Index | `_INTELLIGENCE_SYSTEMS_INDEX.md` | Central reference |
+**Key Files**: `_QUICK_FIX.md` (errors), `_AUTO_FIX_PATTERNS.md` (121 patterns), `LEARNING_LOG.md` (discoveries)
 
-### Logging Triggers
+**Loop**: Error → `kbfix` → Fix → Log if new
 
-| Event | Log To | Action |
-|-------|--------|--------|
-| Failure (3+ attempts) | FAILURE_LOG.md | Create prevention |
-| Success (first try) | SUCCESS_LOG.md | Replicate pattern |
-| Bad pattern found | ANTI_PATTERNS.md | Document avoidance |
-| New fix discovered | _AUTO_FIX_PATTERNS.md | Add to library |
-
-### Agents for Intelligence
-
-| Agent | Trigger | Purpose |
-|-------|---------|---------|
-| insight-extractor | After significant work | Extract patterns |
-| system-improver | After discovery | Apply to configs |
-| health-monitor | Periodically | Check system health |
-
-### Spec-Kit Methodology
-
-Apply to ALL improvements:
-1. **Define Spec**: Context, success criteria, constraints
-2. **Create Tasks**: Checkboxes, phases
-3. **Research**: Existing solutions, trade-offs
-4. **Validate**: Checklists, verification
-
-**Reference**: `specs/README.md`, `KnowledgeBase/_INTELLIGENCE_SYSTEMS_INDEX.md`
-
----
-
-## Quick Activation Commands
-
-```
-"Run health-monitor"              # System health check
-"Use insight-extractor"           # Extract patterns from work
-"Use system-improver"             # Apply improvements
-"Log failure: [description]"      # Track failure
-"Log success: [description]"      # Track success
-"Search KB for [topic]"           # Find existing solutions
-"Apply continuous learning"       # Full learning cycle
-```
+**Reference**: `KnowledgeBase/_SYSTEM_ARCHITECTURE.md`
