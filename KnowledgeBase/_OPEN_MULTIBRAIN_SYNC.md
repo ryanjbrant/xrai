@@ -1,7 +1,7 @@
 # open-multibrain - Cross-Tool AI Sync
 
 **Tags**: #tools #sync #automation #claude #codex #windsurf #antigravity
-**Cross-refs**: `GLOBAL_RULES.md`, `AGENTS.md`, `_CROSS_TOOL_ARCHITECTURE.md`
+**Cross-refs**: `GLOBALGLOBAL_RULES.md`, `AGENTS.md`, `_CROSS_TOOL_ARCHITECTURE.md`
 **Domain**: open-multibrain.com (available)
 
 ---
@@ -13,9 +13,9 @@ Single source of truth for multiple AI development tools. Syncs configuration ac
 | Tool | Config Location | What's Synced |
 |------|-----------------|---------------|
 | Claude Code | ~/.claude/ | knowledgebase |
-| Codex | ~/.codex/ | AGENTS.md, GLOBAL_RULES.md, knowledgebase |
-| Antigravity | ~/.antigravity/ | GLOBAL_RULES.md, knowledgebase |
-| Windsurf | ~/.windsurf/ | GLOBAL_RULES.md, knowledgebase |
+| Codex | ~/.codex/ | AGENTS.md, GLOBALGLOBAL_RULES.md, knowledgebase |
+| Antigravity | ~/.antigravity/ | GLOBALGLOBAL_RULES.md, knowledgebase |
+| Windsurf | ~/.windsurf/ | GLOBALGLOBAL_RULES.md, knowledgebase |
 | Rider | JetBrains MCP | port 63342 |
 
 ---
@@ -24,7 +24,7 @@ Single source of truth for multiple AI development tools. Syncs configuration ac
 
 ```
 Unity-XR-AI/                    (source of truth)
-├── GLOBAL_RULES.md       →     ~/GLOBAL_RULES.md     →  all tools
+├── GLOBALGLOBAL_RULES.md       →     ~/GLOBALGLOBAL_RULES.md     →  all tools
 ├── AGENTS.md             →     ~/AGENTS.md           →  Codex
 ├── KnowledgeBase/        →     tool-specific symlinks
 └── modules/open-multibrain/
@@ -39,7 +39,7 @@ Unity-XR-AI/                    (source of truth)
 
 ### Automatic (Git Hook)
 ```
-git commit (to GLOBAL_RULES.md, AGENTS.md, or KnowledgeBase/)
+git commit (to GLOBALGLOBAL_RULES.md, AGENTS.md, or KnowledgeBase/)
     ↓
 .git/hooks/post-commit
     ↓

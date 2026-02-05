@@ -452,7 +452,7 @@ Real-time MCP traffic debugging.
 
 ## See Also
 
-- `GLOBAL_RULES.md` - MCP optimization section
+- `GLOBALGLOBAL_RULES.md` - MCP optimization section
 - `_AI_CODING_BEST_PRACTICES.md` - Research-backed workflows
 - `_QUICK_FIX.md` - Error → Fix lookup
 - `_VFX25_HOLOGRAM_PORTAL_PATTERNS.md` - VFX patterns

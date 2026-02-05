@@ -530,7 +530,7 @@ Sequential search → read → edit → verify per file
 
 ```
 Typical Allocations:
-- CLAUDE.md + GLOBAL_RULES.md: ~15K
+- CLAUDE.md + GLOBALGLOBAL_RULES.md: ~15K
 - .claudeignore saves: 180K → 10K for Unity scan
 - MCP tool schemas: ~5K per active server
 - Conversation history: Variable
@@ -1844,7 +1844,7 @@ WakaTime         - Time tracking, 600+ languages
 | Prompt Eng | Concise + RAG | 30-70% |
 | Multi-AI | Parallel + model selection | 40-60% |
 
-**See Also**: `~/GLOBAL_RULES.md` §Token Efficiency (MANDATORY)
+**See Also**: `~/GLOBALGLOBAL_RULES.md` §Token Efficiency (MANDATORY)
 
 ---
 

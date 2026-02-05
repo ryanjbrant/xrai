@@ -48,7 +48,7 @@ git clone git@github.com:imclab/xrai.git ~/Documents/GitHub/Unity-XR-AI
 ## What Happens Automatically
 
 ### On Git Commit (via hook)
-- Syncs GLOBAL_RULES.md to all AI tools
+- Syncs GLOBALGLOBAL_RULES.md to all AI tools
 - Syncs AGENTS.md to Codex
 - Updates KB symlinks
 

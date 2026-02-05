@@ -8,7 +8,7 @@
 ## Configuration Hierarchy
 
 ```
-~/GLOBAL_RULES.md                    ← Single Source of Truth (all tools)
+~/GLOBALGLOBAL_RULES.md                    ← Single Source of Truth (all tools)
 ├── ~/.claude/CLAUDE.md              ← Claude Code specific
 ├── ~/.windsurf/CLAUDE.md            → symlink to ~/CLAUDE.md
 ├── ~/.cursor/CLAUDE.md              → symlink to ~/CLAUDE.md
@@ -264,7 +264,7 @@ manage_editor(action="get_state")
 
 | Type | Location |
 |------|----------|
-| Global Rules | `~/GLOBAL_RULES.md` |
+| Global Rules | `~/GLOBALGLOBAL_RULES.md` |
 | Claude Config | `~/.claude/CLAUDE.md` |
 | Token Efficiency | `KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md` |
 | Integration Map | `KnowledgeBase/_TOOL_INTEGRATION_MAP.md` |

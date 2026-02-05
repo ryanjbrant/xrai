@@ -23,7 +23,7 @@
 ## Single Source of Truth
 
 ```
-~/GLOBAL_RULES.md                    ← Universal rules (ALL tools read this)
+~/GLOBALGLOBAL_RULES.md                    ← Universal rules (ALL tools read this)
     │
     ├── ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/
     │       ← Shared pattern library (symlinked to all tools)
@@ -51,20 +51,20 @@
 
 ```bash
 # Antigravity rules (if not exists)
-ln -sf ~/GLOBAL_RULES.md ~/.antigravity/GLOBAL_RULES.md
+ln -sf ~/GLOBALGLOBAL_RULES.md ~/.antigravity/GLOBALGLOBAL_RULES.md
 
 # Codex rules (if not exists)
-ln -sf ~/GLOBAL_RULES.md ~/.codex/rules/GLOBAL_RULES.md
+ln -sf ~/GLOBALGLOBAL_RULES.md ~/.codex/rules/GLOBALGLOBAL_RULES.md
 
 # Gemini (if using)
-mkdir -p ~/.gemini && ln -sf ~/GLOBAL_RULES.md ~/.gemini/GLOBAL_RULES.md
+mkdir -p ~/.gemini && ln -sf ~/GLOBALGLOBAL_RULES.md ~/.gemini/GLOBALGLOBAL_RULES.md
 ```
 
 ---
 
 ## What Goes Where
 
-### ~/GLOBAL_RULES.md (~800 lines target)
+### ~/GLOBALGLOBAL_RULES.md (~800 lines target)
 - Core workflow (Explore → Plan → Code → Commit)
 - Tool selection matrix
 - Token efficiency essentials
@@ -125,7 +125,7 @@ KnowledgeBase/
 ### Antigravity (Gemini-based)
 - 1M context window
 - Best for research tasks
-- Link to GLOBAL_RULES.md for consistency
+- Link to GLOBALGLOBAL_RULES.md for consistency
 
 ### Codex
 - `~/.codex/rules/` directory
@@ -201,8 +201,8 @@ Run periodically to ensure sync:
 # Check all symlinks valid
 ls -la ~/.claude/knowledgebase ~/.windsurf/knowledgebase ~/.cursor/knowledgebase ~/.antigravity/knowledgebase ~/.codex/knowledgebase 2>/dev/null
 
-# Check GLOBAL_RULES.md accessible
-head -5 ~/GLOBAL_RULES.md
+# Check GLOBALGLOBAL_RULES.md accessible
+head -5 ~/GLOBALGLOBAL_RULES.md
 
 # Check KB file count (target: <50 active)
 ls ~/.claude/knowledgebase/*.md 2>/dev/null | wc -l
@@ -214,7 +214,7 @@ ls ~/.claude/knowledgebase/*.md 2>/dev/null | wc -l
 
 | Action | Command/Location |
 |--------|------------------|
-| Edit global rules | `~/GLOBAL_RULES.md` |
+| Edit global rules | `~/GLOBALGLOBAL_RULES.md` |
 | Edit Claude-specific | `~/.claude/CLAUDE.md` |
 | Edit project rules | `project/CLAUDE.md` |
 | Search KB | `kb "term"` or `kbfix "error"` |

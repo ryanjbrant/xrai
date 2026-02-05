@@ -2092,14 +2092,14 @@ Local Files:
 **MCP Server Timeout** (Tool):
 - Unity MCP calls failed silently due to duplicate servers
 - Prevention: `mcp-kill-dupes` at session start
-- Added to: GLOBAL_RULES.md, _AUTO_FIX_PATTERNS.md
+- Added to: GLOBALGLOBAL_RULES.md, _AUTO_FIX_PATTERNS.md
 
 ### Successes to Replicate
 
 **Agent Consolidation**:
 - Consolidated 14 agents with shared rules file
 - Single source of truth reduces maintenance
-- Pattern: _AGENT_SHARED_RULES.md referenced by all
+- Pattern: _AGENT_SHAREDGLOBAL_RULES.md referenced by all
 
 **Continuous Learning System**:
 - Systematic extraction → log → improve → accelerate
@@ -2165,13 +2165,13 @@ Local Files:
 
 **Rollover Workflow**:
 1. When Claude Code hits token limits → switch to `gemini` or `codex`
-2. Both tools can read: `GLOBAL_RULES.md`, `CLAUDE.md`, `KnowledgeBase/`
+2. Both tools can read: `GLOBALGLOBAL_RULES.md`, `CLAUDE.md`, `KnowledgeBase/`
 3. Paste context block to restore state
 
 **Context Block** (paste in new tool):
 ```
 Read these for context:
-1. ~/GLOBAL_RULES.md - Universal rules
+1. ~/GLOBALGLOBAL_RULES.md - Universal rules
 2. ~/Documents/GitHub/Unity-XR-AI/CLAUDE.md - Project overview
 3. ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_QUICK_FIX.md - Error fixes
 ```
@@ -2192,7 +2192,7 @@ Read these for context:
 - `_CROSS_TOOL_ROLLOVER_GUIDE.md` - Full rollover documentation
 
 **Files Updated**:
-- `GLOBAL_RULES.md` - Added rollover section
+- `GLOBALGLOBAL_RULES.md` - Added rollover section
 
 **Tags**: `rollover` `gemini` `codex` `migration` `token-efficiency`
 
@@ -2242,7 +2242,7 @@ Read these for context:
 ## 2026-01-21 17:45 - Session
 
 **Message**: docs: Documented Gemini Unity MCP setup and integration rules
-**Files Changed**: GEMINI.md, GLOBAL_RULES.md, KnowledgeBase/_GEMINI_UNITY_MCP_SETUP.md
+**Files Changed**: GEMINI.md, GLOBALGLOBAL_RULES.md, KnowledgeBase/_GEMINI_UNITY_MCP_SETUP.md
 **Summary**: Established single source of truth for Gemini MCP configuration (UnityMCP v9.0.1 + claude-mem via uvx) and corrected GLOBAL_RULES tool integration matrix.
 
 ---
@@ -2304,7 +2304,7 @@ Read these for context:
 
 ### Auto-Sync via open-multibrain
 
-Git post-commit hook syncs GLOBAL_RULES.md to all AI tools:
+Git post-commit hook syncs GLOBALGLOBAL_RULES.md to all AI tools:
 - Claude Code (`~/.claude/`)
 - Codex (`~/.codex/`)
 - Windsurf (`~/.windsurf/`)
@@ -2313,7 +2313,7 @@ Git post-commit hook syncs GLOBAL_RULES.md to all AI tools:
 **Key Files**:
 - `modules/open-multibrain/sync.sh` - Main sync script
 - `.git/hooks/post-commit` - Auto-trigger on commit
-- `GLOBAL_RULES.md` - Single source of truth
+- `GLOBALGLOBAL_RULES.md` - Single source of truth
 
 ### When to Use Each Tier
 
@@ -2326,6 +2326,6 @@ Git post-commit hook syncs GLOBAL_RULES.md to all AI tools:
 
 **Impact**: Team gets full KB access with zero mandatory setup. Power users can opt into local clone for speed.
 
-**Cross-refs**: `_OPEN_MULTIBRAIN_SYNC.md`, `_TOKEN_EFFICIENCY_COMPLETE.md`, `GLOBAL_RULES.md`
+**Cross-refs**: `_OPEN_MULTIBRAIN_SYNC.md`, `_TOKEN_EFFICIENCY_COMPLETE.md`, `GLOBALGLOBAL_RULES.md`
 
 **Tags**: #architecture #devops #kb #team #cdn

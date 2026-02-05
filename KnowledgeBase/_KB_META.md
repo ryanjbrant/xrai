@@ -567,7 +567,7 @@ ai-screenshot-unity   # Unity-specific capture
 - `_QUICK_FIX.md` - Error → Fix lookup table
 - `_PATTERN_TAGS.md` - Pattern file index by tag
 - `_CROSS_TOOL_ROLLOVER_GUIDE.md` - Tool switching guide
-- `GLOBAL_RULES.md` - Universal rules (~/GLOBAL_RULES.md)
+- `GLOBALGLOBAL_RULES.md` - Universal rules (~/GLOBALGLOBAL_RULES.md)
 # Knowledge Base Architecture Diagrams
 
 ## System Overview

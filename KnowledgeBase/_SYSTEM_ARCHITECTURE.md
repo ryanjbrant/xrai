@@ -27,7 +27,7 @@ That's it. Everything else supports this loop.
 │                                                          │
 │   Claude Code ←→ Gemini ←→ Cursor ←→ Codex              │
 │        │                                                 │
-│        └── All read: GLOBAL_RULES.md + KnowledgeBase/   │
+│        └── All read: GLOBALGLOBAL_RULES.md + KnowledgeBase/   │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
@@ -113,7 +113,7 @@ That's it. Everything else supports this loop.
 | `_AUTO_FIX_PATTERNS.md` | Fix errors | Every error |
 | `_QUICK_FIX.md` | Fast lookup | Quick reference |
 | `LEARNING_LOG.md` | Log discoveries | After solving new problem |
-| `GLOBAL_RULES.md` | Universal rules | Session start |
+| `GLOBALGLOBAL_RULES.md` | Universal rules | Session start |
 
 Everything else is reference material you search when needed.
 

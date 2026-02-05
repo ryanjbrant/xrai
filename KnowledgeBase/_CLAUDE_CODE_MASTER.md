@@ -1,7 +1,7 @@
 # Claude Code Reference
 
 **Tags**: #claude-code #tools #workflow #session
-**Cross-refs**: `_CROSS_TOOL_ARCHITECTURE.md`, `_TOKEN_EFFICIENCY_COMPLETE.md`, ~/GLOBAL_RULES.md
+**Cross-refs**: `_CROSS_TOOL_ARCHITECTURE.md`, `_TOKEN_EFFICIENCY_COMPLETE.md`, ~/GLOBALGLOBAL_RULES.md
 
 ---
 
