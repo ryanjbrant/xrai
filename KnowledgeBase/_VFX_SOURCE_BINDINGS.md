@@ -299,5 +299,61 @@ eyes_any_nncam2:
 
 ---
 
+---
+
+## UV-to-World Algorithm (Keijiro Pattern)
+
+**Used in**: VFX Operators, Custom HLSL Blocks
+
+```hlsl
+float3 ARInverseProjection(float2 UV, float Depth, float4 RayParams, float4x4 InverseView)
+{
+    // 1. UV [0,1] to NDC [-1,1]
+    float3 ray = float3((UV - 0.5) * 2, 1);
+
+    // 2. Apply camera intrinsics (principal point + FOV)
+    ray.xy = (ray.xy + RayParams.xy) * RayParams.zw;
+    //        ^^^^^^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^
+    //        Principal point offset   tan(FOV/2) scale
+
+    // 3. Scale by depth distance
+    ray *= Depth;
+
+    // 4. Transform camera space to world space
+    return mul(InverseView, float4(ray, 1)).xyz;
+}
+```
+
+**RayParams Computation** (C#):
+```csharp
+public static Vector4 ComputeRayParams(Camera arCamera)
+{
+    var proj = arCamera.projectionMatrix;
+    float centerShiftX = proj.m02;  // Principal point X
+    float centerShiftY = proj.m12;  // Principal point Y
+    float fov = arCamera.fieldOfView * Mathf.Deg2Rad;
+    float tanV = Mathf.Tan(fov * 0.5f);
+    float tanH = tanV * arCamera.aspect;
+
+    return new Vector4(centerShiftX, centerShiftY, tanH, tanV);
+}
+```
+
+**iOS Portrait Fix**: ARKit depth is always landscape. Apply 90° rotation:
+```csharp
+float2 uv = i.uv;
+uv = float2(1.0 - uv.y, uv.x);  // 90° clockwise
+```
+
+---
+
+## References
+
+- **Full VFX Spec**: `portals_main/specs/VFX_ARCHITECTURE.md`
+- **O(1) Compute Pattern**: `portals_main/specs/VFX_ARCHITECTURE.md` §Architecture
+- **MetavidoVFX Source**: `Unity-XR-AI/References/MetavidoVFX-main/`
+
+---
+
 *Generated from keijiro source projects research 2026-01-20*
-*Updated with specialized binders and auto-fix behavior 2026-01-20*
+*Updated with UV-to-world algorithm and references 2026-02-05*

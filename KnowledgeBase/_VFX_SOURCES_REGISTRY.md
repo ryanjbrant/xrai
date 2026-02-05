@@ -2,7 +2,35 @@
 
 **Total VFX**: 235 assets in Resources/VFX
 **Categories**: 29 folders
-**Last Updated**: 2026-01-20
+**Last Updated**: 2026-02-05
+
+---
+
+## Quick Reference (Mobile AR)
+
+| Constraint | Value | Source |
+|------------|-------|--------|
+| Max particles (iPhone 12+) | 50,000 | Profiled |
+| VFX per scene budget | 5-7 | ~0.2ms each binding |
+| Compute thread groups | 32×32 | Mobile Metal optimal |
+| Depth texture format | RHalf (R16F) | Sufficient precision |
+
+**O(1) Compute Pattern** (from MetavidoVFX):
+```
+ARDepthSource.cs (SINGLETON) → One compute dispatch/frame
+    ↓ Outputs: PositionMap, StencilMap, VelocityMap
+VFXARBinder.cs (per VFX, LIGHTWEIGHT ~0.2ms)
+    ↓ Just SetTexture() calls, no compute
+VFX Graph (renders particles)
+```
+
+**Naming Convention**: `{effect}_{datasource}_{target}_{origin}.vfx`
+- effect: particles, sparkles, grid, trails, voxels
+- datasource: depth, stencil, mesh, audio, environment
+- target: people, hands, face, environment, any
+- origin: rcam4, metavido, h3m, portals, keijiro
+
+---
 
 ## VFX Pipeline Types
 
