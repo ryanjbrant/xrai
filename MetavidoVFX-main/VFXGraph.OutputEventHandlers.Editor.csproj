@@ -79,9 +79,9 @@
   <ItemGroup>
     <Compile Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/VFXOutputEventPrefabSpawnEditor.cs" />
     <Compile Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/VFXOutputEventCinemachineCameraShakeEditor.cs" />
-    <Compile Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/VFXOutputEventRigidBodyEditor.cs" />
     <Compile Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/VFXOutputEventPlayAudioEditor.cs" />
     <Compile Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/VFXOutputEventHandlerEditor.cs" />
+    <Compile Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/VFXOutputEventRigidBodyEditor.cs" />
     <Compile Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/VFXOutputEventUnityEventEditor.cs" />
     <None Include="Assets/Samples/Visual Effect Graph/17.2.0/OutputEvent Helpers/Editor/Unity.VisualEffectGraph.OutputEventHandlers.asmdef" />
     <Reference Include="UnityEngine">

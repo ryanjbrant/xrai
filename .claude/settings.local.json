@@ -52,7 +52,12 @@
       "mcp__unityMCP__execute_menu_item",
       "mcp__unityMCP__manage_scene",
       "mcp__unityMCP__create_script",
-      "WebFetch(domain:lachlansleight.medium.com)"
+      "WebFetch(domain:lachlansleight.medium.com)",
+      "WebFetch(domain:devforum.roblox.com)",
+      "WebFetch(domain:www.infoq.com)",
+      "WebFetch(domain:engine.needle.tools)",
+      "WebFetch(domain:developer.playcanvas.com)",
+      "WebFetch(domain:developers.google.com)"
     ],
     "deny": [],
     "ask": []

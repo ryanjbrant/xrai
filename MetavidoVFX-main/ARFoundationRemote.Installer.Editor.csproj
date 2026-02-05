@@ -78,10 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Plugins/ARFoundationRemoteInstaller/Scripts/CompanionAppInstaller.cs" />
+    <Compile Include="Assets/Plugins/ARFoundationRemoteInstaller/Scripts/AssetPostprocessor.cs" />
     <Compile Include="Assets/Plugins/ARFoundationRemoteInstaller/Scripts/AssemblyInfo.cs" />
     <Compile Include="Assets/Plugins/ARFoundationRemoteInstaller/Scripts/ARFoundationRemoteInstallerInspector.cs" />
     <Compile Include="Assets/Plugins/ARFoundationRemoteInstaller/Scripts/ARFoundationRemoteInstaller.cs" />
-    <Compile Include="Assets/Plugins/ARFoundationRemoteInstaller/Scripts/AssetPostprocessor.cs" />
     <None Include="Assets/Plugins/ARFoundationRemoteInstaller/Scripts/ARFoundationRemote.Installer.Editor.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/6000.2.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

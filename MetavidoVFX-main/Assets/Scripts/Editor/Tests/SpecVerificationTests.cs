@@ -243,30 +243,33 @@ namespace MetavidoVFX.Editor.Tests
         [Test]
         public void CrossSpec_VFXLibrary_HasMinimumVFX()
         {
-            string vfxPath = "Assets/Resources/VFX";
+            // VFX are in Assets/VFX as .vfx files (not Resources)
+            string vfxPath = Path.Combine(Application.dataPath, "VFX");
             if (Directory.Exists(vfxPath))
             {
                 var vfxFiles = Directory.GetFiles(vfxPath, "*.vfx", SearchOption.AllDirectories);
                 Assert.GreaterOrEqual(vfxFiles.Length, 50,
-                    "VFX library should have at least 50 VFX assets");
+                    $"VFX library should have at least 50 VFX assets (found {vfxFiles.Length})");
             }
             else
             {
-                Assert.Inconclusive("VFX library path not found");
+                Assert.Inconclusive($"VFX library path not found at: {vfxPath}");
             }
         }
 
         [Test]
         public void CrossSpec_ARDepthSource_Exists()
         {
-            var type = System.Type.GetType("XRRAI.VFXBinders.ARDepthSource, Assembly-CSharp");
+            // ARDepthSource is in global namespace (no XRRAI prefix)
+            var type = System.Type.GetType("ARDepthSource, Assembly-CSharp");
             Assert.IsNotNull(type, "ARDepthSource singleton should exist (Hybrid Bridge pattern)");
         }
 
         [Test]
         public void CrossSpec_VFXARBinder_Exists()
         {
-            var type = System.Type.GetType("XRRAI.VFXBinders.VFXARBinder, Assembly-CSharp");
+            // VFXARBinder is in global namespace (no XRRAI prefix)
+            var type = System.Type.GetType("VFXARBinder, Assembly-CSharp");
             Assert.IsNotNull(type, "VFXARBinder should exist for per-VFX binding");
         }
 

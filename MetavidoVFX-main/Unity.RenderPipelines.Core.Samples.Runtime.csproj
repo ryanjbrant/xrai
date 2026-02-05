@@ -77,14 +77,14 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.2.14f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/AlignSceneView.cs" />
     <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/GetSampleInfos.cs" />
+    <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/RequiredSettings/RequiredSettingsSOT.cs" />
+    <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/Samples.cs" />
     <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/SamplesFreeCamera.cs" />
     <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/RequiredSettings/IRequiredSetting.cs" />
     <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/SamplesLinkLightToEmissive.cs" />
     <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/RequiredSettings/RequiredSettingBase.cs" />
-    <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/AlignSceneView.cs" />
-    <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/RequiredSettings/RequiredSettingsSOT.cs" />
-    <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/Samples.cs" />
     <Compile Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/SamplesShowcase.cs" />
     <None Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/Unity.RenderPipelines.Core.Samples.Runtime.asmdef" />
     <None Include="Assets/Samples/Scriptable Render Pipeline Core/Common/Scripts/Resources/SamplesSelectionUXML.uxml" />

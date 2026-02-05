@@ -2671,3 +2671,23 @@ Dormant code pattern:
 - Project `CLAUDE.md` → Unity MCP section
 
 **Tags**: #mcp #performance #memory #hooks #cross-tool
+
+## 2026-02-05: macOS Reminders Best Practice
+
+**Problem**: Creating individual LaunchAgent plists for each reminder leads to daemon proliferation and system clutter.
+
+**Solution**: Use Calendar.app's native alarm system via AppleScript:
+```applescript
+make new display alarm at end of display alarms of theEvent with properties {trigger interval:-60}
+```
+
+**Benefits**:
+1. No daemon/plist proliferation
+2. Syncs via iCloud across all devices automatically
+3. No cleanup needed - Calendar manages lifecycle
+4. Calendar handles timing, sounds, persistence natively
+5. Respects user's notification preferences
+
+**Anti-pattern**: Creating one LaunchAgent plist per reminder interval.
+
+**Source**: WarpJobs interview-calendar.js simplification

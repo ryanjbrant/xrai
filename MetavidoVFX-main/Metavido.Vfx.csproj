@@ -77,9 +77,9 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.2.14f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages/jp.keijiro.metavido.vfxgraph/Scripts/VFXMetavidoBinder.cs" />
     <Compile Include="Packages/jp.keijiro.metavido.vfxgraph/Scripts/DisplacedMeshBuilder.cs" />
     <Compile Include="Packages/jp.keijiro.metavido.vfxgraph/Scripts/Util.cs" />
+    <Compile Include="Packages/jp.keijiro.metavido.vfxgraph/Scripts/VFXMetavidoBinder.cs" />
     <None Include="Packages/jp.keijiro.metavido.vfxgraph/Scripts/Metavido.Vfx.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/6000.2.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
