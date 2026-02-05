@@ -1,0 +1,6 @@
+# Team config: project-only overrides for speed + token efficiency.
+# Keep this minimal; global defaults live in ~/.codex/config.toml
+
+[output]
+# Hide internal reasoning to reduce output tokens without impacting answer quality.
+include_reasoning = false
