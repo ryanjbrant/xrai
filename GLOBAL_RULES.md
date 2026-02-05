@@ -407,6 +407,50 @@ Date | Context | Discovery | Impact
 
 ---
 
+## 🎯 Highest Leverage Practices (Official Best Practices)
+
+**Source**: Claude Code official docs + research studies (Feb 2026)
+
+### 1. Verification Criteria (MOST IMPACTFUL)
+Always provide tests, expected outputs, or screenshots so Claude can self-verify.
+
+| Strategy | Before | After |
+|----------|--------|-------|
+| Test criteria | "implement validation" | "implement validateEmail. test: user@example.com=true, invalid=false. run tests after" |
+| Visual check | "make it look better" | "implement this design [screenshot]. take screenshot of result" |
+| Root cause | "build failing" | "build fails with [error]. fix root cause and verify build succeeds" |
+
+### 2. Plan Mode for Complex Tasks
+- **Start in plan mode** (`Shift+Tab` twice) for any multi-file change
+- Pour energy into the plan → Claude can 1-shot implementation
+- **When things go sideways**: Switch back to plan mode, don't keep pushing
+- Use `Ctrl+G` to edit plan in external editor
+
+### 3. Subagent Isolation
+Use subagents for investigations to keep main context clean:
+```
+"use subagent to investigate how our auth handles token refresh"
+"use a subagent to review this code for edge cases"
+```
+
+### 4. Scope Tasks Precisely
+| Bad | Good |
+|-----|------|
+| "add tests" | "write test for foo.py covering logged-out edge case. avoid mocks" |
+| "fix login bug" | "login fails after session timeout. check src/auth/, especially token refresh" |
+| "refactor this" | "extract the validation logic to a utility function in src/utils/" |
+
+### 5. MANDATORY Reuse Check (Before ANY New Code)
+```
+1. Codebase: Search for similar functions, utilities, patterns
+2. Knowledgebase: Check KB for documented solutions
+3. GitHub repos: Reference implementations (520+ in master KB)
+4. Online docs: Built-in framework/API solutions
+```
+**Anti-pattern**: Writing new code when reusable function exists.
+
+---
+
 ## 🔄 Auto-Improvement System (ALWAYS ACTIVE)
 
 **Every interaction should improve future workflows. This is not optional.**
@@ -465,9 +509,14 @@ Attempt 5: Ask user, document new solution
 2. If pattern applies to multiple projects → Add to _AUTO_FIX_PATTERNS.md
 3. If community helped → Add source to _TRUSTED_COMMUNITY_SOURCES.md
 
-**Weekly (automated via cron)**:
-- `kb-health-check.sh` - Audit KB for stale content
-- Review LEARNING_LOG.md for patterns worth promoting
+**Hook-Triggered (via PostToolUse or SessionStart)**:
+- `kb-health-check.sh` - Audit KB for stale content (run on SessionStart)
+- Review LEARNING_LOG.md for patterns worth promoting (after major task completion)
+- Pattern extraction after error resolution (via PostToolUseFailure hook)
+
+**Also Hourly (background LaunchAgent)**:
+- Light KB health check (file count, broken links)
+- Sync any uncommitted LEARNING_LOG.md entries
 
 ---
 
