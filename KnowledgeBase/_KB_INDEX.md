@@ -148,10 +148,11 @@
 | `_VISION_PRO_SPATIAL_PERSONAS_PATTERNS.md` | visionOS patterns |
 | `_HCI_SPATIAL_DESIGN_PRINCIPLES.md` | Spatial design |
 
-## MCP (8 files)
+## MCP (9 files)
 
 | File | Content |
 |------|---------|
+| `_MCP_SERVER_MANAGEMENT.md` | **Server deduplication, hooks vs LaunchAgents** |
 | `_MCP_MODEL_CONTEXT_PROTOCOL.md` | MCP protocol reference |
 | `_MCP_TYPESCRIPT_SDK.md` | TypeScript SDK |
 | `_MCP_BUILD_SERVER_CLIENT.md` | Build server/client |

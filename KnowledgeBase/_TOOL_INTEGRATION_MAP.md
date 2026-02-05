@@ -105,10 +105,32 @@
 | blender | Blender MCP | 5-10K |
 | TalkToFigma | Figma MCP | 5-10K |
 
+### Heavy Servers (Kill When Unused)
+| Server | Purpose | Memory |
+|--------|---------|--------|
+| playwright-mcp | Browser automation | ~100MB |
+| mcp-server-puppeteer | Browser automation | ~100MB |
+| mcp-server-sequential-thinking | Chain of thought | ~50MB |
+| mcp-server-memory | Memory persistence | ~50MB |
+
 ### Config Locations
 - Claude Code: `~/.claude/settings.json` + `~/.claude/mcp-configs/`
 - Windsurf: `~/.windsurf/mcp.json`
 - Cursor: `~/.cursor/mcp.json`
+
+### MCP Management Commands
+```bash
+mcp-kill-dupes   # Kill duplicate servers (auto at session start)
+mcp-nuke         # Kill duplicates + heavy servers
+mcp-kill-all     # Nuclear - kill ALL servers
+mcp-count        # Show server count
+mcp-mem          # Show memory usage
+mcp-ps           # List servers by type
+```
+
+**Multi-IDE Warning:** Each IDE (Claude Code, Windsurf, Cursor, Antigravity) spawns its own MCP servers. Running multiple IDEs = 3-4x servers = memory exhaustion.
+
+See: `_MCP_SERVER_MANAGEMENT.md` for full documentation
 
 ---
 

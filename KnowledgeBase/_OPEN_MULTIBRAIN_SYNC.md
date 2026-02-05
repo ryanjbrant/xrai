@@ -197,3 +197,63 @@ Base URL: https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/
 | Regular contributor | Tier 2 (online CDN) |
 | Daily heavy user | Tier 3 (local clone) |
 | Offline/travel | Tier 3 required |
+
+---
+
+## MCP Server Management (Multi-Tool Issue)
+
+**Critical for multi-IDE setups:** Each AI tool spawns its own MCP servers independently.
+
+### The Problem
+
+| Running | MCP Processes |
+|---------|---------------|
+| Claude Code only | ~8 servers |
+| + Windsurf | ~16 servers |
+| + Antigravity | ~24 servers |
+| + Cursor | ~32 servers |
+
+Result: Memory exhaustion → force quits → lost work
+
+### Solution: Automatic Deduplication
+
+**Hook-based cleanup** (preferred over LaunchAgents):
+
+```bash
+# SessionStart hook runs automatically
+~/.claude/hooks/session-health-check.sh
+# Calls ~/bin/mcp-kill-dupes when >5 MCP processes detected
+```
+
+### Manual Commands
+
+```bash
+mcp-kill-dupes   # Kill duplicate servers (keeps oldest of each type)
+mcp-nuke         # Kill duplicates + heavy servers (playwright, puppeteer)
+mcp-kill-all     # Nuclear option - all MCP servers
+mcp-count        # Check current count
+mcp-mem          # Check memory usage
+```
+
+### Best Practice: Hooks over LaunchAgents
+
+| Approach | Use For |
+|----------|---------|
+| **Hooks** ✅ | Claude Code tasks - context-aware, no background processes |
+| **LaunchAgents** | System tasks unrelated to AI tools |
+
+**Why hooks win:**
+- Run only when needed (session start)
+- Report results to conversation
+- No persistent background processes
+- Auto-cleanup when session ends
+
+### Configuration
+
+| File | Purpose |
+|------|---------|
+| `~/bin/mcp-kill-dupes` | Deduplication script |
+| `~/.claude/hooks/session-health-check.sh` | Runs at Claude Code start |
+| `~/.zshrc` | Shell aliases |
+
+See: `_MCP_SERVER_MANAGEMENT.md` for full documentation

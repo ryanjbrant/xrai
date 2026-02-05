@@ -109,6 +109,9 @@
 | Error | Fix |
 |-------|-----|
 | MCP timeout | Run `mcp-kill-dupes` |
+| **Claude/Windsurf force quits** | **`mcp-nuke` (multiple IDEs = 3-4x MCP servers)** |
+| **30+ MCP processes** | **Close unused IDEs OR run `mcp-kill-dupes`** |
+| **High memory (>1GB MCP)** | **`mcp-nuke` kills heavy servers (playwright, puppeteer)** |
 | Unity MCP not responding | Window > MCP for Unity > Start Server |
 | JetBrains MCP slow | Check Rider is open and indexed |
 | Multiple Unity instances | Use `set_active_instance()` |
@@ -197,3 +200,10 @@ batch_execute([
 
 **Details**: See `_AUTO_FIX_PATTERNS.md` for full explanations.
 **Research**: See `_AI_CODING_BEST_PRACTICES.md` for evidence.
+
+## WarpJobs - Source Field Always "unknown"
+
+**Symptom**: All jobs have `source: "unknown"` despite scrapers setting source correctly
+**Cause**: Data pipeline overwrites job.source with default option
+**Fix**: In data-pipeline.js addJobs(), change `source,` to `source: job.source || source,`
+**File**: `lib/data-pipeline.js:151`

@@ -42,6 +42,51 @@ When in doubt: Ask user, keep changes minimal, prefer reversible.
 
 ---
 
+## Standard Workflow (MEMORIZE)
+
+**For all code changes, follow this cycle:**
+
+```
+audit → test → auto-fix → [re-test if fixes] → improve → document → commit & push
+```
+
+| Step | Action | Auto-Improve Trigger |
+|------|--------|---------------------|
+| **Audit** | `node audit-system.js` or project audit | Find issues before they compound |
+| **Test** | Run project tests | Learn from failures AND successes |
+| **Auto-fix** | Fix any issues found | Add fix to `_QUICK_FIX.md` |
+| **Re-test** | If fixes made, run tests again | Verify fixes don't break anything |
+| **Improve** | Enhance based on learnings | Update tests, add missing coverage |
+| **Document** | Update CLAUDE.md, specs | Capture patterns for next time |
+| **Commit** | `git commit` with clear message | Include "what was learned" |
+| **Push** | `git push` | Sync to all tools |
+
+**Re-test Rule**: If auto-fix changed any code, ALWAYS re-run tests before proceeding. Never commit untested fixes.
+
+### Auto-Improve During Testing
+
+| Observation | Auto-Action |
+|-------------|-------------|
+| Test passed first try | Log successful approach to `SUCCESS_LOG.md` |
+| Test failed | Add root cause to `_QUICK_FIX.md` |
+| Debugging took >3 attempts | Document debug path in `FAILURE_LOG.md` |
+| New test pattern useful | Add to project test utilities |
+| Missing test coverage found | Add to TODO or write test immediately |
+
+### Auto-Improve During Debugging
+
+| Observation | Auto-Action |
+|-------------|-------------|
+| Error message → fix mapping | Add to `_QUICK_FIX.md` |
+| Symptom → root cause pattern | Add to `_AUTO_FIX_PATTERNS.md` |
+| Debug command useful | Add to project CLAUDE.md |
+| Log location discovered | Add to troubleshooting section |
+| Environment issue found | Document in setup/prereqs |
+
+**Key Principle**: Every success and failure is a learning opportunity. The system should get smarter with every iteration.
+
+---
+
 ## Project Identification (Avoid Wrong Project)
 
 When multiple similarly-named projects exist, **check modified dates** to identify the active one:
@@ -364,13 +409,55 @@ All features must be:
 
 ---
 
-## MCP Quick Fixes
+## MCP Server Management
+
+### Quick Fixes
 
 | Issue | Fix |
 |-------|-----|
 | Unity MCP not responding | Unity → Window → MCP for Unity → Start Server |
-| MCP slow | Run `mcp-kill-dupes` |
+| MCP slow / force quits | Run `mcp-kill-dupes` or `mcp-nuke` |
 | After Unity build | Restart Unity Editor |
+| High memory usage | `mcp-nuke` (kills duplicates + heavy servers) |
+| 30+ MCP processes | Multiple IDEs open - close unused or run `mcp-kill-dupes` |
+
+### MCP Commands (shell aliases)
+
+```bash
+mcp-kill-dupes   # Kill duplicate servers only (runs at Claude Code session start)
+mcp-nuke         # Kill duplicates + heavy servers (playwright, puppeteer, etc)
+mcp-kill-all     # Nuclear - kill ALL MCP servers
+mcp-count        # Show running MCP server count
+mcp-mem          # Show MCP memory usage
+```
+
+### Best Practice: Hooks over LaunchAgents
+
+**For Claude Code automation, ALWAYS prefer hooks over LaunchAgents:**
+
+| Approach | When to Use |
+|----------|-------------|
+| **Hooks** ✅ | Claude Code tasks - run in context, access conversation state, no background processes |
+| **LaunchAgents** | System-wide tasks unrelated to AI tools (backup, sync, etc.) |
+
+**Why hooks win:**
+- Run only when Claude Code session starts (not wasting resources)
+- Have access to environment and can report to conversation
+- No persistent background processes eating memory
+- Automatically cleaned up when Claude Code closes
+
+**Hook locations:**
+- `~/.claude/hooks/session-health-check.sh` - runs at session start
+- `~/.claude/settings.json` → `hooks.SessionStart` - configuration
+
+### Root Cause: Multi-IDE MCP Duplication
+
+When running multiple AI IDEs (Windsurf, Antigravity, Claude Code, Cursor), each spawns its own MCP servers independently. This causes:
+- 3-4x duplicate servers
+- Memory exhaustion (300MB+ per set)
+- Force quits and slowdowns
+
+**Prevention:** The SessionStart hook automatically runs `mcp-kill-dupes` when Claude Code starts.
 
 ---
 
@@ -675,8 +762,39 @@ All read: GLOBAL_RULES.md, KnowledgeBase/, project CLAUDE.md
 | Unity MCP | `_UNITY_MCP_MASTER.md` |
 | VFX patterns | `_VFX_MASTER_PATTERNS.md` |
 | Token tips | `_TOKEN_EFFICIENCY_COMPLETE.md` |
+| Document generation | `_DOCUMENT_GENERATION.md` |
 | Claude Code best practices | `_CLAUDE_CODE_OFFICIAL_BEST_PRACTICES.md` |
 | All KB files | `_KB_INDEX.md` |
+
+---
+
+## Document Generation
+
+### Quick Commands
+
+| Output | Command |
+|--------|---------|
+| **PDF (fast)** | `pandoc input.md -o output.pdf --pdf-engine=typst` |
+| **PDF (styled)** | `pandoc input.md -o temp.html && weasyprint temp.html output.pdf` |
+| **DOCX** | `pandoc input.md -o output.docx` |
+| **DOCX (styled)** | `pandoc input.md -o output.docx --reference-doc=~/.claude/templates/reference.docx` |
+
+### Tools Installed
+
+- **Typst** — Fast PDF (27x faster than LaTeX)
+- **WeasyPrint** — CSS-styled PDFs
+- **doc-ops-mcp** — MCP server for document conversion
+- **Resume templates** — `~/.claude/templates/` (ATS-friendly)
+
+### Resume Templates
+
+| Template | Location | Type |
+|----------|----------|------|
+| pandoc-resume | `~/.claude/templates/pandoc-resume/` | Markdown → PDF/HTML/DOCX |
+| markdown-resume | `~/.claude/templates/markdown-resume/` | ATS + human friendly |
+| rover-resume | `~/.claude/templates/rover-resume/` | LaTeX, no custom fonts |
+
+**Full reference**: `_DOCUMENT_GENERATION.md`
 
 ---
 
@@ -688,6 +806,75 @@ All read: GLOBAL_RULES.md, KnowledgeBase/, project CLAUDE.md
 
 **Use specs for**: >100 LOC, architecture changes, cross-team work
 **Skip specs for**: Bug fixes, <50 LOC, config tweaks
+
+---
+
+## Spec Verification Protocol (MANDATORY)
+
+**Before creating or revising ANY spec, complete this checklist.**
+
+### 1. Codebase Audit (5 min)
+
+| Check | Command | Purpose |
+|-------|---------|---------|
+| Existing code | `grep -r "pattern" src/` | Does this already exist? |
+| Package manifest | `cat unity/Packages/manifest.json` | Is package already installed? |
+| Services | `ls src/services/` | Reusable services? |
+| Helpers | `ls src/helpers/` | Existing utilities? |
+
+### 2. Simplification Check
+
+Ask these questions:
+- "What's the **absolute minimum** for this to work?"
+- "What can we **reuse** instead of build?"
+- "Is there existing code that does **80% of this**?"
+- "Can we **copy and adapt** instead of create from scratch?"
+
+### 3. Proven Examples
+
+| Source | Check For |
+|--------|-----------|
+| GitHub | Working implementations of similar features |
+| Official docs | Recommended patterns for our exact versions |
+| Our codebase | Already-working code we can extend |
+| Knowledgebase | Documented patterns and solutions |
+
+### 4. Reality Test
+
+| Question | If No |
+|----------|-------|
+| If spec says "add X" - is X actually missing? | Remove from spec |
+| If spec says "build Y" - does Y already exist? | Change to "wire up existing Y" |
+| Count real tasks - are they all necessary for MVP? | Prune to essentials |
+
+### Quality Gates
+
+| Gate | Question |
+|------|----------|
+| **Exists?** | Does this code/package already exist in codebase? |
+| **Works?** | Is there a proven working example we can reference? |
+| **Needed?** | Is every task actually required for MVP? |
+| **Simple?** | Can this be done in fewer steps? |
+| **Reuse?** | Can we copy/adapt instead of build from scratch? |
+
+### Red Flags (Over-Engineering)
+
+Stop and simplify if you see:
+- ❌ More than 15 tasks for a single feature
+- ❌ "Architecture" diagrams before any working code
+- ❌ Multiple phases before anything is demonstrable
+- ❌ New abstractions for one-time use
+- ❌ Tasks that don't touch actual files
+- ❌ Building infrastructure "for later"
+- ❌ Elaborate migration plans for code that doesn't exist yet
+
+### Good Spec Patterns
+
+- ✅ Tasks reference specific existing files to modify
+- ✅ Each task produces testable output
+- ✅ Reuses existing code/patterns explicitly named
+- ✅ MVP achievable in 5-10 tasks
+- ✅ Dependencies on existing working code identified
 
 ---
 
