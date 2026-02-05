@@ -331,6 +331,33 @@ All features must be:
 
 ---
 
+## ⚡ Workflow Slowdown Prevention (AUTO-FIX)
+
+**PROACTIVELY identify and fix these common slowdowns:**
+
+| Slowdown | Detection | Auto-Fix |
+|----------|-----------|----------|
+| Unity MCP not running | Tool returns "No Unity Editor instances" | Notify user, suggest opening Unity project |
+| Hook timeout | >15s hook execution | Log to FAILURE_LOG.md, skip if non-critical |
+| Build waiting | User waiting for build output | Run builds in background, notify on completion |
+| Context too large | >100K tokens | Proactive compaction before blocking |
+| Multiple repo work | Switching between repos | Batch operations, parallel commits |
+| Manual verification | Repeated check commands | Use TodoWrite to track, batch verifications |
+| Research loops | Same search >3 times | Cache results in session, use KB |
+| Tool failures | Same tool fails 3x | Try alternative, log pattern |
+
+**Prevention Rules**:
+1. **Never block user for >30 seconds** - use background tasks
+2. **Batch similar operations** - don't make 5 separate commits
+3. **Cache expensive lookups** - reuse file reads within session
+4. **Parallelize independent tasks** - use multiple tool calls
+5. **Pre-fetch likely needs** - if editing Unity, check MCP first
+6. **Proactive health checks** - run silently, fix before user notices
+
+**On any slowdown**: Log to LEARNING_LOG.md for pattern analysis.
+
+---
+
 ## MCP Quick Fixes
 
 | Issue | Fix |
