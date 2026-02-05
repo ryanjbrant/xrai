@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "description": "Cross-tool AI config sync (Claude Code, Codex, Gemini, Windsurf, Antigravity, Rider)",
+  "auto_sync_on_commit": true,
+  "tools": {
+    "claude_code": true,
+    "codex": true,
+    "antigravity": true,
+    "windsurf": true,
+    "rider": true
+  }
+}
