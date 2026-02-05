@@ -166,6 +166,12 @@ ss                    # Screenshot for context
 
 ## Session Management
 
+**Auto-Checkpoint (MANDATORY every 5-10 min)**:
+- Create/update `.claude/checkpoints/SESSION_*.md` with progress
+- Commit to git periodically (batch related changes)
+- Include: completed tasks, current state, next steps, resume instructions
+- Format: `SESSION_YYYYMMDD-HHMM.md`
+
 **Triggers**:
 - `/compact`: Context >100K, switching sub-tasks
 - `/clear`: Unrelated task, context >150K
