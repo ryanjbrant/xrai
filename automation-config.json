@@ -1,0 +1,33 @@
+{
+  "enabled": true,
+  "first_run_prompted": true,
+  "version": "1.0",
+  "agents": {
+    "auto_improve": {
+      "enabled": true,
+      "interval_hours": 1,
+      "description": "System health, MCP check"
+    },
+    "github_trends": {
+      "enabled": true,
+      "interval_hours": 12,
+      "description": "Update trending repos"
+    },
+    "kb_health": {
+      "enabled": true,
+      "interval_hours": 6,
+      "description": "KB integrity check"
+    }
+  },
+  "performance": {
+    "max_cpu_percent": 10,
+    "quiet_hours_start": 23,
+    "quiet_hours_end": 7,
+    "skip_if_on_battery": true
+  },
+  "metrics": {
+    "track_runs": true,
+    "log_errors": true,
+    "retention_days": 30
+  }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.unity-xr-ai.kb-health</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>
+            # Skip during quiet hours (11pm-7am)
+            hour=$(date +%H)
+            if [ $hour -ge 23 ] || [ $hour -lt 7 ]; then exit 0; fi
+
+            # Skip if system load >80%
+            load=$(sysctl -n vm.loadavg | awk '{print $2}' | cut -d. -f1)
+            if [ "${load:-0}" -gt 80 ]; then exit 0; fi
+
+            # Run KB audit
+            cd ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase
+            ./KB_AUDIT.sh 2>&1 | head -50
+        </string>
+    </array>
+    <key>StartInterval</key>
+    <integer>21600</integer>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/logs/kb-health.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/logs/kb-health-err.log</string>
+    <key>LowPriorityIO</key>
+    <true/>
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

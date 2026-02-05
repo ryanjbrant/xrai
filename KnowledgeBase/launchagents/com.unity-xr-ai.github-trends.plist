@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.unity-xr-ai.github-trends</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>
+            # Skip during quiet hours
+            hour=$(date +%H)
+            if [ $hour -ge 23 ] || [ $hour -lt 7 ]; then exit 0; fi
+
+            # Run trends update
+            ~/Documents/GitHub/Unity-XR-AI/Scripts/automation/update-github-trends.sh
+        </string>
+    </array>
+    <key>StartInterval</key>
+    <integer>43200</integer>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/logs/github-trends.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/logs/github-trends-err.log</string>
+    <key>LowPriorityIO</key>
+    <true/>
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

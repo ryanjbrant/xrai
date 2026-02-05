@@ -3,6 +3,20 @@
 **Setup Time**: < 5 minutes
 **Daily Runtime**: < 5 minutes (automated)
 **Benefit**: Self-improving, self-maintaining knowledgebase
+**Opt-in**: All automation is optional - enable what you need
+
+---
+
+## First Run (New Users)
+
+On first clone, you'll be prompted:
+```
+Enable KB automation? [y/N]
+```
+
+Choose `y` for full automation, or `n` to skip (can enable later).
+
+**Config file**: `automation-config.json` (edit to customize)
 
 ---
 
@@ -38,7 +52,20 @@ kb-logs        # View maintenance logs
 
 ## Automated Schedule (Optional)
 
-**Enable automatic daily maintenance:**
+### Option A: LaunchAgents (Recommended for macOS)
+
+```bash
+# Install LaunchAgents
+cp KnowledgeBase/launchagents/*.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.unity-xr-ai.*.plist
+
+# Check status
+launchctl list | grep unity-xr-ai
+```
+
+See `KnowledgeBase/launchagents/README.md` for details.
+
+### Option B: Cron (Alternative)
 
 ```bash
 # Edit crontab
