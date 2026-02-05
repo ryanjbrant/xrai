@@ -35,6 +35,9 @@ Search KB → Plan → Code → Commit → Log discovery
 - Parallel tool calls when possible
 - Edit over Write (smaller diffs)
 
+## OpenAI Docs MCP
+- For OpenAI/Codex questions, consult the `openaiDeveloperDocs` MCP server first.
+
 ## Anti-Patterns
 - Writing code without searching KB first
 - Duplicating existing utilities
