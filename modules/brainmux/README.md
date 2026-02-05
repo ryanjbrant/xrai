@@ -1,4 +1,4 @@
-# brainlink
+# brainmux
 
 **Single source of truth for multiple AI development tools.**
 
@@ -11,7 +11,7 @@ When using multiple AI tools, you end up with:
 - Inconsistent behavior between tools
 - Manual sync headaches
 
-brainlink solves this with one config that syncs to all tools.
+brainmux solves this with one config that syncs to all tools.
 
 ## Quick Start
 
@@ -101,7 +101,7 @@ repo/                           (source of truth)
 ├── GLOBAL_RULES.md       →     ~/GLOBAL_RULES.md     →  all tools
 ├── AGENTS.md             →     ~/AGENTS.md           →  Codex
 ├── KnowledgeBase/        →     tool-specific symlinks
-└── modules/brainlink/
+└── modules/brainmux/
     ├── config.json             (toggles)
     ├── sync.sh                 (main script)
     └── README.md
