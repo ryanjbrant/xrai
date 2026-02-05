@@ -6,6 +6,48 @@
 
 ---
 
+## 2026-02-05 - Claude Code - Standard Workflow Established
+
+**Context**: WarpJobs project audit and improvement cycle
+
+**Discovery**: Established standard development workflow that auto-improves with every iteration.
+
+### Standard Workflow (MEMORIZE)
+
+```
+audit → test → auto-fix → improve → document → commit & push
+```
+
+### Key Principle
+
+**Every success AND failure is a learning opportunity.** The system should get smarter with every iteration:
+
+| During Testing | Auto-Action |
+|----------------|-------------|
+| Test passed first try | Log to `SUCCESS_LOG.md` |
+| Test failed | Add root cause to `_QUICK_FIX.md` |
+| >3 debug attempts | Document to `FAILURE_LOG.md` |
+| New test pattern useful | Add to project test utilities |
+
+| During Debugging | Auto-Action |
+|------------------|-------------|
+| Error→fix mapping found | Add to `_QUICK_FIX.md` |
+| Symptom→root cause pattern | Add to `_AUTO_FIX_PATTERNS.md` |
+| Debug command useful | Add to project CLAUDE.md |
+
+### Impact
+
+- Added to `~/GLOBAL_RULES.md` §Standard Workflow (MEMORIZE)
+- All AI tools now follow same improvement cycle
+- System intelligence compounds over time
+
+**Cross-References**:
+- `~/GLOBAL_RULES.md` - Standard Workflow section
+- `_QUICK_FIX.md` - Error fixes
+- `_AUTO_FIX_PATTERNS.md` - Patterns
+
+---
+
 ## 2026-02-05 21:30 PST - Claude Code - FigmentAR Unity Reuse Analysis
 
 **Context**: Deep review of FigmentAR codebase to identify modules reusable with Unity composer
@@ -2473,3 +2515,61 @@ Git post-commit hook syncs GLOBALGLOBAL_RULES.md to all AI tools:
 **Cross-refs**: `_OPEN_MULTIBRAIN_SYNC.md`, `_TOKEN_EFFICIENCY_COMPLETE.md`, `GLOBALGLOBAL_RULES.md`
 
 **Tags**: #architecture #devops #kb #team #cdn
+
+---
+
+## 2026-02-05 10:45 EST - Claude Code - WarpJobs Audit Discoveries
+
+**Context**: Full audit of WarpJobs automated job search system
+
+### Discovery 1: Source Field Tracking Bug
+
+**Problem**: All jobs in database had `source: "unknown"` despite scrapers setting source correctly.
+
+**Root Cause**: `lib/data-pipeline.js:151` used `source` from options parameter, ignoring job's own source field.
+
+**Fix**: Changed `source,` to `source: job.source || source,`
+
+**Impact**: Future jobs will track their actual source (greenhouse, lever, ashby, etc.) enabling better analytics.
+
+### Discovery 2: Dormant XR Career Pages Scraper
+
+**Problem**: Job count dropped from 563 → 28. Only 6 scrapers active despite 11 defined.
+
+**Root Cause**: `scripts/xr-career-pages.js` existed and worked perfectly but was never added to `main.js` pipeline.
+
+**Fix**: Added `runCommand('XR Career Pages', 'node scripts/xr-career-pages.js', CONFIG.timeouts.long)` to Phase 1.
+
+**Impact**: 28 → 815 jobs. Direct API access to 15+ companies (Unity, Roblox, OpenAI, Anthropic, Epic, etc.)
+
+### Discovery 3: Aggressive Cleanup Window
+
+**Problem**: 7-day cleanup window too aggressive for job market data.
+
+**Fix**: Extended `DAYS_TO_KEEP` from 7 to 14 in `scripts/cleanup-old-jobs.js`.
+
+**Impact**: Better job retention for slower-moving executive search.
+
+### Discovery 4: Cloudflare Blocking Old Scrapers
+
+**Finding**: 5 scrapers (Startup.jobs, TrueUp, Arc.dev, Otta, Wellfound) now blocked by Cloudflare (403/challenge pages).
+
+**Lesson**: Direct company career APIs (Greenhouse, Lever, Ashby) more reliable than aggregator sites.
+
+### Anti-Pattern Identified
+
+```
+Dormant code pattern:
+- Script exists and works ✓
+- Script exported in module ✓
+- Script never called in main entry point ✗
+```
+
+**Prevention**: When adding new scrapers, always verify they're called in `main.js` or equivalent orchestrator.
+
+**Cross-References**:
+- `WarpJobs/CLAUDE.md` - Updated metrics
+- `WarpJobs/lib/data-pipeline.js:151` - Source fix
+- `WarpJobs/main.js:91` - XR career pages addition
+
+**Tags**: #warpjobs #scraping #bugfix #audit #automation
