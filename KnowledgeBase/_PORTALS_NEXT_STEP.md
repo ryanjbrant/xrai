@@ -14,29 +14,35 @@
 
 ## IMMEDIATE NEXT STEP (This Week)
 
-### Day 1-2: Port MetavidoVFX Hologram Selfie
+### Implementation Order: Bridge → Composer → Hologram
+
+**Each spec unlocks the next. Don't skip ahead.**
+
+### Step 1: Complete 001-unity-rn-bridge (90% → 100%)
 ```bash
-# Copy from MetavidoVFX:
+# Remaining tasks:
+# - Verify message queue works reliably
+# - Test on multiple devices
+# - Document any edge cases
+# Target: Bridge is rock-solid foundation
+```
+
+### Step 2: Prove 002-unity-advanced-composer
+```bash
+# Key validation:
+# - RN UI overlay renders on top of Unity
+# - Touch events route correctly (UI vs Unity)
+# - Basic object placement works
+# Target: Architecture is proven viable
+```
+
+### Step 3: Then 003-hologram-video-calls
+```bash
+# Port from MetavidoVFX:
 # - HologramController.cs
 # - Hologram.prefab
 # - Core VFX assets
-# Target: See yourself as hologram on device
-```
-
-### Day 3-4: Add Shareable Link
-```bash
-# Export hologram as:
-# - Browser-viewable format (Three.js/WebGPU)
-# - Shareable URL (static hosting)
-# Target: Friend can view your hologram in browser
-```
-
-### Day 5: Ship to 10 Users
-```bash
-# - TestFlight build
-# - Send to 10 real users
-# - Watch them use it
-# - Collect feedback
+# Target: See yourself as hologram + share
 ```
 
 ---
