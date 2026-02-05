@@ -71,7 +71,21 @@ Explore → Plan → Code → Commit → Log discovery
 ### KnowledgeBase Access (Default)
 - **Read access**: ON by default (use KB for answers).
 - **Write/commit/PR**: ONLY when a key insight is confirmed (99% confidence + evidence).
-- **No local KB?** Browse the repo online: https://github.com/imclab/xrai/tree/main/KnowledgeBase
+- **On-demand fetch**: Pull KB files when needed, don't preload (zero startup overhead).
+
+**Online KB Access (no local clone required):**
+| File | URL |
+|------|-----|
+| Index | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_KB_INDEX.md` |
+| Quick Fix | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_QUICK_FIX.md` |
+| Auto Fix | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_AUTO_FIX_PATTERNS.md` |
+| Unity MCP | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_UNITY_MCP_MASTER.md` |
+| VFX Patterns | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_VFX_MASTER_PATTERNS.md` |
+| Token Efficiency | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md` |
+
+**Base URL**: `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/{filename}`
+
+**Usage**: WebFetch/curl the URL when you need that KB file. Index lists all 49 files.
 
 ### If KB Repo Access Is Missing
 - **Request access** to `Unity-XR-AI` KnowledgeBase repo.
