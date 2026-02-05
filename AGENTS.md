@@ -10,6 +10,9 @@
 Search KB → Plan → Code → Commit → Log discovery
 ```
 
+## Session Start Check
+- If `GLOBAL_RULES.md` is not loaded in context, ask the user to load it now.
+
 ## Before Any Change
 1. **Need it?** Check KB for existing solution
 2. **Side effects?** Keep changes minimal, reversible
