@@ -1,6 +1,11 @@
-# Master List: ARFoundation → VFX Graph & WebGL Projects (500+ Projects)
+# AR + VFX Project Index (500+ Projects)
 
-## 🧍 Human Depth/Stencil/Body Tracking → VFX (45+ Projects)
+**Tags**: #vfx #ar #arfoundation #projects
+**Quick ref**: `_VFX_QUICK_REF.md` | **YAML**: `_VFX_MASTER_PATTERNS.md` | **Bindings**: `_VFX_BINDINGS_MASTER.md`
+
+---
+
+## Human Depth/Stencil/Body Tracking → VFX (45+ Projects)
 
 | Project | Description | Techniques | iOS Support |
 |---------|-------------|------------|-------------|

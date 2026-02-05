@@ -1,9 +1,11 @@
-# VFX Graph YAML Reference
+# VFX Graph YAML Reference (Detailed)
 
-Unity VFX Graph assets are stored as YAML files. This document provides a comprehensive reference for understanding and programmatically manipulating VFX Graph assets.
+**Tags**: #vfx #yaml #unity #detailed-spec
+**Quick ref**: `_VFX_QUICK_REF.md` | **AR**: `_VFX_AR_MASTER.md` | **Bindings**: `_VFX_BINDINGS_MASTER.md`
 
-**Last Updated**: 2026-01-20
-**Unity Version**: 6000.2.14f1 (VFX Graph 17.2.0)
+Unity VFX Graph YAML reference for programmatic manipulation.
+
+**Updated**: 2026-01-20 | **Unity**: 6000.2.14f1 (VFX Graph 17.2.0)
 
 ---
 

@@ -1,8 +1,11 @@
-# Rcam VFX Binding Specification: Rcam2, Rcam3, Rcam4
+# VFX Binding Specification (Rcam/Metavido)
 
-**Research Date**: 2026-01-20
-**Source**: MetavidoVFX VFX assets (73 total), Keijiro's Rcam repositories, VFXARBinder.cs
-**Purpose**: Definitive binding reference for MetavidoVFX Rcam-based VFX integration
+**Tags**: #vfx #bindings #rcam #keijiro
+**Quick ref**: `_VFX_QUICK_REF.md` | **YAML**: `_VFX_MASTER_PATTERNS.md` | **AR**: `_VFX_AR_MASTER.md`
+
+Binding reference for Keijiro Rcam-based VFX integration (73 assets analyzed).
+
+**Updated**: 2026-01-20 | **Source**: MetavidoVFX, Rcam2/3/4, VFXARBinder.cs
 
 ---
 
