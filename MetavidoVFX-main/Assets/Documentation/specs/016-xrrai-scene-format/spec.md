@@ -2,7 +2,10 @@
 
 **Feature Branch**: `016-xrrai-scene-format`
 **Created**: 2026-01-22
-**Status**: In Progress (Phase 1 Complete - 60%)
+**Updated**: 2026-02-05
+**Status**: In Progress (Phase 1 Complete - 70%, tests added)
+**Tests**: `Assets/Scripts/Editor/Tests/XRRAISceneTests.cs` (22 tests), `SpecVerificationTests.cs` (6 tests)
+**Run**: `./run_spec_tests.sh` or `H3M > Testing > Run All Spec Verification Tests`
 
 ## Implementation Status (Updated 2026-01-22)
 

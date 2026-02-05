@@ -6,6 +6,71 @@
 
 ---
 
+## 2026-02-05 23:30 PST - Claude Code - Spec Verification Testing Framework
+
+**Context**: Deep audit of MetavidoVFX specs with emphasis on fast, evidence-based verification
+
+**Discoveries**:
+
+### 1. Research Verification Protocol (CRITICAL)
+
+**Never trust KB research blindly.** Before updating specs or KB:
+- Verify claims against official docs (Unity, Apple, Google)
+- Cross-reference working repos (not just marketing/blog posts)
+- Test locally whenever possible
+- 99% confidence required before spec updates
+
+**KB Corrections Made (2026-02-05)**:
+| File | Error | Correction |
+|------|-------|------------|
+| `_CROSS_PLATFORM_ARCHITECTURE_RESEARCH_2026.md` | "1,400 cells" | "~1,400 servers per cell" (100x interpretation error) |
+| `_CROSS_PLATFORM_ARCHITECTURE_RESEARCH_2026.md` | "UDP + interpolation" | "RakNet unreliable channels" (RakNet ≠ raw UDP) |
+| `_HAND_TRACKING_MOBILE_2026.md` | "only free cross-platform" | "most popular" (alternatives exist: ManoMotion Lite, Vision Framework, OpenPose) |
+
+### 2. Fast Verification Test Pattern
+
+Created `SpecVerificationTests.cs` with patterns for:
+- **Type existence checks** - `System.Type.GetType()` for namespace validation
+- **File existence checks** - Verify prefabs, packages, plugins exist
+- **Headless batch runner** - `BatchTestRunner.RunAllTests()` for CI/CD
+- **Device deployment** - `run_spec_tests.sh --device` builds, deploys, monitors logs
+
+**Test Categories**:
+| Category | Tests | Purpose |
+|----------|-------|---------|
+| Spec003_* | 6 | Hologram conferencing components |
+| Spec009_* | 7 | Icosa/Sketchfab integration |
+| Spec016_* | 6 | XRRAI scene format |
+| CrossSpec_* | 4 | Integration validation |
+| Build_* | 4 | Compilation & build health |
+| Performance_* | 2 | Baseline checks |
+
+### 3. Shell Script for Fast Verification
+
+`run_spec_tests.sh` provides fastest paths to verify functionality:
+```bash
+./run_spec_tests.sh          # Headless EditMode tests (~30s)
+./run_spec_tests.sh --quick  # Compilation check only (~10s)
+./run_spec_tests.sh --device # Full device deployment + log monitoring
+./run_spec_tests.sh --console # Quick Unity console check
+```
+
+### Impact
+
+- Added to `~/GLOBAL_RULES.md`:
+  - §Research Verification (CRITICAL - NEVER SKIP)
+  - §Spec Creation Standards (99% Confidence Required)
+- All 3 partial specs now have automated test coverage
+- KB research files corrected with verified sources
+
+**Cross-References**:
+- `~/GLOBAL_RULES.md` - Research verification rules
+- `MetavidoVFX-main/Assets/Scripts/Editor/Tests/SpecVerificationTests.cs` - 29 tests
+- `MetavidoVFX-main/Assets/Scripts/Editor/Tests/XRRAISceneTests.cs` - 22 tests
+- `MetavidoVFX-main/run_spec_tests.sh` - Headless/device test runner
+
+---
+
 ## 2026-02-05 - Claude Code - Standard Workflow Established
 
 **Context**: WarpJobs project audit and improvement cycle

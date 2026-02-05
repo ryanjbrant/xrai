@@ -3,7 +3,7 @@
 **Feature Branch**: `009-icosa-sketchfab-integration`
 **Created**: 2026-01-20
 **Updated**: 2026-01-22
-**Status**: Complete (Voice wiring verified)
+**Status**: Complete (Voice wiring verified, tests added 2026-02-05)
 **Implementation**:
 - ✅ UnifiedModelSearch.cs - Dual-source search aggregation
 - ✅ SketchfabClient.cs - Sketchfab API wrapper
@@ -14,7 +14,10 @@
 - ✅ WhisperIcosaController.cs - Voice-to-object integration (530 LOC)
 - ✅ VoiceProviderManager.cs - Hot-swappable voice providers (370 LOC)
 - ✅ LLMVoiceProvider.cs, GeminiVoiceProvider.cs - Voice backends
+- ✅ SpecVerificationTests.cs - 7 automated tests (2026-02-05)
 - ⬜ GLTFast runtime loading (deferred - requires package)
+**Tests**: `Assets/Scripts/Editor/Tests/SpecVerificationTests.cs` (Spec009_* methods)
+**Run**: `./run_spec_tests.sh` or `H3M > Testing > Run All Spec Verification Tests`
 **Input**: Voice-to-object and search-to-placement for 3D models from Icosa Gallery and Sketchfab
 
 ## Triple Verification

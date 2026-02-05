@@ -2,8 +2,10 @@
 
 **Feature Branch**: `003-hologram-conferencing`
 **Created**: 2026-01-14
-**Updated**: 2026-01-22
-**Status**: Complete
+**Updated**: 2026-02-05
+**Status**: Complete (tests added 2026-02-05)
+**Tests**: `Assets/Scripts/Editor/Tests/SpecVerificationTests.cs` (Spec003_* methods, 6 tests)
+**Run**: `./run_spec_tests.sh` or `H3M > Testing > Run All Spec Verification Tests`
 **Implementation**:
 - ✅ RecordingController.cs - Avfi-based MP4 recording
 - ✅ RecordingUI.cs - UI Toolkit record button/timer

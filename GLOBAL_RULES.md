@@ -578,6 +578,27 @@ Use subagents for investigations to keep main context clean:
 | Log location discovered | Add to troubleshooting docs |
 | Symptom→cause mapping | Add to _AUTO_FIX_PATTERNS.md |
 
+### Root Cause Analysis (MANDATORY for Persistent Issues)
+
+**When a bug escapes testing, ask WHY tests didn't catch it:**
+
+| Gap Type | Root Cause | Permanent Fix |
+|----------|------------|---------------|
+| Frontend/backend mismatch | API contract not tested | Add contract tests |
+| Status value mismatch | Response format undocumented | Document + test exact response |
+| Endpoint not covered | Test suite has gaps | Add endpoint coverage |
+| Edge case missed | Happy path only tested | Add negative/edge tests |
+| Integration failure | Components tested in isolation | Add integration tests |
+
+**Process**:
+1. Fix the immediate bug
+2. Ask: "Why didn't tests catch this?"
+3. Add the missing test FIRST (should fail without fix)
+4. Apply fix (test now passes)
+5. Document pattern in _QUICK_FIX.md or _AUTO_FIX_PATTERNS.md
+
+**Key Principle**: Every escaped bug represents a gap in the test suite. Close the gap permanently.
+
 ### Auto-Fix Escalation
 
 ```
@@ -666,12 +687,57 @@ When consolidating, archiving, deduping, or cleaning up:
 | LEARNING_LOG | Instant | Permanent | Discoveries |
 | Git history | ~1s | Permanent | Code archaeology |
 
+### Research Verification (CRITICAL - NEVER SKIP)
+
+**NEVER assume latest research is correct.** Before updating specs or KB:
+
+1. **Deep research first** - Verify claims against official docs, community consensus
+2. **Check accuracy** - Cross-reference multiple sources, test code examples
+3. **Ensure best practices** - Align with industry standards, not just "working" code
+4. **Simplicity check** - Is this the simplest correct solution?
+5. **Modularity check** - Does it fit clean architecture principles?
+6. **Project goals** - Does it align with current project priorities?
+
+**Anti-patterns**:
+- ❌ Accepting KB research at face value
+- ❌ Updating specs without verifying claims
+- ❌ Adding unverified patterns to KB
+- ❌ Assuming "newer = better"
+
+**Verification Order**:
+1. Official documentation (Unity, Apple, Google)
+2. Working code in reputable repos
+3. Community consensus (forums, issues)
+4. KB research (verify, don't trust blindly)
+
+### Spec Creation Standards (99% Confidence Required)
+
+**Evidence must be BOTH**:
+1. **Online verified** - Official docs, GitHub repos, technical blogs with sources
+2. **Locally tested** - Demonstrated working in project whenever possible
+
+**Before adding to spec or KB**:
+| Check | Required Evidence |
+|-------|-------------------|
+| API claim | Link to official docs + code example |
+| Pattern claim | Working repo OR local test |
+| Performance claim | Benchmark data OR profile screenshot |
+| Compatibility claim | Tested on target platform |
+| Architecture claim | Reference implementation OR diagram |
+
+**Red flags (reject these)**:
+- ❌ "I heard that..." without source
+- ❌ Marketing copy without technical backing
+- ❌ Old blog posts (check dates!)
+- ❌ Unverified KB entries (recursive trust)
+- ❌ Claims without version numbers
+
 ### Auto-Intelligence Gathering
 
 **On every significant task**:
 1. Search KB first (`kbfix`, `kbtag`, `kb`)
 2. If pattern not found → research online
-3. Triple-verify findings
+3. **Triple-verify findings** (see Research Verification above)
 4. Add to appropriate KB file:
    - Error fix → `_QUICK_FIX.md`
    - Pattern → `_*_MASTER.md`
