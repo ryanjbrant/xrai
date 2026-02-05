@@ -11,7 +11,7 @@ Search KB → Plan → Code → Commit → Log discovery
 ```
 
 ## Session Start Check (Quiet)
-- If `GLOBAL_RULES.md` is missing **and** it blocks the task, ask once at session start.
+- If `GLOBAL_RULES.md` is missing **and** it blocks the task **or** it will with 98% confidence speed up, improve accuracy, save tokens, or otherwise help the developer task, ask once at session start.
 
 ## Session Start Defaults (No Prompt)
 - Defaults: `toolchain=auto-detect`, `scope=project-only`, `verbosity=concise`.
