@@ -103,7 +103,15 @@ Explore → Plan → Code → Commit → Log discovery
 
 **Base URL**: `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/{filename}`
 
-**Usage**: WebFetch/curl the URL when you need that KB file. Index lists all 49 files.
+**Smart KB Access (auto-detect fastest method):**
+```bash
+# Priority order (AI tools should try in this order):
+1. Local KB:     ~/.claude/knowledgebase/{file}     # ~1ms
+2. Project KB:   .claude/kb/{file}                  # ~1ms
+3. CDN fetch:    WebFetch/curl CDN URL              # ~100ms
+```
+
+**For AI tools**: Always check local first, then CDN. Never preload—fetch on-demand only.
 
 ### If KB Repo Access Is Missing
 - **Request access** to `Unity-XR-AI` KnowledgeBase repo.
