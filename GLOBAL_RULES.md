@@ -74,16 +74,16 @@ Explore → Plan → Code → Commit → Log discovery
 - **On-demand fetch**: Pull KB files when needed, don't preload (zero startup overhead).
 
 **Online KB Access (no local clone required):**
-| File | URL |
+| File | URL (jsDelivr CDN - no rate limits) |
 |------|-----|
-| Index | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_KB_INDEX.md` |
-| Quick Fix | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_QUICK_FIX.md` |
-| Auto Fix | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_AUTO_FIX_PATTERNS.md` |
-| Unity MCP | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_UNITY_MCP_MASTER.md` |
-| VFX Patterns | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_VFX_MASTER_PATTERNS.md` |
-| Token Efficiency | `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md` |
+| Index | `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/_KB_INDEX.md` |
+| Quick Fix | `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/_QUICK_FIX.md` |
+| Auto Fix | `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/_AUTO_FIX_PATTERNS.md` |
+| Unity MCP | `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/_UNITY_MCP_MASTER.md` |
+| VFX Patterns | `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/_VFX_MASTER_PATTERNS.md` |
+| Token Efficiency | `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md` |
 
-**Base URL**: `https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/{filename}`
+**Base URL**: `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/{filename}`
 
 **Usage**: WebFetch/curl the URL when you need that KB file. Index lists all 49 files.
 
