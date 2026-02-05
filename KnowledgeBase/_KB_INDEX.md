@@ -4,6 +4,8 @@
 
 ---
 
+**No local KB?** Browse online: https://github.com/imclab/xrai/tree/main/KnowledgeBase
+
 ## Quick Access (Daily Use)
 
 | Need | File | Use Case |

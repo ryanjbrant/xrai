@@ -63,6 +63,7 @@ Explore → Plan → Code → Commit → Log discovery
 ### KnowledgeBase Access (Default)
 - **Read access**: ON by default (use KB for answers).
 - **Write/commit/PR**: ONLY when a key insight is confirmed (99% confidence + evidence).
+- **No local KB?** Browse the repo online: https://github.com/imclab/xrai/tree/main/KnowledgeBase
 
 ### If KB Repo Access Is Missing
 - **Request access** to `Unity-XR-AI` KnowledgeBase repo.
