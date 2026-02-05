@@ -15,8 +15,10 @@
 ### Standard Workflow (MEMORIZE)
 
 ```
-audit → test → auto-fix → improve → document → commit & push
+audit → test → auto-fix → [re-test if fixes] → improve → document → commit & push
 ```
+
+**Re-test Rule**: If auto-fix changed any code, ALWAYS re-run tests before proceeding. Never commit untested fixes.
 
 ### Key Principle
 
@@ -2573,3 +2575,34 @@ Dormant code pattern:
 - `WarpJobs/main.js:91` - XR career pages addition
 
 **Tags**: #warpjobs #scraping #bugfix #audit #automation
+
+## 2026-02-05: MCP Server Management - Force Quit Fix
+
+**Problem**: Claude Code and Windsurf force quitting randomly.
+
+**Root Cause**: Multiple AI IDEs (Windsurf, Antigravity, Claude Code, Cursor) each spawn their own MCP servers independently. Running 3-4 IDEs = 24-32+ MCP processes = memory exhaustion.
+
+**Solution**: 
+1. Created `~/bin/mcp-kill-dupes` script that kills duplicate servers (keeps oldest)
+2. Added to SessionStart hook (`~/.claude/hooks/session-health-check.sh`)
+3. Added `mcp-nuke` alias for heavy servers (playwright, puppeteer, etc.)
+
+**Best Practice**: Use hooks over LaunchAgents for Claude Code automation.
+- Hooks run in context, have conversation state access
+- No persistent background processes
+- Auto-cleanup when session ends
+
+**New Commands**:
+- `mcp-kill-dupes` - Kill duplicates (auto at session start)
+- `mcp-nuke` - Kill duplicates + heavy servers
+- `mcp-kill-all` - Nuclear option
+
+**Documented In**:
+- `GLOBAL_RULES.md` → MCP Server Management section
+- `_MCP_SERVER_MANAGEMENT.md` (new KB doc)
+- `_OPEN_MULTIBRAIN_SYNC.md` → MCP section
+- `_TOOL_INTEGRATION_MAP.md` → MCP commands
+- `_QUICK_FIX.md` → MCP force quit fixes
+- Project `CLAUDE.md` → Unity MCP section
+
+**Tags**: #mcp #performance #memory #hooks #cross-tool
