@@ -1,8 +1,55 @@
-# Portals: Video Conference Holograms
+# Portals: Next Step
 
-**Date:** 2026-02-05
-**Goal:** Live multiuser hologram calls with LiDAR + VFX
-**Status:** Core already built in MetavidoVFX - port to Portals
+**Date:** 2026-02-05 (Updated 21:30 PST)
+**Goal:** One Magic Demo → 10 Users → Iterate
+**Status:** Strategy complete, ready for implementation
+
+---
+
+## THE ONE-LINE STRATEGY
+
+> **Capture is commodity. Distribution is commodity. RANKING is the moat.**
+
+---
+
+## IMMEDIATE NEXT STEP (This Week)
+
+### Day 1-2: Port MetavidoVFX Hologram Selfie
+```bash
+# Copy from MetavidoVFX:
+# - HologramController.cs
+# - Hologram.prefab
+# - Core VFX assets
+# Target: See yourself as hologram on device
+```
+
+### Day 3-4: Add Shareable Link
+```bash
+# Export hologram as:
+# - Browser-viewable format (Three.js/WebGPU)
+# - Shareable URL (static hosting)
+# Target: Friend can view your hologram in browser
+```
+
+### Day 5: Ship to 10 Users
+```bash
+# - TestFlight build
+# - Send to 10 real users
+# - Watch them use it
+# - Collect feedback
+```
+
+---
+
+## DEPENDENCY ACTIONS (This Week)
+
+| File | Change | Priority |
+|------|--------|----------|
+| `package.json` | Node >=18 → >=20 | High |
+| `VideoViewer.tsx` | expo-av → expo-video | Medium |
+| `AudioPlayer.tsx` | expo-av → expo-audio | Medium |
+| `OnboardingScreen.tsx` | expo-av → expo-audio | Medium |
+| `ArtifactViewerScreen.tsx` | expo-av → expo-video | Medium |
 
 ---
 
