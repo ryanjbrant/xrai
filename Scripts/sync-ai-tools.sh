@@ -1,3 +1,3 @@
 #!/bin/bash
-# Wrapper - delegates to brainmux module
-exec "$(dirname "$0")/../modules/brainmux/sync.sh" "$@"
+# Wrapper - delegates to open-multibrain module
+exec "$(dirname "$0")/../modules/open-multibrain/sync.sh" "$@"

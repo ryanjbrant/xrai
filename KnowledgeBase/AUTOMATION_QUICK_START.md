@@ -8,7 +8,7 @@
 
 | Trigger | What Runs | Impact |
 |---------|-----------|--------|
-| `git commit` | brainmux sync | <1 sec |
+| `git commit` | open-multibrain sync | <1 sec |
 | Manual `kb-audit` | Health check | ~30 sec |
 | AI session | Improvements | Zero extra |
 
@@ -23,7 +23,7 @@
 git clone git@github.com:imclab/xrai.git ~/Documents/GitHub/Unity-XR-AI
 
 # Run sync once
-./modules/brainmux/sync.sh
+./modules/open-multibrain/sync.sh
 
 # Done. Git hooks handle the rest.
 ```
@@ -37,10 +37,10 @@ git clone git@github.com:imclab/xrai.git ~/Documents/GitHub/Unity-XR-AI
 ./KnowledgeBase/KB_AUDIT.sh
 
 # Manual sync to all AI tools
-./modules/brainmux/sync.sh
+./modules/open-multibrain/sync.sh
 
 # Check sync status
-./modules/brainmux/sync.sh --status
+./modules/open-multibrain/sync.sh --status
 ```
 
 ---
@@ -83,7 +83,7 @@ Git commit
     ↓
 post-commit hook
     ↓
-brainmux/sync.sh
+open-multibrain/sync.sh
     ↓
 Updates: ~/.claude/, ~/.codex/, ~/.antigravity/
 ```

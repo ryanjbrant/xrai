@@ -1,12 +1,12 @@
-# brainmux - Cross-Tool AI Sync
+# open-multibrain - Cross-Tool AI Sync
 
 **Tags**: #tools #sync #automation #claude #codex #windsurf #antigravity
 **Cross-refs**: `GLOBAL_RULES.md`, `AGENTS.md`, `_CROSS_TOOL_ARCHITECTURE.md`
-**Domain**: brainmux.com (available)
+**Domain**: open-multibrain.com (available)
 
 ---
 
-## What Is brainmux?
+## What Is open-multibrain?
 
 Single source of truth for multiple AI development tools. Syncs configuration across:
 
@@ -27,7 +27,7 @@ Unity-XR-AI/                    (source of truth)
 ├── GLOBAL_RULES.md       →     ~/GLOBAL_RULES.md     →  all tools
 ├── AGENTS.md             →     ~/AGENTS.md           →  Codex
 ├── KnowledgeBase/        →     tool-specific symlinks
-└── modules/brainmux/
+└── modules/open-multibrain/
     ├── config.json             (toggles)
     ├── sync.sh                 (main script)
     └── README.md
@@ -43,7 +43,7 @@ git commit (to GLOBAL_RULES.md, AGENTS.md, or KnowledgeBase/)
     ↓
 .git/hooks/post-commit
     ↓
-modules/brainmux/sync.sh
+modules/open-multibrain/sync.sh
     ↓
 All tool configs updated (<1 sec)
 ```
@@ -51,20 +51,20 @@ All tool configs updated (<1 sec)
 ### Manual
 ```bash
 # Run sync
-./modules/brainmux/sync.sh
+./modules/open-multibrain/sync.sh
 
 # Check status
-./modules/brainmux/sync.sh --status
+./modules/open-multibrain/sync.sh --status
 
 # Force sync even if disabled
-./modules/brainmux/sync.sh --force
+./modules/open-multibrain/sync.sh --force
 ```
 
 ---
 
 ## Configuration
 
-Edit `modules/brainmux/config.json`:
+Edit `modules/open-multibrain/config.json`:
 
 ```json
 {
@@ -103,7 +103,7 @@ Edit `modules/brainmux/config.json`:
 ### If You Clone the KB Repo
 ```bash
 git clone git@github.com:imclab/xrai.git ~/Documents/GitHub/Unity-XR-AI
-./modules/brainmux/sync.sh
+./modules/open-multibrain/sync.sh
 # Done. Git hooks handle the rest.
 ```
 
@@ -126,7 +126,7 @@ chmod +x .git/hooks/post-commit
 ### Symlinks Broken
 ```bash
 # Re-run sync
-./modules/brainmux/sync.sh --force
+./modules/open-multibrain/sync.sh --force
 ```
 
 ### Tool Not Syncing
@@ -142,9 +142,9 @@ Check `config.json` - tool might be disabled.
 
 ---
 
-## Why "brainmux"?
+## Why "open-multibrain"?
 
 - **brain** = AI/intelligence
 - **mux** = multiplexer (routes one signal to many outputs)
-- **brainmux.com** = available domain
+- **open-multibrain.com** = available domain
 - Fits GitHub naming trends (technical, short, memorable)

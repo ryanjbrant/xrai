@@ -14,7 +14,7 @@
 | Auto-fix | `_AUTO_FIX_PATTERNS.md` | Automated fix patterns |
 | Token tips | `_TOKEN_EFFICIENCY_COMPLETE.md` | Reduce token usage |
 | Tool choice | `_CROSS_TOOL_ARCHITECTURE.md` | Which tool for what |
-| Tool sync | `_BRAINMUX_CROSS_TOOL_SYNC.md` | Sync AI tools (brainmux) |
+| Tool sync | `_OPEN_MULTIBRAIN_SYNC.md` | Sync AI tools (open-multibrain) |
 | GitHub trends | `_GITHUB_TRENDING_INDEX.md` | Top repos, keywords |
 | Session log | `LEARNING_LOG.md` | Log discoveries |
 
