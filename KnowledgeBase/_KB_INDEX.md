@@ -116,3 +116,4 @@ Use `kb "tag"` or grep to find files by tag:
 
 `_archive/` contains 110 files - original content before consolidation.
 Search archive if master file missing detail: `grep -r "term" _archive/`
+
