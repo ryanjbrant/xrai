@@ -50,7 +50,14 @@ Explore → Plan → Code → Commit → Log discovery
 - **Agents guide**: Keep `AGENTS.md` synchronized with codebase/docs/specs/KB and `CLAUDE.md`.
 - **Cross-tool sync**: Keep docs/rules/memory aligned across Codex, Claude Code, and Gemini.
 - **KB Index**: `~/KnowledgeBase/_KB_INDEX.md`
+- **GitHub trends**: `~/KnowledgeBase/_GITHUB_TRENDING_INDEX.md` (auto-updates every 12h)
 - **Official sources + updates**: `~/KnowledgeBase/_OFFICIAL_SOURCES_LATEST_UPDATES.md`
+
+### Research Auto-Update Rules
+- **GitHub trends**: Auto-update every 12 hours (LaunchAgent)
+- **Triple-verify**: All research must be verified from 3+ sources before KB commit
+- **Silent background**: Updates run silently, log to `logs/`
+- **Project-specific**: Include Top 10 for current project (Unity, RN, AR, VFX)
 
 ### Session Start Defaults (No Prompt)
 - Defaults: `toolchain=auto-detect`, `scope=project-only`, `verbosity=concise`.

@@ -14,6 +14,7 @@
 | Auto-fix | `_AUTO_FIX_PATTERNS.md` | Automated fix patterns |
 | Token tips | `_TOKEN_EFFICIENCY_COMPLETE.md` | Reduce token usage |
 | Tool choice | `_CROSS_TOOL_ARCHITECTURE.md` | Which tool for what |
+| GitHub trends | `_GITHUB_TRENDING_INDEX.md` | Top repos, keywords (auto-updates) |
 | Session log | `LEARNING_LOG.md` | Log discoveries |
 
 ---
