@@ -1,248 +1,91 @@
-# Automated Maintenance - Quick Start
+# KB Automation - Simple Approach
 
-**Setup Time**: < 5 minutes
-**Daily Runtime**: < 5 minutes (automated)
-**Benefit**: Self-improving, self-maintaining knowledgebase
-**Opt-in**: All automation is optional - enable what you need
+**Philosophy**: No background daemons. Git hooks + on-demand scripts only.
 
 ---
 
-## First Run (New Users)
+## How It Works
 
-On first clone, you'll be prompted:
-```
-Enable KB automation? [y/N]
-```
+| Trigger | What Runs | Impact |
+|---------|-----------|--------|
+| `git commit` | brainmux sync | <1 sec |
+| Manual `kb-audit` | Health check | ~30 sec |
+| AI session | Improvements | Zero extra |
 
-Choose `y` for full automation, or `n` to skip (can enable later).
-
-**Config file**: `automation-config.json` (edit to customize)
+**No background processes. No system slowdown.**
 
 ---
 
-## One-Time Setup
+## Setup (One Time)
 
 ```bash
-# 1. Run setup script
-~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/KB_SETUP_AUTOMATION.sh
+# Clone repo
+git clone git@github.com:imclab/xrai.git ~/Documents/GitHub/Unity-XR-AI
 
-# 2. Reload shell
-source ~/.zshrc
+# Run sync once
+./modules/brainmux/sync.sh
 
-# 3. Test it works
-kb-audit
+# Done. Git hooks handle the rest.
 ```
-
-**That's it!** Your knowledgebase is now self-maintaining.
 
 ---
 
-## Daily Commands (Manual)
+## On-Demand Commands
 
 ```bash
-kb-audit       # Health check (2 min)
-kb-backup      # Backup now (1 min)
-kb-research    # Find new resources (5 min)
-kb-optimize    # Optimize KB (1 min)
-kb-maintain    # Run all tasks
-kb-logs        # View maintenance logs
+# Health check
+./KnowledgeBase/KB_AUDIT.sh
+
+# Manual sync to all AI tools
+./modules/brainmux/sync.sh
+
+# Check sync status
+./modules/brainmux/sync.sh --status
 ```
 
 ---
 
-## Automated Schedule (Optional)
+## What Happens Automatically
 
-### Option A: LaunchAgents (Recommended for macOS)
+### On Git Commit (via hook)
+- Syncs GLOBAL_RULES.md to all AI tools
+- Syncs AGENTS.md to Codex
+- Updates KB symlinks
 
+### During AI Sessions
+- AI tools read KB directly (no daemon needed)
+- Improvements happen in-session
+- Discoveries logged to LEARNING_LOG.md
+
+---
+
+## FAQ
+
+**Q: Do I need background daemons?**
+A: No. Git hooks trigger on commit. AI tools read KB live.
+
+**Q: What about auto-updating GitHub trends?**
+A: AI tools can update during sessions when relevant. No daemon needed.
+
+**Q: What if I want scheduled tasks?**
+A: Use cron for specific needs:
 ```bash
-# Install LaunchAgents
-cp KnowledgeBase/launchagents/*.plist ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.unity-xr-ai.*.plist
-
-# Check status
-launchctl list | grep unity-xr-ai
-```
-
-See `KnowledgeBase/launchagents/README.md` for details.
-
-### Option B: Cron (Alternative)
-
-```bash
-# Edit crontab
-crontab -e
-
-# Add this line for 5 AM daily:
-0 5 * * * ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/KB_MAINTENANCE.sh daily >> ~/.claude/knowledgebase/maintenance.log 2>&1
+# Optional: Daily audit at 6am
+0 6 * * * ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/KB_AUDIT.sh
 ```
 
 ---
 
-## What Gets Automated
+## Architecture
 
-### Daily (5 AM if cron enabled)
-- ✅ Health check & integrity verification
-- ✅ Git commit backup
-- ✅ New GitHub repos discovery
-- ✅ ArXiv paper scanning
-- ✅ Token usage optimization
-- ✅ Index regeneration
-
-### Weekly (Sunday 5 AM)
-- ✅ Deep quality audit
-- ✅ Learning log consolidation
-- ✅ Performance analysis
-- ✅ Link validation
-
-### Monthly (First Sunday 5 AM)
-- ✅ Comprehensive review
-- ✅ Major optimizations
-- ✅ Archive rotation
-
----
-
-## Safety Features
-
-### Automatic
-- 🔒 Lock files prevent conflicts
-- 💾 Git backups before changes
-- ✅ Validation before commit
-- 🔄 Rollback on error
-- 📊 Metrics tracking
-
-### Manual Override
-```bash
-# Restore from backup
-cd ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase
-git reset --hard HEAD  # Last commit
-
-# Or specific backup
-cp -R ~/Documents/GitHub/code-backups/KB-20250107-220000/* .
-
-# Clear stuck lock
-rm ~/.claude/knowledgebase/.maintenance.lock
+```
+Git commit
+    ↓
+post-commit hook
+    ↓
+brainmux/sync.sh
+    ↓
+Updates: ~/.claude/, ~/.codex/, ~/.antigravity/
 ```
 
----
-
-## Monitoring
-
-```bash
-# View logs (live)
-kb-logs
-
-# View last 100 lines
-tail -100 ~/.claude/knowledgebase/maintenance.log
-
-# Check metrics
-cat ~/.claude/knowledgebase/metrics.json | jq
-
-# List recent backups
-ls -lth ~/Documents/GitHub/code-backups/ | grep KB- | head -5
-```
-
----
-
-## Performance Targets
-
-| Metric | Target | Current |
-|--------|--------|---------|
-| Total tokens | <60K | ~54K ✓ |
-| Daily runtime | <5 min | ~3 min ✓ |
-| Duplicate rate | <2% | <2% ✓ |
-| Backup size | <10MB | ~5MB ✓ |
-| Accuracy | >95% | 97% ✓ |
-
----
-
-## Troubleshooting
-
-### Problem: Audit fails
-**Solution**: Run with verbose output
-```bash
-bash -x ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/KB_AUDIT.sh
-```
-
-### Problem: Backup fails
-**Solution**: Check disk space
-```bash
-df -h ~
-```
-
-### Problem: Research finds nothing
-**Solution**: Check internet connection, GitHub CLI
-```bash
-gh --version  # Should be installed
-curl -I https://github.com  # Should return 200
-```
-
-### Problem: Cron not running
-**Solution**: Check cron logs
-```bash
-log show --predicate 'process == "cron"' --last 1h
-```
-
----
-
-## Advanced Features
-
-### Custom Research Sources
-Edit `KB_RESEARCH.sh` to add:
-- Your favorite blogs
-- Specific GitHub orgs
-- Custom ArXiv queries
-
-### Optimization Rules
-Edit `KB_OPTIMIZE.sh` to:
-- Adjust token limits
-- Change rotation thresholds
-- Add custom cleanup rules
-
-### Notification Alerts
-Add to scripts:
-```bash
-# macOS notification
-osascript -e 'display notification "Maintenance complete!" with title "Knowledgebase"'
-
-# Email alert (requires mail setup)
-echo "Maintenance complete" | mail -s "KB Update" you@email.com
-```
-
----
-
-## Best Practices
-
-✅ **DO**:
-- Review research queue weekly
-- Check logs after errors
-- Test backups occasionally
-- Update scripts as needed
-
-❌ **DON'T**:
-- Run manual tasks during automation
-- Ignore persistent errors
-- Skip backup verification
-- Modify files during maintenance
-
----
-
-## Next Steps
-
-1. ✅ Setup completed (you're done!)
-2. ⏰ Enable cron (optional but recommended)
-3. 📖 Review LEARNING_LOG.md weekly
-4. 🔬 Check RESEARCH_QUEUE.md for discoveries
-5. 📊 Monitor metrics monthly
-
----
-
-## Resources
-
-- **Full Guide**: [_AUTOMATED_MAINTENANCE_GUIDE.md](_AUTOMATED_MAINTENANCE_GUIDE.md)
-- **Implementation**: [_IMPLEMENTATION_SUMMARY.md](_IMPLEMENTATION_SUMMARY.md)
-- **Memory System**: [_SELF_IMPROVING_MEMORY_ARCHITECTURE.md](_SELF_IMPROVING_MEMORY_ARCHITECTURE.md)
-
----
-
-**Remember**: Set it and forget it. Your knowledgebase maintains itself while continuously getting smarter.
-
-🚀 **Your AI tools now have self-improving intelligence!**
+**Zero background processes. Zero system impact.**
