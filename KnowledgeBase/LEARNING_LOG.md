@@ -6,6 +6,150 @@
 
 ---
 
+## 2026-02-05 21:30 PST - Claude Code - FigmentAR Unity Reuse Analysis
+
+**Context**: Deep review of FigmentAR codebase to identify modules reusable with Unity composer
+
+**Key Finding**: Voice+LLM pipeline is **100% portable** to Unity - entire infrastructure exists and works.
+
+### Fully Portable Modules (~3,200 lines)
+
+| Module | Path | Reuse % |
+|--------|------|---------|
+| AISceneComposer | `src/services/aiSceneComposer.ts` | 100% |
+| VoiceService | `src/services/voice.ts` | 100% |
+| VoiceComposerButton | `src/screens/FigmentAR/component/VoiceComposerButton.js` | 100% |
+| SceneContext | `src/screens/FigmentAR/helpers/SceneContext.js` | 90% (Zustand adapter) |
+| SceneCompiler | `src/screens/FigmentAR/helpers/SceneCompiler.js` | Reference for Unity adapter |
+| PaletteTab, LibraryTab, ObjectPropertiesPanel | FigmentAR/component/ | 85-95% |
+| ArViewRecorder | `modules/ar-view-recorder/ios/` | 100% |
+
+### Voice→LLM Pipeline Architecture
+
+```
+User Voice → VoiceService (expo-audio) → WAV → Gemini 2.0 Flash → Structured Actions → Unity Bridge
+```
+
+**Critical Insight**: Only new code needed is `UnityCompiler.ts` (~100 lines) to map LLM actions to bridge messages.
+
+### Impact on 002 Spec
+
+- Added Phase 3.5: Voice+LLM Integration (7 tasks, 100% reuse)
+- Updated dependency graph to include voice critical path
+- Estimated 1 week to full voice-controlled Unity scene editing
+
+**Cross-References**:
+- `KnowledgeBase/_FIGMENTAR_UNITY_REUSE_ANALYSIS.md` - Full analysis
+- `.specify/specs/002-unity-advanced-composer/tasks.md` - Updated tasks
+- `_PORTALS_V4_STRATEGIC_ROADMAP.md` - Updated Tier 1 magic features
+
+---
+
+## 2026-02-05 19:00 PST - Claude Code - "Open Brush for AR+AI" Research Synthesis
+
+**Context**: Deep research for Portals V4 vision as "Open Brush for AR+AI" using React Native + Unity architecture
+
+**Research Scope**: 7 parallel agents researching MetavidoVFX, KB updates, Open Brush, Icosa Gallery, AI+AR tools, 3D formats
+
+### Key Architectural Patterns Discovered
+
+#### 1. O(1) VFX Compute Pattern (MetavidoVFX) - CRITICAL
+```
+ARDepthSource.cs (SINGLETON) → One compute dispatch/frame
+VFXARBinder.cs (per VFX) → Just SetTexture() calls (~0.2ms each)
+```
+- **Performance**: 5 VFX @ 7.8ms vs naive 21.5ms (64% faster)
+- **Gotcha**: `Shader.SetGlobalTexture()` does NOT work with VFX Graph - must use per-VFX `SetTexture()`
+
+#### 2. Open Brush Architecture (Reference)
+- **.tilt format**: Zip containing `data.sketch` (binary header + stroke data)
+- **Lua plugin system**: 4 types (Pointer, Symmetry, Tool, Background)
+- **HTTP API**: localhost:40074 for external control
+- **Brush geometry types**: 6 (Flat, Tube, Hull, Particle, Spray, Slice)
+
+#### 3. Icosa Gallery API (Asset Integration)
+- **Base URL**: `https://api.icosa.gallery/v1/`
+- **Auth**: Device code OAuth 2.0 (RFC 8628)
+- **Unity SDK**: `icosa-toolkit-unity` (active) or `open-brush-unity-tools`
+- **Formats**: glTF 2.0 priority, OBJ fallback, GOOGLE_tilt_brush_material extension
+
+#### 4. XRAI Format (glTF-Based Scene Format)
+- **Decision**: glTF 2.0 base (NOT USD) - industry converging
+- **Extensions**: XRAI_core, XRAI_generators, XRAI_vfx, XRAI_ai, XRAI_spatial, XRAI_collaboration
+- **Generative encoding**: 1000:1 compression ratios for procedural content
+- **Gaussian splats**: KHR_gaussian_splatting Q2 2026 (90% compression via SPZ)
+
+### Production-Ready Patterns to Adopt
+
+| Pattern | Source | Files to Copy |
+|---------|--------|---------------|
+| O(1) Compute VFX | MetavidoVFX | `ARDepthSource.cs`, `VFXARBinder.cs`, `DepthToWorld.compute` |
+| Audio FFT + Beat | MetavidoVFX | `AudioBridge.cs` (415 lines) |
+| Hand Tracking | MetavidoVFX | `HandVFXController.cs` (506 lines) |
+| VFX Quality Scaling | MetavidoVFX | `VFXAutoOptimizer.cs` (425 lines) |
+| Brush Painting | MetavidoVFX | `BrushManager.cs` (107 brushes, 6 geometry types) |
+
+### XRRAI Namespace Migration (Complete)
+164 files migrated with 0 compilation errors:
+- `XRRAI.HandTracking` (15 files)
+- `XRRAI.BrushPainting` (6 files)
+- `XRRAI.VFXBinders` (14 files)
+- `XRRAI.VoiceToObject` (12 files)
+- `XRRAI.Hologram` (21 files)
+
+### Voice Agent Patterns (OpenAI Realtime API)
+- **Chat-Supervisor Hybrid**: realtime-mini (conversation) + gpt-4.1 (reasoning/tools)
+- **Sequential Handoffs**: Swarm-inspired specialized agent graph
+- **Latency targets**: <200ms with Whisper v3-turbo + ElevenLabs
+
+### Gaps Identified
+1. Voice-to-VFX pipeline (no implementation guide)
+2. Collaborative scene editing (CRDT patterns documented, no Unity code)
+3. AI asset generation (latent space integration patterns only)
+4. visionOS PolySpatial (limited AR documentation)
+
+**Cross-ref**: `portals_main/specs/`, `MetavidoVFX-main/`, `KnowledgeBase/_ARFOUNDATION_VFX_MASTER_LIST.md`
+
+---
+
+## 2026-02-05 16:30 PST - Claude Code - RN-Unity Bridge Research Findings
+
+**Context**: Deep research on React Native + Unity UAAL bridge patterns for Portals V4
+
+### Key Findings
+
+| Finding | Impact | Action |
+|---------|--------|--------|
+| Fabric reduces RN-side latency ~25x | Performance | Already using New Architecture |
+| Message batching reduces overhead ~70% | Performance | Add to composer implementation |
+| `string.Contains()` routing is fragile | Maintainability | Migrate to handler dictionary |
+| TurboModule wrapper not yet available | Future planning | Wait for @artmajeur update |
+
+### Performance Benchmarks (Validated)
+
+| Message Type | Latency | Notes |
+|--------------|---------|-------|
+| Simple JSON <1KB | 2-5ms | Most UI commands |
+| Large JSON >10KB | 10-20ms | Scene snapshots |
+| Unity→RN event | 16-33ms | 1-2 frame delay |
+
+### Critical Pitfalls Documented
+
+1. **Black screen**: `.xcode.env` missing `RCT_NEW_ARCH_ENABLED=1`
+2. **15 FPS**: VSync conflict - set `vSyncCount=0`, `targetFrameRate=60`
+3. **unity_ready not received**: Need message queue buffering patch
+4. **Fabric registration**: Manual patch required for `@artmajeur/react-native-unity`
+
+### Files Updated
+
+- `specs/UNITY_RN_BRIDGE_RECOMMENDATIONS.md` - Added benchmarks, pitfalls, alternatives
+- `.specify/memory/constitution.md` - Added key project paths section
+- `KnowledgeBase/_REACT_NATIVE_UNITY_FABRIC_FIX.md` - Added queue buffering, benchmarks
+
+**Cross-ref**: `portals_main/specs/UNITY_RN_BRIDGE_RECOMMENDATIONS.md`, `.specify/specs/001-unity-rn-bridge/`
+
+---
+
 ## 2026-02-05 - Claude Code - Innovative Data Formats for 3D Scene Representation
 
 **Discovery**: Eight data format patterns from collaboration tools, functional languages, and distributed systems that enable remixing, collaboration, human-readability, and AI-processability

@@ -131,8 +131,75 @@ xcrun devicectl device copy from --device "DEVICE_NAME" \
 - `node_modules/@artmajeur/react-native-unity/ios/RNUnityView.mm` - Native implementation
 - `ios/build/generated/ios/RCTThirdPartyComponentsProvider.mm` - Component registry (needs fix)
 
+## Message Queue Buffering Fix
+
+Unity may send `unity_ready` before Fabric's eventEmitter is initialized.
+
+### Problem
+```objc
+// Original: Drops early messages
+- (void)onUnityMessage:(NSString *)message {
+    if (_eventEmitter != nil) {  // nil during startup!
+        [_eventEmitter emit...];
+    }
+    // Message lost forever!
+}
+```
+
+### Solution
+```objc
+// Patched: Buffers messages
+@property (nonatomic, strong) NSMutableArray<NSString *> *pendingMessages;
+
+- (void)onUnityMessage:(NSString *)message {
+    if (_eventEmitter != nil) {
+        [_eventEmitter emit...];
+    } else {
+        [self.pendingMessages addObject:message];
+    }
+}
+
+- (void)updateEventEmitter:(RCTEventEmitter *)emitter {
+    _eventEmitter = emitter;
+    for (NSString *msg in self.pendingMessages) {
+        [_eventEmitter emit...];
+    }
+    [self.pendingMessages removeAllObjects];
+}
+```
+
+Applied via: `./scripts/patch-rn-unity-message-queue.sh`
+
+---
+
+## Performance Benchmarks (Feb 2026)
+
+| Message Type | Typical Latency | Notes |
+|--------------|----------------|-------|
+| Simple JSON (< 1KB) | 2-5ms | Most UI commands |
+| Large JSON (10KB+) | 10-20ms | Scene snapshots |
+| Unity → RN event | 16-33ms | 1-2 frame delay |
+
+**Fabric Improvement**: New Architecture reduces RN-side processing ~25x vs legacy bridge.
+
+---
+
+## Common Pitfalls Reference
+
+| Pitfall | Cause | Solution |
+|---------|-------|----------|
+| Black screen | `.xcode.env` missing `RCT_NEW_ARCH_ENABLED=1` | Never modify |
+| 15 FPS | VSync conflict | `vSyncCount = 0`, `targetFrameRate = 60` |
+| Duplicate symbols | Xcode 15+ linker | `-Wl,-ld_classic` |
+| Memory leaks | Unity not releasing | Explicit cleanup in `dealloc` |
+| Stale app | xcodebuild install | Uninstall before install |
+
+---
+
 ## References
 
 - [React Native Fabric Native Components](https://reactnative.dev/docs/fabric-native-components)
 - [azesmway/react-native-unity GitHub](https://github.com/azesmway/react-native-unity)
 - [YourArtOfficial/react-native-unity](https://github.com/YourArtOfficial/react-native-unity) (artmajeur fork)
+- [Unity UAAL iOS](https://docs.unity3d.com/Manual/UnityasaLibrary-iOS.html)
+- [New Architecture Overview](https://reactnative.dev/architecture/landing-page)
