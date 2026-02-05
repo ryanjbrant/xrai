@@ -1,6 +1,6 @@
 # Official Sources + Latest Updates (AI Toolchain)
 
-**Last checked**: 2026-02-05
+**Last checked**: 2026-02-05 (web audit)
 **Scope**: Codex, Claude Code, Gemini CLI, MCP, Unity MCP
 
 ---
@@ -17,9 +17,10 @@
 
 **Recent notes**
 - Team Config enables shared `.codex/` project layers (config, rules, skills).
-- Config supports `model_reasoning_effort`, `model_reasoning_summary`, and `model_verbosity` (speed vs verbosity tradeoffs).
+- Config supports `model_reasoning_effort` and `shell_snapshot` (faster repeated shell calls).
 - `shell_snapshot` speeds repeated shell calls by caching results.
 - MCP servers can be configured in user or project `config.toml`, shared across CLI + IDE.
+- Changelog highlights: `/permissions` command, updated skills UI, config schema + requirements, and deprecation of custom prompts (move to skills).
 
 ---
 
@@ -34,7 +35,8 @@
 **Recent notes**
 - MCP integrations supported; Claude Code can also run as an MCP server.
 - Official installs support npm/Homebrew/OS-specific scripts (Node 18+).
- - Hooks support SessionStart/Stop and can be used for reminders (not a substitute for repo docs).
+- Hooks support tool event handlers (e.g., PostToolUseFailure) and can allow/block actions (useful for reminders, not a substitute for repo docs).
+- MCP docs: HTTP is recommended transport; SSE is deprecated.
 
 ---
 
@@ -47,7 +49,7 @@
 
 **Recent notes**
 - Preview weekly, stable weekly, nightly daily release cadence.
-- MCP support and 1M token context model are documented in the repo.
+- Docs emphasize `.geminiignore`, token caching, trusted folders, `GEMINI.md`, and headless mode for scripting.
 
 ---
 
