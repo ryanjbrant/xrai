@@ -58,6 +58,12 @@ Search KB → Plan → Code → Commit → Log discovery
 ## OpenAI Docs MCP
 - For OpenAI/Codex questions, consult the `openaiDeveloperDocs` MCP server first.
 
+## Toolchain Deltas (Official Docs)
+- Codex: prefer `.codex/skills/` for reusable instructions (custom prompts deprecated).
+- Codex: project config loads only when folder is trusted.
+- Codex: use `/permissions` for URL access.
+- Claude Code: prefer HTTP MCP transport; SSE deprecated.
+
 ## Anti-Patterns
 - Writing code without searching KB first
 - Duplicating existing utilities

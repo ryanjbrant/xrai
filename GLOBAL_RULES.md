@@ -106,6 +106,26 @@ Format: Date, Context, Fix, Impact (1-2 lines each)
 - ❌ Over-engineer simple tasks
 - ❌ Add comments/docs unless asked
 - ❌ Refactor code you didn't change
+- ❌ **Delete files** unless user explicitly says "delete"
+
+---
+
+## File Safety (CRITICAL)
+
+- **NEVER delete files** without explicit user instruction
+- Moving, renaming, deprecating = OK
+- Deleting = ONLY with explicit "delete" or "remove"
+- When in doubt, ask first
+
+---
+
+## MCP Quick Fixes
+
+| Issue | Fix |
+|-------|-----|
+| Unity MCP not responding | Unity → Window → MCP for Unity → Start Server |
+| MCP slow | Run `mcp-kill-dupes` |
+| After Unity build | Restart Unity Editor (MCP stops during builds) |
 
 ---
 
@@ -114,6 +134,7 @@ Format: Date, Context, Fix, Impact (1-2 lines each)
 - **Unity MCP**: See `_UNITY_MCP_MASTER.md`
 - **Rider**: See `_RIDER_CLAUDE_WORKFLOW.md`
 - **React Native**: See project `CLAUDE.md`
+- **MCP transport**: Prefer HTTP; SSE is deprecated (Claude Code docs)
 
 ---
 
