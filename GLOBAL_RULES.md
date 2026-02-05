@@ -66,6 +66,11 @@ Explore → Plan → Code → Commit → Log discovery
 - **Read access**: ON by default (use KB for answers).
 - **Write/commit/PR**: ONLY when a key insight is confirmed (99% confidence + evidence).
 
+### If KB Repo Access Is Missing
+- **Request access** to `Unity-XR-AI` KnowledgeBase repo.
+- **Meanwhile** log insights to `docs/developer/<username>/` in the local project repo.
+- **Maintainer flow** (jt5d/admin): periodically pull `docs/developer/` from projects, triple‑verify, then PR into KB.
+
 ### KnowledgeBase Access & Contributions (Optional)
 - **Read/write access**: use `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/` (or symlink your tool to it).
 - **Local dev notes**: add research/insights to `docs/dev/<username>/` in the project repo.
