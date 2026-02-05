@@ -50,6 +50,10 @@ Search KB → Plan → Code → Commit → Log discovery
 - Parallel tool calls when possible
 - Edit over Write (smaller diffs)
 
+## Output Mode (All CLIs)
+- **Default**: concise, no structured schema, no reasoning output.
+- **On-demand**: enable structured output + reasoning for PR reviews, CI, incident fixes, specs, audits, or automation.
+
 ## OpenAI Docs MCP
 - For OpenAI/Codex questions, consult the `openaiDeveloperDocs` MCP server first.
 

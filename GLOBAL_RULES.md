@@ -1031,6 +1031,10 @@ After Unity Build: MCP stops during headless builds. Restart Unity Editor to rec
 
 **Goal**: Stay below 95% weekly limit. **Full Reference**: `KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md`
 
+### Output Mode (All CLIs)
+- **Default**: concise, no structured schema, no reasoning output.
+- **On-demand**: enable structured output + reasoning for PR reviews, CI, incident fixes, specs, audits, or automation.
+
 ### Quick Rules
 - `/clear` between tasks, `/compact` when >100K context
 - Agents use independent budgets - use for 3+ step tasks
