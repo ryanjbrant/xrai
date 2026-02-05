@@ -36,7 +36,7 @@
 # Target: Architecture is proven viable
 ```
 
-### Step 3: Then 003-hologram-video-calls
+### Step 3: Then 003-hologram-telepresence
 ```bash
 # Port from MetavidoVFX:
 # - HologramController.cs
