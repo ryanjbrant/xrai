@@ -52,15 +52,13 @@ Explore → Plan → Code → Commit → Log discovery
 - **KB Index**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_KB_INDEX.md`
 - **Official sources + updates**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_OFFICIAL_SOURCES_LATEST_UPDATES.md`
 
-### Session Start Choices (Ask Once)
-- Defaults (auto): `toolchain=auto-detect`, `scope=current repo`, `verbosity=concise`.
-- Ask only: **Global or project‑only rules/memory?** (default: project‑only)
-- Example: `project‑only` or `global`
+### Session Start Defaults (No Prompt)
+- Defaults: `toolchain=auto-detect`, `scope=project-only`, `verbosity=concise`.
+- Only ask if user explicitly requests global sharing.
 
-### Insight Prompt (When 99% Confidence + Evidence)
-- If a breakthrough, repeated failure, or notable improvement is confirmed, ask to log it:
-  - Local: `docs/dev/<username>/`
-  - Global KB: PR to `Unity-XR-AI` (branch + evidence + cross-refs)
+### Insight Prompt (Low Friction)
+- If a key insight is confirmed (99% confidence + evidence), **ask once at end of session** to log it.
+- Keep it one-line. If user declines, do not ask again that session.
 
 ### KnowledgeBase Access (Default)
 - **Read access**: ON by default (use KB for answers).
