@@ -1,14 +1,19 @@
 # Master GitHub Repository Knowledge Base (530+ Projects)
 
-**Purpose**: Comprehensive reference of GitHub repos used across all workspaces (Portals_6, Paint-AR, Open Brush) to improve Claude's coding capabilities for AR/VFX/XR/Unity development.
+**Purpose**: Comprehensive reference of GitHub repos used across all workspaces (Portals V4, Paint-AR, Open Brush) to improve Claude's coding capabilities for AR/VFX/XR/Unity development.
 
-**Last Updated**: 2026-01-17
-**Recent Additions**: HoloKit projects (TouchingHologram, HoloKitApp, HoloKitMultiplayer), LLMUnity AI characters, TamagotchU ML-Agents, FaceTrackingVFX upgrade, new pattern KB files
+**Last Updated**: 2026-02-05
+**Recent Additions**: VFX Architecture patterns (O(1) compute, UV-to-world), Open Source strategy (XRAI/VNMF formats), Portals V4 Unity Advanced Composer spec
 
 **Pattern KB Files**:
 - `_HAND_VFX_PATTERNS.md` - 52 hand tracking VFX effects (Buddha + HoloKit libraries)
 - `_GAUSSIAN_SPLATTING_VFX_PATTERNS.md` - SplatVFX patterns (keijiro)
 - `_AI_CHARACTER_PATTERNS.md` - LLMUnity AI character integration
+- `_VFX_SOURCES_REGISTRY.md` - 235 VFX assets with binding modes
+- `_VFX_SOURCE_BINDINGS.md` - UV-to-world algorithm, property bindings
+- `_PORTALS_V4_CURRENT.md` - Current Portals architecture
+
+**Sync Reference**: `_NOTION_SYNC_GUIDE.md` - KB ↔ Notion sync process
 
 ---
 

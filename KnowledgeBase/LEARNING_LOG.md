@@ -6,6 +6,1026 @@
 
 ---
 
+## 2026-02-05 - Claude Code - Innovative Data Formats for 3D Scene Representation
+
+**Discovery**: Eight data format patterns from collaboration tools, functional languages, and distributed systems that enable remixing, collaboration, human-readability, and AI-processability
+
+**Context**: Researching minimal, innovative data representation formats (JSON Canvas, tldraw, Excalidraw, Observable, IPLD, Automerge, Yjs, Nix, Dhall) to inspire next-generation 3D scene formats beyond glTF
+
+**Research Method**: 10 parallel web searches + 5 deep dives into specifications (30 sources analyzed)
+
+### Pattern 1: Spatial Graph with Node-Edge Model (JSON Canvas)
+
+**Format**: JSON with nodes (cards) and edges (connections) on infinite 2D canvas
+**Key Innovation**: Spatial positioning decoupled from logical graph structure
+
+**Schema Structure**:
+```json
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "node-1",
+      "type": "rectangle",
+      "x": 100, "y": 200,
+      "width": 200, "height": 150
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "node-1",
+      "fromSide": "right",
+      "toNode": "node-2",
+      "toSide": "left",
+      "toEnd": "arrow"
+    }
+  ]
+}
+```
+
+**3D Scene Applicability**:
+- GameObject hierarchy as node-edge graph
+- Spatial positioning (transform) separate from logical structure
+- Edge connections represent parent-child relationships, physics constraints, or visual connections
+
+**Benefits**: Human-readable, easily remixable, AI can parse structure independently from spatial layout
+
+**Source**: [JSON Canvas Spec](https://jsoncanvas.org/), [Obsidian Blog](https://obsidian.md/blog/json-canvas/)
+
+---
+
+### Pattern 2: Transaction-Based CRDT for Real-Time Collaboration (Yjs)
+
+**Format**: JSON-like shared types (Y.Map, Y.Array, Y.Text) with automatic conflict resolution
+**Key Innovation**: CRDT (Conflict-Free Replicated Data Type) enables concurrent edits without central server
+
+**API Pattern**:
+```javascript
+const ydoc = new Y.Doc()
+const sceneRoot = ydoc.getMap('scene')
+
+// Observable changes
+sceneRoot.observe(event => {
+  console.log('Changes:', event.changes)
+})
+
+// Automatic sync - no manual conflict resolution
+sceneRoot.set('camera', { position: [0, 5, 10] })
+```
+
+**Transaction Model**:
+1. `beforeTransaction` → execute changes → `beforeObserverCalls`
+2. Fire type observers → deep observers → `afterTransaction`
+3. Provider sends delta to peers (not full state)
+
+**3D Scene Applicability**:
+- Collaborative Unity scene editing (multiple artists simultaneously)
+- Automatic conflict resolution for transform changes
+- Observable pattern triggers re-renders only for changed objects
+
+**Benefits**: Local-first (works offline), automatic merge, scales to unlimited users
+
+**Source**: [Yjs Docs](https://docs.yjs.dev/), [Yjs Shared Types](https://docs.yjs.dev/getting-started/working-with-shared-types)
+
+---
+
+### Pattern 3: Content-Addressed Immutable Scenes (IPLD)
+
+**Format**: Merkle DAG with CID (Content Identifier) for each node
+**Key Innovation**: Content addressing enables trustless verification, deduplication, and version-independent links
+
+**Structure**:
+```javascript
+// Each scene node has a CID derived from its content
+{
+  "cid": "bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
+  "data": {
+    "type": "GameObject",
+    "mesh": { "/": "QmHash123..." }, // Link to mesh by CID
+    "material": { "/": "QmHash456..." },
+    "children": [
+      { "/": "QmHash789..." } // Child references by CID
+    ]
+  }
+}
+```
+
+**Linking Across Protocols**:
+- Reference Git commits in scene metadata (timestamping)
+- Link IPFS-stored assets within scenes
+- Blockchain transaction → scene version proof
+
+**3D Scene Applicability**:
+- Asset deduplication (same mesh referenced by multiple scenes = single storage)
+- Version history without storing full copies
+- Trustless verification (scene hasn't been tampered with)
+- Cross-protocol references (Unity scene → GitHub commit → IPFS texture)
+
+**Benefits**: Immutable, deduplication, verifiable, protocol-agnostic
+
+**Source**: [IPLD.io](https://ipld.io/), [Filecoin IPLD Spec](https://spec.filecoin.io/libraries/ipld/)
+
+---
+
+### Pattern 4: Reactive Dependency Graph (Observable Notebooks)
+
+**Format**: Cells with explicit inputs/outputs, runtime computes topological order
+**Key Innovation**: Changes propagate automatically through dependency graph (spreadsheet-like)
+
+**Dependency Model**:
+```javascript
+// Cell 1: Define camera position
+camera = { position: [0, 5, 10] }
+
+// Cell 2: Depends on camera (auto-detected)
+viewMatrix = lookAt(camera.position, [0, 0, 0])
+
+// Cell 3: Depends on viewMatrix
+renderedScene = render(scene, viewMatrix)
+
+// When camera changes → viewMatrix recalculates → scene re-renders
+```
+
+**Execution**:
+1. Analyze code to determine inputs/outputs
+2. Build dependency graph
+3. Topological sort determines execution order
+4. On change, re-execute only affected downstream cells
+
+**3D Scene Applicability**:
+- Material parameters depend on lighting conditions
+- LOD level depends on camera distance
+- Shader compilation depends on material flags
+- Scene state reactive to player actions
+
+**Benefits**: Automatic update propagation, no manual dependency tracking, declarative
+
+**Source**: [Observable Docs](https://observablehq.com/documentation/notebooks/), [Observable Reactive Programming](https://medium.com/@stxmendez/how-observable-implements-reactive-programming-784bcc02382d)
+
+---
+
+### Pattern 5: Type-Safe Configuration with Termination Guarantees (Dhall)
+
+**Format**: Functional, typed, non-Turing-complete language (JSON + functions + types + imports)
+**Key Innovation**: Strong guarantees prevent crashes, hangs, and malicious code
+
+**Safety Guarantees for 3D Scenes**:
+1. **Type Safety**: All mesh references, material properties, camera params validated at compile-time
+2. **Termination**: No infinite loops in scene generation (not Turing complete)
+3. **Sandboxing**: Scene files cannot execute arbitrary code or exfiltrate data
+4. **Immutability**: Variables cannot change, referential transparency
+
+**Example**:
+```dhall
+-- Type-safe scene definition
+let Scene = { cameras : List Camera, meshes : List Mesh }
+let Camera = { position : { x : Double, y : Double, z : Double } }
+
+let myScene : Scene = {
+  cameras = [{ position = { x = 0.0, y = 5.0, z = 10.0 } }],
+  meshes = []
+}
+```
+
+**3D Scene Applicability**:
+- Scene configs guaranteed to terminate (no infinite shader loops)
+- Type system ensures all references exist before runtime
+- Malicious scene files cannot compromise system
+- Configuration functions for procedural generation (still terminating)
+
+**Benefits**: Compile-time validation, no runtime errors, sandboxed, functional abstraction
+
+**Source**: [Dhall Lang](https://dhall-lang.org/), [Safety Guarantees](https://github.com/dhall-lang/dhall-lang/wiki/Safety-guarantees)
+
+---
+
+### Pattern 6: Schema Versioning with Migrations (tldraw, Excalidraw)
+
+**Format**: Numeric version field + migration paths for backward compatibility
+**Key Innovation**: Explicit schema evolution without breaking old files
+
+**tldraw Schema System**:
+```typescript
+const schema = {
+  version: 2,
+  migrations: [
+    {
+      fromVersion: 1,
+      toVersion: 2,
+      migrate: (data) => {
+        // Transform v1 structure to v2
+        return { ...data, newField: 'default' }
+      }
+    }
+  ],
+  records: {
+    shape: { /* validation rules */ },
+    page: { /* validation rules */ }
+  }
+}
+```
+
+**3D Scene Applicability**:
+- Unity version upgrades (automatically migrate scene format)
+- Component schema changes (add new properties without breaking old scenes)
+- Asset format evolution (FBX → glTF migration path)
+- Shader graph versioning
+
+**Benefits**: Forward/backward compatibility, explicit migration logic, no silent data loss
+
+**Source**: [tldraw TLSchema](https://tldraw.dev/reference/tlschema/TLSchema), [Excalidraw JSON Schema](https://docs.excalidraw.com/docs/codebase/json-schema)
+
+---
+
+### Pattern 7: Record Store with Validation (tldraw)
+
+**Format**: Generic record storage (TLStore) with typed schema validation
+**Key Innovation**: Reactive database of typed records, any change triggers observers
+
+**Architecture**:
+```typescript
+// Core record types
+type TLShape = { id: string, type: string, parentId: string, props: any }
+type TLPage = { id: string, name: string, index: number }
+type TLAsset = { id: string, type: 'image' | 'video', src: string }
+
+// Store holds all records
+const store = new TLStore(schema)
+store.put({ type: 'shape', id: 'shape-1', ... })
+
+// Observers trigger on changes
+store.listen((entry) => {
+  console.log('Changed:', entry.changes)
+})
+```
+
+**3D Scene Applicability**:
+- Unity scene as reactive database of GameObjects, Components, Assets
+- Any change (transform, material, hierarchy) triggers observers
+- Typed validation prevents invalid references
+- Supports undo/redo via record history
+
+**Benefits**: Type-safe, reactive, centralized state, easy serialization
+
+**Source**: [tldraw TLStore](https://tldraw.dev/reference/tlschema/TLStore), [Store and Schema](https://deepwiki.com/tldraw/tldraw/2.3-tools-system)
+
+---
+
+### Pattern 8: Declarative Configuration with Functional Abstractions (Nix)
+
+**Format**: Pure functional, lazy evaluated, declarative package definitions
+**Key Innovation**: Immutable packages, reproducible builds, no side effects
+
+**Principles**:
+1. **Pure Functions**: Package definitions are functions with no side effects
+2. **Immutability**: Packages never change after built
+3. **Declarative**: Describe desired state, not steps to achieve it
+4. **Lazy Evaluation**: Only compute what's needed
+5. **Functional Abstractions**: Higher-order functions (map, fold) for composition
+
+**Example**:
+```nix
+# Declarative scene definition
+scene = {
+  camera = { position = [0 5 10]; };
+  lights = map (i: {
+    type = "point";
+    position = [i * 2 0 0];
+  }) (range 0 5);
+}
+```
+
+**3D Scene Applicability**:
+- Scene configs as pure functions (reproducible)
+- Functional composition for procedural generation
+- Lazy evaluation (only compute visible objects)
+- Immutable assets (same hash = same content)
+
+**Benefits**: Reproducible, composable, declarative, referential transparency
+
+**Source**: [Nix Language](https://nix.dev/tutorials/nix-language.html), [Purely Functional Config](https://www.infoq.com/articles/configuration-management-with-nix/)
+
+---
+
+### Pattern 9: Automerge CRDT for Local-First Collaboration
+
+**Format**: JSON-like data structure with automatic merge
+**Key Innovation**: Local-first (local data as primary), automatic conflict-free merge
+
+**Design**:
+- Concurrent changes on different devices merge automatically
+- No central server required
+- Supports nested maps, arrays, text, counters
+- Compact binary format for efficient sync
+- Sync protocol for incremental updates
+
+**3D Scene Applicability**:
+- Collaborative scene editing across devices (iPad + desktop Unity)
+- Offline edits sync when reconnected
+- Automatic merge of transform changes, component additions
+- Mobile AR captures → auto-merge into main scene
+
+**Benefits**: Local-first, offline-capable, automatic merge, no server dependency
+
+**Source**: [Automerge GitHub](https://github.com/automerge/automerge), [Automerge 2.0](https://automerge.org/blog/automerge-2/)
+
+---
+
+### Cross-Cutting Patterns for 3D Scenes
+
+| Pattern | JSON Canvas | tldraw | Excalidraw | Observable | IPLD | Yjs | Automerge | Nix | Dhall |
+|---------|-------------|--------|------------|------------|------|-----|-----------|-----|-------|
+| Human-readable JSON | ✅ | ✅ | ✅ | ❌ (JS) | ✅ | ❌ (binary) | ❌ (binary) | ✅ (Nix) | ✅ (Dhall) |
+| Remixable/Extensible | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ |
+| Real-time Collaboration | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| Content-addressed | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| Type-safe | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
+| Versioned schema | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Reactive/Observable | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| Functional | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ |
+| Termination guarantees | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+
+---
+
+### Recommended Hybrid Format for 3D Scenes
+
+Combining the best patterns:
+
+```json
+{
+  "format": "scene-canvas",
+  "version": 2,
+  "cid": "bafybeigdyrzt...", // IPLD content-addressing
+  "schema": { /* tldraw-style typed schema */ },
+  "nodes": [
+    {
+      "id": "obj-1",
+      "type": "GameObject",
+      "cid": "bafybeigabc...", // Content-addressed
+      "transform": { "position": [0, 0, 0] },
+      "mesh": { "/": "QmMeshHash..." }, // IPLD link
+      "material": { "/": "QmMatHash..." },
+      "children": [{ "/": "QmChildHash..." }]
+    }
+  ],
+  "edges": [
+    { "from": "obj-1", "to": "obj-2", "type": "constraint" }
+  ],
+  "reactive": {
+    "camera.position": ["viewMatrix", "renderedScene"], // Dependency graph
+    "light.intensity": ["shadows", "renderedScene"]
+  },
+  "migrations": [ /* Schema version migrations */ ]
+}
+```
+
+**Key Features**:
+1. **Human-readable JSON** (JSON Canvas pattern)
+2. **Content-addressed** with CIDs (IPLD pattern)
+3. **Node-edge graph** for spatial layout (JSON Canvas)
+4. **Typed schema with migrations** (tldraw pattern)
+5. **Reactive dependency graph** (Observable pattern)
+6. **CRDT support** for collaboration (Yjs/Automerge pattern)
+7. **Declarative config** (Nix pattern)
+8. **Type safety** (Dhall pattern)
+
+---
+
+**Impact**: Next-gen scene format enabling AI-processable, collaborative, content-addressed, type-safe 3D worlds
+
+**Cross-References**:
+- Computational Pioneers research (2026-02-05) - procedural generation patterns
+- Unity XR world model compression
+
+**Sources**: 30 sources analyzed (see full list in research session)
+
+---
+
+## 2026-02-05 - Claude Code - Computational Pioneers: Minimal Representation Patterns
+
+**Discovery**: Seven architectural patterns for generating complex output from minimal data, spanning procedural generation, fractal compression, cellular automata, and distributed systems
+
+**Context**: Researching computational/visual pioneers (Perlin, Mandelbrot, Wolfram, Nelson, Bourke, Torvalds, Victor) for minimal data → complex output patterns applicable to Unity XR world model compression and procedural generation
+
+### 1. Perlin Noise: Hash Function → Infinite Texture
+
+**Pattern**: Pseudorandom gradient interpolation from permutation table
+- **Data**: 256-element permutation table (256 bytes)
+- **Output**: Infinite procedural textures with natural variation
+- **Key Technique**: Hash function generates repeatable gradients at integer coordinates, smooth interpolation between
+- **Implementation**: Multiple octaves (scaled copies) create fractal detail
+- **Memory Benefit**: Texture generation in pixel shader requires NO texture memory
+
+**Code Pattern** (conceptual):
+```glsl
+// Permutation table (256 bytes) + hash function = infinite textures
+float noise(vec3 p) {
+    vec3 i = floor(p);
+    vec3 f = fract(p);
+    // Hash function using permutation table
+    int hash = perm[perm[perm[int(i.x)] + int(i.y)] + int(i.z)];
+    // Interpolate gradients
+    return smoothInterpolate(gradients[hash], f);
+}
+```
+
+**Unity Applications**: Terrain generation, cloud textures, material variation
+**Sources**: [Perlin noise Wikipedia](https://en.wikipedia.org/wiki/Perlin_noise), [NVIDIA GPU Gems](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-26-implementing-improved-perlin-noise)
+
+---
+
+### 2. Mandelbrot Fractals: Self-Similarity → 100:1 Compression
+
+**Pattern**: Iterated Function Systems (IFS) exploit self-similarity
+- **Data**: Mathematical transformations (range → domain mappings)
+- **Output**: High-fidelity images with 100:1+ compression ratios
+- **Key Technique**: Store pattern descriptors instead of pixel values
+- **Resolution Independence**: Images scale infinitely (fractal code defines transformations, not pixels)
+
+**Fractal Compression Algorithm**:
+```
+1. Partition image into non-overlapping range blocks (R-blocks)
+2. Create overlapping domain blocks (D-blocks) at multiple scales
+3. For each R-block, find best-matching D-block with affine transform
+4. Store: (D-block_id, scale, rotation, brightness_offset) << raw pixels
+5. Decompression: Apply transforms iteratively until convergence
+```
+
+**Unity Applications**: Texture compression for massive open worlds, LOD generation
+**Sources**: [Fractal Compression Wikipedia](https://en.wikipedia.org/wiki/Fractal_compression), [Number Analytics Guide](https://www.numberanalytics.com/blog/fractal-compression-ultimate-guide)
+
+---
+
+### 3. Wolfram Cellular Automata: 3 Rules → Universal Computation
+
+**Pattern**: Computational irreducibility - complex behavior from minimal rules
+- **Data**: 8-bit rule number (256 possible rules for elementary CA)
+- **Output**: Universal computation (Rule 110 is Turing complete)
+- **Key Insight**: Rule 30 generates cryptographic randomness, Rule 110 can simulate any computer
+
+**Elementary CA Pattern**:
+```csharp
+// Rule 110 (01101110 in binary) = Turing complete
+byte rule = 110;
+bool[] cells = new bool[width];
+
+for (int i = 1; i < width - 1; i++) {
+    int pattern = (cells[i-1] ? 4 : 0) + (cells[i] ? 2 : 0) + (cells[i+1] ? 1 : 0);
+    cells[i] = (rule & (1 << pattern)) != 0;
+}
+```
+
+**Unity Applications**: Procedural dungeon generation, enemy AI behavior patterns, texture synthesis
+**Sources**: [A New Kind of Science Wikipedia](https://en.wikipedia.org/wiki/A_New_Kind_of_Science), [Wolfram MathWorld](https://mathworld.wolfram.com/ComputationalIrreducibility.html)
+
+---
+
+### 4. Ted Nelson Xanadu: Transclusion → Reusable Content Fragments
+
+**Pattern**: Tumbler addressing system for referencing any part of any file
+- **Data**: Transfinite number addresses (tumbler system)
+- **Output**: Compound documents from reusable fragments, bidirectional links
+- **Key Techniques**:
+  - **Transclusion**: Include content from other sources while maintaining visible connection
+  - **Two-way links**: Bidirectional navigation (if A links to B, B knows about A)
+  - **Versioning**: All versions preserved, addressable
+
+**Addressing Pattern** (conceptual):
+```typescript
+// Tumbler system: hierarchical addresses that can reference any granularity
+interface Tumbler {
+    document_id: string;
+    section: number[];  // [chapter, section, subsection, ...]
+    span: [start: number, end: number];  // Character range
+}
+
+// Transclusion preserves source reference
+interface Transclusion {
+    source: Tumbler;
+    display_mode: 'inline' | 'reference' | 'parallel';
+}
+```
+
+**Unity Applications**: Asset referencing, scene composition, narrative branching
+**Sources**: [Project Xanadu Wikipedia](https://en.wikipedia.org/wiki/Project_Xanadu), [Xanadu Patterns](https://maggieappleton.com/xanadu-patterns)
+
+---
+
+### 5. Paul Bourke: Volumetric Ray Casting → GPU-Accelerated 3D Fractals
+
+**Pattern**: Mathematical generation + volume rendering
+- **Data**: Fractal equation parameters (typically < 100 bytes)
+- **Output**: Explorable 3D volumetric fractals
+- **Key Technique**: GPU ray casting through mathematical density fields (no voxel storage)
+- **Benefit**: Focus on mathematical generation, leverage existing volume rendering pipelines
+
+**3D Fractal Pattern**:
+```glsl
+// Mandelbulb distance estimator (volumetric fractal from ~50 bytes of params)
+float mandelbulbDE(vec3 pos, float power, int iterations) {
+    vec3 z = pos;
+    float dr = 1.0;
+    float r = 0.0;
+
+    for (int i = 0; i < iterations; i++) {
+        r = length(z);
+        if (r > 2.0) break;
+
+        // Convert to polar, raise to power, convert back
+        float theta = acos(z.z / r) * power;
+        float phi = atan(z.y, z.x) * power;
+        dr = pow(r, power - 1.0) * power * dr + 1.0;
+
+        z = pos + pow(r, power) * vec3(
+            sin(theta) * cos(phi),
+            sin(theta) * sin(phi),
+            cos(theta)
+        );
+    }
+    return 0.5 * log(r) * r / dr;
+}
+```
+
+**Unity Applications**: VFX Graph custom nodes, shader graph procedural geometry
+**Sources**: [Paul Bourke Fractals](https://paulbourke.net/fractals/), [Visualising Volumetric Fractals](https://paulbourke.net/papers/joc2017/)
+
+---
+
+### 6. Linus Torvalds Git: Content-Addressable Storage → Distributed Deduplication
+
+**Pattern**: "Design around data" - SHA-1 hash as universal identifier
+- **Data**: Object database with shallow trie (256 subdirs for first byte)
+- **Output**: Efficient distributed version control with automatic deduplication
+- **Key Techniques**:
+  - **Content-addressable**: Identical content = same hash = single storage
+  - **Pack files**: Delta compression with hash table for fast lookup
+  - **Memory mapping**: mmap(2) for zero-copy access
+
+**Git Object Pattern**:
+```python
+# Every object is content-addressed by SHA-1 hash
+def store_object(content: bytes, type: str) -> str:
+    header = f"{type} {len(content)}\0"
+    data = header.encode() + content
+    hash = hashlib.sha1(data).hexdigest()
+
+    # Store in .git/objects/[first 2 hex]/[remaining 38 hex]
+    dir_path = f".git/objects/{hash[:2]}"
+    file_path = f"{dir_path}/{hash[2:]}"
+
+    # Automatic deduplication: if hash exists, don't write
+    if not os.path.exists(file_path):
+        os.makedirs(dir_path, exist_ok=True)
+        with open(file_path, 'wb') as f:
+            f.write(zlib.compress(data))
+
+    return hash
+```
+
+**Unity Applications**: Asset versioning, scene delta compression, multiplayer state sync
+**Sources**: [Git Data Structures](https://medium.com/swlh/data-structures-used-in-git-implementation-a2c95bf4135e), [Linus on Data Structures](https://read.engineerscodex.com/p/good-programmers-worry-about-data)
+
+---
+
+### 7. Bret Victor: Explorable Explanations → Understanding Through Manipulation
+
+**Pattern**: Interactive models with immediate visual feedback
+- **Data**: Parameterized system + multiple linked representations
+- **Output**: Intuitive understanding through direct manipulation
+- **Key Techniques**:
+  - **Immediacy**: No delay between manipulation and visual update
+  - **Multiple representations**: Same data shown in complementary ways (graph, equation, animation)
+  - **Active reading**: Text as environment to think in, not passive consumption
+
+**Explorable Pattern** (conceptual):
+```typescript
+// System with multiple synchronized views
+interface ExplorableSystem {
+    // Shared reactive state
+    params: Observable<SystemParams>;
+
+    // Multiple representations auto-update
+    views: {
+        graph: GraphView;          // Visual output
+        equation: EquationView;    // Mathematical form
+        timeline: TimelineView;    // Evolution over time
+        controls: ControlsView;    // Parameter sliders
+    };
+
+    // Direct manipulation updates all views
+    onParamChange(param: string, value: number) {
+        this.params.set(param, value);  // All views auto-react
+    }
+}
+```
+
+**Unity Applications**: Editor tools with immediate preview, debug visualizations, tutorial systems
+**Sources**: [Explorable Explanations](https://worrydream.com/ExplorableExplanations/), [Bret Victor Wikipedia](https://en.wikipedia.org/wiki/Bret_Victor)
+
+---
+
+### Cross-Cutting Patterns Summary
+
+| Pattern | Data → Output Ratio | Key Technique | Best For |
+|---------|---------------------|---------------|----------|
+| Perlin Noise | 256 bytes → infinite textures | Hash + interpolation | Procedural materials, terrain |
+| Fractal Compression | 100:1+ compression | Self-similarity matching | Image/texture compression |
+| Cellular Automata | 8 bits → universal computation | Local rules, emergent behavior | AI, procedural generation |
+| Transclusion | Reference → full content | Content addressing | Asset reuse, narrative |
+| Volumetric Fractals | Equation params → 3D worlds | GPU ray casting | VFX, procedural geometry |
+| Git Objects | Content hash → deduplication | Content-addressable storage | Version control, state sync |
+| Explorable Explanations | Params → understanding | Multiple linked views | Debug tools, tutorials |
+
+### Common Principles Across All Pioneers
+
+1. **Indirection**: Store rules/transforms, not output (Perlin, Mandelbrot, Wolfram)
+2. **Self-similarity**: Exploit repetition at multiple scales (Mandelbrot, Bourke, fractals)
+3. **Content addressing**: Hash identifies data, enables deduplication (Torvalds, Nelson tumblers)
+4. **Laziness**: Generate on-demand, don't pre-compute (Perlin shader evaluation, fractal decompression)
+5. **Composability**: Small rules combine for complex output (Wolfram CA, Perlin octaves)
+6. **Resolution independence**: Output scales without data growth (fractals, procedural generation)
+7. **Interactive immediacy**: Tight feedback loops aid understanding (Victor, explorable explanations)
+
+### Unity XR Integration Opportunities
+
+1. **Asset Pipeline**: Fractal compression for texture streaming, content-addressed deduplication
+2. **World Generation**: Perlin noise + CA for terrain/dungeon generation at runtime
+3. **Multiplayer**: Git-style delta compression for scene state sync
+4. **Debug Tools**: Victor-style explorable interfaces for understanding AR tracking, physics
+5. **VFX**: Bourke-style GPU fractals for particle systems, volumetric effects
+6. **Narrative**: Nelson-style transclusion for branching AR experiences with shared content fragments
+
+---
+
+## 2026-02-05 - Claude Code - AI World Model Formats Research (2025-2035)
+
+**Discovery**: THREE dominant architectural patterns for AI world models, with Khronos standardization for Gaussian Splatting (Q2 2026)
+
+**Context**: Researching AI-native formats for Unity XR world model integration in Portals V4
+
+### 1. Architectural Patterns
+
+**Patch-based Diffusion Transformers** (OpenAI Sora, Stability AI):
+- Operate in latent space with 3D patches
+- Videos generated by denoising patches, then decoded
+- Enables multi-resolution, multi-duration training
+- Sora 2: Preserves "world state" across shots (persistent spatial relationships)
+
+**Autoregressive Transformers** (xAI Aurora, Runway GWM-1, Genie 3):
+- Frame-by-frame generation with state persistence
+- Real-time interactive (Genie 3: 24fps @ 720p)
+- Action conditioning (camera pose, robot commands, audio)
+- Sub-second latency achievable with distillation
+
+**Hybrid Diffusion-Autoregressive** (Google Genie 2):
+- Autoregressive latent diffusion model
+- Video autoencoder → latent → large transformer dynamics model
+- "Long horizon memory" - remembers occluded world regions
+- Consistent worlds up to 1 minute
+
+### 2. Khronos glTF Gaussian Splatting Standardization
+
+**Timeline**:
+- Feb 3, 2026: KHR_gaussian_splatting release candidate announced
+- Q2 2026: Expected ratification
+
+**Technical Specs**:
+- **KHR_gaussian_splatting**: Splats as point primitives (position, rotation, scale, transparency, spherical harmonics)
+- **KHR_gaussian_splatting_compression_spz**: 90% compression vs PLY (Niantic SPZ format, MIT License)
+- SPZ blobs stored in glTF buffers, can decompress OR pass directly to rendering
+
+**Collaborators**: Khronos, OGC, Niantic Spatial, Cesium, Esri
+
+### 3. Latent Space is Universal
+
+ALL major platforms operate in learned latent spaces, NOT raw pixels:
+- Sora 2: 3D patches in latent space (multimodal: video, audio, language)
+- Genie 2/3: Latent frames + past state as input to transformer
+- Runway GWM-1: Frame-by-frame latent, built on Gen-4.5
+
+**Implication**: Unity integration should work with latent representations, not RGB frames.
+
+### 4. Recent Research Breakthroughs
+
+**RAE-DiT (2025)**: Frozen representation encoders repurposed as autoencoders
+- FID 1.51 @ 256x256 (no guidance), 1.13 @ 512x512
+- Diffusion models CAN work in high-dimensional latent spaces
+
+**REPA (ICLR 2025)**: Representation alignment via distillation
+- 17.5x faster convergence than vanilla diffusion transformers
+
+**DeepVerse (June 2025)**: 4D interactive world model
+- Explicit geometric predictions from previous timesteps
+- Reduces drift, enhances temporal consistency
+
+**NOVA (ICLR 2025)**: Non-quantized video autoregressive
+- Temporal frame-by-frame + spatial set-by-set (no quantization)
+
+### 5. Amazon Bedrock Nova: No 3D Support
+
+**Critical**: Nova models do NOT support 3D generation (text, image, video, speech only)
+
+### 6. NeRF: No Formal Standardization
+
+- Active research (Jan 2026 ACM survey, photogrammetry evaluation)
+- No standardization initiatives found
+- 3D Gaussian Splatting has overtaken NeRF in adoption (meteoric rise since 2023)
+
+### Impact for Portals V4
+
+**Recommended Tech Stack** (prioritized by maturity):
+
+**Tier 1: Production Ready (2026)**:
+1. **glTF + Gaussian Splatting** (Khronos Q2 2026)
+   - 90% compression with SPZ
+   - Unity support via UnityGLTF
+   - Geospatial integration (OGC)
+
+2. **Stable Video 3D/4D** (ICLR 2025)
+   - .safetensors format
+   - Multi-view 4D assets
+   - Research license available
+
+**Tier 2: Near-Term (6-12 months)**:
+3. **Genie 3 / Project Genie** (Available Jan 2026)
+   - Real-time 24fps @ 720p
+   - Interactive with actions
+   - Google AI Ultra subscription required
+
+4. **Runway GWM-1** (Dec 2025)
+   - GWM Worlds variant for explorable environments
+   - Real-time, frame-by-frame
+   - API access
+
+**Avoid**: Amazon Bedrock Nova (no 3D), xAI Aurora (image-only, no world modeling)
+
+### Unity Integration Insights
+
+1. **Autoregressive for interactivity**: Real-time AR needs frame-by-frame generation with action conditioning
+2. **World state persistence critical**: Scene graph tracking + latent state caching for AR
+3. **Multi-modal training unlocks scaling**: Design for text, image, video, audio from start (Sora 2 model)
+4. **Streaming format**: glTF + SPZ compression (production-ready Q2 2026)
+
+### Open Questions
+
+1. Latent space interoperability: Can Sora patches convert to Genie latent frames?
+2. Unity ML-Agents integration: How to connect autoregressive models to Unity action space?
+3. AR Foundation compatibility: Which formats preserve ARKit/ARCore spatial anchors?
+4. Streaming protocols: How to stream SPZ-compressed Gaussian Splats over network?
+5. Hybrid architectures: Can diffusion (quality) + autoregressive (speed) combine?
+
+**Sources**: 11 parallel web searches covering OpenAI Sora 2, Google Genie 2/3, xAI Aurora, Runway Gen-3/GWM-1, Stability SV3D/SV4D, Amazon Nova, Khronos glTF, NeRF, diffusion transformers, autoregressive models, latent space research
+
+**Cross-References**:
+- See portals_main/docs/ARCHITECTURE_AUDIT_2026.md for current Unity integration
+- See Unity-XR-AI/KnowledgeBase/_UNITY_AS_A_LIBRARY_IOS.md for bridging patterns
+- Future: Create _AI_WORLD_MODEL_FORMATS_2025.md for detailed reference
+
+---
+
+## 2026-02-05 - Claude Code - Portals V4 VFX Architecture & Open Source Strategy
+
+**Discovery**: MetavidoVFX O(1) compute pattern critical for mobile AR VFX
+
+**Context**: Researching VFX patterns for Unity Advanced Composer migration in Portals V4
+
+### O(1) VFX Compute Pattern
+
+**Problem**: Naive approach runs compute shader per-VFX, causing O(N) scaling (~2ms overhead per effect on mobile).
+
+**Solution**: Single compute dispatch pattern from MetavidoVFX:
+```
+ARDepthSource.cs (SINGLETON) → One dispatch/frame
+  └── Outputs: PositionMap, StencilMap, VelocityMap
+VFXARBinder.cs (per VFX) → Just SetTexture() calls, ~0.2ms each
+```
+
+**Impact**: 5 VFX @ 7.8ms total vs 21.5ms with naive approach (iPhone 15 Pro)
+
+### VFX Graph Texture Binding Gotcha
+
+**Problem**: `Shader.SetGlobalTexture()` does NOT work with VFX Graph exposed properties.
+
+**Solution**: Must use per-VFX `SetTexture()` calls:
+```csharp
+// WRONG - VFX can't read global textures
+Shader.SetGlobalTexture("_DepthMap", depthTexture);
+
+// CORRECT - Must bind per-VFX
+foreach (var vfx in activeVFX)
+    vfx.SetTexture("DepthMap", depthTexture);
+```
+
+**Impact**: Explains why many MetavidoVFX effects have explicit binder components.
+
+### Open Source Architecture Strategy
+
+**Pattern**: Separate proprietary core from open ecosystem:
+- **Closed**: Core app, AI composer, voice engine, feed algorithm
+- **Open**: File formats (XRAI, VNMF), VFX library, SDK, AI wrappers
+
+**File Formats Defined**:
+- XRAI (Scene Interchange): JSON-based scene format for sharing
+- VNMF (Asset Format): VFX/Neural/Model bundles with metadata
+
+**Cross-References**:
+- `portals_main/specs/VFX_ARCHITECTURE.md` - Full VFX spec
+- `portals_main/specs/OPEN_SOURCE_ARCHITECTURE.md` - Open/closed split
+- `_VFX_SOURCES_REGISTRY.md` - VFX inventory
+- `_VFX_SOURCE_BINDINGS.md` - Binding patterns
+- `_PORTALS_V4_CURRENT.md` - Architecture overview
+
+---
+
+## 2026-02-04 - Claude Code - Holograim Data Visualizer Project
+
+**Discovery**: Path normalization is critical when using fdir for filesystem crawling
+
+**Context**: Building ultra-crawler (Node.js + Three.js) for multi-source data visualization (filesystem, web, S3, GitHub)
+
+### Bug Fix: fdir Trailing Slash Issue
+
+**Problem**: `fdir` library returns directory paths with trailing slashes (`/path/to/dir/`), but `dirname()` returns paths without them (`/path/to/dir`). This caused parent-child edge relationships to fail (0 edges despite correct nodes).
+
+**Root Cause**:
+```javascript
+// fdir returns: /Users/james/project/
+// dirname('/Users/james/project/file.js') returns: /Users/james/project (no slash)
+// Map lookup fails: pathToId.get('/Users/james/project') !== stored '/Users/james/project/'
+```
+
+**Solution**: Normalize all paths before storing/looking up:
+```javascript
+const normalizePath = (p) => p.endsWith('/') ? p.slice(0, -1) : p;
+const normalizedPath = normalizePath(fullPath);
+pathToId.set(normalizedPath, nodeId);
+// parentId lookup now works: pathToId.get(dirname(normalizedPath))
+```
+
+**Impact**: Edges now correctly created (1,206 nodes → 1,205 edges)
+
+### SQLite Upsert Pattern for Graph Databases
+
+**Pattern**: Use `INSERT ON CONFLICT DO UPDATE RETURNING id` with `.get()` method:
+```javascript
+this.insertNodeStmt = this.db.prepare(`
+  INSERT INTO nodes (path, name, type, ...) VALUES (?, ?, ?, ...)
+  ON CONFLICT(path) DO UPDATE SET name = excluded.name, ...
+  RETURNING id
+`);
+const result = this.insertNodeStmt.get(node.path, node.name, ...);
+return result.id; // Always returns valid ID, even for existing rows
+```
+
+**Why**: `INSERT OR IGNORE` returns `lastInsertRowid = 0` for existing rows, breaking foreign key relationships.
+
+### Cross-Platform Web App Patterns (Mac/PC/visionOS/Mobile)
+
+**Platform Detection Object**:
+```javascript
+const PLATFORM = {
+  isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+  isVisionOS: /Apple Vision/i.test(navigator.userAgent),
+  get hasWebXR() { return 'xr' in navigator; },
+  get isLowPower() { return navigator.connection?.saveData || this.isMobile; }
+};
+```
+
+**Adaptive Rendering**: Scale complexity based on device:
+```javascript
+const MAX_NODES = PLATFORM.isMobile ? 200 : PLATFORM.isLowPower ? 300 : 500;
+```
+
+**iOS WebXR Fallback**: iOS Safari doesn't support WebXR - use gyroscope:
+```javascript
+if (PLATFORM.isIOS && !PLATFORM.hasWebXR) {
+  window.addEventListener('deviceorientation', handleGyroscope);
+}
+```
+
+### GitHub API Rate Limits
+
+**Issue**: Unauthenticated requests hit 60/hour limit quickly when crawling repos.
+
+**Solution**: Set `GITHUB_TOKEN` environment variable for 5,000/hour limit.
+
+### Project Location
+
+`/Users/jamestunick/Documents/GitHub/Holograim/`
+
+**Tags**: #nodejs #threejs #visualization #crawler #sqlite #webxr #cross-platform
+
+### GPU Instanced Rendering Pattern (Added 2026-02-04)
+
+**Problem**: Rendering thousands of individual meshes creates thousands of draw calls, killing performance.
+
+**Solution**: Use `THREE.InstancedMesh` to batch similar objects into single draw calls:
+
+```javascript
+// Group nodes by type for efficient instancing
+const nodesByType = {};
+nodes.forEach(d => {
+  const typeKey = d.data.type + (d.children ? '_dir' : '_file');
+  if (!nodesByType[typeKey]) nodesByType[typeKey] = [];
+  nodesByType[typeKey].push(d);
+});
+
+// Create instanced mesh per type (1 draw call instead of N)
+const dummy = new THREE.Object3D();
+const geo = new THREE.BoxGeometry(1, 1, 1); // Unit geometry
+const instancedMesh = new THREE.InstancedMesh(geo, mat, count);
+
+nodes.forEach((d, i) => {
+  dummy.position.set(x, y, z);
+  dummy.scale.set(w, h, depth);
+  dummy.updateMatrix();
+  instancedMesh.setMatrixAt(i, dummy.matrix);
+  instancedMesh.setColorAt(i, color); // Per-instance color
+});
+instancedMesh.instanceMatrix.needsUpdate = true;
+```
+
+**Performance Gains**:
+- Before: 300 cubes max (300 draw calls)
+- After: 10,000 cubes (5-10 draw calls based on types)
+- Mobile: 1,000 cubes with 30fps frame budget
+
+**Raycasting with InstancedMesh**:
+```javascript
+const intersects = raycaster.intersectObjects(scene.children, false);
+if (intersects[0]?.object.isInstancedMesh) {
+  const instanceId = intersects[0].instanceId;
+  const data = intersects[0].object.userData.nodeData[instanceId];
+}
+```
+
+### visionOS 2.0 CSS Design System (Added 2026-02-04)
+
+**Problem**: Web interfaces look dated compared to Apple Vision Pro's spatial computing aesthetic.
+
+**Solution**: Implement authentic visionOS glass morphism with CSS custom properties:
+
+```css
+/* Glass material system - key to spatial feel */
+:root {
+  --glass-bg: rgba(28, 28, 30, 0.72);
+  --glass-bg-elevated: rgba(44, 44, 46, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-specular: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%);
+  --glass-inner-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+
+  /* Depth shadows for spatial presence */
+  --shadow-elevated: 0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2);
+  --shadow-floating: 0 24px 80px rgba(0,0,0,0.45), 0 8px 24px rgba(0,0,0,0.25);
+
+  /* Animation for natural feel */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Glass panel mixin */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(60px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow-elevated), var(--glass-inner-shadow);
+}
+
+/* Specular highlight overlay (key detail) */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--glass-specular);
+  pointer-events: none;
+  border-radius: inherit;
+}
+```
+
+**Key Design Principles**:
+1. **Multi-layer transparency**: 72% opacity + blur + saturation
+2. **Specular highlights**: Gradient overlay mimics light reflection
+3. **Depth shadows**: Multiple shadow layers create floating effect
+4. **Pill-shaped controls**: `border-radius: 9999px` for segmented controls
+5. **Subtle inner shadow**: Top edge highlight for depth
+6. **Space gradient background**: Radial gradient from dark to black
+
+**Responsive Touch Targets**:
+```css
+@media (hover: none) and (pointer: coarse) {
+  .btn, .tab { min-height: 44px; min-width: 44px; } /* Apple HIG */
+  input, select { font-size: 16px; } /* Prevent iOS zoom */
+}
+```
+
+**Tags**: #visionos #css #design-system #glass-morphism #spatial-ui
+
+---
+
 ## 2026-01-22 - Claude Code - XRRAI Namespace Migration ✅ COMPLETE
 
 **Discovery**: Namespace consolidation enables easy feature migration to other Unity projects (e.g., portals_main).

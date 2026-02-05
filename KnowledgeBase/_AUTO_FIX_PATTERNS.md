@@ -3095,10 +3095,362 @@ When adding new auto-fix patterns:
 
 ---
 
-**Last Updated**: 2026-01-22
-**Patterns**: 122 active (+1 recompile storm prevention)
-**Auto-Apply Rate**: 85%
-**Categories**: Unity C#, AR Foundation, VFX Graph, Performance, Safety, Architecture, Device Orientation, Resource Management, Editor Testing, Domain Reload
+## VFX & Shader File Format Patterns
+
+### Unity VFX Graph - YAML Serialization
+
+**Detection**: Need version-control-friendly VFX assets
+
+**Pattern**:
+```csharp
+// Enable Force Text serialization mode
+// Edit → Project Settings → Editor → Asset Serialization → Force Text
+
+// VFX assets become YAML when Force Text enabled
+// Example .vfx file structure (YAML):
+// - m_ShaderFile: External HLSL reference
+// - m_OutputContexts: Particle system contexts
+// - m_SerializedGraph: Node graph data
+```
+
+**Benefits**:
+- Git-friendly diffs and merges
+- Human-readable node structure
+- Easier conflict resolution
+- Cross-team collaboration
+
+**Source**: [Unity VFX Graph Docs](https://docs.unity3d.com/Packages/com.unity.visualeffectgraph@14.0/manual/index.html)
+
+**Auto-Apply**: Suggestion (Project Settings change)
+
+---
+
+### MaterialX - Cross-Platform Shader Definition
+
+**Detection**: Need cross-platform shader interchange format
+
+**Pattern**:
+```xml
+<!-- MaterialX v1.39+ - Platform-independent shader nodes -->
+<materialx version="1.39">
+  <nodedef name="ND_standard_surface_surfaceshader">
+    <input name="base_color" type="color3" value="0.8, 0.8, 0.8"/>
+    <input name="metalness" type="float" value="0.0"/>
+    <input name="roughness" type="float" value="0.5"/>
+    <output name="out" type="surfaceshader"/>
+  </nodedef>
+</materialx>
+```
+
+**Key Features** (2026):
+- **Slang shader generator** - Compiles to GLSL/HLSL/MSL/WGSL
+- **WebGPU support** - WGSL code generation
+- **NanoColor spaces** - HDR color workflows
+- **Cross-platform** - Unity, Unreal, Maya, Houdini, Blender
+
+**Source**: [MaterialX GitHub](https://github.com/AcademySoftwareFoundation/MaterialX)
+
+**Auto-Apply**: Suggestion (architectural decision)
+
+---
+
+### USD VFX - Volume and Particle Schema
+
+**Detection**: Need interoperable VFX format for multi-DCC workflows
+
+**Pattern**:
+```python
+# UsdVol - Volume rendering
+from pxr import UsdVol, Usd
+
+stage = Usd.Stage.CreateInMemory()
+volume = UsdVol.Volume.Define(stage, '/World/Smoke')
+field = UsdVol.Field3DAsset.Define(stage, '/World/Smoke/density')
+
+# UsdVolParticleField - 3D Gaussian Splats, Nerfs
+particleField = UsdVol.ParticleField.Define(stage, '/World/Particles')
+# Extensible for lightfield techniques
+```
+
+**Supported By**:
+- Pixar USD (core schema)
+- NVIDIA Omniverse (USD + MDL materials)
+- Houdini (native USD export)
+- Unreal Engine (USD import/export)
+- Unity (USD SDK package)
+
+**Source**: [OpenUSD VFX Schema](https://openusd.org/dev/api/usd_vol_page_front.html)
+
+**Auto-Apply**: Suggestion (export/import pipeline)
+
+---
+
+### SPIR-V - Cross-Platform Shader Bytecode
+
+**Detection**: Need shader cross-compilation between GLSL/HLSL/MSL
+
+**Pattern**:
+```bash
+# Compile HLSL to SPIR-V
+dxc -spirv -T ps_6_0 -E main shader.hlsl -Fo shader.spv
+
+# Cross-compile SPIR-V to other languages
+spirv-cross shader.spv --output shader.glsl  # → GLSL
+spirv-cross shader.spv --msl --output shader.metal  # → Metal
+spirv-cross shader.spv --hlsl --output shader.hlsl  # → HLSL
+```
+
+**Workflow**:
+```
+HLSL/GLSL Source → SPIR-V Bytecode → Target Platform
+                   ↓
+              (portable intermediate)
+```
+
+**Key Tools**:
+- **glslang** - GLSL → SPIR-V compiler
+- **DirectXShaderCompiler (DXC)** - HLSL → SPIR-V compiler
+- **SPIRV-Cross** - SPIR-V → GLSL/HLSL/MSL decompiler
+- **Shader Conductor** (Microsoft) - High-level cross-compiler
+
+**2024 Update**: Microsoft adopting SPIR-V as Direct3D Interchange format (Shader Model 7+)
+
+**Source**: [SPIR-V Wikipedia](https://en.wikipedia.org/wiki/Standard_Portable_Intermediate_Representation)
+
+**Auto-Apply**: Suggestion (build pipeline integration)
+
+---
+
+### Three.js - JSON Particle System Serialization
+
+**Detection**: Need web-compatible VFX serialization
+
+**Pattern** (three-nebula format):
+```json
+{
+  "preParticles": 500,
+  "integrationType": "euler",
+  "emitters": [
+    {
+      "rate": {
+        "particlesMin": 5,
+        "particlesMax": 7,
+        "perSecond": true
+      },
+      "initializers": [
+        { "type": "Mass", "properties": { "min": 1, "max": 1 } },
+        { "type": "Life", "properties": { "min": 2, "max": 3 } },
+        { "type": "Radius", "properties": { "min": 5, "max": 10 } }
+      ],
+      "behaviours": [
+        { "type": "Alpha", "properties": { "alphaA": 1, "alphaB": 0 } },
+        { "type": "Scale", "properties": { "scaleA": 1, "scaleB": 0.5 } },
+        { "type": "Force", "properties": { "fx": 0, "fy": -2, "fz": 0 } }
+      ]
+    }
+  ]
+}
+```
+
+**Features**:
+- **Visual Editor** - three.quarks-editor for authoring
+- **Runtime Loading** - JSON → particle system instantiation
+- **Git-Friendly** - Text-based, diffable format
+- **Asset Management** - Export from editor, load in production
+
+**Libraries**:
+- `three-nebula` - Full-featured, JSON-based
+- `three.quarks` - Modern, visual editor included
+- Native Three.js - Manual coding required
+
+**Source**: [Three-Nebula GitHub](https://github.com/creativelifeform/three-nebula)
+
+**Auto-Apply**: Suggestion (web export workflow)
+
+---
+
+### Unreal Niagara - CSV Data Export
+
+**Detection**: Need to export particle simulation data from Niagara
+
+**Pattern**:
+```csharp
+// Niagara Particle Attribute Reader (UE 4.26+)
+// Export particle positions/velocities to CSV via Houdini
+// Import CSV into Niagara Data Interface
+
+// C++ access to particle data:
+FNiagaraDataInterfaceProxyRW* DataInterface;
+DataInterface->GetParticleData(ParticleIndex, OutData);
+
+// Blueprint: Export Niagara Particle Data (UE 4.25+)
+// Event-driven CPU particle export
+```
+
+**File Format**:
+- Native: `.uasset` (binary, not Git-friendly)
+- Export: `.hjson` / `.hbjson` (Houdini JSON)
+- Export: `.csv` (data tables)
+
+**Workaround for Version Control**:
+- Use Perforce (binary-friendly)
+- Or export/import via Houdini JSON
+- Git LFS for .uasset files
+
+**Source**: [Unreal Niagara Docs](https://dev.epicgames.com/documentation/en-us/unreal-engine/overview-of-niagara-effects-for-unreal-engine)
+
+**Auto-Apply**: Suggestion (export/import pipeline)
+
+---
+
+### VFX Format Version Control Best Practices
+
+**Detection**: Binary VFX formats causing Git conflicts
+
+**Solutions by Format**:
+
+| Format | Version Control Strategy |
+|--------|--------------------------|
+| Unity VFX Graph | Enable **Force Text** serialization → YAML |
+| Unity Shader Graph | Enable **Force Text** → YAML |
+| MaterialX | Native XML → Git-friendly |
+| USD VFX | Native ASCII → Git-friendly |
+| Three.js JSON | Native JSON → Git-friendly |
+| Unreal .uasset | Use **Perforce** or **Git LFS** |
+| Binary shaders | Commit source only, build on CI |
+
+**Git Configuration**:
+```bash
+# .gitattributes - LFS for binary VFX
+*.uasset filter=lfs diff=lfs merge=lfs -text
+*.shadergraph filter=lfs diff=lfs merge=lfs -text  # If binary mode
+
+# Force Unity text mode in Project Settings first!
+```
+
+**Unity-Specific**:
+```bash
+# Project Settings → Editor
+Asset Serialization Mode: Force Text
+Sprite Packer: Disabled (causes binary changes)
+```
+
+**Best Practices**:
+- **Atomic commits** - One VFX change per commit
+- **Descriptive messages** - "Added fire particle burst on death event"
+- **Review diffs** - Ensure no unintended changes in YAML
+- **Test after merge** - VFX may break on complex merges
+
+**Source**: [Unity Version Control Best Practices](https://unity.com/how-to/version-control-systems)
+
+**Auto-Apply**: Suggestion (project configuration)
+
+---
+
+### Shader Packaging - Cross-Platform Compilation
+
+**Detection**: Need single shader source for multiple platforms
+
+**Modern Approach (2026)**:
+```
+Source Shader (HLSL or GLSL)
+    ↓
+SPIR-V Bytecode (intermediate)
+    ↓
+    ├─→ GLSL (OpenGL/WebGL)
+    ├─→ HLSL (DirectX)
+    ├─→ MSL (Metal/iOS)
+    └─→ WGSL (WebGPU)
+```
+
+**Unity Shader Graph Approach**:
+```csharp
+// Unity automatically compiles to:
+// - HLSL (DirectX)
+// - GLSL (OpenGL/WebGL via HLSLcc)
+// - Metal (iOS/macOS)
+// - Vulkan (via SPIR-V)
+
+// Custom HLSL in Shader Graph:
+// - Write once in .hlsl include file
+// - Unity compiles to all platforms
+// - Use #ifdef for platform-specific code
+```
+
+**MaterialX + Slang (2026)**:
+```xml
+<!-- MaterialX defines shader logic -->
+<materialx>
+  <nodegraph name="myshader">...</nodegraph>
+</materialx>
+
+<!-- Slang compiles to all targets -->
+$ slang myshader.mtlx -target glsl -o myshader.glsl
+$ slang myshader.mtlx -target hlsl -o myshader.hlsl
+$ slang myshader.mtlx -target wgsl -o myshader.wgsl
+```
+
+**Recommended Pipeline**:
+1. **Author** - Unity Shader Graph or MaterialX
+2. **Version Control** - Text-based format (YAML/XML)
+3. **Build** - Compile to SPIR-V intermediate
+4. **Deploy** - Cross-compile to target platforms
+
+**Source**: [Microsoft Shader Conductor](https://github.com/microsoft/ShaderConductor)
+
+**Auto-Apply**: Suggestion (build pipeline design)
+
+---
+
+### Progressive VFX Streaming (USD + LOD)
+
+**Detection**: Need level-of-detail streaming for large VFX
+
+**Pattern** (USD with LOD variants):
+```python
+# USD scene with LOD variants
+from pxr import Usd, UsdGeom, UsdVol
+
+stage = Usd.Stage.CreateInMemory()
+model = UsdGeom.Xform.Define(stage, '/Explosion')
+variantSet = model.GetPrim().GetVariantSets().AddVariantSet('LOD')
+
+# LOD 0 - High quality
+variantSet.AddVariant('high')
+variantSet.SetVariantSelection('high')
+with variantSet.GetVariantEditContext():
+    volume = UsdVol.Volume.Define(stage, '/Explosion/HighRes')
+    # Define high-res particle field
+
+# LOD 1 - Medium quality
+variantSet.AddVariant('medium')
+variantSet.SetVariantSelection('medium')
+with variantSet.GetVariantEditContext():
+    volume = UsdVol.Volume.Define(stage, '/Explosion/MediumRes')
+    # Define medium-res particle field
+
+# LOD 2 - Low quality (billboard)
+variantSet.AddVariant('low')
+with variantSet.GetVariantEditContext():
+    billboard = UsdGeom.Mesh.Define(stage, '/Explosion/Billboard')
+```
+
+**Streaming Strategy**:
+1. **Distance-based LOD** - Switch variants by camera distance
+2. **Progressive loading** - Load high→low priority
+3. **Chunk streaming** - Load spatial regions on demand
+4. **Format**: USD with variants for web, Addressables for Unity
+
+**Source**: [USD Variant Sets](https://openusd.org/dev/api/usd_page_front.html)
+
+**Auto-Apply**: Suggestion (architectural pattern)
+
+---
+
+**Last Updated**: 2026-02-05
+**Patterns**: 130 active (+8 VFX/shader format patterns)
+**Auto-Apply Rate**: 82%
+**Categories**: Unity C#, AR Foundation, VFX Graph, Performance, Safety, Architecture, Device Orientation, Resource Management, Editor Testing, Domain Reload, **VFX & Shader Formats**
 
 ## Official Documentation
 - [Unity VFX Component API](https://docs.unity3d.com/Packages/com.unity.visualeffectgraph@7.1/manual/ComponentAPI.html)

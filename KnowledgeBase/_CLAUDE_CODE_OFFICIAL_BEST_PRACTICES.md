@@ -1,0 +1,466 @@
+# Claude Code Official Best Practices
+
+**Source**: code.claude.com/docs (February 2026)
+**Last Updated**: 2026-02-04
+
+---
+
+## Core Constraint: Context Window Management
+
+Claude's context window holds your entire conversation, including every message, every file read, and every command output. **Performance degrades as context fills.**
+
+The context window is the most important resource to manage.
+
+---
+
+## Highest Leverage: Give Claude Verification Criteria
+
+**Single most impactful practice**: Include tests, screenshots, or expected outputs so Claude can check itself.
+
+| Strategy | Before | After |
+|----------|--------|-------|
+| Verification criteria | "implement email validation" | "write validateEmail. test: user@example.com=true, invalid=false, user@.com=false. run tests after" |
+| Visual verification | "make dashboard look better" | "[paste screenshot] implement this design. take screenshot of result and compare" |
+| Root cause over symptoms | "build is failing" | "build fails with [error]. fix it and verify build succeeds. address root cause" |
+
+---
+
+## Explore-Plan-Code-Commit Workflow
+
+Four phases for complex tasks:
+
+### 1. Explore (Plan Mode)
+```
+read /src/auth and understand how we handle sessions
+```
+
+### 2. Plan (Plan Mode)
+```
+I want to add Google OAuth. What files need to change? Create a plan.
+```
+Press `Ctrl+G` to open plan in editor for direct editing.
+
+### 3. Implement (Normal Mode)
+```
+implement the OAuth flow from your plan. write tests, run suite, fix failures.
+```
+
+### 4. Commit
+```
+commit with a descriptive message and open a PR
+```
+
+**Skip planning for**: Typos, log lines, variable renames - if you can describe the diff in one sentence.
+
+---
+
+## Prompting Strategies
+
+### Scope Tasks Precisely
+| Strategy | Before | After |
+|----------|--------|-------|
+| Scope the task | "add tests for foo.py" | "write test for foo.py covering logged-out edge case. avoid mocks" |
+| Point to sources | "why weird API?" | "look through ExecutionFactory's git history and summarize how its api came to be" |
+| Reference patterns | "add calendar widget" | "look at HotDogWidget.php for patterns. follow the pattern for a new calendar widget" |
+| Describe symptoms | "fix login bug" | "login fails after session timeout. check src/auth/, especially token refresh. write failing test first" |
+
+### Rich Content Input
+- **@file** - Reference files directly (Claude reads before responding)
+- **Paste images** - Copy/paste or drag and drop
+- **URLs** - Use `/permissions` to allowlist domains
+- **Pipe data** - `cat error.log | claude`
+- **Let Claude fetch** - "use bash/MCP to get what you need"
+
+---
+
+## CLAUDE.md Best Practices
+
+### What to Include
+- Bash commands Claude can't guess
+- Code style rules that differ from defaults
+- Testing instructions and preferred test runners
+- Repository etiquette (branch naming, PR conventions)
+- Architectural decisions specific to your project
+- Developer environment quirks (required env vars)
+- Common gotchas or non-obvious behaviors
+
+### What to Exclude
+- Anything Claude can figure out by reading code
+- Standard language conventions Claude already knows
+- Detailed API documentation (link to docs instead)
+- Information that changes frequently
+- Long explanations or tutorials
+- File-by-file descriptions of the codebase
+- Self-evident practices like "write clean code"
+
+### Import Syntax
+```markdown
+See @README.md for project overview and @package.json for available npm commands.
+
+# Additional Instructions
+- Git workflow: @docs/git-instructions.md
+- Personal overrides: @~/.claude/my-project-instructions.md
+```
+
+### File Locations
+| Type | Location | Purpose | Shared With |
+|------|----------|---------|-------------|
+| Managed policy | `/Library/Application Support/ClaudeCode/CLAUDE.md` | Organization-wide | All users |
+| Project | `./CLAUDE.md` or `./.claude/CLAUDE.md` | Team-shared | Team via git |
+| Project rules | `./.claude/rules/*.md` | Modular instructions | Team via git |
+| User | `~/.claude/CLAUDE.md` | Personal all-projects | Just you |
+| Project local | `./CLAUDE.local.md` | Personal project-specific | Just you |
+
+**Recursive lookup**: Claude searches parent directories for CLAUDE.md files, allowing monorepo-level settings.
+
+**Additional directories**: Use `claude --add-dir ../other-repo` to include context from other repos.
+
+---
+
+## Modular Rules (.claude/rules/)
+
+### Path-Specific Rules with Frontmatter
+```markdown
+---
+paths:
+  - "src/api/**/*.ts"
+---
+
+# API Development Rules
+- All endpoints must include input validation
+- Use standard error response format
+```
+
+### Glob Patterns Supported
+| Pattern | Matches |
+|---------|---------|
+| `**/*.ts` | All TypeScript files |
+| `src/**/*` | All files under src/ |
+| `*.md` | Markdown in project root |
+| `src/**/*.{ts,tsx}` | Both .ts and .tsx files |
+
+---
+
+## Session Management Commands
+
+| Action | Command |
+|--------|---------|
+| Course correct | `Esc` - stop mid-action, context preserved |
+| Rewind | `Esc + Esc` or `/rewind` - restore conversation and code |
+| Undo | "Undo that" - have Claude revert changes |
+| Clear | `/clear` - reset context between unrelated tasks |
+| Compact | `/compact <focus>` - summarize with focus instruction |
+| Resume | `claude --continue` or `claude --resume` |
+| Fork | `claude --continue --fork-session` |
+| Rename | `/rename session-name` |
+
+### Session Picker Shortcuts
+| Key | Action |
+|-----|--------|
+| `P` | Preview session |
+| `R` | Rename session |
+| `/` | Search filter |
+| `A` | Toggle all projects |
+| `B` | Filter to current branch |
+
+---
+
+## Permission Modes
+
+Cycle with `Shift+Tab`:
+
+1. **Default** - Ask before file edits and shell commands
+2. **Auto-accept edits** - Edit files without asking, still ask for commands
+3. **Plan mode** - Read-only tools only, creates plan for approval
+
+---
+
+## Extended Thinking
+
+Toggle with `Option+T` (macOS) or `Alt+T`.
+
+| Config | Method |
+|--------|--------|
+| Toggle | Option+T / Alt+T |
+| Global default | `/config` |
+| Limit budget | `MAX_THINKING_TOKENS=10000` |
+| View thinking | `Ctrl+O` (verbose mode) |
+
+**Budget**: Up to 31,999 tokens when enabled, 0 when disabled.
+
+---
+
+## Subagent Patterns
+
+### Use Subagents for Context Isolation
+```
+Use subagents to investigate how our authentication system handles token refresh,
+and whether we have any existing OAuth utilities I should reuse.
+```
+
+Subagent explores, reports back summary - doesn't clutter main context.
+
+### Post-Implementation Verification
+```
+use a subagent to review this code for edge cases
+```
+
+### Create Custom Subagents
+```markdown
+# .claude/agents/security-reviewer.md
+---
+name: security-reviewer
+description: Reviews code for security vulnerabilities
+tools: Read, Grep, Glob, Bash
+model: opus
+---
+You are a senior security engineer. Review code for...
+```
+
+---
+
+## Headless & Automation
+
+### One-off Queries
+```bash
+claude -p "Explain what this project does"
+```
+
+### Structured Output
+```bash
+claude -p "List all API endpoints" --output-format json
+```
+
+### Streaming for Real-Time
+```bash
+claude -p "Analyze this log file" --output-format stream-json
+```
+
+### Fan-Out Pattern
+```bash
+for file in $(cat files.txt); do
+  claude -p "Migrate $file from React to Vue. Return OK or FAIL." \
+    --allowedTools "Edit,Bash(git commit *)"
+done
+```
+
+---
+
+## Writer/Reviewer Pattern
+
+| Session A (Writer) | Session B (Reviewer) |
+|-------------------|---------------------|
+| `Implement a rate limiter for our API endpoints` | |
+| | `Review the rate limiter in @src/middleware/rateLimiter.ts. Look for edge cases, race conditions.` |
+| `Here's the review feedback: [Session B output]. Address these issues.` | |
+
+Fresh context improves code review - Claude won't be biased toward code it just wrote.
+
+---
+
+## Git Worktrees for Parallel Sessions
+
+```bash
+# Create worktree with new branch
+git worktree add ../project-feature-a -b feature-a
+
+# Run Claude in isolated worktree
+cd ../project-feature-a
+claude
+
+# Manage worktrees
+git worktree list
+git worktree remove ../project-feature-a
+```
+
+Each worktree has independent file state - perfect for parallel Claude sessions.
+
+---
+
+## Common Failure Patterns to Avoid
+
+| Pattern | Problem | Fix |
+|---------|---------|-----|
+| Kitchen sink session | Context full of unrelated info | `/clear` between tasks |
+| Repeated corrections | Failed approaches pollute context | After 2 failures, `/clear` and better prompt |
+| Over-specified CLAUDE.md | Rules get ignored | Ruthlessly prune, convert to hooks |
+| Trust-then-verify gap | Plausible but broken implementation | Always provide verification |
+| Infinite exploration | Context consumed by investigation | Scope narrowly or use subagents |
+
+---
+
+## Skills vs Subagents vs Hooks vs MCP
+
+| Feature | Purpose | When to Use |
+|---------|---------|-------------|
+| Skills | Domain knowledge, reusable workflows | `/skill-name` commands |
+| Subagents | Delegated tasks with isolated context | Complex investigations, verification |
+| Hooks | Guaranteed actions at specific points | "Must happen every time" requirements |
+| MCP | External service connections | Database, Notion, Figma, etc. |
+
+---
+
+## CLI Verification Integration
+
+```json
+// package.json
+{
+  "scripts": {
+    "lint:claude": "claude -p 'you are a linter. look at changes vs main and report issues related to typos. filename and line on one line, description on second line. no other text.'"
+  }
+}
+```
+
+---
+
+## Quick Reference Card
+
+### Essential Commands
+| Command | Purpose |
+|---------|---------|
+| `/clear` | Reset between unrelated tasks |
+| `/compact <focus>` | Shrink context with focus |
+| `/rewind` | Restore to checkpoint |
+| `/rename` | Name session for later |
+| `Esc` | Stop and redirect |
+| `Esc + Esc` | Rewind menu |
+| `Shift+Tab` | Cycle permission modes |
+| `Ctrl+G` | Open plan in editor |
+| `Option+T` | Toggle thinking |
+| `Ctrl+O` | Toggle verbose mode |
+
+### CLI Flags
+| Flag | Purpose |
+|------|---------|
+| `--continue` | Resume most recent session |
+| `--resume` | Pick from recent sessions |
+| `--resume <name>` | Resume by name |
+| `--from-pr <num>` | Resume PR-linked session |
+| `--fork-session` | Branch conversation |
+| `--permission-mode plan` | Start in plan mode |
+| `-p "prompt"` | Headless query |
+| `--output-format json` | Structured output |
+
+### Conversation Patterns
+- **Interview first**: "Interview me about this feature using AskUserQuestion"
+- **Verify work**: "run tests and fix failures"
+- **Reference patterns**: "look at HotDogWidget.php for the pattern"
+- **Scope investigations**: "check only src/auth/, especially token refresh"
+- **Use subagents**: "use a subagent to review for edge cases"
+
+---
+
+## Power-User Tips from Claude Code Team (Feb 2026)
+
+**Source**: @bcherny Twitter thread with team insights
+
+### 1. Git Worktrees at Scale
+Spin up **3-5 worktrees** running parallel Claude sessions - "single biggest productivity unlock."
+
+```bash
+# Shell aliases for instant switching
+alias za='cd ~/worktrees/project-a && claude'
+alias zb='cd ~/worktrees/project-b && claude'
+alias zc='cd ~/worktrees/project-c && claude'
+
+# Dedicated analysis worktree (read-only for logs, BigQuery)
+git worktree add ../project-analysis -b analysis
+```
+
+### 2. Plan Mode Mastery
+- Start **every complex task** in plan mode
+- Pour energy into the plan so Claude can 1-shot implementation
+- **Writer/Reviewer with plans**: One Claude writes plan, second reviews as staff engineer
+- **When things go sideways**: Switch back to plan mode, don't keep pushing
+- Use plan mode for **verification steps**, not just builds
+
+### 3. Self-Improving CLAUDE.md
+After every correction, end with:
+> "Update your CLAUDE.md so you don't make that mistake again."
+
+Claude is "eerily good at writing rules for itself."
+
+**Advanced**: Maintain a `notes/` directory per task/project, updated after every PR. Point CLAUDE.md at it.
+
+### 4. Skills & Slash Commands
+**Rule**: If you do something more than once a day, turn it into a skill.
+
+| Skill Idea | Purpose |
+|------------|---------|
+| `/techdebt` | Run end of every session to find/kill duplicated code |
+| `/sync-context` | Sync 7 days of Slack, GDrive, Asana, GitHub into one dump |
+| `/analytics` | dbt models, code review, dev testing (analytics-engineer style) |
+| `/reuse-check` | Search codebase/KB/repos for existing solutions before implementing |
+
+### 4b. MANDATORY: Reuse Check in Planning
+**Before writing ANY new code, search for existing solutions:**
+
+1. **Codebase** - Search for similar functions, utilities, patterns
+2. **Knowledgebase** - Check KB for documented solutions
+3. **GitHub repos** - Reference implementations (520+ repos in master KB)
+4. **Online docs** - Built-in framework/API solutions
+
+**Add to every plan:**
+```
+"Search codebase for existing utilities that could handle X"
+"Check if similar pattern exists in KB or referenced repos"
+"Look for built-in API/framework solution before custom code"
+```
+
+### 4c. CI Duplication Checks
+```bash
+# package.json scripts
+"check:duplication": "claude -p 'Analyze codebase for duplicated code: (1) copy-pasted functions, (2) similar logic to abstract, (3) reimplemented utilities. Report: file:line, duplicate of file:line, refactor suggestion.'"
+
+"review:pr": "claude -p 'Review PR for: (1) code duplication, (2) missing reuse of existing utilities, (3) patterns contradicting conventions. Reference existing code.'"
+```
+
+```yaml
+# .github/workflows/code-review.yml
+- name: Check for duplication
+  run: claude -p "Find duplicated code in changes vs main. Report file:line pairs." --output-format json
+
+- name: Check for missed reuse
+  run: claude -p "Check if new code reimplements existing utilities. List violations."
+```
+
+### 5. Bug Fixing Patterns
+- **Slack MCP + paste thread + "fix"** - Zero context switching
+- **"Go fix the failing CI tests"** - Don't micromanage how
+- **Point at docker logs** - Surprisingly capable at distributed systems debugging
+
+### 6. Power Prompts
+| Technique | Prompt |
+|-----------|--------|
+| Challenge Claude | "Grill me on these changes and don't make a PR until I pass your test" |
+| Prove it works | "Prove to me this works" - diff behavior between main and feature branch |
+| Elegant redo | "Knowing everything you know now, scrap this and implement the elegant solution" |
+
+**Key insight**: More specific specs = better output. Reduce ambiguity before handoff.
+
+### 7. Terminal Setup
+- **Ghostty** - Team favorite (synchronized rendering, 24-bit color, unicode)
+- **`/statusline`** - Show context usage + git branch always
+- **Color-coded tabs** - One tab per task/worktree, use tmux
+- **Voice dictation** (fn x2 on macOS) - 3x faster, way more detailed prompts
+
+### 8. Subagent Patterns
+- Append **"use subagents"** to any request for more compute
+- Offload individual tasks to keep main context clean and focused
+- **Opus 4.5 permission hook** - Auto-scan for attacks, auto-approve safe ones
+
+### 9. Data & Analytics
+Use `bq` CLI skill for BigQuery queries directly in Claude Code.
+> "I haven't written a line of SQL in 6+ months"
+
+Works for any database with CLI, MCP, or API.
+
+### 10. Learning Mode
+- Enable **"Explanatory" or "Learning" output style** in `/config`
+- Ask Claude to generate **visual HTML presentations** explaining code
+- Request **ASCII diagrams** of protocols and codebases
+- Build **spaced-repetition learning skill**: explain understanding → Claude asks follow-ups → stores result
+
+---
+
+**Tags**: #claude-code #best-practices #context-management #subagents #sessions #team-tips #power-user

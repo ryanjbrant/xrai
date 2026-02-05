@@ -1,27 +1,108 @@
 # H3M PORTALS - JT IMPLEMENTATION PRIORITIES
 
-**Project**: H3M Portals iOS/Android AR Application
-**Unity Version**: 6000.1.2f1
-**Last Updated**: 2025-10-31 (Codebase analyzed and verified)
+**Project**: Portals V4 - Unity 6 + React Native Hybrid AR Application
+**Unity Version**: 6000.2.14f1 | **RN**: 0.81.5 (Fabric) | **AR Foundation**: 6.2.1
+**Last Updated**: 2026-02-05 (Portals V4 progress synced)
+
+---
 
 ## 🎯 EXECUTIVE SUMMARY
 
-This document consolidates all implementation priorities for the H3M Portals AR application. It integrates technical analysis from multiple deep-dive documents and provides a clear, prioritized roadmap.
+This document consolidates implementation priorities for the H3M Portals AR application. Now fully migrated to **Portals V4** architecture with Unity as a Library (UAAL) + React Native hybrid approach.
 
-**Major Update (2025-10-31)**: Deep codebase analysis completed, current implementation status verified against all priorities. See: `.claude/_CODEBASE_DEEP_ANALYSIS_2025-10-31.md`
+**Major Updates (2026-02-05)**:
+- **Portals V4**: Production-ready hybrid app with Unity 6 + RN 0.81.5 Fabric
+- **Spec-Driven Development**: Full spec-kit methodology in place (`.specify/`)
+- **VFX Architecture**: MetavidoVFX O(1) compute patterns documented
+- **Open Source Strategy**: XRAI/VNMF format specs defined
+- **Unity Advanced Composer**: Next major feature in planning
 
-**Post-Audit Updates (2025-11-21)**:
+**Reference Specs** (see `portals_main/specs/`):
+- `VFX_ARCHITECTURE.md` - VFX Graph patterns (98% confidence)
+- `OPEN_SOURCE_ARCHITECTURE.md` - Open/closed split (85% confidence)
+- `ARCHITECTURE_AUDIT_2026.md` - Full codebase audit
+- `.specify/specs/001-unity-advanced-composer/` - Advanced Composer spec
 
-- Added security remediation as P0: remove auth token logging (`H3MLogin.cs`), externalize S3 bucket URL (`H3MAmazonS3.cs`), delete dead services.
-- Verified prototypes: Hand paint (`HandPaintParticleController.cs`), Audio reactive (`Mic.cs` + `MicHandle.cs`), Body VFX (`PeopleOcclusionVFXManager.cs`).
-- Reconfirmed ParticlePainter pooling refactor is the primary performance blocker.
+---
 
-### Quick Stats
+## 🚀 PORTALS V4 CURRENT STATUS (2026-02-05)
+
+### What's Working ✅
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Unity UAAL | ✅ Production | Unity 6000.2.14f1, AR Foundation 6.2.1 |
+| React Native | ✅ Production | 0.81.5 with Fabric/New Architecture |
+| RN-Unity Bridge | ✅ Working | BridgeTarget.cs ↔ UnityArView.tsx |
+| AR Camera | ✅ Working | ARSession resetter, plane detection |
+| Build Pipeline | ✅ Automated | `build_minimal.sh`, one-command builds |
+| Scene Navigation | ✅ Working | 25+ scenes in build settings |
+
+### Architecture Philosophy
+
+> "If it is Logic, write in React Native. If it is 10,000 Particles, write in Unity VFX Graph."
+
+### Next Priority: Unity Advanced Composer
+
+**Goal**: Migrate FigmentAR composer to Unity with RN UI overlay
+**Status**: Spec complete, plan complete, ready for implementation
+**Spec**: `.specify/specs/001-unity-advanced-composer/`
+
+---
+
+## 📋 UPDATED PRIORITY TIERS
+
+### P0 - CURRENT FOCUS (Portals V4)
+
+#### ✅ COMPLETED: Portals V4 Foundation
+- Unity UAAL integration with RN Fabric
+- Build automation (one-command builds)
+- ARSession resetter for UAAL
+- Message queue buffering for early Unity messages
+- 60 FPS VSync fix
+
+#### 🔴 ACTIVE: Unity Advanced Composer (001-spec)
+**Status**: Spec complete, implementation starting
+**Goal**: FigmentAR functionality in Unity with RN UI overlay
+**Key Patterns**:
+- O(1) VFX compute (single ARDepthSource dispatch)
+- VFXARBinder per-effect (~0.2ms each)
+- Standard properties: DepthMap, ColorMap, StencilMap, RayParams, InverseView
+- 50K particle budget on iPhone 12+
+
+### P1 - VFX Integration
+
+#### VFX Graph Body/Hand Tracking
+**Status**: Patterns documented, MetavidoVFX research complete
+**Reference**: `specs/VFX_ARCHITECTURE.md`
+**Key Files Needed**:
+- `ARDepthSource.cs` - Single compute dispatch
+- `VFXARBinder.cs` - Per-VFX property binding
+- `DepthToWorld.compute` - Depth → world positions
+
+### P2 - Open Source Ecosystem
+
+#### XRAI/VNMF Format Publishing
+**Status**: Specifications defined
+**Reference**: `specs/OPEN_SOURCE_ARCHITECTURE.md`
+**Components**:
+- XRAI scene format (MIT)
+- VNMF asset format (MIT)
+- VFX library (community contributions)
+- SDK for third-party integration
+
+---
+
+## 📊 LEGACY PRIORITIES (Portals_6 Reference)
+
+The following priorities are from the original Portals_6 project. Many patterns are being reused in Portals V4:
+
+### Quick Stats (Legacy Reference)
 
 - **Total Features Planned**: 12 major AR features
 - **Estimated Timeline**: 10-15 weeks (2 developers)
 - **Total Effort**: 400-600 hours (reduced with automation)
-- **Current Status**: Foundation phase - Input System modernized ✅, P0.2 ready to start
+- **Current Status**: Many patterns migrated to V4
 - **Codebase**: 2,695 C# scripts across legacy and v3 modules
 
 ---
@@ -1347,25 +1428,32 @@ public void ApplyBodyPose(ARHumanBody body)
 ## 📝 VERSION HISTORY
 
 - **v1.0** (2025-10-30): Initial consolidated priorities document
-
   - Integrated 7 deep analysis documents
   - Defined P0/P1/P2/P3 tiers
   - Created 15-week implementation timeline
   - Input System migration completed ✅
 
-- **Version 2.0** (2025-10-31): Deep codebase analysis and verification
-- **Analyzed 2,695 C# scripts** spanning legacy and v3 modules
-
+- **v2.0** (2025-10-31): Deep codebase analysis and verification
+  - Analyzed 2,695 C# scripts spanning legacy and v3 modules
   - Verified implementation status for all P0-P3 features
   - Updated P0.2 time estimate (40-60h with automation, from 80-120h)
-  - Added current codebase status to each priority
-  - Identified specific files and line numbers for critical issues
-  - Created consolidated deep analysis document
-  - All priorities verified against actual code (not just documentation)
+  - All priorities verified against actual code
+
+- **v3.0** (2026-02-05): Portals V4 Architecture Update
+  - **Major Migration**: Portals_6 → Portals V4 (Unity 6 + RN 0.81.5)
+  - Unity UAAL integration with React Native Fabric
+  - Build automation: one-command builds (`build_minimal.sh`)
+  - Spec-Driven Development with spec-kit methodology
+  - VFX Architecture: MetavidoVFX O(1) compute patterns
+  - Open Source Strategy: XRAI/VNMF format specifications
+  - Unity Advanced Composer spec complete (001-spec)
+  - 235 VFX assets catalogued with binding modes
+  - KB synced with Notion resource pages
 
 ---
 
 **Document Owner**: James Tunick
 **Review Frequency**: Weekly during active development
-**Next Review**: 2025-11-07
-**Codebase Analysis**: `.claude/_CODEBASE_DEEP_ANALYSIS_2025-10-31.md`
+**Next Review**: 2026-02-12
+**Primary Specs**: `portals_main/specs/`, `portals_main/.specify/specs/`
+**KB Sync**: `_NOTION_SYNC_GUIDE.md`

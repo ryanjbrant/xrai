@@ -1,8 +1,8 @@
 # Web Interoperability & Spatial Media Standards
 
-**Version**: 1.0
-**Last Updated**: 2025-11-02
-**Status**: Research & Analysis Phase
+**Version**: 2.0
+**Last Updated**: 2026-02-05
+**Status**: Portals V4 Formats Defined
 
 ---
 
@@ -11,6 +11,57 @@
 This document tracks research and analysis of emerging standards for spatial media interoperability, focusing on formats that enable cross-platform XR experiences, AI model sharing, and real-time collaborative 3D content delivery.
 
 **Primary Goal**: Identify or create a single lightweight spatial media format that is optimal for the future of open source AI model sharing & cross platform multiplayer XR dynamic world sharing - **the DNA of rich interactive immersive spatial media**.
+
+---
+
+## 🚀 PORTALS V4 FORMAT STRATEGY (2026-02-05)
+
+**Status**: Specifications defined in `portals_main/specs/OPEN_SOURCE_ARCHITECTURE.md`
+
+Based on research in this document and practical implementation needs, Portals V4 defines two complementary formats:
+
+### XRAI - Scene Interchange Format (MIT License)
+
+**Purpose**: Share complete AR scenes across platforms and tools
+
+```json
+{
+  "xrai_version": "1.0",
+  "metadata": { "title": "My AR Scene", "author": "user@example.com" },
+  "entities": [
+    { "id": "uuid", "type": "model", "asset": "ipfs://...", "transform": {...} }
+  ],
+  "vfx": [
+    { "id": "vfx1", "type": "sparkles_depth_people", "properties": {} }
+  ],
+  "environment": { "lighting": "sunset", "skybox": "ipfs://..." }
+}
+```
+
+### VNMF - VFX/Neural/Model Format (MIT License)
+
+**Purpose**: Package VFX presets, neural models, and 3D assets with metadata
+
+```json
+{
+  "vnmf_version": "1.0",
+  "type": "vfx_preset",
+  "metadata": { "name": "Fire Particles", "license": "MIT" },
+  "content": {
+    "vfx_graph": "base64://...",
+    "parameters": { "rate": { "type": "float", "default": 1000 } }
+  },
+  "requirements": { "compute_shaders": true, "platform": ["ios", "android"] }
+}
+```
+
+### Publishing Platforms
+
+- **GitHub**: Version control, CI/CD validation
+- **Hugging Face**: Discovery, community, large file hosting
+- **IPFS**: Permanent, decentralized storage
+
+**Full Specification**: See `portals_main/specs/OPEN_SOURCE_ARCHITECTURE.md`
 
 ---
 
