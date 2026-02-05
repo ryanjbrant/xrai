@@ -1,10 +1,17 @@
 # KnowledgeBase Index
 
-**Files**: 49 active | **Updated**: 2026-02-05
+**Files**: 54 active | **Size**: 4MB | **Updated**: 2026-02-05
 
 ---
 
 **No local KB?** Browse online: https://github.com/imclab/xrai/tree/main/KnowledgeBase
+
+## External References (Not Bundled)
+| Resource | URL |
+|----------|-----|
+| Anthropic Cookbook | https://github.com/anthropics/anthropic-cookbook |
+| Unity MCP Reference | https://github.com/AICodingGenius/AI-XR-MCP |
+| XRAI Spec (PDF) | See Google Drive or project docs |
 
 ## Quick Access (Daily Use)
 
