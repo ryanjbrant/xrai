@@ -171,6 +171,13 @@ ss                    # Screenshot for context
 - `/clear`: Unrelated task, context >150K
 - New session: Context >180K, >2 hours, different project
 
+**⚠️ PROACTIVE COMPACTION (CRITICAL)**:
+- **NEVER let compaction block user workflow**
+- At ~80K tokens: Proactively prepare for compaction (summarize internally)
+- At ~100K tokens: Use background agent to pre-summarize if possible
+- At ~120K tokens: Compact immediately between responses
+- If compaction blocks user: FAILURE - add to learning log
+
 **Persistence (before ending)**:
 ```bash
 git add -A && git commit -m "WIP: <summary>"
