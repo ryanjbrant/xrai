@@ -1,6 +1,6 @@
 # KnowledgeBase Index
 
-**Files**: 55 | **Size**: 4MB | **Updated**: 2026-02-05 | **Verified**: All sources current
+**Files**: 55 | **Size**: 4MB | **Updated**: 2026-02-05 | **Verified**: See per-file headers
 
 ---
 
