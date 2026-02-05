@@ -14,8 +14,9 @@ Search KB → Plan → Code → Commit → Log discovery
 - If `GLOBAL_RULES.md` is not loaded in context, ask the user to load it now.
 
 ## Session Start Choices (Ask Once)
-- Ask user to set: `toolchain`, `scope`, `verbosity`, `kb_access`, `commit_policy`.
-- Example: `Claude+Rider+Unity | portals_v4 | concise | KB read/write | PRs required`
+- Defaults (auto): `toolchain=auto-detect`, `scope=current repo`, `verbosity=concise`.
+- Ask only: **Global or project‑only rules/memory?** (default: project‑only)
+- Example: `project‑only` or `global`
 
 ## Insight Prompt (When 99% Confidence + Evidence)
 - If a breakthrough, repeated failure, or notable improvement is confirmed, ask to log it:
