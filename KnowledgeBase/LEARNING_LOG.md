@@ -2265,3 +2265,67 @@ Read these for context:
 **Message**: docs: Reorganized documentation and specifications for clarity and reduced scan noise
 **Files Changed**: Moved 5+ docs to .deprecated/Docs, 5 specs to .deprecated/Specs, updated READMEs
 **Summary**: Consolidated and updated core documentation to align with Hybrid Bridge architecture. Moved superseded docs and completed specs out of active Assets folders to minimize AI tool context bloat.
+
+---
+
+## 2026-02-05 - Claude Code - Cross-Tool KB Access Architecture
+
+**Discovery**: Optimal KB access pattern for teams using multiple AI tools (Claude Code, Codex, Windsurf, Gemini, Rider)
+
+**Context**: Setting up shared KnowledgeBase access across dev team without slowing workflows or requiring complex setup
+
+**Key Insight**: Three-tier access pattern with jsDelivr CDN eliminates rate limits and setup friction
+
+### Architecture Pattern
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Tier 1: Bundled       │  .claude/kb/ in project repo      │
+│  (Zero setup)          │  Essentials: _QUICK_FIX, AUTO_FIX │
+├────────────────────────┼────────────────────────────────────┤
+│  Tier 2: Online CDN    │  jsDelivr (no rate limits)        │
+│  (Zero setup)          │  Full 49-file KB on-demand        │
+├────────────────────────┼────────────────────────────────────┤
+│  Tier 3: Local Clone   │  ./scripts/dev-setup.sh           │
+│  (Optional)            │  Fastest, works offline           │
+└────────────────────────┴────────────────────────────────────┘
+```
+
+### Critical Decision: jsDelivr vs raw.githubusercontent.com
+
+| Factor | raw.githubusercontent.com | jsDelivr CDN |
+|--------|---------------------------|--------------|
+| Rate limit | 60 req/hour | **Unlimited** |
+| Latency | ~300ms | **~100ms** |
+| Caching | None | Global CDN |
+| Cost | Free | Free |
+
+**URL Pattern**: `https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/{path}`
+
+### Auto-Sync via open-multibrain
+
+Git post-commit hook syncs GLOBAL_RULES.md to all AI tools:
+- Claude Code (`~/.claude/`)
+- Codex (`~/.codex/`)
+- Windsurf (`~/.windsurf/`)
+- Antigravity (`~/.antigravity/`)
+
+**Key Files**:
+- `modules/open-multibrain/sync.sh` - Main sync script
+- `.git/hooks/post-commit` - Auto-trigger on commit
+- `GLOBAL_RULES.md` - Single source of truth
+
+### When to Use Each Tier
+
+| Scenario | Tier |
+|----------|------|
+| Quick error fix | Tier 1 (bundled) |
+| Deep research | Tier 2 (online CDN) |
+| Heavy daily use | Tier 3 (local clone) |
+| Offline/travel | Tier 3 only |
+
+**Impact**: Team gets full KB access with zero mandatory setup. Power users can opt into local clone for speed.
+
+**Cross-refs**: `_OPEN_MULTIBRAIN_SYNC.md`, `_TOKEN_EFFICIENCY_COMPLETE.md`, `GLOBAL_RULES.md`
+
+**Tags**: #architecture #devops #kb #team #cdn

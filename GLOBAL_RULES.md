@@ -68,6 +68,24 @@ Explore → Plan → Code → Commit → Log discovery
 - Keep it one-line. If user declines, do not ask again that session.
 - **Web research**: If key insight comes from web sources, log it to KB with citations/links.
 
+### Auto-Log Big Wins (ALWAYS)
+**Automatically add to KB when you discover:**
+- Architecture patterns that solve multi-tool/team problems
+- Performance wins (rate limits bypassed, latency reduced, etc.)
+- Setup simplifications (zero-config solutions)
+- Cross-tool sync patterns
+- CDN/caching strategies
+- Decision matrices (when to use X vs Y)
+
+**Format**: Add to `LEARNING_LOG.md` with:
+- Context (what problem)
+- Solution (what pattern)
+- Impact (measurable benefit)
+- Cross-refs (related KB files)
+- Tags (#architecture, #perf, #devops, etc.)
+
+**Then**: Update relevant master file (e.g., `_OPEN_MULTIBRAIN_SYNC.md` for sync wins)
+
 ### KnowledgeBase Access (Default)
 - **Read access**: ON by default (use KB for answers).
 - **Write/commit/PR**: ONLY when a key insight is confirmed (99% confidence + evidence).

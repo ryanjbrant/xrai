@@ -148,3 +148,52 @@ Check `config.json` - tool might be disabled.
 - **mux** = multiplexer (routes one signal to many outputs)
 - **open-multibrain.com** = available domain
 - Fits GitHub naming trends (technical, short, memorable)
+
+---
+
+## KB Access Tiers (Team Pattern)
+
+For teams using multiple AI tools, provide three tiers of KB access:
+
+### Tier 1: Bundled (Zero Setup)
+```
+project/.claude/kb/
+├── _QUICK_FIX.md
+├── _AUTO_FIX_PATTERNS.md
+└── README.md
+```
+- Included in project repo
+- Available immediately on clone
+- Essentials only (~100KB)
+
+### Tier 2: Online CDN (Zero Setup, Full KB)
+```
+Base URL: https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/
+```
+- No rate limits (jsDelivr CDN)
+- ~100ms latency (global caching)
+- Full 49-file KB on-demand
+- Use WebFetch/curl when needed
+
+**Why jsDelivr over raw.githubusercontent.com:**
+- raw.githubusercontent.com: 60 requests/hour limit
+- jsDelivr: Unlimited, globally cached, faster
+
+### Tier 3: Local Clone (Optional, Fastest)
+```bash
+./scripts/dev-setup.sh
+# Creates: ~/.claude/knowledgebase/ → Unity-XR-AI/KnowledgeBase/
+```
+- Fastest access (~1ms)
+- Works offline
+- Full sync via open-multibrain
+- Recommended for power users
+
+### Decision Matrix
+
+| User Type | Recommended Tier |
+|-----------|------------------|
+| New team member | Tier 1 (bundled) |
+| Regular contributor | Tier 2 (online CDN) |
+| Daily heavy user | Tier 3 (local clone) |
+| Offline/travel | Tier 3 required |
