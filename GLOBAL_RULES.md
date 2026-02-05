@@ -407,6 +407,70 @@ Date | Context | Discovery | Impact
 
 ---
 
+## 🔄 Auto-Improvement System (ALWAYS ACTIVE)
+
+**Every interaction should improve future workflows. This is not optional.**
+
+### Development Workflow Auto-Improve
+
+| Observation | Auto-Action |
+|-------------|-------------|
+| Repeated build command | Add to project CLAUDE.md Quick Start |
+| Manual step >2x | Create automation script |
+| Config discovered | Document in relevant spec |
+| New pattern used successfully | Add to KB |
+| Code reused 3x | Extract to shared utility |
+
+### Testing Auto-Improve
+
+| Observation | Auto-Action |
+|-------------|-------------|
+| Manual test repeated | Create automated test or checklist |
+| Test failure pattern | Add to _AUTO_FIX_PATTERNS.md |
+| Missing test coverage | Note in TODO.md |
+| Successful test approach | Document in LEARNING_LOG.md |
+| Device-specific issue | Add to platform section in CLAUDE.md |
+
+### Debugging Auto-Improve
+
+| Observation | Auto-Action |
+|-------------|-------------|
+| Error fixed | Add to _QUICK_FIX.md |
+| Root cause found | Document pattern in KB |
+| Debug command useful | Add to project tooling section |
+| Log location discovered | Add to troubleshooting docs |
+| Symptom→cause mapping | Add to _AUTO_FIX_PATTERNS.md |
+
+### Auto-Fix Escalation
+
+```
+Attempt 1: Check _QUICK_FIX.md and _AUTO_FIX_PATTERNS.md
+Attempt 2: Search KB for similar issues
+Attempt 3: Try alternative approach, log both attempts
+Attempt 4: Search community sources (_TRUSTED_COMMUNITY_SOURCES.md)
+Attempt 5: Ask user, document new solution
+```
+
+### Continuous Improvement Triggers
+
+**After EVERY task completion**:
+1. Was there friction? → Log to FAILURE_LOG.md
+2. Did something work first try? → Log to SUCCESS_LOG.md
+3. New pattern discovered? → Add to relevant KB file
+4. Repeated manual step? → Create script/alias
+5. Missing documentation? → Update CLAUDE.md or specs
+
+**After EVERY error resolution**:
+1. Add error→fix to _QUICK_FIX.md
+2. If pattern applies to multiple projects → Add to _AUTO_FIX_PATTERNS.md
+3. If community helped → Add source to _TRUSTED_COMMUNITY_SOURCES.md
+
+**Weekly (automated via cron)**:
+- `kb-health-check.sh` - Audit KB for stale content
+- Review LEARNING_LOG.md for patterns worth promoting
+
+---
+
 ## File Safety (CRITICAL)
 
 - **NEVER delete files** without explicit user instruction
