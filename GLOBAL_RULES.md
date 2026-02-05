@@ -67,6 +67,22 @@ Fetch on-demand. Don't preload.
 
 ---
 
+## KB vs Online Research (Decision Logic)
+
+| Situation | Action |
+|-----------|--------|
+| Error code (CS0246, etc) | KB first → `_QUICK_FIX.md` |
+| Unity/VFX/AR patterns | KB first → `_*_MASTER.md` files |
+| Package versions/updates | Online research (KB may be stale) |
+| New API/framework | Online research → then add to KB |
+| Best practices 2025+ | Online research (verify current) |
+| GitHub repos/examples | KB first → `_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md` |
+
+**Rule**: KB for known patterns, Online for fresh/evolving info.
+**After online research**: Add key findings to KB (triple-verify first).
+
+---
+
 ## Key Files (search when needed)
 
 | Need | File |
