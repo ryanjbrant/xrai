@@ -65,12 +65,13 @@
 | `_ML_RESEARCH_MASTER.md` | Style transfer, CV |
 | `_AI_CODING_BEST_PRACTICES.md` | AI coding patterns |
 
-## Operations (4 files)
+## Operations (5 files)
 
 | File | Content |
 |------|---------|
 | `_QUICK_FIX.md` | Error → fix lookup |
-| `_AUTO_FIX_PATTERNS.md` | Automated fixes |
+| `_AUTO_FIX_PATTERNS.md` | Extended fix patterns |
+| `_KB_HEALTH.md` | KB health & auto-improve |
 | `LEARNING_LOG.md` | Session discoveries |
 | `AUTOMATION_QUICK_START.md` | Automation scripts |
 
