@@ -123,6 +123,7 @@ Format: Date, Context, Fix, Impact (1-2 lines each)
 - ❌ Add comments/docs unless asked
 - ❌ Refactor code you didn't change
 - ❌ **Delete files** unless user explicitly says "delete"
+- ❌ Use AI for automation when scripts/hooks work better
 
 ---
 
