@@ -196,6 +196,26 @@ batch_execute([{...}, {...}], parallel=true)  # Multiple VFX ops
 
 **Startup**: `mcp-kill-dupes`
 
+### Configuration Sync (Single Source of Truth)
+```
+Unity-XR-AI/GLOBAL_RULES.md  →  ~/GLOBAL_RULES.md  →  all tools
+Unity-XR-AI/AGENTS.md        →  ~/AGENTS.md        →  Codex
+Unity-XR-AI/KnowledgeBase/   →  all tool KB dirs
+```
+
+**Auto-sync**: Git post-commit hook runs `Scripts/sync-ai-tools.sh`
+**Manual sync**: `~/Documents/GitHub/Unity-XR-AI/Scripts/sync-ai-tools.sh`
+
+| Tool | Config Location | Symlinks |
+|------|-----------------|----------|
+| Claude Code | ~/.claude/ | knowledgebase, CLAUDE.md |
+| Codex | ~/.codex/ | AGENTS.md, GLOBAL_RULES.md, knowledgebase |
+| Antigravity | ~/.antigravity/ | GLOBAL_RULES.md, knowledgebase |
+| Windsurf | ~/.windsurf/ | GLOBAL_RULES.md, knowledgebase |
+| Rider | JetBrains MCP | port 63342 |
+
+**Best practice**: Edit source in Unity-XR-AI repo, commit, let hook sync.
+
 ### Agent Decision
 - **3+ step task** → Use agent (independent budget)
 - **KB lookup** → `kbfix "error"` (0 tokens)
