@@ -50,6 +50,7 @@ Explore → Plan → Code → Commit → Log discovery
 - **Agents guide**: Keep `AGENTS.md` synchronized with codebase/docs/specs/KB and `CLAUDE.md`.
 - **Cross-tool sync**: Keep docs/rules/memory aligned across Codex, Claude Code, and Gemini.
 - **KB Index**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_KB_INDEX.md`
+- **Official sources + updates**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_OFFICIAL_SOURCES_LATEST_UPDATES.md`
 
 ### KB Search Commands (Zero Tokens - Always Try First)
 
