@@ -96,6 +96,17 @@
 | ReadPixels race condition | Wrap in try-catch, return cached value |
 | Domain reload crash | Use `beforeAssemblyReload` to dispose resources |
 
+## Web/API (Node.js, Express)
+
+| Error | Fix |
+|-------|-----|
+| Frontend "Unknown error" | Check status value mismatch (server vs client) |
+| `status: 'running'` vs `'started'` | Check both: `if (result.jobId \|\| result.status === 'running')` |
+| API endpoint 404 | Check route path (missing `/` in `:param`) |
+| CORS error | Add `cors()` middleware or same-origin |
+| `app._router.handle()` not working | Call function directly instead of internal redirect |
+| Express internal redirect fails | Don't use `req.url` change, call handler directly |
+
 ## WebXR
 
 | Error | Fix |
