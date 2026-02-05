@@ -52,6 +52,15 @@ Explore → Plan → Code → Commit → Log discovery
 - **KB Index**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_KB_INDEX.md`
 - **Official sources + updates**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/_OFFICIAL_SOURCES_LATEST_UPDATES.md`
 
+### KnowledgeBase Access & Contributions (Optional)
+- **Read/write access**: use `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/` (or symlink your tool to it).
+- **Local dev notes**: add research/insights to `docs/dev/<username>/` in the project repo.
+- **Upstream KB contributions** (opt‑in):
+  1. Create a branch in `Unity-XR-AI` KB repo.
+  2. Add/merge into existing KB files using KB info‑architecture patterns (tags + cross‑refs).
+  3. Triple‑verify accuracy (local evidence + official docs + reputable sources).
+  4. Open a PR for `jt5d` or repo admins to review before merge.
+
 ### KB Search Commands (Zero Tokens - Always Try First)
 
 ```bash
