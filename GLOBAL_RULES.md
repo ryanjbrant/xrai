@@ -62,6 +62,10 @@ Explore → Plan → Code → Commit → Log discovery
   - Local: `docs/dev/<username>/`
   - Global KB: PR to `Unity-XR-AI` (branch + evidence + cross-refs)
 
+### KnowledgeBase Access (Default)
+- **Read access**: ON by default (use KB for answers).
+- **Write/commit/PR**: ONLY when a key insight is confirmed (99% confidence + evidence).
+
 ### KnowledgeBase Access & Contributions (Optional)
 - **Read/write access**: use `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/` (or symlink your tool to it).
 - **Local dev notes**: add research/insights to `docs/dev/<username>/` in the project repo.

@@ -23,6 +23,10 @@ Search KB → Plan → Code → Commit → Log discovery
   - Local: `docs/dev/<username>/`
   - Global KB: PR to `Unity-XR-AI` (branch + evidence + cross-refs)
 
+## KnowledgeBase Access (Default)
+- **Read access**: ON by default (use KB for answers).
+- **Write/commit/PR**: ONLY when a key insight is confirmed (99% confidence + evidence).
+
 ## Before Any Change
 1. **Need it?** Check KB for existing solution
 2. **Side effects?** Keep changes minimal, reversible
