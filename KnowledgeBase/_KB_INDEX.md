@@ -13,6 +13,7 @@
 | Error fix | `_QUICK_FIX.md` |
 | Unity MCP tools | `_UNITY_MCP_MASTER.md` |
 | VFX patterns | `_VFX_MASTER_PATTERNS.md` |
+| Compute shaders | `_COMPUTE_SHADER_PATTERNS.md` |
 | AR Foundation | `_ARFOUNDATION_VFX_MASTER_LIST.md` |
 | Token tips | `_TOKEN_EFFICIENCY_COMPLETE.md` |
 | GitHub repos | `_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md` |

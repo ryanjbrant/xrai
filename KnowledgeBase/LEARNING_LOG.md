@@ -6,6 +6,26 @@
 
 ---
 
+## 2026-02-06 - Claude Code - XROrigin Singleton Rule (Critical)
+
+**Context**: Hologram tracking broke after commit 416533006.
+
+### Root Cause
+Commit 416533006 added a second XROrigin to HiFi_Hologram_Rig with `m_Camera: {fileID: 0}` (no camera). This broke AR tracking - depth/pose data routed incorrectly.
+
+### Rule
+**XROrigin MUST be singleton** - only ONE per scene on the main AR camera rig. Never add XROrigin to child objects or hologram rigs.
+
+### Fix
+Reverted HOLOGRAM.unity to commit 2f73565e7 (before 416533006).
+
+### Pattern for `_AUTO_FIX_PATTERNS.md`
+| Error | Fix |
+|-------|-----|
+| Hologram not tracking / VFX not following body | Check for duplicate XROrigin components. Remove all except the one on main camera rig. |
+
+---
+
 ## 2026-02-06 - Claude Code - Spec 013 Complete + Cross-Tool Architecture
 
 **Context**: Session completing UI/UX conferencing system and cross-tool sharing.
