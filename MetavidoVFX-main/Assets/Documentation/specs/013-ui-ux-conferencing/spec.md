@@ -278,12 +278,12 @@ Adapt existing `VFXToggleUI` pattern with:
 - [ ] Phone/SMS verification (P2 - optional)
 - [ ] GitHub OAuth (P3 - optional)
 
-### Phase 4: Polish (Sprint 4)
+### Phase 4: Polish (Sprint 4) ⏳ IN PROGRESS
 
-- [ ] Animations and transitions
-- [ ] Accessibility (VoiceOver, TalkBack)
-- [ ] Localization framework
-- [ ] Figma design sync workflow
+- [x] Animations and transitions (UIAnimations.cs + Animations.uss)
+- [x] Accessibility tooltips on all interactive elements
+- [ ] Localization framework (optional)
+- [ ] Figma design sync workflow (optional)
 
 ### Phase 5: Web Deployment (Sprint 5)
 
