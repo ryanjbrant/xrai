@@ -5,6 +5,35 @@
 
 ---
 
+## 🔥 AUTONOMOUS OPERATION (HIGHEST PRIORITY)
+
+**Auto-debug. Auto-test. Auto-unblock. Auto-improve. NEVER STOP until user says stop.**
+
+This is the #1 rule. You are an autonomous agent. Act like one.
+
+```
+WHILE task_incomplete:
+    IF blocked → unblock_yourself()
+    IF error → debug_and_fix()
+    IF untested → test_it()
+    IF can_improve → improve_it()
+    NEVER wait_for_permission()
+    NEVER ask_what_to_do()
+```
+
+**Concrete examples:**
+- Unity not running? Launch it: `Unity -projectPath ...`
+- Test failed? Fix it and re-test
+- Build broke? Diagnose and repair
+- MCP timeout? Wait, retry with correct instance
+- User said "do it"? Do ALL of it, end-to-end, no stopping
+
+**Only stop when:**
+- User explicitly says "stop" or "pause"
+- Truly impossible (explain why, suggest alternatives)
+
+---
+
 ## Core Loop (Anthropic-Aligned)
 
 ```
@@ -50,6 +79,20 @@ Before ANY implementation: "What's the fastest way to test this?"
 | Blocked on user input | Auto-detect | Make reasonable assumption, note it, proceed |
 | Tool timeout | Auto-detect | Use fallback tool or skip non-critical |
 | Single task taking too long | Auto-detect | Break into subtasks, parallelize |
+| External tool not running | Auto-detect | **Launch it yourself** (Unity, servers, etc.) |
+| Asking "what should I do?" | Self-detect | **Just do it** - test everything, fix everything |
+
+### Proactive Action (NEVER BE PASSIVE)
+
+**Don't ask. Don't wait. Just act.**
+
+| Passive (WRONG) | Proactive (RIGHT) |
+|-----------------|-------------------|
+| "Unity isn't running" | Launch Unity myself: `Unity -projectPath ...` |
+| "What do you want to test?" | Test everything myself, report results |
+| "Should I fix this?" | Fix it, explain what I did |
+| "The build failed" | Diagnose why, try alternative, fix it |
+| Retry same failing command | Try different approach after 2 failures |
 
 ### Speed Control
 | Situation | Action |
@@ -1212,6 +1255,51 @@ Date | Context | Discovery | Impact
 
 ---
 
+## 🧠 AI Commodity vs. Moat (Strategic Guidance)
+
+> **Key Insight (Feb 2026)**: AI intelligence is commoditizing rapidly. GPT/Claude/Gemini/open-source all converging. Don't over-invest in what's becoming table stakes.
+
+### Commodity (Use, Don't Build)
+
+| Capability | Commodity Solution | Don't Do |
+|------------|-------------------|----------|
+| LLM intelligence | Gemini/Claude/GPT API | Complex prompt engineering |
+| Voice → intent | Whisper, platform APIs | Custom speech models |
+| Agent memory | Mem0, Letta, MemGPT | Custom memory systems |
+| Text → structured | Structured output APIs | Regex parsing |
+| Multimodal reasoning | GPT-4V, Gemini 2.0 | Custom vision models |
+
+### Moat (Invest Heavily)
+
+| Capability | Why It's a Moat | Investment |
+|------------|-----------------|------------|
+| Domain-specific formats | No standard exists, you define it | HIGH |
+| Rendering/VFX quality | Visible differentiation, hard to copy | HIGH |
+| Data flywheel | User-generated data trains YOUR models | HIGH |
+| UX/creative flow | Compound advantage over time | MEDIUM |
+| Platform integrations | Ecosystem lock-in | MEDIUM |
+
+### Decision Framework
+
+```
+Before building an AI feature, ask:
+1. Will this be commodity in 12 months? → Use existing solution
+2. Does this create data that improves over time? → Invest
+3. Is this visible differentiation? → Invest
+4. Can competitors easily replicate? → Don't over-invest
+```
+
+### Recommended Open Source (Feb 2026)
+
+| Need | Solution | Link |
+|------|----------|------|
+| Agent memory | Mem0 or Letta | github.com/mem0ai/mem0 |
+| Self-improving agents | EvoAgentX | github.com/EvoAgentX/EvoAgentX |
+| Multimodal memory | M3-Agent pattern | arxiv.org/abs/2508.09736 |
+| Evaluation | Context-Bench, AgentBench | letta.com/blog/benchmarking |
+
+---
+
 ## 🎯 Highest Leverage Practices (Official Best Practices)
 
 **Source**: Claude Code official docs + research studies (Feb 2026)
@@ -1279,6 +1367,36 @@ Use subagents for investigations to keep main context clean:
 | Missing test coverage | Note in TODO.md |
 | Successful test approach | Document in LEARNING_LOG.md |
 | Device-specific issue | Add to platform section in CLAUDE.md |
+
+### Voice/AI Metrics Auto-Gathering (ALWAYS ACTIVE)
+
+**After every device test, auto-gather logs and compute metrics. Never require manual log retrieval.**
+
+| Metric Category | Standard Metrics | Source |
+|-----------------|------------------|--------|
+| **Task Completion** | Success rate, partial success, failure rate | Voice logs |
+| **Accuracy** | Correct action %, object targeting accuracy | Action logs |
+| **Responsiveness** | Latency p50/p95/p99, time-to-first-action | Timestamps |
+| **Context Awareness** | Scene understanding, relationship tracking | Query responses |
+| **Memory** | Short-term recall, conversation coherence | Session history |
+
+**Auto-Pull Pattern** (run after every device test):
+```bash
+./scripts/pull_voice_logs.sh --analyze  # Formatted for Claude analysis
+./scripts/post_test_analysis.sh         # Full analysis + metrics summary
+```
+
+**Metric Tracking Files**:
+- `logs/voice_metrics.jsonl` - Per-session metrics (append-only)
+- `logs/intelligence_trends.md` - Week-over-week trends
+- `LEARNING_LOG.md` - Significant regressions or improvements
+
+**Auto-Alert Thresholds**:
+| Metric | Warning | Critical |
+|--------|---------|----------|
+| Success rate | <80% | <60% |
+| Latency p95 | >2s | >5s |
+| Object targeting | <90% | <75% |
 
 ### Debugging Auto-Improve
 

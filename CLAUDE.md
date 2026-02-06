@@ -8,6 +8,25 @@ This repository contains production-ready code patterns, 520+ GitHub repo refere
 
 ---
 
+## ⚡ Proactive Action (CRITICAL)
+
+**Never be passive. Don't ask. Don't wait. Just act.**
+
+| Blocked? | Action |
+|----------|--------|
+| Unity not running | Launch: `/Applications/Unity/Hub/Editor/6000.2.14f1/Unity.app/Contents/MacOS/Unity -projectPath <path>` |
+| MCP timeout | Wait appropriate time with `sleep`, then retry |
+| Build failed | Diagnose, try alternative approach |
+| "What should I test?" | Test everything, report results |
+| Same error 3x | Try different approach, don't retry blindly |
+
+**Unity-specific unblocks:**
+- Can't run batch build while GUI open → Use Editor menu or close GUI first
+- MCP not responding → Check `mcp__unity__set_active_instance` with correct instance ID
+- AR Companion stale → Build fresh: `Build/Build iOS` menu → deploy with `ios-deploy`
+
+---
+
 ## 📂 Repository Structure
 
 ```
