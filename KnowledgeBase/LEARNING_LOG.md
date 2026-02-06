@@ -2842,3 +2842,40 @@ make new display alarm at end of display alarms of theEvent with properties {tri
 **Fix Applied**: Disabled blendshape extraction (not needed for HiFi hologram testing)
 
 **Tags**: #ar-foundation #api-changes #ios #build-errors
+
+---
+
+## 2026-02-06 - Auto-Testing Workflow (Triple-Verified)
+
+**Context**: Improving meticulous bug squashing and testing workflow
+
+### Verified Testing Tools (99% Confidence)
+
+| Tool | Location | Trigger |
+|------|----------|---------|
+| **VFXTestHarness** | Scene component | Keys 1-9, Space, C, A, Tab |
+| **VFXAutoTester** | Scene component | Auto-cycles VFX with timer |
+| **SpecSceneAutoTester** | Editor menu | `H3M > Testing > Auto Test All Spec Scenes` |
+| **VFXPipelineDashboard** | Scene component | Tab key toggles overlay |
+| **Reset All Binders** | Editor menu | `H3M > VFX Pipeline Master > Reset All Binders` |
+
+### Auto-Workflow After Code Changes (MANDATORY)
+
+```
+1. Save file → Unity auto-recompiles
+2. Check: read_console(["error"], 10) or JetBrains get_file_problems
+3. If errors → Fix → Loop to step 1
+4. If clean → Enter Play mode
+5. Test with VFXTestHarness (Space cycles, Tab for dashboard)
+6. Exit Play → Check console for cleanup errors
+```
+
+### Parallel Agent Pattern (Proven Faster)
+
+| Scenario | Do | Don't |
+|----------|----|----|
+| Bulk scene fix | Spawn agent + continue other work | Wait sequentially |
+| Research 3 topics | 3 parallel Explore agents | 1 agent, 3 searches |
+| Check 5 files | Parallel Read calls | Sequential reads |
+
+**Tags**: #testing #workflow #auto-learning #parallel-agents

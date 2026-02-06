@@ -219,6 +219,43 @@ tail -100 ~/Library/Logs/Unity/Editor.log | grep -E "(error|Error|CS[0-9]{4})"
 5. Check for cleanup errors (OnDestroy, etc.)
 ```
 
+### Verified Testing Tools (MetavidoVFX)
+
+| Tool | Trigger | Purpose |
+|------|---------|---------|
+| **VFXTestHarness** | Keyboard 1-9, Space, C, A | Rapid VFX switching in Play mode |
+| **VFXAutoTester** | Auto or ContextMenu | Cycles through all VFX with timer |
+| **SpecSceneAutoTester** | `H3M > Testing > Auto Test All Spec Scenes` | Tests all 12 spec demo scenes |
+| **VFXPipelineDashboard** | Tab key | Real-time FPS, binding status, memory |
+
+**Keyboard Shortcuts (VFXTestHarness):**
+- `1-9` → Select favorite VFX
+- `Space` → Cycle to next VFX
+- `C` → Cycle categories (People, Hands, Audio, Environment)
+- `A` → Toggle all VFX on/off
+- `Tab` → Toggle Dashboard overlay
+
+### Auto-Learning Principle (ALWAYS APPLY)
+
+**After completing any task, ask:**
+1. **What worked?** → Add to `SUCCESS_LOG.md`, consider GLOBAL_RULES
+2. **What failed?** → Add to `_QUICK_FIX.md` or `_AUTO_FIX_PATTERNS.md`
+3. **What was slow?** → Find faster workflow, document it
+4. **What was repeated?** → Create Editor menu or script
+
+**Triple-Verify Before Adding to GLOBAL_RULES:**
+1. Pattern worked ≥2 times
+2. Pattern saved significant time OR prevented errors
+3. Pattern is generalizable (not one-off)
+
+**Auto-Improvement Triggers:**
+| Observation | Action |
+|-------------|--------|
+| Same fix applied 3+ times | Add to `_QUICK_FIX.md` |
+| Debug took >5 min | Document in `LEARNING_LOG.md` |
+| Successful new workflow | Add to GLOBAL_RULES after 2nd success |
+| Editor menu saves time | Document in project CLAUDE.md |
+
 ### Common Unity Debug Patterns
 
 | Symptom | Check | Fix |
