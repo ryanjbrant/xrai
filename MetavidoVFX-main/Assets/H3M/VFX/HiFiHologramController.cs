@@ -73,8 +73,10 @@ namespace XRRAI.Hologram
         };
 
         // VFX property IDs (ONLY quality/appearance - NO textures/matrices)
+        // NOTE: Not all VFX expose all properties - controller uses fallbacks
         private static class PropertyID
         {
+            // Ideal properties (future VFX should expose these)
             public static readonly int ParticleCount = Shader.PropertyToID("ParticleCount");
             public static readonly int ParticleSize = Shader.PropertyToID("ParticleSize");
             public static readonly int ColorSaturation = Shader.PropertyToID("ColorSaturation");
@@ -82,7 +84,23 @@ namespace XRRAI.Hologram
             public static readonly int DepthFadeNear = Shader.PropertyToID("DepthFadeNear");
             public static readonly int DepthFadeFar = Shader.PropertyToID("DepthFadeFar");
             public static readonly int VelocityStrength = Shader.PropertyToID("VelocityStrength");
+
+            // Fallback properties (what current HiFi VFX actually expose)
+            // hifi_hologram_people.vfx: Spawn, DepthRange
+            // hifi_hologram_pointcloud.vfx: Throttle, Ripple, HueShift
+            // hifi_hologram_optimized.vfx: Alpha
+            public static readonly int Throttle = Shader.PropertyToID("Throttle");
+            public static readonly int Alpha = Shader.PropertyToID("Alpha");
+            public static readonly int Spawn = Shader.PropertyToID("Spawn");
+            public static readonly int HueShift = Shader.PropertyToID("HueShift");
+            public static readonly int Ripple = Shader.PropertyToID("Ripple");
+            public static readonly int DepthRange = Shader.PropertyToID("DepthRange");
+            public static readonly int Brightness = Shader.PropertyToID("Brightness"); // Alias
         }
+
+        // Binding status (detected once in Start)
+        private bool _hasIdealProperties;
+        private bool _hasFallbackProperties;
 
         #endregion
 
@@ -113,8 +131,41 @@ namespace XRRAI.Hologram
 
         private void Start()
         {
+            DetectAvailableProperties();
             ApplyQualitySettings();
             ApplyAppearanceSettings();
+        }
+
+        private void DetectAvailableProperties()
+        {
+            if (_vfx == null || _vfx.visualEffectAsset == null) return;
+
+            // Check for ideal properties
+            _hasIdealProperties = _vfx.HasUInt(PropertyID.ParticleCount) ||
+                                  _vfx.HasFloat(PropertyID.ParticleSize) ||
+                                  _vfx.HasFloat(PropertyID.ColorSaturation);
+
+            // Check for fallback properties
+            _hasFallbackProperties = _vfx.HasFloat(PropertyID.Throttle) ||
+                                     _vfx.HasFloat(PropertyID.Alpha) ||
+                                     _vfx.HasBool(PropertyID.Spawn) ||
+                                     _vfx.HasFloat(PropertyID.HueShift);
+
+            string vfxName = _vfx.visualEffectAsset.name;
+
+            if (_hasIdealProperties)
+            {
+                Debug.Log($"[HiFiHologram] {vfxName}: Ideal properties detected - full quality control available");
+            }
+            else if (_hasFallbackProperties)
+            {
+                Debug.Log($"[HiFiHologram] {vfxName}: Using fallback properties (Throttle/Alpha/Spawn/HueShift)");
+                Debug.Log($"[HiFiHologram] For full control, add ParticleCount (UInt), ParticleSize (Float), ColorSaturation (Float) to VFX Blackboard");
+            }
+            else
+            {
+                Debug.LogWarning($"[HiFiHologram] {vfxName}: No controllable properties found! VFX will render but quality adjustment disabled.");
+            }
         }
 
         private void Update()
@@ -166,36 +217,93 @@ namespace XRRAI.Hologram
             if (_vfx == null) return;
 
             var (particleCount, particleSize) = QualityPresets[(int)_quality];
+            bool anyPropertySet = false;
 
+            // Try ideal properties first
             if (_vfx.HasUInt(PropertyID.ParticleCount))
+            {
                 _vfx.SetUInt(PropertyID.ParticleCount, (uint)particleCount);
+                anyPropertySet = true;
+            }
 
             if (_vfx.HasFloat(PropertyID.ParticleSize))
+            {
                 _vfx.SetFloat(PropertyID.ParticleSize, particleSize * _particleSizeMultiplier);
+                anyPropertySet = true;
+            }
 
-            Debug.Log($"[HiFiHologram] Quality: {_quality} ({particleCount} particles, {particleSize * 1000:F1}mm)");
+            // Fallback: Map quality to Throttle (0.0-1.0)
+            // Low=0.25, Medium=0.5, High=0.75, Ultra=1.0
+            if (!anyPropertySet && _vfx.HasFloat(PropertyID.Throttle))
+            {
+                float throttle = ((int)_quality + 1) * 0.25f;
+                _vfx.SetFloat(PropertyID.Throttle, throttle);
+                anyPropertySet = true;
+            }
+
+            // Fallback: Map quality to Alpha (0.6-1.0)
+            // Low=0.6, Medium=0.75, High=0.9, Ultra=1.0
+            if (_vfx.HasFloat(PropertyID.Alpha))
+            {
+                float alpha = 0.6f + ((int)_quality * 0.133f);
+                _vfx.SetFloat(PropertyID.Alpha, Mathf.Min(alpha, 1f));
+                anyPropertySet = true;
+            }
+
+            // Fallback: Spawn boolean (false for Low, true otherwise)
+            if (_vfx.HasBool(PropertyID.Spawn))
+            {
+                _vfx.SetBool(PropertyID.Spawn, _quality != HologramQuality.Low);
+            }
+
+            if (anyPropertySet || _hasIdealProperties || _hasFallbackProperties)
+            {
+                Debug.Log($"[HiFiHologram] Quality: {_quality} ({particleCount} particles target, {particleSize * 1000:F1}mm target)");
+            }
         }
 
         private void ApplyAppearanceSettings()
         {
             if (_vfx == null) return;
 
+            // Try ideal properties
             if (_vfx.HasFloat(PropertyID.ColorSaturation))
                 _vfx.SetFloat(PropertyID.ColorSaturation, _colorSaturation);
 
             if (_vfx.HasFloat(PropertyID.ColorBrightness))
                 _vfx.SetFloat(PropertyID.ColorBrightness, _colorBrightness);
 
+            // Fallback: Map ColorBrightness to Brightness (alias used by some VFX)
+            if (!_vfx.HasFloat(PropertyID.ColorBrightness) && _vfx.HasFloat(PropertyID.Brightness))
+                _vfx.SetFloat(PropertyID.Brightness, _colorBrightness);
+
+            // Fallback: Map ColorSaturation to HueShift (0 = neutral, negative = desaturated appearance)
+            // This is a crude approximation - HueShift rotates hue, doesn't truly desaturate
+            if (!_vfx.HasFloat(PropertyID.ColorSaturation) && _vfx.HasFloat(PropertyID.HueShift))
+            {
+                // Map saturation 0-1 to HueShift 0 (when saturation is 1, no shift needed)
+                // Note: This is limited - true saturation control requires VFX modification
+            }
+
+            // Depth fade
             if (_enableDepthFade)
             {
                 if (_vfx.HasFloat(PropertyID.DepthFadeNear))
                     _vfx.SetFloat(PropertyID.DepthFadeNear, _depthFadeRange.x);
                 if (_vfx.HasFloat(PropertyID.DepthFadeFar))
                     _vfx.SetFloat(PropertyID.DepthFadeFar, _depthFadeRange.y);
+
+                // Fallback: Use DepthRange (Vector2) if individual floats not available
+                if (!_vfx.HasFloat(PropertyID.DepthFadeNear) && _vfx.HasVector2(PropertyID.DepthRange))
+                    _vfx.SetVector2(PropertyID.DepthRange, _depthFadeRange);
             }
 
             if (_vfx.HasFloat(PropertyID.VelocityStrength))
                 _vfx.SetFloat(PropertyID.VelocityStrength, _velocityStrength);
+
+            // Fallback: Map VelocityStrength to Ripple (similar visual effect)
+            if (!_vfx.HasFloat(PropertyID.VelocityStrength) && _vfx.HasFloat(PropertyID.Ripple))
+                _vfx.SetFloat(PropertyID.Ripple, _velocityStrength);
         }
 
         private void TrackFPS()

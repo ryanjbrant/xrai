@@ -12635,6 +12635,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 322121401}
+  - component: {fileID: 322121404}
+  - component: {fileID: 322121403}
+  - component: {fileID: 322121402}
   m_Layer: 0
   m_Name: HiFi_Hologram_Rig
   m_TagString: Untagged
@@ -12658,6 +12661,61 @@ Transform:
   - {fileID: 1970325840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322121402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322121400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b130be3e81543adbbea03301d1bf85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XRRAI.Hologram.HologramAnchor
+  _hologramRoot: {fileID: 1970325840}
+  _enablePlacement: 1
+  _tapOnlyPlacement: 0
+  _scaleWithPinch: 1
+  _minScale: 0.1
+  _maxScale: 5
+  _scaleSpeed: 1
+  _rotateWithTwist: 1
+  _rotationSpeed: 1
+  _debugLog: 0
+--- !u!114 &322121403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322121400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.ARRaycastManager
+  <trackablesChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  m_RaycastPrefab: {fileID: 0}
+--- !u!114 &322121404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322121400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.CoreUtils::Unity.XR.CoreUtils.XROrigin
+  m_Camera: {fileID: 0}
+  m_OriginBaseGameObject: {fileID: 322121400}
+  m_CameraFloorOffsetObject: {fileID: 0}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
 --- !u!1 &322934487
 GameObject:
   m_ObjectHideFlags: 0

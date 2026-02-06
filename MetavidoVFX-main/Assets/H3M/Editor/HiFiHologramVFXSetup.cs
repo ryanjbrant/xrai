@@ -111,6 +111,17 @@ namespace XRRAI.Hologram.Editor
         [MenuItem("H3M/HiFi Hologram/Setup Complete HiFi Hologram Rig")]
         public static void SetupCompleteRig()
         {
+            SetupCompleteRig(useMinimalBinder: false);
+        }
+
+        [MenuItem("H3M/HiFi Hologram/Setup Complete HiFi Rig (Minimal Binder)")]
+        public static void SetupCompleteRigMinimal()
+        {
+            SetupCompleteRig(useMinimalBinder: true);
+        }
+
+        private static void SetupCompleteRig(bool useMinimalBinder)
+        {
             // Create parent object
             var rigGO = new GameObject("HiFi_Hologram_Rig");
 
@@ -140,13 +151,95 @@ namespace XRRAI.Hologram.Editor
 
             // Add components
             vfxGO.AddComponent<HiFiHologramController>();
-            vfxGO.AddComponent<VFXARBinder>();
+
+            // Add binder (minimal or full)
+            if (useMinimalBinder)
+            {
+                vfxGO.AddComponent<VFXARBinderMinimal>();
+            }
+            else
+            {
+                vfxGO.AddComponent<VFXARBinder>();
+            }
+
+            // Add HologramAnchor for placement/scale/rotate gestures
+            var anchorGO = new GameObject("Anchor");
+            anchorGO.transform.SetParent(rigGO.transform);
+            var anchor = anchorGO.AddComponent<HologramAnchor>();
+
+            // Wire HologramAnchor to VFX root
+            var anchorSO = new SerializedObject(anchor);
+            anchorSO.FindProperty("_hologramRoot").objectReferenceValue = vfxGO.transform;
+            anchorSO.ApplyModifiedProperties();
+
+            // Add ARRaycastManager if not in scene
+            if (Object.FindFirstObjectByType<UnityEngine.XR.ARFoundation.ARRaycastManager>() == null)
+            {
+                anchorGO.AddComponent<UnityEngine.XR.ARFoundation.ARRaycastManager>();
+                Debug.Log("[HiFi Hologram] Added ARRaycastManager for plane detection");
+            }
 
             Selection.activeGameObject = rigGO;
-            Debug.Log("[HiFi Hologram] Created HiFi Hologram Rig. Components:");
+            string binderType = useMinimalBinder ? "VFXARBinderMinimal" : "VFXARBinder";
+            Debug.Log($"[HiFi Hologram] Created HiFi Hologram Rig with {binderType}. Components:");
             Debug.Log("  - VisualEffect");
             Debug.Log("  - HiFiHologramController");
-            Debug.Log("  - VFXARBinder");
+            Debug.Log($"  - {binderType}");
+            Debug.Log("  - HologramAnchor (tap to place, pinch to scale, twist to rotate)");
+        }
+
+        [MenuItem("H3M/HiFi Hologram/Add HologramAnchor to Selected")]
+        public static void AddHologramAnchorToSelected()
+        {
+            var selected = Selection.activeGameObject;
+            if (selected == null)
+            {
+                Debug.LogError("[HiFi Hologram] No GameObject selected");
+                return;
+            }
+
+            // Find VFX in hierarchy
+            var vfx = selected.GetComponent<VisualEffect>();
+            if (vfx == null)
+            {
+                vfx = selected.GetComponentInChildren<VisualEffect>();
+            }
+
+            Transform vfxTransform = vfx != null ? vfx.transform : selected.transform;
+
+            // Check if anchor already exists
+            var existingAnchor = selected.GetComponent<HologramAnchor>();
+            if (existingAnchor == null)
+            {
+                existingAnchor = selected.GetComponentInChildren<HologramAnchor>();
+            }
+
+            if (existingAnchor != null)
+            {
+                Debug.Log("[HiFi Hologram] HologramAnchor already exists");
+                Selection.activeObject = existingAnchor;
+                return;
+            }
+
+            // Add HologramAnchor
+            var anchor = selected.AddComponent<HologramAnchor>();
+
+            // Wire to VFX transform
+            var so = new SerializedObject(anchor);
+            so.FindProperty("_hologramRoot").objectReferenceValue = vfxTransform;
+            so.ApplyModifiedProperties();
+
+            // Add ARRaycastManager if needed
+            if (selected.GetComponent<UnityEngine.XR.ARFoundation.ARRaycastManager>() == null)
+            {
+                selected.AddComponent<UnityEngine.XR.ARFoundation.ARRaycastManager>();
+            }
+
+            EditorUtility.SetDirty(selected);
+            Debug.Log($"[HiFi Hologram] Added HologramAnchor targeting {vfxTransform.name}");
+            Debug.Log("  - Single tap/drag: Place on AR planes");
+            Debug.Log("  - Two-finger pinch: Scale");
+            Debug.Log("  - Two-finger twist: Rotate");
         }
 
         [MenuItem("H3M/HiFi Hologram/Verify HiFi Setup")]
@@ -166,9 +259,23 @@ namespace XRRAI.Hologram.Editor
             var controller = Object.FindFirstObjectByType<HiFiHologramController>();
             Log("HiFiHologramController", controller != null, controller != null ? "Found" : "Add to VFX GameObject");
 
-            // Check VFXARBinder
+            // Check VFXARBinder (either full or minimal)
             var binder = Object.FindFirstObjectByType<VFXARBinder>();
-            Log("VFXARBinder", binder != null, binder != null ? "Found" : "Add to VFX GameObject");
+            var minimalBinder = Object.FindFirstObjectByType<VFXARBinderMinimal>();
+            bool hasBinder = binder != null || minimalBinder != null;
+            string binderType = binder != null ? "VFXARBinder" : (minimalBinder != null ? "VFXARBinderMinimal" : "None");
+            Log("VFX Binder", hasBinder, hasBinder ? binderType : "Add VFXARBinder or VFXARBinderMinimal");
+
+            // Check HologramAnchor
+            var anchor = Object.FindFirstObjectByType<HologramAnchor>();
+            Log("HologramAnchor", anchor != null, anchor != null ? "Found (placement/scale/rotate enabled)" : "Optional - Add for gesture controls");
+
+            // Check ARRaycastManager (required for HologramAnchor)
+            if (anchor != null)
+            {
+                var raycaster = Object.FindFirstObjectByType<UnityEngine.XR.ARFoundation.ARRaycastManager>();
+                Log("ARRaycastManager", raycaster != null, raycaster != null ? "Found" : "Required by HologramAnchor");
+            }
 
             Debug.Log("[HiFi Hologram] Verification complete.");
         }
