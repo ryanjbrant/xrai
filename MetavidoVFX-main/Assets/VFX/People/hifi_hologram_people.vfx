@@ -2829,7 +2829,7 @@ MonoBehaviour:
   m_OutputSlots: []
   m_Disabled: 0
   m_ActivationSlot: {fileID: 8926484042661616643}
-  UseParticleSize: 0
+  UseParticleSize: 1
 --- !u!114 &8926484042661616242
 MonoBehaviour:
   m_ObjectHideFlags: 0
