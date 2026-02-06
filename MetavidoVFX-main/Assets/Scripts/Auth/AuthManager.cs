@@ -18,13 +18,27 @@ namespace XRRAI.Auth
         public static AuthManager Instance { get; private set; }
 
         [Header("Configuration")]
-        [Tooltip("Use mock auth (for development). Set to false for production with Firebase.")]
-        [SerializeField] bool _useMockAuth = true;
+        [Tooltip("Auth provider to use. Auto will select based on platform and SDK availability.")]
+        [SerializeField] AuthProviderType _providerType = AuthProviderType.Auto;
 
         [Tooltip("Persist auth state across scene loads")]
         [SerializeField] bool _dontDestroyOnLoad = true;
 
-        // Auth provider
+        public enum AuthProviderType
+        {
+            Auto,       // Select best available for platform
+            Mock,       // Always use mock (for development)
+            Firebase,   // Firebase Auth (requires SDK)
+            Apple,      // Apple Sign In (iOS/macOS only)
+            Google      // Google Sign In (requires SDK)
+        }
+
+        // Auth providers
+        IAuthProvider _primaryProvider;
+        IAuthProvider _appleProvider;
+        IAuthProvider _googleProvider;
+
+        // Primary provider (accessed via AuthProvider property)
         IAuthProvider _authProvider;
 
         // Events
@@ -59,20 +73,102 @@ namespace XRRAI.Auth
 
         void InitializeAuthProvider()
         {
-            if (_useMockAuth)
+            // Initialize all available providers
+            InitializeAllProviders();
+
+            // Select primary provider based on configuration
+            _authProvider = SelectPrimaryProvider();
+
+            if (_authProvider != null)
             {
-                _authProvider = new MockAuthProvider();
-                Debug.Log("[AuthManager] Initialized with MockAuthProvider");
+                _authProvider.OnAuthStateChanged += HandleAuthStateChanged;
+                Debug.Log($"[AuthManager] Initialized with {_authProvider.ProviderId}");
             }
             else
             {
-                // TODO: Initialize Firebase when SDK is integrated
-                // _authProvider = new FirebaseAuthProvider();
-                _authProvider = new MockAuthProvider();
-                Debug.LogWarning("[AuthManager] Firebase not available, using MockAuthProvider");
+                Debug.LogError("[AuthManager] No auth provider available!");
+            }
+        }
+
+        void InitializeAllProviders()
+        {
+            // Always create these - they handle SDK availability internally
+            _appleProvider = new AppleSignInProvider();
+            _googleProvider = new GoogleSignInProvider();
+            _primaryProvider = new FirebaseAuthProvider();
+
+            // Wire up OAuth providers to forward state changes
+            _appleProvider.OnAuthStateChanged += HandleAuthStateChanged;
+            _googleProvider.OnAuthStateChanged += HandleAuthStateChanged;
+        }
+
+        IAuthProvider SelectPrimaryProvider()
+        {
+            switch (_providerType)
+            {
+                case AuthProviderType.Mock:
+                    return new MockAuthProvider();
+
+                case AuthProviderType.Firebase:
+                    if (_primaryProvider.IsAvailable)
+                        return _primaryProvider;
+                    Debug.LogWarning("[AuthManager] Firebase not available, falling back to Mock");
+                    return new MockAuthProvider();
+
+                case AuthProviderType.Apple:
+                    if (_appleProvider.IsAvailable)
+                        return _appleProvider;
+                    Debug.LogWarning("[AuthManager] Apple Sign In not available, falling back to Mock");
+                    return new MockAuthProvider();
+
+                case AuthProviderType.Google:
+                    if (_googleProvider.IsAvailable)
+                        return _googleProvider;
+                    Debug.LogWarning("[AuthManager] Google Sign In not available, falling back to Mock");
+                    return new MockAuthProvider();
+
+                case AuthProviderType.Auto:
+                default:
+                    return SelectBestProvider();
+            }
+        }
+
+        IAuthProvider SelectBestProvider()
+        {
+#if UNITY_EDITOR
+            // Always use mock in Editor for fast iteration
+            Debug.Log("[AuthManager] Editor detected, using MockAuthProvider");
+            return new MockAuthProvider();
+#else
+            // Try Firebase first (most feature-complete)
+            if (_primaryProvider.IsAvailable)
+            {
+                Debug.Log("[AuthManager] Using FirebaseAuthProvider");
+                return _primaryProvider;
             }
 
-            _authProvider.OnAuthStateChanged += HandleAuthStateChanged;
+#if UNITY_IOS || UNITY_STANDALONE_OSX
+            // iOS/macOS - try Apple Sign In
+            if (_appleProvider.IsAvailable)
+            {
+                Debug.Log("[AuthManager] Using AppleSignInProvider");
+                return _appleProvider;
+            }
+#endif
+
+#if UNITY_ANDROID || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX
+            // Android/Windows/Linux - try Google
+            if (_googleProvider.IsAvailable)
+            {
+                Debug.Log("[AuthManager] Using GoogleSignInProvider");
+                return _googleProvider;
+            }
+#endif
+
+            // Fallback to mock
+            Debug.LogWarning("[AuthManager] No SDK available, using MockAuthProvider");
+            return new MockAuthProvider();
+#endif
         }
 
         void HandleAuthStateChanged(AuthUser user)
@@ -91,8 +187,15 @@ namespace XRRAI.Auth
 
         void OnDestroy()
         {
+            // Cleanup all provider subscriptions
             if (_authProvider != null)
                 _authProvider.OnAuthStateChanged -= HandleAuthStateChanged;
+
+            if (_appleProvider != null)
+                _appleProvider.OnAuthStateChanged -= HandleAuthStateChanged;
+
+            if (_googleProvider != null)
+                _googleProvider.OnAuthStateChanged -= HandleAuthStateChanged;
 
             if (Instance == this)
                 Instance = null;
@@ -132,6 +235,38 @@ namespace XRRAI.Auth
 
             return await _authProvider.SignInWithProviderAsync(providerId);
         }
+
+        /// <summary>
+        /// Sign in with Apple (iOS/macOS only)
+        /// </summary>
+        public async System.Threading.Tasks.Task<AuthResult> SignInWithAppleAsync()
+        {
+            if (_appleProvider == null || !_appleProvider.IsAvailable)
+                return AuthResult.Failed("Apple Sign In not available on this platform", AuthErrorCode.ProviderNotAvailable);
+
+            return await _appleProvider.SignInWithProviderAsync("apple");
+        }
+
+        /// <summary>
+        /// Sign in with Google
+        /// </summary>
+        public async System.Threading.Tasks.Task<AuthResult> SignInWithGoogleAsync()
+        {
+            if (_googleProvider == null || !_googleProvider.IsAvailable)
+                return AuthResult.Failed("Google Sign In not available", AuthErrorCode.ProviderNotAvailable);
+
+            return await _googleProvider.SignInWithProviderAsync("google");
+        }
+
+        /// <summary>
+        /// Check if Apple Sign In is available
+        /// </summary>
+        public bool IsAppleSignInAvailable => _appleProvider?.IsAvailable ?? false;
+
+        /// <summary>
+        /// Check if Google Sign In is available
+        /// </summary>
+        public bool IsGoogleSignInAvailable => _googleProvider?.IsAvailable ?? false;
 
         /// <summary>
         /// Sign out the current user
