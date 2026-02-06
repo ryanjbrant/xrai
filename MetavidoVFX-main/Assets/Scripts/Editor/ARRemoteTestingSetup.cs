@@ -82,16 +82,22 @@ namespace XRRAI.Editor
         [MenuItem("H3M/Testing/AR Remote/Open AR Remote Connection Window")]
         public static void OpenARRemoteWindow()
         {
-            // Try to open the AR Foundation Remote connection window
-            var windowType = System.Type.GetType("ARFoundationRemote.Runtime.Sender, ARFoundationRemote.Runtime");
-            if (windowType != null)
+            // Try to open the AR Foundation Remote connection window via menu first (most reliable)
+            try
             {
-                EditorWindow.GetWindow(windowType);
+                if (!EditorApplication.ExecuteMenuItem("Window/AR Foundation Remote/Connection"))
+                {
+                    // Fallback: Try direct type access
+                    var windowType = System.Type.GetType("ARFoundationRemote.Runtime.Sender, ARFoundationRemote.Runtime");
+                    if (windowType != null && typeof(EditorWindow).IsAssignableFrom(windowType))
+                    {
+                        EditorWindow.GetWindow(windowType);
+                    }
+                }
             }
-            else
+            catch (System.Exception e)
             {
-                // Try alternative approach
-                EditorApplication.ExecuteMenuItem("Window/AR Foundation Remote/Connection");
+                Debug.LogWarning($"[AR Remote] Could not open window: {e.Message}. AR Foundation Remote may not be installed.");
             }
         }
 
