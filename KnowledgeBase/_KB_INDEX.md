@@ -23,6 +23,8 @@
 |------|------|
 | UAAL iOS | `_UNITY_AS_A_LIBRARY_IOS.md` |
 | RN Unity bridge | `_REACT_NATIVE_UNITY_PACKAGES.md` |
+| Voice → Unity | `_VOICE_COMPOSER_PATTERNS.md` |
+| Wire system | `_VOICE_COMPOSER_PATTERNS.md` |
 | Hand VFX | `_HAND_VFX_PATTERNS.md` |
 | Keijiro patterns | `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` |
 | Icosa Gallery API | `_ICOSA_GALLERY_PATTERNS.md` |
