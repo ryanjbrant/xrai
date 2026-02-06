@@ -33,12 +33,41 @@ Simple 3-field JSON for connecting data sources to targets:
 Parse("make it funky") → {"src":"audio.bass", "mod":"sin:1", "tgt":"*.scale"}
 ```
 
+## Scene Context (Contextual Awareness)
+
+Gemini receives full scene state so it can reference existing objects:
+
+```typescript
+// SceneContext passed to buildPrompt()
+{
+  objectCount: 5,
+  objects: [
+    { uuid: "obj_1", name: "cube_obj_1", position: [0, 0, -2] },
+    { uuid: "obj_2", name: "sphere_obj_2", position: [-1, 0, -2] }
+  ]
+}
+```
+
+**Prompt includes spatial descriptions**:
+```
+OBJECTS IN SCENE:
+  1. "cube_obj_1" [id:obj_1] at (0.0, 0.0, -2.0) - center, eye-level, medium distance
+  2. "sphere_obj_2" [id:obj_2] at (-1.0, 0.0, -2.0) - left, eye-level, medium distance
+```
+
+**Object Targeting**:
+- By uuid: `{ uuid: "obj_1" }` - exact match from scene state
+- By name/type: `{ objectName: "cube" }` - fuzzy match
+- By position: "the one on the left" - Gemini interprets from positions
+
 ## Composer Bridge Actions
 
 | Action | Description | Handler |
 |--------|-------------|---------|
 | `ADD_OBJECT` | Spawn primitive or GLB | `HandleAddObject` |
 | `ADD_EMITTER` | Particle system/VFX | `HandleAddEmitter` |
+| `MOVE_OBJECT` | Move by uuid/name | Supports uuid targeting |
+| `REMOVE_OBJECT` | Remove by uuid/name | Supports uuid targeting |
 | `GENERATE_STRUCTURE` | wall/tower/pyramid/igloo | Uses multiple `ADD_OBJECT` |
 | `ARRANGE_FORMATION` | circle/line/grid | Position calculation |
 | `BATCH_TRANSFORM` | Transform all objects | Iterates spawned objects |
