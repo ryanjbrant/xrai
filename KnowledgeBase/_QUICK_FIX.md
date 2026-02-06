@@ -130,6 +130,7 @@
 | **Duplicates keep returning** | **Check ALL tools: ~/.cursor/, ~/.windsurf/, ~/Library/Application Support/Claude/** |
 | Unity MCP not responding | Window > MCP for Unity > Start Server |
 | JetBrains MCP slow | Check Rider is open and indexed |
+| **JetBrains "projectPath doesn't correspond"** | **Project not open in Rider → use Glob/Grep/Read instead** |
 | Multiple Unity instances | Use `set_active_instance()` |
 | Huge response payload | Set `generate_preview=false`, `include_properties=false` |
 | Slow batch operations | Use `batch_execute` with `parallel=true` |
