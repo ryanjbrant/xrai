@@ -6,6 +6,89 @@
 
 ---
 
+## 2026-02-06 - Claude Code - Unity Resources.Load() Path Convention
+
+**Context**: Hologram VFX assets in `Assets/VFX/Hologram/` weren't loading at runtime via `Resources.Load()`.
+
+### Root Cause
+
+Unity's `Resources.Load()` **only** searches inside `Assets/Resources/` folders. Assets outside this path are invisible to runtime loading.
+
+```csharp
+// FAILS - assets in Assets/VFX/Hologram/
+var vfx = Resources.Load<VisualEffectAsset>("VFX/Hologram/hologram_depth_people_metavido");
+
+// WORKS - assets in Assets/Resources/VFX/Hologram/
+var vfx = Resources.Load<VisualEffectAsset>("VFX/Hologram/hologram_depth_people_metavido");
+```
+
+### Fix Applied
+
+Moved 9 hologram VFX assets from `Assets/VFX/Hologram/` to `Assets/Resources/VFX/Hologram/`.
+
+### Cross-Reference
+
+- Unity Docs: https://docs.unity3d.com/ScriptReference/Resources.Load.html
+- Commit: `55ba67ec5` - "fix(unity): Move VFX assets to Resources folder"
+- Spec: `.specify/specs/003-hologram-telepresence/tasks.md` - T004
+
+### Rule for Future
+
+**Any asset that needs `Resources.Load()` at runtime MUST be in a `Resources/` folder.** Use Addressables for assets that need async loading with custom paths.
+
+---
+
+## 2026-02-06 - Claude Code - Hologram Feature Architecture Audit
+
+**Context**: Deep audit of 003-hologram-telepresence implementation status.
+
+### Architecture Status (97% Complete)
+
+| Layer | Component | Status |
+|-------|-----------|--------|
+| Unity | ARDepthSource.cs | ✅ O(1) compute dispatch |
+| Unity | VFXARBinder.cs | ✅ Alias-based auto-binding |
+| Unity | HologramController.cs | ✅ Enable/Disable/Fade API |
+| Unity | BridgeTarget.cs | ✅ hologram_* message handlers |
+| Unity | 9 VFX assets | ✅ In Resources/ folder |
+| RN | HologramScreen.tsx | ✅ Full UI with presets |
+| RN | hologramService.ts | ✅ R2 upload + Firestore |
+| RN | HologramShareSheet.tsx | ✅ Share flow UI |
+| Web | viewer/index.html | ✅ Video player + CTA |
+| Web | wrangler.toml | ✅ Cloudflare Pages config |
+
+### Pending Items
+
+1. **Device testing** (T006, T011, T014) - blocked by no device
+2. **Viewer Firebase config** - placeholder values need real keys
+3. **App Store ID** - `YOUR_APP_ID` placeholders in viewer
+
+### Data Flow Verified
+
+```
+iPhone LiDAR → ARDepthSource → PositionMap (compute)
+                    ↓
+              VFXARBinder → VFX Graph (texture binding)
+                    ↓
+              HologramController → Fade/Intensity/Scale
+                    ↓
+              BridgeTarget → RN (hologram_started)
+                    ↓
+              ArViewRecorder → video.mp4
+                    ↓
+              hologramService → R2 + Firestore
+                    ↓
+              viewer.portals.app/h/{id}
+```
+
+### Cross-Reference
+
+- Spec: `.specify/specs/003-hologram-telepresence/`
+- Tasks: 32/37 complete (remaining are testing tasks)
+- Minecraft/Roblox patterns: Added to spec.md
+
+---
+
 ## 2026-02-06 - Claude Code - MCP Kill Loop Root Cause & Fix
 
 **Context**: MCP servers respawning endlessly despite `mcp-kill-dupes` running on every session start. Health log showed 16-17 kills per session, processes immediately returning.
