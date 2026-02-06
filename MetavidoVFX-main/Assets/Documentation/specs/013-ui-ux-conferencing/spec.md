@@ -2,7 +2,7 @@
 
 **Feature Branch**: `013-ui-ux-conferencing`
 **Created**: 2026-01-21
-**Status**: In Progress (Phase 3 Complete)
+**Status**: In Progress (Phase 4 Complete, Phase 5 Web In Progress)
 **Priority**: P0 (Required for user-facing product)
 
 ---
@@ -285,12 +285,14 @@ Adapt existing `VFXToggleUI` pattern with:
 - [ ] Localization framework (optional)
 - [ ] Figma design sync workflow (optional)
 
-### Phase 5: Web Deployment (Sprint 5)
+### Phase 5: Web Deployment (Sprint 5) ⏳ IN PROGRESS
 
-- [ ] React-Unity WebGL integration
-- [ ] Responsive web layout
-- [ ] Firebase JS auth for web
-- [ ] PWA configuration
+- [x] React-Unity WebGL integration (react-unity-webgl v9)
+- [x] Responsive glassmorphism web layout (styles.css)
+- [x] Firebase JS auth for web (AuthScreen.jsx)
+- [x] Unity WebBridge.cs + WebBridge.jslib for bidirectional messaging
+- [ ] PWA configuration (optional)
+- [ ] Production deployment (Vercel/Netlify)
 
 ---
 
@@ -318,15 +320,40 @@ Assets/
 │       ├── AuthController.cs    # XRRAI.UI namespace ✅
 │       ├── LobbyController.cs   # Room management ✅
 │       ├── ConferenceHUDController.cs # HUD controls ✅
-│       └── SettingsController.cs # User settings ✅
+│       ├── SettingsController.cs # User settings ✅
+│       └── UIAnimations.cs      # Animation utilities ✅
 ├── Scripts/
-│   └── Auth/
-│       ├── IAuthProvider.cs     # XRRAI.Auth namespace ✅
-│       ├── AuthManager.cs       # Multi-provider singleton ✅
-│       ├── MockAuthProvider.cs  # Dev/testing provider ✅
-│       ├── FirebaseAuthProvider.cs # Firebase SDK (conditional) ✅
-│       ├── AppleSignInProvider.cs # iOS/macOS Sign In (conditional) ✅
-│       └── GoogleSignInProvider.cs # Google OAuth (conditional) ✅
+│   ├── Auth/
+│   │   ├── IAuthProvider.cs     # XRRAI.Auth namespace ✅
+│   │   ├── AuthManager.cs       # Multi-provider singleton ✅
+│   │   ├── MockAuthProvider.cs  # Dev/testing provider ✅
+│   │   ├── FirebaseAuthProvider.cs # Firebase SDK (conditional) ✅
+│   │   ├── AppleSignInProvider.cs # iOS/macOS Sign In (conditional) ✅
+│   │   └── GoogleSignInProvider.cs # Google OAuth (conditional) ✅
+│   └── Bridges/
+│       └── WebBridge.cs         # Unity↔React messaging ✅
+├── Plugins/
+│   └── WebGL/
+│       └── WebBridge.jslib      # JavaScript interop ✅
+```
+
+### Web App (Vis/xrrai-web/)
+
+```
+Vis/xrrai-web/
+├── public/
+│   └── unity/Build/             # Unity WebGL build files
+├── src/
+│   ├── components/
+│   │   ├── AuthScreen.jsx       # Firebase authentication ✅
+│   │   └── LoadingScreen.jsx    # Unity loading progress ✅
+│   ├── App.jsx                  # Main app with Unity context ✅
+│   ├── main.jsx                 # React entry point ✅
+│   └── styles.css               # Glassmorphism theme ✅
+├── index.html                   # HTML entry ✅
+├── package.json                 # Dependencies ✅
+├── vite.config.js               # Vite config ✅
+└── README.md                    # Documentation ✅
 ```
 
 ---
