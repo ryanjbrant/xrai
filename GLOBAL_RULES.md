@@ -72,13 +72,62 @@ WHILE bugs exist OR errors in console OR tests failing:
 
 | Environment | Check Command | Auto-Run After |
 |-------------|---------------|----------------|
-| Unity (MCP) | `read_console(types=["error"], count=10)` | Every file save |
-| Unity (Rider) | `get_file_problems(filePath, projectPath)` | Every file save |
-| Unity (Log) | `tail -100 ~/Library/Logs/Unity/Editor.log \| grep -E "error\|CS[0-9]{4}"` | Every build |
-| Node.js | `npm test` or `npm run lint` | Every code change |
-| Python | `pytest -v` or `python -m py_compile file.py` | Every code change |
-| Web | Browser console, network tab errors | Every deploy |
-| Build Pipeline | Check exit code + stderr | Every build |
+| **Unity (MCP)** | `read_console(types=["error"], count=10)` | Every file save |
+| **Unity (Rider)** | `get_file_problems(filePath, projectPath)` | Every file save |
+| **Unity (Log)** | `tail -100 ~/Library/Logs/Unity/Editor.log \| grep -E "error\|CS[0-9]{4}"` | Every build |
+| **Node.js** | `npm test` or `npm run lint` | Every code change |
+| **Python** | `pytest -v` or `python -m py_compile file.py` | Every code change |
+| **Web** | Browser console, network tab errors | Every deploy |
+| **Build Pipeline** | Check exit code + stderr | Every build |
+| **Xcode (iOS)** | `xcodebuild -list` then build, check exit code | Every iOS build |
+| **Android** | `./gradlew assembleDebug 2>&1 \| grep -i error` | Every Android build |
+| **CMake/C++** | `cmake --build . 2>&1 \| grep -iE "error\|fatal"` | Every native build |
+| **Go** | `go build ./... && go test ./...` | Every Go change |
+| **Rust** | `cargo check && cargo test` | Every Rust change |
+| **Shell Scripts** | `shellcheck script.sh` or `bash -n script.sh` | Every script change |
+
+### Platform-Specific Commands
+
+**macOS:**
+```bash
+# Check system logs
+log show --predicate 'process == "Unity"' --last 5m --style compact
+
+# Check Xcode build
+xcodebuild -project *.xcodeproj -scheme Unity-iPhone -destination 'platform=iOS' build 2>&1 | xcpretty
+
+# Check homebrew health
+brew doctor
+```
+
+**Windows (PowerShell):**
+```powershell
+# Check Unity logs
+Get-Content "$env:LOCALAPPDATA\Unity\Editor\Editor.log" -Tail 100 | Select-String "error|CS\d{4}"
+
+# Check Visual Studio build
+msbuild /t:Build /p:Configuration=Release 2>&1 | Select-String "error"
+```
+
+### KB & Global Setup Auto-Verify
+
+| Check | Command | When |
+|-------|---------|------|
+| **KB symlinks valid** | `ls -la ~/.claude/knowledgebase ~/.windsurf/knowledgebase` | Session start |
+| **MCP servers running** | `mcp-kill-dupes` then check `/context` | Session start |
+| **Git hooks installed** | `ls .git/hooks/pre-commit` | After clone |
+| **Global rules synced** | `diff ~/GLOBAL_RULES.md project/GLOBAL_RULES.md` | Before commit |
+| **Scripting defines set** | Check Unity Player Settings | After package install |
+
+### Build Pipeline Auto-Checks
+
+| Pipeline | Pre-Build | Post-Build |
+|----------|-----------|------------|
+| **Unity iOS** | Check Team ID, Provisioning | Verify `.ipa` exists, check codesign |
+| **Unity Android** | Check SDK/NDK paths, keystore | Verify `.apk`/`.aab`, check signing |
+| **React Native** | `npx react-native doctor` | Check Metro, device connection |
+| **Docker** | `docker compose config` | `docker compose logs \| grep -i error` |
+| **CI/CD** | Lint workflow YAML | Check job exit codes, artifact uploads |
 
 ### Auto-Learning (Continuous)
 
