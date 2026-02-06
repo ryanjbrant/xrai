@@ -514,6 +514,69 @@ namespace XRRAI.Scene
             return ExportGLTFAsync(filepath).GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// Export scene to USDZ format (iOS Quick Look compatible)
+        /// Phase 2: Currently exports via GLB intermediate conversion
+        /// </summary>
+        public async Task<string> ExportUSDZAsync(string filepath = null)
+        {
+            if (_currentScene == null)
+            {
+                OnError?.Invoke("No scene to export");
+                return null;
+            }
+
+            filepath ??= Path.Combine(SaveDirectory, $"{_currentScene.scene.name}.usdz");
+
+            try
+            {
+                // Phase 2: Export GLB first, then convert to USDZ
+                // For now, create a placeholder USDZ file
+                // Full implementation requires USD.NET or Reality Converter
+
+                // Export GLB as intermediate
+                var glbPath = Path.ChangeExtension(filepath, ".glb");
+                var exportedGlb = await ExportGLTFAsync(glbPath);
+
+                if (exportedGlb == null)
+                {
+                    OnError?.Invoke("USDZ export failed: GLB intermediate failed");
+                    return null;
+                }
+
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+                // On macOS, we could use Reality Converter CLI
+                // xcrun usdcat --flatten <input.glb> -o <output.usdz>
+                Debug.Log($"[XRRAISceneManager] GLB exported: {glbPath}");
+                Debug.Log("[XRRAISceneManager] USDZ conversion requires Reality Converter or USD.NET");
+                Debug.Log("[XRRAISceneManager] Manual: xcrun usdcat --flatten input.glb -o output.usdz");
+#endif
+
+#if UNITY_IOS
+                // On iOS, share sheet can convert GLB to USDZ
+                Debug.Log("[XRRAISceneManager] Use iOS share sheet for USDZ conversion");
+#endif
+
+                OnExportComplete?.Invoke(glbPath);
+                Debug.Log($"[XRRAISceneManager] GLB ready for USDZ conversion: {glbPath}");
+                return glbPath; // Return GLB path until USDZ conversion is implemented
+            }
+            catch (Exception ex)
+            {
+                OnError?.Invoke($"USDZ export failed: {ex.Message}");
+                Debug.LogError($"[XRRAISceneManager] USDZ export failed: {ex}");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Synchronous USDZ export wrapper
+        /// </summary>
+        public string ExportUSDZ(string filepath = null)
+        {
+            return ExportUSDZAsync(filepath).GetAwaiter().GetResult();
+        }
+
         #endregion
 
         #region Conversion

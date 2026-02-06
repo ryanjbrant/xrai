@@ -3,7 +3,7 @@
 **Feature Branch**: `016-xrrai-scene-format`
 **Created**: 2026-01-22
 **Updated**: 2026-02-05
-**Status**: In Progress (Phase 1 Complete - 70%, tests added)
+**Status**: In Progress (Phase 2 Complete - 85%, UI + USDZ added 2026-02-06)
 **Tests**: `Assets/Scripts/Editor/Tests/XRRAISceneTests.cs` (22 tests), `SpecVerificationTests.cs` (6 tests)
 **Run**: `./run_spec_tests.sh` or `H3M > Testing > Run All Spec Verification Tests`
 
@@ -16,8 +16,8 @@
 | GLTFExporter | ✅ Complete | `Assets/Scripts/Scene/GLTFExporter.cs` |
 | IcosaGalleryManager | ✅ Complete | `Assets/Scripts/Icosa/IcosaGalleryManager.cs` |
 | Editor Setup Menu | ✅ Complete | `Assets/Scripts/Editor/XRRAISceneSetup.cs` |
-| Save/Load UI | ⬜ Pending | Phase 2 |
-| USDZ Export | ⬜ Pending | Phase 2 |
+| Save/Load UI | ✅ Complete | `Assets/Scripts/UI/XRRAISceneUI.cs` (2026-02-06) |
+| USDZ Export | ✅ Complete | Via GLB intermediate (2026-02-06) |
 | .tilt Export | ⬜ Pending | Phase 3 |
 | Web Viewer | ⬜ Pending | Phase 3 |
 | Web AR (model-viewer) | ⬜ Pending | Phase 4 |

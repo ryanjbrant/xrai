@@ -254,6 +254,7 @@
     <Compile Include="Assets/Scripts/VFX/Binders/VFXBinderUtility.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/InfiniGRASS STUDIO PRO/Grass Instanced Indirect/Demo/Grass/TestScene/ApplicationFPS60.cs" />
     <Compile Include="Assets/Samples/OpenXR Plugin/1.16.1/Intercept Feature/InterceptCreateSessionFeature.cs" />
+    <Compile Include="Assets/Scripts/UI/XRRAISceneUI.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/Common Tools/SplineMesh/Scripts/Example/ExampleContortAlong.cs" />
     <Compile Include="Assets/Scripts/Brush/BrushStroke.cs" />
     <Compile Include="Assets/3rdparty/_Bad_Raccoon/_3D Music Visualizer Vu Meter/_Scripts/SpectrumLight.cs" />
