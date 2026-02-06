@@ -65,7 +65,7 @@
 | 010 | [Normcore AR Multiuser Drawing](./010-normcore-multiuser/spec.md) | Draft | P1 | Architecture only |
 | **011** | [**Open Brush Integration**](./011-openbrush-integration/spec.md) | **✅ Complete** | P1 | 107 brushes, 5 shaders, Audio ✅, Mirror ✅ |
 | **012** | [**Hand Tracking + Brush Painting**](./012-hand-tracking/spec.md) | **✅ Complete** | **P0** | 5 providers, gestures, mappers, tests |
-| **013** | [**UI/UX Conferencing**](./013-ui-ux-conferencing/spec.md) | **Phase 2 Complete** | P0 | Auth UI ✅, Lobby ✅, HUD ✅, Settings ✅ |
+| **013** | [**UI/UX Conferencing**](./013-ui-ux-conferencing/spec.md) | **Phase 3 Complete** | P0 | Auth UI ✅, Lobby ✅, HUD ✅, Settings ✅, Auth Providers ✅ |
 | **014** | [**High-Fidelity Hologram VFX**](./014-hifi-hologram-vfx/spec.md) | **✅ Complete** | P0 | Controller ✅, VFX assets ✅, Quality presets ✅ |
 | **015** | [**VFX Binding Architecture**](./015-vfx-binding-architecture/spec.md) | ✅ Complete | P0 | Hybrid Bridge documented |
 | **016** | [**XRRAI Scene Format & Export**](./016-xrrai-scene-format/spec.md) | **✅ Complete** | P1 | XRRAIScene ✅, GLTFExporter ✅, .tilt ✅, Web Viewer ✅ |

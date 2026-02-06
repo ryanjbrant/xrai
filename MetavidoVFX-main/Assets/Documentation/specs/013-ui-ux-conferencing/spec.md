@@ -2,7 +2,7 @@
 
 **Feature Branch**: `013-ui-ux-conferencing`
 **Created**: 2026-01-21
-**Status**: In Progress (Phase 2 Complete)
+**Status**: In Progress (Phase 3 Complete)
 **Priority**: P0 (Required for user-facing product)
 
 ---
@@ -269,12 +269,14 @@ Adapt existing `VFXToggleUI` pattern with:
 - [x] Profile editing (in SettingsController)
 - [x] XRRAI namespace migration (Auth, UI)
 
-### Phase 3: Auth Providers (Sprint 3)
+### Phase 3: Auth Providers (Sprint 3) ✅ COMPLETE
 
-- [ ] Apple Sign In integration
-- [ ] Google Sign In (or Unity Player Accounts)
-- [ ] Phone/SMS verification
-- [ ] GitHub OAuth
+- [x] Apple Sign In integration (AppleSignInProvider.cs with APPLE_SIGNIN_AVAILABLE)
+- [x] Google Sign In (GoogleSignInProvider.cs with GOOGLE_SIGNIN_AVAILABLE)
+- [x] Firebase Auth (FirebaseAuthProvider.cs with FIREBASE_AUTH_AVAILABLE)
+- [x] AuthManager multi-provider selection (Auto/Mock/Firebase/Apple/Google)
+- [ ] Phone/SMS verification (P2 - optional)
+- [ ] GitHub OAuth (P3 - optional)
 
 ### Phase 4: Polish (Sprint 4)
 
@@ -320,11 +322,11 @@ Assets/
 ├── Scripts/
 │   └── Auth/
 │       ├── IAuthProvider.cs     # XRRAI.Auth namespace ✅
-│       ├── AuthManager.cs       # Singleton manager ✅
+│       ├── AuthManager.cs       # Multi-provider singleton ✅
 │       ├── MockAuthProvider.cs  # Dev/testing provider ✅
-│       ├── FirebaseAuthManager.cs (TODO)
-│       ├── AppleSignInProvider.cs (TODO)
-│       └── GoogleSignInProvider.cs (TODO)
+│       ├── FirebaseAuthProvider.cs # Firebase SDK (conditional) ✅
+│       ├── AppleSignInProvider.cs # iOS/macOS Sign In (conditional) ✅
+│       └── GoogleSignInProvider.cs # Google OAuth (conditional) ✅
 ```
 
 ---
