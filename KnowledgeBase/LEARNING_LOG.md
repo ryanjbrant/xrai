@@ -3382,3 +3382,48 @@ make new display alarm at end of display alarms of theEvent with properties {tri
 ### Key Insight
 > "Never just wait - always make progress. If blocked on one task, start another."
 
+
+## 2026-02-06 15:45 - Session State (Cross-Tool Continuity)
+
+**Project**: portals_main (portals_v4)
+**Last Tool**: Claude Code (Opus 4.5)
+**Branch**: main
+
+### What Was Done This Session:
+1. **SpatialPipe.cs** - UNIX-inspired generation pipeline created
+2. **BridgeTarget.cs** - Added `HandlePipeGenerate()` with metrics
+3. **BridgeMessageTester.cs** - Editor window for testing bridge messages
+4. **constitution.md** - Added Auto-Compounding Intelligence section
+5. **GLOBAL_RULES.md** - Added Measurement-Driven Improvement section
+6. **_AUTO_COMPOUNDING_INTELLIGENCE.md** - New KB file with patterns
+
+### Current Focus:
+- Voice interface integration testing
+- SpatialPipe pipe command verification in Unity Editor
+
+### Key Files Changed:
+- `unity/Assets/Scripts/Generation/Core/SpatialPipe.cs` (NEW)
+- `unity/Assets/Scripts/BridgeTarget.cs` (MODIFIED)
+- `unity/Assets/Scripts/Editor/BridgeMessageTester.cs` (MODIFIED)
+- `.specify/memory/constitution.md` (MODIFIED)
+- `~/GLOBAL_RULES.md` (MODIFIED)
+
+### Commits:
+- `ea6db81ac` - feat(pipe): Add SpatialPipe UNIX-style generation
+- `699dfcf76` - docs(kb): Add Auto-Compounding Intelligence patterns
+
+### Next Steps:
+1. Test SpatialPipe in Unity Editor Play mode
+2. Verify pipe messages work via BridgeMessageTester
+3. End-to-end device test (T007)
+
+### To Resume This Work:
+```bash
+# In any AI tool:
+1. Read CLAUDE.md and constitution.md
+2. Check this LEARNING_LOG.md entry
+3. Open Unity Editor with portals_main/unity
+4. Enter Play mode
+5. Open Window > Portals > Bridge Tester (Cmd+Shift+B)
+6. Test "Pipe: red cube" button
+```
