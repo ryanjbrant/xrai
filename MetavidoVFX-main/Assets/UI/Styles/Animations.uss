@@ -1,0 +1,106 @@
+/* Animations.uss - CSS Transitions and animation classes */
+/* Part of Spec 013 Phase 4: Polish */
+
+/* Default transition for all interactive elements */
+.animated {
+    transition-property: opacity, scale, translate, background-color, border-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.animated-fast {
+    transition-duration: 0.1s;
+}
+
+.animated-slow {
+    transition-duration: 0.4s;
+}
+
+/* Fade states */
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Scale states */
+.scale-in {
+    scale: 1 1 1;
+}
+
+.scale-out {
+    scale: 0 0 1;
+}
+
+.scale-up {
+    scale: 1.05 1.05 1;
+}
+
+/* Slide states */
+.slide-up {
+    translate: 0 -20px;
+}
+
+.slide-down {
+    translate: 0 20px;
+}
+
+.slide-left {
+    translate: -20px 0;
+}
+
+.slide-right {
+    translate: 20px 0;
+}
+
+.slide-reset {
+    translate: 0 0;
+}
+
+/* Button press effect */
+.btn-press:active {
+    scale: 0.95 0.95 1;
+    transition-duration: 0.05s;
+}
+
+/* Hover glow effect */
+.hover-glow:hover {
+    border-color: rgba(0, 122, 255, 0.5);
+}
+
+/* Pulse animation (use with C# UIAnimations.Pulse) */
+.pulse {
+    transition-property: scale;
+    transition-duration: 0.2s;
+}
+
+/* Toast enter/exit */
+.toast-enter {
+    translate: 0 50px;
+    opacity: 0;
+}
+
+.toast-visible {
+    translate: 0 0;
+    opacity: 1;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.modal-backdrop-visible {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Loading spinner rotation (requires C# animation) */
+.spinner-rotating {
+    transition-property: rotate;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}

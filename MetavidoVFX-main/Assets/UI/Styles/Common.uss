@@ -4,6 +4,7 @@
 @import url("Colors.uss");
 @import url("Typography.uss");
 @import url("Glassmorphism.uss");
+@import url("Animations.uss");
 
 /* Root Container */
 .root {
