@@ -6,6 +6,72 @@
 
 ---
 
+## 2026-02-06 - Claude Code - Keijiro MetavidoVFX Mobile/WebGPU Research
+
+**Context**: Extended previous MetavidoVFX research (2026-01-20) with mobile optimization, WebGPU deployment, and thermal management patterns.
+
+### Research Method: Parallel Search Agent
+
+Used 5 parallel WebSearch calls in a single message to maximize research speed:
+1. `keijiro MetavidoVFX VFX Graph setup 2026`
+2. `keijiro Rcam4 VFX binding mobile AR Foundation`
+3. `Unity VFX Graph point cloud AR Foundation depth`
+4. `keijiro depth to world position VFX shader`
+5. `Unity VFX Graph WebGPU mobile optimization 2026`
+
+**Result**: 7 new code patterns + 4 architectural insights extracted in ~5 minutes.
+
+### Key Findings
+
+| Pattern | Source | Application |
+|---------|--------|-------------|
+| **Texture Size Selection Algorithm** | Snap AR + community | Auto-size textures based on particle count (mobile: 256x256, desktop: 512x512) |
+| **Thermal Monitoring** | Rcam2x notes | Detect thermal throttling via frame time smoothing, reduce VFX quality adaptively |
+| **Minimal Binding** | MetavidoVFX binder | 4 SetXXX calls (< 1ms budget) vs 12+ calls (1.2ms) |
+| **Depth Inverse Projection Shader** | DepthInverseProjection repo | Complete shader code for depth→world position with Unity matrices |
+| **WebGPU Compatibility** | keijiro demo + Unity docs | VFX Graph experimental on WebGPU, compute shaders required |
+| **Mobile Texture Recommendations** | Snap AR guidelines | 256x256 position maps, 256x192 depth (native ARKit), enable mipmaps |
+| **VFX Graph Mobile Requirements** | Unity discussions | Requires compute shader support, 200K-500K particles on iPhone 12 Pro |
+
+### Mobile Performance Targets (NEW)
+
+| Device | Particle Count | Texture Size | Frame Rate |
+|--------|---------------|--------------|------------|
+| iPhone 15 Pro | 500K-750K | 512x512 | 60fps |
+| iPhone 12 Pro | 200K-500K | 256x256 | 60fps |
+| Quest 3 | 500K-1M | 512x512 | 90fps |
+| Quest 2 | 200K-500K | 256x256 | 72fps |
+
+### Thermal Throttling Detection Pattern
+
+```csharp
+// Smooth frame time, detect sustained drops (> 25ms), reduce particle spawn rate by 50%
+_smoothedFrameTime = Mathf.Lerp(_smoothedFrameTime, actualFrameTime, 0.1f);
+if (_smoothedFrameTime > 25f) ReduceVFXQuality();
+```
+
+### Integration Recommendations
+
+**For ARDepthSource.cs**:
+- Add thermal monitoring (Section 13.3)
+- Implement texture size validation (Section 13.2)
+- Add mobile quality presets
+
+**For VFXLibraryManager.cs**:
+- Validate texture sizes on VFX load
+- Auto-reduce quality on mobile
+- Track per-VFX binding cost (< 1ms budget)
+
+### Cross-References
+
+- Full research: `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` (Section 13)
+- Original research: Same file (Sections 1-12, 2026-01-20)
+- Related: `_ARFOUNDATION_VFX_KNOWLEDGE_BASE.md` (existing patterns)
+
+**Impact**: Mobile-ready VFX architecture with thermal management, optimal texture sizing, and WebGPU deployment path.
+
+---
+
 ## 2026-02-06 - Claude Code - HiFi Hologram VFX Configuration Fixes
 
 **Context**: HiFi hologram VFX files had invalid YAML configuration values causing rendering issues.

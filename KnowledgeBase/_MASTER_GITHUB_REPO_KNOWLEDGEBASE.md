@@ -2,8 +2,8 @@
 
 **Purpose**: Comprehensive reference of GitHub repos used across all workspaces (Portals V4, Paint-AR, Open Brush) to improve Claude's coding capabilities for AR/VFX/XR/Unity development.
 
-**Last Updated**: 2026-02-05
-**Recent Additions**: VFX Architecture patterns (O(1) compute, UV-to-world), Open Source strategy (XRAI/VNMF formats), Portals V4 Unity Advanced Composer spec
+**Last Updated**: 2026-02-06
+**Recent Additions**: VS Code React Native extension (microsoft/vscode-react-native), VFX Architecture patterns (O(1) compute, UV-to-world), Open Source strategy (XRAI/VNMF formats)
 
 **Pattern KB Files**:
 - `_HAND_VFX_PATTERNS.md` - 52 hand tracking VFX effects (Buddha + HoloKit libraries)
@@ -34,6 +34,17 @@
 |---------|-------------|----------|
 | [github/spec-kit](https://github.com/github/spec-kit) | Spec-Driven Development toolkit - transforms specs into executable implementations via AI | AI-assisted development workflow |
 | [anthropics/claude-code](https://github.com/anthropics/claude-code) | Claude Code CLI for AI-assisted development | AI coding assistant |
+| [microsoft/vscode-react-native](https://github.com/microsoft/vscode-react-native) | VS Code React Native debugging & Expo commands | RN/Expo development |
+
+**VS Code React Native Extension** (Added 2026-02-06):
+- Marketplace: `msjsdiag.vscode-react-native` (stable) / `msjsdiag.vscode-react-native-preview` (nightly)
+- **Hermes Debugging**: Direct debugging via Hermes engine (recommended for RN 0.70+)
+- **Platform Support**: Android, iOS, Windows, macOS, Expo (Go/dev-client/web)
+- **40+ Commands**: Launch emulators, run apps, Metro bundler control, LogCat, network inspection
+- **Expo Integration**: EAS Build init, publishing, architecture upgrade helpers
+- **Dynamic Debug Configs**: Auto-generates launch.json configurations
+- **Key Commands**: `React Native: Run Android`, `React Native: Run iOS`, `Expo: Start`
+- **Monorepo Support**: Works with multi-package React Native projects
 
 **Spec-Kit Workflow**:
 - **Constitution** → Project principles
