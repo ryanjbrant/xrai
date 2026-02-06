@@ -6,6 +6,62 @@
 
 ---
 
+## 2026-02-06 - Claude Code - MCP Kill Loop Root Cause & Fix
+
+**Context**: MCP servers respawning endlessly despite `mcp-kill-dupes` running on every session start. Health log showed 16-17 kills per session, processes immediately returning.
+
+### Root Cause
+
+The `--no-cache --refresh` flags in uvx MCP configs force a **completely new process** every time any tool launches:
+
+```json
+// BAD - causes infinite respawn loop
+"args": ["--no-cache", "--refresh", "--from", "mcpforunityserver==9.1.0", ...]
+
+// GOOD - uses cached version, no respawn
+"args": ["--from", "mcpforunityserver==9.1.0", ...]
+```
+
+### Why This Matters
+
+- Each IDE/CLI tool has its own MCP config
+- With 3 tools open (Claude Code, Windsurf, Claude Desktop), each spawns its own server
+- `--no-cache --refresh` bypasses uvx's process reuse, creating NEW processes
+- Health check kills duplicates → tool restarts → new process → repeat
+
+### Fix Applied
+
+| Config Location | Change |
+|----------------|--------|
+| `~/.cursor/mcp.json` | Disabled all MCP servers (not used) |
+| `~/.windsurf/mcp.json` | Removed git source, standardized to v9.1.0 |
+| `~/Library/Application Support/Claude/claude_desktop_config.json` | Removed `--no-cache --refresh` |
+| `~/bin/mcp-kill-dupes` | Added `mcp-for-unity` to server patterns |
+
+### Diagnostic Commands
+
+```bash
+# Check for duplicate MCP processes
+ps aux | grep mcp-for-unity | grep -v grep | wc -l
+
+# Check health log for kill loop evidence
+tail -20 ~/.claude/logs/health.log
+
+# Find all MCP configs
+grep -r "mcp-for-unity" ~/.cursor/ ~/.windsurf/ ~/Library/Application\ Support/Claude/ 2>/dev/null
+```
+
+### Prevention
+
+1. **Never use `--no-cache --refresh`** in production MCP configs
+2. **Standardize versions** across all tools (e.g., `mcpforunityserver==9.1.0`)
+3. **Disable unused tools** - if not using Cursor, empty its `mcpServers: {}`
+4. **Add to mcp-kill-dupes** - ensure actual process name (`mcp-for-unity`) is in the list
+
+**Impact**: Eliminated 16-17 unnecessary process kills per session, reduced CPU/memory churn.
+
+---
+
 ## 2026-02-06 - Claude Code - Keijiro MetavidoVFX Mobile/WebGPU Research
 
 **Context**: Extended previous MetavidoVFX research (2026-01-20) with mobile optimization, WebGPU deployment, and thermal management patterns.

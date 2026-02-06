@@ -14,6 +14,22 @@ Explore → Plan → Code → Commit → Log discovery
 
 ---
 
+## Fast Iteration (ALWAYS ASK FIRST)
+
+Before ANY implementation: "What's the fastest way to test this?"
+
+| Preference | Time | Example |
+|------------|------|---------|
+| Editor/unit test | ~5 sec | Unity Play mode, Jest |
+| Simulator | ~1 min | iOS Simulator, Metro |
+| Device incremental | ~5 min | build_minimal.sh |
+| Device clean | ~10+ min | nuclear_clean.sh |
+
+**Rule**: Never use a slower workflow when a faster one exists.
+**KB**: `_DEV_ITERATION_WORKFLOWS.md` for detailed patterns.
+
+---
+
 ## Auto-Unblock & Speed Control (MANDATORY)
 
 **Sense when stalled → Auto-unblock → Auto-wake → Auto-speed-up**

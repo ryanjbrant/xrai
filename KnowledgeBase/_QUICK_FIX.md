@@ -126,6 +126,8 @@
 | **Claude/Windsurf force quits** | **`mcp-nuke` (multiple IDEs = 3-4x MCP servers)** |
 | **30+ MCP processes** | **Close unused IDEs OR run `mcp-kill-dupes`** |
 | **High memory (>1GB MCP)** | **`mcp-nuke` kills heavy servers (playwright, puppeteer)** |
+| **MCP kill loop (endless respawn)** | **Remove `--no-cache --refresh` from mcp.json configs** |
+| **Duplicates keep returning** | **Check ALL tools: ~/.cursor/, ~/.windsurf/, ~/Library/Application Support/Claude/** |
 | Unity MCP not responding | Window > MCP for Unity > Start Server |
 | JetBrains MCP slow | Check Rider is open and indexed |
 | Multiple Unity instances | Use `set_active_instance()` |

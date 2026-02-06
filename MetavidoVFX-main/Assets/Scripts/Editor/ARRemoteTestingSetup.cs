@@ -8,9 +8,41 @@ namespace XRRAI.Editor
     /// <summary>
     /// Setup and configuration helper for AR Foundation Remote testing.
     /// Provides menu commands to quickly configure optimal testing settings.
+    /// Auto-opens AR Remote window on Play mode entry when enabled.
     /// </summary>
+    [InitializeOnLoad]
     public static class ARRemoteTestingSetup
     {
+        private const string AUTO_OPEN_PREF = "ARRemote_AutoOpenOnPlay";
+
+        static ARRemoteTestingSetup()
+        {
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
+        private static void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.EnteredPlayMode && EditorPrefs.GetBool(AUTO_OPEN_PREF, true))
+            {
+                // Auto-open AR Remote window
+                OpenARRemoteWindow();
+            }
+        }
+
+        [MenuItem("H3M/Testing/AR Remote/Toggle Auto-Open on Play")]
+        public static void ToggleAutoOpen()
+        {
+            bool current = EditorPrefs.GetBool(AUTO_OPEN_PREF, true);
+            EditorPrefs.SetBool(AUTO_OPEN_PREF, !current);
+            Debug.Log($"[AR Remote] Auto-open on Play: {(!current ? "ENABLED" : "DISABLED")}");
+        }
+
+        [MenuItem("H3M/Testing/AR Remote/Toggle Auto-Open on Play", true)]
+        public static bool ToggleAutoOpenValidate()
+        {
+            Menu.SetChecked("H3M/Testing/AR Remote/Toggle Auto-Open on Play", EditorPrefs.GetBool(AUTO_OPEN_PREF, true));
+            return true;
+        }
         [MenuItem("H3M/Testing/AR Remote/Setup Optimal Testing Config")]
         public static void SetupOptimalConfig()
         {
