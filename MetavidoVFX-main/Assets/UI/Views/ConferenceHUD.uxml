@@ -47,31 +47,31 @@
             <ui:VisualElement class="flex-row" style="align-items: center;">
 
                 <!-- Mute Button -->
-                <ui:Button name="btn-mute" class="hud-btn" style="margin-right: 12px;">
+                <ui:Button name="btn-mute" tooltip="Toggle microphone (M)" class="hud-btn animated" style="margin-right: 12px;">
                     <ui:VisualElement name="mute-icon" class="hud-icon icon-mic" />
                     <ui:Label text="Mute" class="hud-btn-label" />
                 </ui:Button>
 
                 <!-- Camera Button -->
-                <ui:Button name="btn-camera" class="hud-btn" style="margin-right: 12px;">
+                <ui:Button name="btn-camera" tooltip="Toggle camera (V)" class="hud-btn animated" style="margin-right: 12px;">
                     <ui:VisualElement name="camera-icon" class="hud-icon icon-camera" />
                     <ui:Label text="Camera" class="hud-btn-label" />
                 </ui:Button>
 
                 <!-- Raise Hand Button -->
-                <ui:Button name="btn-raise-hand" class="hud-btn" style="margin-right: 12px;">
+                <ui:Button name="btn-raise-hand" tooltip="Raise hand (H)" class="hud-btn animated" style="margin-right: 12px;">
                     <ui:VisualElement name="hand-icon" class="hud-icon icon-hand" />
                     <ui:Label text="Raise" class="hud-btn-label" />
                 </ui:Button>
 
                 <!-- Reactions Button -->
-                <ui:Button name="btn-reactions" class="hud-btn" style="margin-right: 12px;">
+                <ui:Button name="btn-reactions" tooltip="Send reaction (R)" class="hud-btn animated" style="margin-right: 12px;">
                     <ui:VisualElement name="reactions-icon" class="hud-icon icon-emoji" />
                     <ui:Label text="React" class="hud-btn-label" />
                 </ui:Button>
 
                 <!-- Chat Button -->
-                <ui:Button name="btn-chat" class="hud-btn" style="margin-right: 12px;">
+                <ui:Button name="btn-chat" tooltip="Open chat (C)" class="hud-btn animated" style="margin-right: 12px;">
                     <ui:VisualElement name="chat-icon" class="hud-icon icon-chat" />
                     <ui:Label text="Chat" class="hud-btn-label" />
                 </ui:Button>
@@ -80,12 +80,12 @@
                 <ui:VisualElement class="control-divider" />
 
                 <!-- Settings Button -->
-                <ui:Button name="btn-settings" class="hud-btn" style="margin-right: 12px;">
+                <ui:Button name="btn-settings" tooltip="Open settings (S)" class="hud-btn animated" style="margin-right: 12px;">
                     <ui:VisualElement name="settings-icon" class="hud-icon icon-settings" />
                 </ui:Button>
 
                 <!-- Leave Button -->
-                <ui:Button name="btn-leave" class="hud-btn hud-btn-danger">
+                <ui:Button name="btn-leave" tooltip="Leave conference (Esc)" class="hud-btn hud-btn-danger animated">
                     <ui:VisualElement name="leave-icon" class="hud-icon icon-leave" />
                     <ui:Label text="Leave" class="hud-btn-label" />
                 </ui:Button>

@@ -16,8 +16,8 @@
 
             <!-- Tab Buttons -->
             <ui:VisualElement name="auth-tabs" class="flex-row" style="margin-bottom: 24px;">
-                <ui:Button name="tab-signin" text="Sign In" class="btn btn-primary" style="flex-grow: 1; margin-right: 8px;" />
-                <ui:Button name="tab-signup" text="Sign Up" class="btn btn-secondary" style="flex-grow: 1;" />
+                <ui:Button name="tab-signin" text="Sign In" tooltip="Switch to sign in form" class="btn btn-primary animated" style="flex-grow: 1; margin-right: 8px;" />
+                <ui:Button name="tab-signup" text="Sign Up" tooltip="Switch to sign up form" class="btn btn-secondary animated" style="flex-grow: 1;" />
             </ui:VisualElement>
 
             <!-- Sign In Form -->
@@ -25,20 +25,20 @@
                 <!-- Email -->
                 <ui:VisualElement class="form-group">
                     <ui:Label text="Email" class="form-label" />
-                    <ui:TextField name="signin-email" class="form-input" />
+                    <ui:TextField name="signin-email" tooltip="Enter your email address" class="form-input animated" />
                 </ui:VisualElement>
 
                 <!-- Password -->
                 <ui:VisualElement class="form-group">
                     <ui:Label text="Password" class="form-label" />
-                    <ui:TextField name="signin-password" password="true" class="form-input" />
+                    <ui:TextField name="signin-password" password="true" tooltip="Enter your password" class="form-input animated" />
                 </ui:VisualElement>
 
                 <!-- Forgot Password -->
                 <ui:Button name="forgot-password" text="Forgot password?" class="link" style="align-self: flex-end; margin-bottom: 16px; background-color: transparent; border-width: 0;" />
 
                 <!-- Sign In Button -->
-                <ui:Button name="btn-signin" text="Sign In" class="btn btn-primary" style="margin-bottom: 16px;" />
+                <ui:Button name="btn-signin" text="Sign In" tooltip="Sign in to your account" class="btn btn-primary animated btn-press" style="margin-bottom: 16px;" />
 
                 <!-- Error Message -->
                 <ui:Label name="signin-error" class="form-error text-center" style="display: none;" />
@@ -86,8 +86,8 @@
 
             <!-- Social Login -->
             <ui:VisualElement name="social-buttons" class="flex-row" style="justify-content: center;">
-                <ui:Button name="btn-google" text="Google" class="btn btn-google" style="margin-right: 12px; min-width: 100px;" />
-                <ui:Button name="btn-apple" text="Apple" class="btn btn-apple" style="min-width: 100px;" />
+                <ui:Button name="btn-google" text="Google" tooltip="Sign in with Google account" class="btn btn-google animated btn-press" style="margin-right: 12px; min-width: 100px;" />
+                <ui:Button name="btn-apple" text="Apple" tooltip="Sign in with Apple ID" class="btn btn-apple animated btn-press" style="min-width: 100px;" />
             </ui:VisualElement>
 
             <!-- Terms -->
