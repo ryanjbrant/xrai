@@ -207,6 +207,56 @@ WebSearch("best practice [topic] 2026") → Summarize → Add to KB
 - **DO** proactively check, fix, verify, repeat
 - **DO** log every success and failure for future learning
 
+### iOS Device Log Automation (MANDATORY for UAAL/Unity-RN)
+
+**After ANY iOS build or test:**
+
+```bash
+# 1. Pull Unity logs from device (with timeout)
+./scripts/capture_device_logs.sh 10 "Unity|Bridge|Error"
+
+# 2. Check app-generated debug logs
+idevicefs pull /Documents/bridge_log.txt ./logs/ 2>/dev/null || true
+idevicefs pull /Documents/ar_debug_log.txt ./logs/ 2>/dev/null || true
+idevicefs pull /Documents/unity_init.log ./logs/ 2>/dev/null || true
+
+# 3. Parse for issues
+grep -E "ERROR|WARN|Exception|failed" logs/*.txt | head -20
+```
+
+**Auto-parse insights from test runs:**
+
+| Log Source | What to Look For | Action |
+|------------|------------------|--------|
+| `bridge_log.txt` | Message flow, parsing errors | Fix BridgeTarget handlers |
+| `ar_debug_log.txt` | AR session state, tracking | Check ARSession initialization |
+| `unity_init.log` | Init sequence, timing | Check Fabric registration |
+| Device syslog | Native crashes, framework errors | Check native modules |
+| On-screen debug overlay | FPS, object count, AR state | Visual quick-check |
+
+**⚠️ NEVER use raw `idevicesyslog`** - it hangs indefinitely. Always use `capture_device_logs.sh` with timeout.
+
+### Unity Voice/Composer Debug Flow
+
+**When voice commands fail:**
+
+```
+1. Check Unity console → read_console(types=["error", "warning"])
+2. Check BridgeTarget.OnMessage() → Was message received?
+3. Check message parsing → Was JSON correct?
+4. Check handler execution → Did handler run?
+5. Check SceneContext → Were objects tracked?
+6. Check MaterialPresets → Did presets apply?
+```
+
+**Log format for voice debugging:**
+```
+[Bridge] Received: {type, payload preview}
+[Bridge] Parsed: {action, targets, modifications}
+[SceneContext] Resolved "them" → [uuid1, uuid2, ...]
+[MaterialPresets] Applied 'shiny' to ObjectName
+```
+
 ---
 
 ## Verification (Highest Leverage)

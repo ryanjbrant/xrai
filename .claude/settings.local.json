@@ -57,7 +57,13 @@
       "WebFetch(domain:www.infoq.com)",
       "WebFetch(domain:engine.needle.tools)",
       "WebFetch(domain:developer.playcanvas.com)",
-      "WebFetch(domain:developers.google.com)"
+      "WebFetch(domain:developers.google.com)",
+      "mcp__unity__run_tests",
+      "mcp__unity__get_test_job",
+      "mcp__unity__manage_vfx",
+      "mcp__unity__set_active_instance",
+      "mcp__unity__refresh_unity",
+      "mcp__unity__execute_menu_item"
     ],
     "deny": [],
     "ask": []
