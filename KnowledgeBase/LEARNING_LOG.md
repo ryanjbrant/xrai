@@ -2879,3 +2879,30 @@ make new display alarm at end of display alarms of theEvent with properties {tri
 | Check 5 files | Parallel Read calls | Sequential reads |
 
 **Tags**: #testing #workflow #auto-learning #parallel-agents
+
+## 2026-02-05: Session Stall Analysis & Auto-Improvement
+
+### Stall Causes Identified
+| Stall | Root Cause | Fix Applied |
+|-------|------------|-------------|
+| Sequential file reads | Reading files one at a time | Use parallel Read calls |
+| Waiting for background agent | Blocked on research instead of continuing | Continue with known info while agent runs |
+| Too much context loading | Reading too many files before acting | Read only what's needed, glob first |
+| Not responding to "hurry" | Continued verbose explanation | Reduce verbosity, parallelize more |
+
+### Success Patterns
+| Pattern | Result | Apply To |
+|---------|--------|----------|
+| Parallel agent spawning | 3x faster research | All multi-topic research |
+| Continue while agent runs | No wasted time | Background tasks |
+| Immediate action on "hurry" | User satisfaction | Speed-sensitive moments |
+| Edit spec + rules in parallel | Efficient multi-file updates | All documentation tasks |
+
+### Rules Added to GLOBAL_RULES.md
+1. **Auto-Unblock & Speed Control** - Sense stalls, auto-recover
+2. **Unified Debugging** - Single source of truth for all debug workflows
+3. **Speed Control** - React to "hurry", parallelize more, skip non-critical
+
+### Key Insight
+> "Never just wait - always make progress. If blocked on one task, start another."
+

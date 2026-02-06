@@ -14,6 +14,46 @@ Explore → Plan → Code → Commit → Log discovery
 
 ---
 
+## Auto-Unblock & Speed Control (MANDATORY)
+
+**Sense when stalled → Auto-unblock → Auto-wake → Auto-speed-up**
+
+### Stall Detection
+| Symptom | Trigger | Action |
+|---------|---------|--------|
+| Same error 3+ times | Auto-detect | Research online, try alternative approach |
+| Waiting >30s for response | Auto-detect | Cancel, retry, or skip and continue |
+| Blocked on user input | Auto-detect | Make reasonable assumption, note it, proceed |
+| Tool timeout | Auto-detect | Use fallback tool or skip non-critical |
+| Single task taking too long | Auto-detect | Break into subtasks, parallelize |
+
+### Speed Control
+| Situation | Action |
+|-----------|--------|
+| User says "hurry" or "faster" | Reduce verbosity, parallelize more, skip non-critical |
+| Multiple independent tasks | ALWAYS parallelize (one message, multiple tools) |
+| Research + implementation | Spawn research agent, continue with what you know |
+| Build running in background | Continue other tasks, check result later |
+
+### Auto-Wake Patterns
+```
+# If progress stops:
+1. Check if waiting for something (build, agent, user)
+2. If waiting is optional → continue with next task
+3. If waiting is required → set timeout, do other work
+4. Never just wait - always make progress
+```
+
+### Learning from Stalls
+| Stall Type | Log To | Prevention |
+|------------|--------|------------|
+| Tool failure | `_QUICK_FIX.md` | Add fallback command |
+| Research gap | `LEARNING_LOG.md` | Add to KB for next time |
+| Approach failed | `FAILURE_LOG.md` | Document dead end |
+| Slow workflow | `GLOBAL_RULES.md` | Add faster pattern |
+
+---
+
 ## MANDATORY Auto-Debug (NEVER SKIP)
 
 **This is PERMANENT and applies to ALL projects, toolchains, builds, CLIs, IDEs.**
@@ -292,8 +332,78 @@ tail -100 ~/Library/Logs/Unity/Editor.log | grep -E "(error|Error|CS[0-9]{4})"
 - `1-9` → Select favorite VFX
 - `Space` → Cycle to next VFX
 - `C` → Cycle categories (People, Hands, Audio, Environment)
-- `A` → Toggle all VFX on/off
-- `Tab` → Toggle Dashboard overlay
+
+---
+
+## Unified Debugging (All Workflows)
+
+**Single source of truth for debug across: Unity Editor, WiFi build, USB device, TestFlight**
+
+### Debug Log Destinations
+
+| Platform | Destinations | Access Method |
+|----------|--------------|---------------|
+| **Unity Editor** | Console, Editor.log | Window > Console, `tail Editor.log` |
+| **Unity Device** | NSLog, Documents/*.txt | `idevicesyslog`, Files app |
+| **React Native** | Metro, Console | Metro terminal, DebugOverlay |
+| **Unified** | Bridge to RN overlay | UnifiedDebugOverlay (3-finger tap) |
+
+### Auto-Read Debug Logs
+
+```bash
+# iOS device logs (timeout protected)
+./scripts/capture_device_logs.sh 10 "Unity|Bridge|ARDebug"
+
+# Unity file logs (pull from device)
+xcrun devicectl device copy files --device <UDID> \
+  --source Documents/ar_debug_log.txt --destination ./
+
+# Metro logs (in terminal)
+npm start  # Watch output
+```
+
+### Debug Overlay Architecture
+
+```
+┌─────────────────────────────────────────┐
+│         UnifiedDebugOverlay             │
+│  (Hidden by default, 3-finger tap)      │
+├─────────────────────────────────────────┤
+│ FPS: 60  │ AR: Tracking │ RX:12 TX:8   │
+├─────────────────────────────────────────┤
+│ [Unity] AR session started              │
+│ [Bridge] ping → pong (12ms)             │
+│ [RN] Navigation to ComposerScreen       │
+│ [Unity] Plane detected: 1.2m x 0.8m     │
+│ [RN] Voice: "add a cube"                │
+│ [Bridge] add_object sent                │
+│ [Unity] Object spawned at (0,0,-1)      │
+└─────────────────────────────────────────┘
+```
+
+### Debugging by Workflow
+
+| Workflow | Setup | Debug Access |
+|----------|-------|--------------|
+| **Unity Editor** | Play mode | Console window, VFXPipelineDashboard |
+| **USB Device** | `./scripts/build_minimal.sh` | `./scripts/capture_device_logs.sh`, Files app |
+| **WiFi Build** | Same build, wireless | Same as USB (device must be on same network) |
+| **TestFlight** | Archive + upload | Files app only (no syslog), crash reports in Xcode |
+
+### Auto-Fix Loop (MANDATORY)
+
+```
+WHILE developing:
+    1. Make change
+    2. Check console/logs immediately
+    3. If error → fix → check again
+    4. If clean → test functionality
+    5. Log discoveries to KB
+
+NEVER wait for user to report bugs. Proactively find and fix.
+```
+
+---
 
 ### Auto-Learning Principle (ALWAYS APPLY)
 
