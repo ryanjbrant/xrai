@@ -157,6 +157,27 @@ WHILE bugs exist OR errors in console OR tests failing:
     4. NEVER stop early - continue until ZERO errors
 ```
 
+### MANDATORY: Read ALL Logs After Every Test (NEVER SKIP)
+
+**On EVERY test, build, or deployment - read these logs:**
+
+| Log Source | Command/Method | Purpose |
+|------------|----------------|---------|
+| **Unity Editor Log** | `tail -200 ~/Library/Logs/Unity/Editor.log` | Compilation, asset errors |
+| **Unity Console (MCP)** | `read_console(types=["error","warning","log"], count=20)` | Runtime errors |
+| **Xcode Build Log** | Check xcodebuild output, search for "error:" | iOS build failures |
+| **Device Console** | `idevicesyslog \| grep -i unity` | On-device crashes |
+| **InGame Debug (3-finger)** | Check device screen (tap 3 fingers) | Runtime on device |
+
+```
+# After EVERY test cycle:
+1. read_console() → Check Unity errors
+2. tail ~/Library/Logs/Unity/Editor.log → Check compilation
+3. If iOS build: Check Xcode output for errors
+4. If on device: Check device logs (idevicesyslog or 3-finger tap)
+5. FIX ALL ERRORS before moving on
+```
+
 ### Cross-Tool Auto-Debug Commands
 
 | Environment | Check Command | Auto-Run After |
