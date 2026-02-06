@@ -3,7 +3,7 @@
 **Feature Branch**: `016-xrrai-scene-format`
 **Created**: 2026-01-22
 **Updated**: 2026-02-05
-**Status**: In Progress (Phase 2 Complete - 85%, UI + USDZ added 2026-02-06)
+**Status**: ✅ Complete (All phases, 2026-02-06)
 **Tests**: `Assets/Scripts/Editor/Tests/XRRAISceneTests.cs` (22 tests), `SpecVerificationTests.cs` (6 tests)
 **Run**: `./run_spec_tests.sh` or `H3M > Testing > Run All Spec Verification Tests`
 
@@ -18,9 +18,9 @@
 | Editor Setup Menu | ✅ Complete | `Assets/Scripts/Editor/XRRAISceneSetup.cs` |
 | Save/Load UI | ✅ Complete | `Assets/Scripts/UI/XRRAISceneUI.cs` (2026-02-06) |
 | USDZ Export | ✅ Complete | Via GLB intermediate (2026-02-06) |
-| .tilt Export | ⬜ Pending | Phase 3 |
-| Web Viewer | ⬜ Pending | Phase 3 |
-| Web AR (model-viewer) | ⬜ Pending | Phase 4 |
+| .tilt Export | ✅ Complete | `Assets/Scripts/Scene/TiltExporter.cs` (2026-02-06) |
+| Web Viewer | ✅ Complete | `Vis/xrrai-viewer/` (Three.js + model-viewer, 2026-02-06) |
+| Web AR (model-viewer) | ✅ Complete | Integrated in Web Viewer (2026-02-06) |
 **Input**: Define optimal scene format for MetavidoVFX with cross-platform export, Icosa Gallery upload, WebGPU viewing, and Web AR preview
 
 ## Triple Verification

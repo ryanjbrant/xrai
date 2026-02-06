@@ -1,0 +1,22 @@
+{
+  "name": "xrrai-viewer",
+  "version": "1.0.0",
+  "description": "XRRAI Scene Viewer - Three.js + three-icosa + model-viewer",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.160.0",
+    "@google/model-viewer": "^3.5.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "keywords": ["xrrai", "ar", "vr", "webxr", "three.js", "glb", "tilt"],
+  "author": "MetavidoVFX",
+  "license": "MIT"
+}

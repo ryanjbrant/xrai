@@ -68,7 +68,7 @@
 | **013** | [**UI/UX Conferencing**](./013-ui-ux-conferencing/spec.md) | Draft | P2 | Design only |
 | **014** | [**High-Fidelity Hologram VFX**](./014-hifi-hologram-vfx/spec.md) | **✅ Complete** | P0 | Controller ✅, VFX assets ✅, Quality presets ✅ |
 | **015** | [**VFX Binding Architecture**](./015-vfx-binding-architecture/spec.md) | ✅ Complete | P0 | Hybrid Bridge documented |
-| **016** | [**XRRAI Scene Format & Export**](./016-xrrai-scene-format/spec.md) | **70%** | P1 | XRRAIScene ✅, GLTFExporter ✅, Web ⬜ |
+| **016** | [**XRRAI Scene Format & Export**](./016-xrrai-scene-format/spec.md) | **✅ Complete** | P1 | XRRAIScene ✅, GLTFExporter ✅, .tilt ✅, Web Viewer ✅ |
 
 ### Strategic Priority (Based on KB Goals)
 
@@ -211,8 +211,8 @@ specs/
 │   └── spec.md                  # RGB color sampling, quality presets
 ├── 015-vfx-binding-architecture/     # ✅ COMPLETE
 │   └── spec.md                  # Hybrid Bridge Pattern documentation
-├── 016-xrrai-scene-format/           # 60% (Save/Load/Export)
-│   └── spec.md                  # XRRAI Scene Format, glTF, Icosa Gallery
+├── 016-xrrai-scene-format/           # ✅ COMPLETE
+│   └── spec.md                  # XRRAI Scene Format, glTF, .tilt, Web Viewer
 ```
 
 ## Usage

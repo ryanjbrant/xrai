@@ -577,6 +577,57 @@ namespace XRRAI.Scene
             return ExportUSDZAsync(filepath).GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// Export scene to .tilt format (OpenBrush compatible)
+        /// Phase 3: Native .tilt format for TiltBrush/OpenBrush interoperability
+        /// </summary>
+        public async Task<string> ExportTiltAsync(string filepath = null)
+        {
+            if (_currentScene == null)
+            {
+                OnError?.Invoke("No scene to export");
+                return null;
+            }
+
+            filepath ??= Path.Combine(SaveDirectory, $"{_currentScene.scene.name}.tilt");
+
+            try
+            {
+                // Collect latest data
+                CollectSceneData();
+
+                // Use TiltExporter
+                var exporter = GetComponent<TiltExporter>() ?? gameObject.AddComponent<TiltExporter>();
+                bool success = await exporter.ExportAsync(_currentScene, filepath);
+
+                if (success)
+                {
+                    OnExportComplete?.Invoke(filepath);
+                    Debug.Log($"[XRRAISceneManager] Exported to .tilt: {filepath}");
+                    return filepath;
+                }
+                else
+                {
+                    OnError?.Invoke(".tilt export failed");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                OnError?.Invoke($".tilt export failed: {ex.Message}");
+                Debug.LogError($"[XRRAISceneManager] .tilt export failed: {ex}");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Synchronous .tilt export wrapper
+        /// </summary>
+        public string ExportTilt(string filepath = null)
+        {
+            return ExportTiltAsync(filepath).GetAwaiter().GetResult();
+        }
+
         #endregion
 
         #region Conversion

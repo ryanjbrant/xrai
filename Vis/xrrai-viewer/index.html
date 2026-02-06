@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XRRAI Scene Viewer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      overflow: hidden;
+    }
+
+    #container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    #canvas-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Loading overlay */
+    #loading {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26, 26, 46, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: opacity 0.3s;
+    }
+
+    #loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #00d4ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    #loading-text {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* Header */
+    #header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 15px 20px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    #title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    #info {
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* Controls */
+    #controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: rgba(0, 212, 255, 0.2);
+      border: 1px solid rgba(0, 212, 255, 0.5);
+      border-radius: 25px;
+      color: #00d4ff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(0, 212, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn.primary {
+      background: #00d4ff;
+      color: #1a1a2e;
+      border-color: #00d4ff;
+    }
+
+    /* model-viewer for AR */
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    model-viewer::part(default-ar-button) {
+      display: none;
+    }
+
+    /* File drop zone */
+    #drop-zone {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 212, 255, 0.1);
+      border: 3px dashed rgba(0, 212, 255, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    #drop-zone.active {
+      display: flex;
+    }
+
+    #drop-text {
+      font-size: 24px;
+      color: #00d4ff;
+    }
+
+    /* Error message */
+    #error {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background: rgba(255, 80, 80, 0.2);
+      border: 1px solid rgba(255, 80, 80, 0.5);
+      border-radius: 8px;
+      color: #ff5050;
+      font-size: 14px;
+      display: none;
+      z-index: 20;
+    }
+
+    #error.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!-- Loading overlay -->
+    <div id="loading">
+      <div class="spinner"></div>
+      <div id="loading-text">Loading scene...</div>
+    </div>
+
+    <!-- Header -->
+    <div id="header">
+      <div id="title">XRRAI Scene Viewer</div>
+      <div id="info">Drag & drop .glb or .xrrai file</div>
+    </div>
+
+    <!-- Three.js canvas container -->
+    <div id="canvas-container"></div>
+
+    <!-- Controls -->
+    <div id="controls">
+      <button class="btn" id="btn-reset">Reset View</button>
+      <button class="btn" id="btn-fullscreen">Fullscreen</button>
+      <button class="btn primary" id="btn-ar">View in AR</button>
+    </div>
+
+    <!-- File drop zone -->
+    <div id="drop-zone">
+      <div id="drop-text">Drop .glb or .xrrai file here</div>
+    </div>
+
+    <!-- Error message -->
+    <div id="error"></div>
+
+    <!-- model-viewer for AR (hidden, used for Quick Look/WebXR) -->
+    <model-viewer
+      id="ar-viewer"
+      style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      shadow-intensity="1"
+    ></model-viewer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

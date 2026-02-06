@@ -49,6 +49,7 @@ namespace XRRAI.UI
         private Button _newBtn;
         private Button _exportGltfBtn;
         private Button _exportUsdzBtn;
+        private Button _exportTiltBtn;
 
         // State
         private bool _isVisible;
@@ -169,11 +170,13 @@ namespace XRRAI.UI
             exportRow.style.flexDirection = FlexDirection.Row;
             exportRow.style.marginBottom = 10;
 
-            _exportGltfBtn = CreateButton("Export GLB", OnExportGltfClicked);
-            _exportUsdzBtn = CreateButton("Export USDZ", OnExportUsdzClicked);
+            _exportGltfBtn = CreateButton("GLB", OnExportGltfClicked);
+            _exportUsdzBtn = CreateButton("USDZ", OnExportUsdzClicked);
+            _exportTiltBtn = CreateButton("Tilt", OnExportTiltClicked);
 
             exportRow.Add(_exportGltfBtn);
             exportRow.Add(_exportUsdzBtn);
+            exportRow.Add(_exportTiltBtn);
             _panel.Add(exportRow);
 
             // Saved scenes label
@@ -359,6 +362,17 @@ namespace XRRAI.UI
 
             if (path != null)
                 SetStatus($"GLB exported: {Path.GetFileName(path)}");
+        }
+
+        async void OnExportTiltClicked()
+        {
+            if (_sceneManager == null) return;
+
+            SetStatus("Exporting .tilt (OpenBrush)...");
+            var path = await _sceneManager.ExportTiltAsync();
+
+            if (path != null)
+                SetStatus($"Exported: {Path.GetFileName(path)}");
         }
 
         void LoadSceneFile(string filepath)
