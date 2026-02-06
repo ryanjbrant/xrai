@@ -6,6 +6,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.UIElements.Experimental;
 
 namespace XRRAI.UI
 {
@@ -271,7 +272,7 @@ namespace XRRAI.UI
                 float offset = (currentStep % 2 == 0 ? 1 : -1) * intensity * (1f - (float)currentStep / steps);
 
                 element.experimental.animation
-                    .Start(element.resolvedStyle.translate.x.value, offset, stepDuration, (e, val) =>
+                    .Start(element.resolvedStyle.translate.x, offset, stepDuration, (e, val) =>
                     {
                         e.style.translate = new Translate(val, 0);
                     })
