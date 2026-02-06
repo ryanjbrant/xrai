@@ -6,6 +6,103 @@
 
 ---
 
+## 2026-02-06 - Claude Code - MANDATORY Session Persistence Rule
+
+**Context**: Repeated issues with losing context between sessions, inability to resume where we left off, poor long-term memory.
+
+### Problem
+
+Sessions end without checkpoints. Context is lost. Resume is difficult or impossible. This has been a persistent major issue.
+
+### Solution: MANDATORY Periodic Saves
+
+Added to `GLOBAL_RULES.md` as non-negotiable rule:
+
+| Trigger | Action |
+|---------|--------|
+| Every 15-30 min | `/checkpoint` or manual save |
+| Task completed | Save progress state |
+| Before /clear or /compact | ALWAYS `/checkpoint` first |
+| Context >100K tokens | Proactive `/checkpoint` |
+| End of session | `/checkpoint` + git commit |
+
+### Checkpoint Contents (Required)
+
+1. Summary of what was accomplished
+2. Current state (file, line, task)
+3. Next steps for resume
+4. Key decisions made
+5. Open questions/blockers
+
+### Resume Commands
+
+```bash
+claude --continue           # Most recent
+claude --resume             # Pick from list
+claude --resume <name>      # By name
+```
+
+### Impact
+
+- **FAILURE** if session ends without checkpoint
+- **FAILURE** if resume is difficult
+- **FAILURE** if context lost between sessions
+
+Log all failures to LEARNING_LOG.md.
+
+---
+
+## 2026-02-06 - Claude Code - Icosa Gallery Asset Integration Strategy
+
+**Context**: Voice composer spec (002-unity-advanced-composer) needs to spawn 3D models beyond built-in primitives. "Add a dragon" fails because Unity BridgeTarget only handles indices 0-5.
+
+### Problem Analysis
+
+| ASSET_CATALOG Index | Type | Current Format | Unity Compatible |
+|---------------------|------|----------------|------------------|
+| 0-5 | Primitives | Unity built-in | ✅ Yes |
+| 6-16 | Objects | VRX (ViroReact) | ❌ No |
+| 17-34 | Characters | VRX (ViroReact) | ❌ No |
+
+### Solution: Icosa Gallery API
+
+Icosa Gallery (Google Poly replacement) provides 10K+ CC-licensed GLTF2 models searchable via REST API:
+
+```bash
+GET https://api.icosa.gallery/v1/assets?keywords=dragon&format=GLTF2&pageSize=20
+```
+
+### Integration Architecture
+
+```
+Voice "add a dragon" → aiSceneComposer → objectIndex: 17
+                                              ↓
+                                   Index > 5? Search Icosa
+                                              ↓
+                            IcosaService.searchAssets("dragon")
+                                              ↓
+                            action.modelUrl = icosaAsset.gltfUrl
+                                              ↓
+                            BridgeTarget.HandleAddObject
+                                              ↓
+                            glTFast.Load(modelUrl) → GameObject
+```
+
+### Tasks Added
+
+- T009: Create IcosaService.ts (search + fetch wrapper)
+- T010: Update aiSceneComposer for dynamic lookup
+- T011: Update BridgeTarget for URL loading
+- T012: Optional thumbnail preview UI
+
+### Cross-Reference
+
+- KB: `_ICOSA_GALLERY_PATTERNS.md` (full API docs)
+- Spec: `.specify/specs/002-unity-advanced-composer/spec.md`
+- Tasks: `.specify/specs/002-unity-advanced-composer/tasks.md` (Phase 2)
+
+---
+
 ## 2026-02-06 - Claude Code - Unity Resources.Load() Path Convention
 
 **Context**: Hologram VFX assets in `Assets/VFX/Hologram/` weren't loading at runtime via `Resources.Load()`.
@@ -247,6 +344,108 @@ Used parallel agents to:
 
 ### Migration Note
 These fixes are documented in `MIGRATION_PLAN_TO_PORTALS_V4.md` for future migration to Portals project.
+
+---
+
+## 2026-02-06 - Claude Code - Asset Database Strategy Analysis
+
+**Context**: Deep audit of asset catalog architecture across RN, Unity, and voice AI systems.
+
+### Three Disconnected Asset Catalogs Found
+
+| Source | Location | Items | Format | Platform |
+|--------|----------|-------|--------|----------|
+| **ModelItems.js** | `src/screens/FigmentAR/model/` | 35 | VRX + GLB | ViroReact only |
+| **ASSET_CATALOG** | `src/services/aiSceneComposer.ts` | 35 | JS array | Voice AI keywords |
+| **BridgeTarget.cs** | `unity/Assets/Scripts/` | 6 | C# primitives | Unity only |
+
+### Critical Gap Analysis
+
+**Current Situation**:
+- Items 0-16: Primitives (cube, sphere, torus, etc.) - can spawn in Unity via `GameObject.CreatePrimitive()`
+- Items 17-34: Characters (dragon, pug, emojis, etc.) - VRX format, **ViroReact only**
+
+**Problem**:
+1. Voice command "add a dragon" → AI returns `objectIndex: 17`
+2. Unity BridgeTarget receives `modelId: 17` → has no handler for indices >5
+3. Character models are `.vrx` format → incompatible with Unity (requires glTFast `.glb`)
+
+### Target Architecture (from KB `_PORTALS_UNIFIED_ARCHITECTURE.md`)
+
+```
+Single Asset Manifest (catalog.json)
+        ↓
+┌───────┴───────┐
+│  Generates:   │
+├───────────────┤
+│ • RN types    │ → TypeScript types
+│ • Unity refs  │ → C# asset registry
+│ • Voice AI    │ → Keyword mappings
+│ • CDN URLs    │ → R2 storage paths
+└───────────────┘
+```
+
+### Recommended Strategy
+
+**Phase 1: Unify Primitives** (immediate)
+- Keep primitives (0-16) as Unity built-in
+- Unity creates Cube/Sphere/Cylinder via `CreatePrimitive()`
+- Zero network latency, instant spawn
+
+**Phase 2: Convert Characters to GLB** (requires asset work)
+- Export character models (dragon, pug, emojis) as GLB
+- Upload to R2 CDN: `https://cdn.h3m.io/assets/models/{name}.glb`
+- Unity loads via glTFast when `modelUrl` provided
+
+**Phase 3: Single Source of Truth** (architecture)
+- Create `assets/catalog.json` as master manifest
+- Generate platform-specific code from manifest
+- CDN serves manifest with cache-busting
+
+### Manifest Schema (proposed)
+
+```json
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "index": 0,
+      "id": "cube",
+      "name": "Cube",
+      "keywords": ["cube", "box", "block"],
+      "type": "primitive",
+      "unity": { "primitive": "Cube" },
+      "web": { "three": "BoxGeometry" }
+    },
+    {
+      "index": 17,
+      "id": "dragon",
+      "name": "Dragon",
+      "keywords": ["dragon", "monster", "creature"],
+      "type": "model",
+      "url": "https://cdn.h3m.io/assets/models/dragon.glb",
+      "thumbnail": "https://cdn.h3m.io/assets/thumbs/dragon.png",
+      "animations": ["idle", "fly"]
+    }
+  ]
+}
+```
+
+### Immediate Action Items
+
+1. **Update Unity BridgeTarget.cs** to handle modelId 0-16 as primitives
+2. **Log warning** for modelId 17-34 (characters not yet supported in Unity)
+3. **Create catalog.json spec** in `.specify/specs/`
+4. **Track VRX→GLB conversion** as future task
+
+### Cross-Reference
+
+- KB: `_PORTALS_UNIFIED_ARCHITECTURE.md` (Asset Database section)
+- KB: `_ZERO_LATENCY_INSTANTIATION.md` (Object pools strategy)
+- KB: `_CROSS_PLATFORM_ASSET_LOADING.md` (glTFast patterns)
+- Spec: `.specify/specs/002-unity-advanced-composer/spec.md`
+
+**Impact**: Identified why voice commands for characters don't work in Unity. Clear path to unified asset system.
 
 ---
 

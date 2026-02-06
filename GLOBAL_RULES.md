@@ -682,6 +682,73 @@ ss                    # Screenshot for context
 
 ---
 
+## ⚡ Session Persistence (MANDATORY - NEVER SKIP)
+
+**THIS IS NON-NEGOTIABLE. Session context and resume capability is CRITICAL.**
+
+### Periodic Saves (Every 15-30 min OR After Significant Progress)
+
+| Trigger | Action |
+|---------|--------|
+| **15-30 min elapsed** | `/checkpoint` or manual save |
+| **Task completed** | Save progress state |
+| **Before /clear** | ALWAYS `/checkpoint` first |
+| **Before /compact** | ALWAYS `/checkpoint` first |
+| **Context >100K** | Proactive `/checkpoint` |
+| **User switches topics** | `/checkpoint` current work |
+| **End of session** | `/checkpoint` + git commit |
+
+### Checkpoint Contents (REQUIRED)
+
+Every checkpoint MUST include:
+1. **Summary**: What was accomplished this session
+2. **Current State**: Where we left off (file, line, task)
+3. **Next Steps**: Clear instructions for resume
+4. **Key Decisions**: Any architectural or design choices made
+5. **Open Questions**: Unresolved issues or blockers
+
+### Save Methods (Use ANY of these)
+
+```bash
+# Method 1: /checkpoint skill (PREFERRED)
+/checkpoint
+
+# Method 2: Manual save to claude-mem
+mcp__claude-mem__chroma_add_documents(["session summary..."], metadatas=[{project, date}])
+
+# Method 3: Git commit with WIP state
+git add -A && git commit -m "WIP: <summary of current work>"
+
+# Method 4: Named session
+/rename <descriptive-name>
+```
+
+### Resume Commands
+
+```bash
+claude --continue              # Resume most recent session
+claude --resume                # Pick from recent sessions
+claude --resume <name>         # Resume by session name
+claude --from-pr 123           # Resume from PR context
+```
+
+### Auto-Checkpoint Triggers (MANDATORY)
+
+- **Auto-save before /clear**: ALWAYS checkpoint before clearing
+- **Auto-save at context limits**: At ~100K tokens, save before compaction
+- **Auto-save on topic switch**: When user switches to unrelated work
+- **Auto-save before breaks**: If session pauses >30 min
+
+### FAILURE = NEVER LOSING CONTEXT
+
+**If a session ends without checkpoint → FAILURE**
+**If resume is difficult → FAILURE**
+**If context is lost between sessions → FAILURE**
+
+Log all failures to LEARNING_LOG.md and improve the workflow.
+
+---
+
 ## Session Management
 
 **Auto-Checkpoint (MANDATORY every 5-10 min)**:
