@@ -61,7 +61,7 @@
 | **003** | [**Hologram Conferencing**](./003-hologram-conferencing/spec.md) | **60%** | P2 | Recording ✅, WebRTC partial, Multiplayer ⬜ |
 | **007** | [**VFX Multi-Mode & Audio/Physics**](./007-vfx-multi-mode/spec.md) | **✅ Complete** | P1 | All 6 phases, 19 tasks |
 | **008** | [**Multimodal ML Foundations**](./008-crossplatform-multimodal-ml-foundations/spec.md) | **85%** | **P0** | 7 tracking providers, MediaPipe ✅ |
-| **009** | [**Icosa & Sketchfab 3D Model Integration**](./009-icosa-sketchfab-integration/spec.md) | **70%** | P1 | IcosaGalleryManager ✅, glTFast ⬜ |
+| **009** | [**Icosa & Sketchfab 3D Model Integration**](./009-icosa-sketchfab-integration/spec.md) | **✅ Complete** | P1 | GLTFast 6.12.1 ✅, all components |
 | 010 | [Normcore AR Multiuser Drawing](./010-normcore-multiuser/spec.md) | Draft | P1 | Architecture only |
 | **011** | [**Open Brush Integration**](./011-openbrush-integration/spec.md) | **85%** | P1 | 11 scripts, 5 shaders, Mirror ✅, Audio ✅ |
 | **012** | [**Hand Tracking + Brush Painting**](./012-hand-tracking/spec.md) | **✅ Complete** | **P0** | 5 providers, gestures, mappers, tests |
@@ -76,7 +76,7 @@
 1. Hand tracking + brush painting → **Spec 012 ✅ DONE**
 2. Hologram recording/playback → **Spec 003 (60%)**
 3. VFX multi-mode switching → **Spec 007 ✅ DONE**
-4. Voice-to-object 3D models → **Spec 009 (85%)** glTFast added
+4. Voice-to-object 3D models → **Spec 009 ✅ DONE** GLTFast 6.12.1
 5. Fast iteration, compound learning
 
 **Recommended Next Actions**:
