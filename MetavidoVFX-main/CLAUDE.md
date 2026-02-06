@@ -831,7 +831,7 @@ All specs consolidated in `Assets/Documentation/specs/`:
 | 006 | VFX Library & Pipeline | ✅ Complete | |
 | **007** | **VFX Multi-Mode** | **✅ Complete** | All 6 phases, 19 tasks, audio/physics |
 | 008 | Multimodal ML Foundations | **85%** | 7 tracking providers, MediaPipe ✅ |
-| 009 | Icosa/Sketchfab Integration | **70%** | IcosaGalleryManager ✅, glTF ⬜ |
+| 009 | Icosa/Sketchfab Integration | ✅ Complete | GLTFast 6.12.1, all components |
 | 010 | Normcore AR Multiuser | Draft | Architecture only |
 | **011** | **Open Brush Integration** | **85%** | 11 scripts, 5 shaders, Mirror ✅ |
 | **012** | **Hand Tracking + Brush** | **✅ Complete** | 5 providers, gestures, mappers |

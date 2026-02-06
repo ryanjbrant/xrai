@@ -192,18 +192,18 @@ Unity source code research workbench from keijiro/AgentBench.
 - ✅ DebugConfig.cs with category filtering
 - ✅ WebcamMockSource for Editor testing
 
-**Sprint 8-10** (in progress, 70%): Icosa/Sketchfab Integration (Spec 009)
+**Sprint 8-10** (✅ complete): Icosa/Sketchfab Integration (Spec 009)
 - ✅ SketchfabClient.cs - Sketchfab Download API wrapper
 - ✅ ModelCache.cs - LRU disk caching for models
 - ✅ UnifiedModelSearch.cs - Aggregate Icosa + Sketchfab results
 - ✅ ModelSearchUI.cs, ModelPlacer.cs, IcosaAssetMetadata.cs
 - ✅ Voice integration (WhisperIcosaController)
-- ⬜ GLTFast runtime loading (pending)
+- ✅ GLTFast runtime loading (6.12.1, GLTFAST_AVAILABLE define active)
 
-**Spec 014** (in progress, 50%): HiFi Hologram VFX
-- ✅ HiFiHologramController for quality presets
-- ⬜ RGB color sampling refinement
-- ⬜ Quality preset profiles (Low/Medium/High/Ultra)
+**Spec 014** (✅ complete): HiFi Hologram VFX
+- ✅ HiFiHologramController with 4 quality presets (Low/Medium/High/Ultra)
+- ✅ RGB color sampling (ColorMap from VFXARBinder)
+- ✅ VFX asset: hologram_depth_people_metavido.vfx
 
 **Spec 003** (in progress, 60%): Hologram Conferencing
 - ✅ Recording/playback

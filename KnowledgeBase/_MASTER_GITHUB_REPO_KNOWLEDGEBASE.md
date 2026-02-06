@@ -48,6 +48,20 @@
 - Open Brush Docs: https://docs.openbrush.app/
 - Example Artwork: https://icosa.gallery/view/3UL8Bz_Id6I
 
+**Sketchfab Resources** (Added 2026-02-06):
+- Platform: https://sketchfab.com/
+- API Documentation: https://docs.sketchfab.com/data-api/v3/index.html
+- Unity Plugin: https://github.com/sketchfab/unity-plugin (editor-focused)
+- Unity Download API: https://sketchfab.com/developers/download-api
+- Free CC Models: https://sketchfab.com/search?features=downloadable&licenses=cc0
+
+**glTFast (Unity Package)** (Added 2026-02-06):
+- Package: `com.unity.cloud.gltfast` (v6.12.1)
+- Documentation: https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.12/manual/index.html
+- GitHub: https://github.com/Unity-Technologies/com.unity.cloud.gltfast
+- Runtime Loading: Full support for glTF 2.0, GLB, Draco, KTX2
+- Use Case: Runtime 3D model loading from Icosa/Sketchfab
+
 ## 🎨 Unity XR Development Tools & Frameworks
 
 ### Unity Technologies (Official Repos)
