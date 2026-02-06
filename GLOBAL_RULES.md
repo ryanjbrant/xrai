@@ -14,6 +14,66 @@ Explore → Plan → Code → Commit → Log discovery
 
 ---
 
+## MANDATORY Auto-Debug (NEVER SKIP)
+
+**This is PERMANENT and applies to ALL projects, toolchains, builds, CLIs, IDEs.**
+
+### The Loop That Never Stops
+
+```
+WHILE bugs exist OR errors in console OR tests failing:
+    1. Check for errors (console, tests, build output)
+    2. If errors → fix → recheck
+    3. If no errors → continue next task
+    4. NEVER stop early - continue until ZERO errors
+```
+
+### Cross-Tool Auto-Debug Commands
+
+| Environment | Check Command | Auto-Run After |
+|-------------|---------------|----------------|
+| Unity (MCP) | `read_console(types=["error"], count=10)` | Every file save |
+| Unity (Rider) | `get_file_problems(filePath, projectPath)` | Every file save |
+| Unity (Log) | `tail -100 ~/Library/Logs/Unity/Editor.log \| grep -E "error\|CS[0-9]{4}"` | Every build |
+| Node.js | `npm test` or `npm run lint` | Every code change |
+| Python | `pytest -v` or `python -m py_compile file.py` | Every code change |
+| Web | Browser console, network tab errors | Every deploy |
+| Build Pipeline | Check exit code + stderr | Every build |
+
+### Auto-Learning (Continuous)
+
+| Event | Action | Where to Log |
+|-------|--------|--------------|
+| Fix worked | Log pattern | `_QUICK_FIX.md` |
+| Fix failed 3x | Document + research | `FAILURE_LOG.md` |
+| New best practice found | Add rule | `GLOBAL_RULES.md` |
+| Deep research needed | Use WebSearch | Then add to KB |
+| Success pattern | Log approach | `SUCCESS_LOG.md` |
+| Test passed first try | Celebrate + log | `LEARNING_LOG.md` |
+
+### Deep Research Triggers
+
+**Auto-research online when:**
+- Same error 3+ times with no fix
+- New framework/API with no KB coverage
+- Performance issue without clear cause
+- Security concern without best practice
+
+```bash
+# Research workflow
+WebSearch("best practice [topic] 2026") → Summarize → Add to KB
+```
+
+### This Is Non-Negotiable
+
+- **DO NOT** wait for user to report errors
+- **DO NOT** stop debugging before zero errors
+- **DO NOT** skip console checks after code changes
+- **DO** proactively check, fix, verify, repeat
+- **DO** log every success and failure for future learning
+
+---
+
 ## Verification (Highest Leverage)
 
 Give Claude a way to verify its work:

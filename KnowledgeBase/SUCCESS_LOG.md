@@ -1045,3 +1045,22 @@
 22:18 ✓ Edit
 22:19 ✓ Edit
 22:19 ✓ Bash
+22:19 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:20 ✓ Bash
+22:21 ✓ Bash
+22:22 ✓ Edit
+22:22 ✓ ReadPixels bounds fix - ARCameraWebRTCCapture + MetavidoWebRTCEncoder + GLOBAL_RULES auto-debug permanent
+22:22 ✓ Bash
+22:22 ✓ Bash
