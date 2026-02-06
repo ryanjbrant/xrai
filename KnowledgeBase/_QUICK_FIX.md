@@ -223,3 +223,23 @@ batch_execute([
 **Cause**: Data pipeline overwrites job.source with default option
 **Fix**: In data-pipeline.js addJobs(), change `source,` to `source: job.source || source,`
 **File**: `lib/data-pipeline.js:151`
+
+## Unity Remote Debug (2026 verified)
+
+| Symptom | Fix |
+|---------|-----|
+| WebSocket closes during VS debug | Use file logging as fallback (debugger conflicts) |
+| TestFlight no runtime logs | Use Bugfender or pull from Files app on device |
+| WiFi debugging unreliable | Prefer USB - more stable |
+| idevicesyslog hangs forever | Use `./scripts/capture_device_logs.sh` with timeout |
+| Need debug UI on device | Use IMGUI (OnGUI), not UI Toolkit - faster iteration |
+| Triple-tap debug toggle | 3-finger tap to show/hide overlay |
+
+## Log Pull Script (add to projects)
+```bash
+# pull_all_logs.sh
+UDID=$(idevice_id -l | head -1)
+for log in bridge_log.txt ar_debug_log.txt; do
+    idevicefs pull "/Documents/$log" ./ 2>/dev/null || true
+done
+```
