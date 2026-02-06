@@ -1,7 +1,7 @@
 # Cross-Tool AI Architecture
 
-**Version**: 1.1
-**Last Updated**: 2026-02-05
+**Version**: 1.2
+**Last Updated**: 2026-02-06
 **Primary CLIs**: Claude Code, Codex, Gemini
 **Primary IDEs**: Windsurf, Antigravity (Gemini), JetBrains Rider
 
@@ -23,7 +23,7 @@
 ## Single Source of Truth
 
 ```
-~/GLOBALGLOBAL_RULES.md                    ← Universal rules (ALL tools read this)
+~/GLOBAL_RULES.md                    ← Universal rules (ALL tools read this)
     │
     ├── ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/
     │       ← Shared pattern library (symlinked to all tools)
@@ -51,20 +51,20 @@
 
 ```bash
 # Antigravity rules (if not exists)
-ln -sf ~/GLOBALGLOBAL_RULES.md ~/.antigravity/GLOBALGLOBAL_RULES.md
+ln -sf ~/GLOBAL_RULES.md ~/.antigravity/GLOBAL_RULES.md
 
 # Codex rules (if not exists)
-ln -sf ~/GLOBALGLOBAL_RULES.md ~/.codex/rules/GLOBALGLOBAL_RULES.md
+ln -sf ~/GLOBAL_RULES.md ~/.codex/rules/GLOBAL_RULES.md
 
 # Gemini (if using)
-mkdir -p ~/.gemini && ln -sf ~/GLOBALGLOBAL_RULES.md ~/.gemini/GLOBALGLOBAL_RULES.md
+mkdir -p ~/.gemini && ln -sf ~/GLOBAL_RULES.md ~/.gemini/GLOBAL_RULES.md
 ```
 
 ---
 
 ## What Goes Where
 
-### ~/GLOBALGLOBAL_RULES.md (~800 lines target)
+### ~/GLOBAL_RULES.md (~800 lines target)
 - Core workflow (Explore → Plan → Code → Commit)
 - Tool selection matrix
 - Token efficiency essentials
@@ -125,7 +125,7 @@ KnowledgeBase/
 ### Antigravity (Gemini-based)
 - 1M context window
 - Best for research tasks
-- Link to GLOBALGLOBAL_RULES.md for consistency
+- Link to GLOBAL_RULES.md for consistency
 
 ### Codex
 - `~/.codex/rules/` directory
@@ -180,16 +180,53 @@ Use a subagent to review this code for security issues
 
 ## Session Persistence (All Tools)
 
+### Project-Level Session State (NEW - Feb 2026)
+
+For projects with active cross-tool development, use the **session state file**:
+
+```
+project/.claude/session/CURRENT_STATE.md
+```
+
+**What it contains**:
+- Last update timestamp and tool used
+- Recent work completed (with file:line references)
+- Current branch and commit state
+- Next steps
+
+**Setup** (one-time per project):
+```bash
+# In project root
+./scripts/dev-setup.sh  # Installs git hooks + creates session dir
+```
+
+**Git Hooks** (auto-installed by dev-setup.sh):
+- `post-commit`: Reminds to update session state
+- `post-checkout`: Reminds to check session state after branch switch
+
+**Manual Update**:
+```bash
+./scripts/session-update.sh "Completed VFX pipeline refactor"
+```
+
+### Recovery Hierarchy
+
+1. **Project session state**: `.claude/session/CURRENT_STATE.md` (cross-tool)
+2. **Tool session**: Native resume (Claude `--continue`, Windsurf recent)
+3. **Git history**: `git log -5` for recent commits
+
 **Before ending ANY session**:
 1. Commit changes to git
-2. Name/save session (if tool supports)
-3. Check for uncommitted work in other repos
+2. Update session state (if project uses it)
+3. Name/save tool session (if tool supports)
+4. Check for uncommitted work in other repos
 
-**Recovery**:
+**Recovery by tool**:
 - Claude: `claude --continue` or `--resume`
 - Windsurf: Recent sessions in UI
 - Cursor: Recent sessions in UI
 - Antigravity: History in `~/.antigravity/`
+- **Any tool**: Read `.claude/session/CURRENT_STATE.md` first
 
 ---
 
@@ -201,8 +238,8 @@ Run periodically to ensure sync:
 # Check all symlinks valid
 ls -la ~/.claude/knowledgebase ~/.windsurf/knowledgebase ~/.cursor/knowledgebase ~/.antigravity/knowledgebase ~/.codex/knowledgebase 2>/dev/null
 
-# Check GLOBALGLOBAL_RULES.md accessible
-head -5 ~/GLOBALGLOBAL_RULES.md
+# Check GLOBAL_RULES.md accessible
+head -5 ~/GLOBAL_RULES.md
 
 # Check KB file count (target: <50 active)
 ls ~/.claude/knowledgebase/*.md 2>/dev/null | wc -l
@@ -214,7 +251,7 @@ ls ~/.claude/knowledgebase/*.md 2>/dev/null | wc -l
 
 | Action | Command/Location |
 |--------|------------------|
-| Edit global rules | `~/GLOBALGLOBAL_RULES.md` |
+| Edit global rules | `~/GLOBAL_RULES.md` |
 | Edit Claude-specific | `~/.claude/CLAUDE.md` |
 | Edit project rules | `project/CLAUDE.md` |
 | Search KB | `kb "term"` or `kbfix "error"` |
