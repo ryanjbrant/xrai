@@ -758,6 +758,72 @@ Log all failures to LEARNING_LOG.md and improve the workflow.
 
 ---
 
+## 🔗 Cross-Tool Context Sharing
+
+**Goal**: Any developer, any tool, any session should pick up exactly where we left off.
+
+### Shared Context Sources (All Tools Must Read)
+
+| Source | Location | Purpose |
+|--------|----------|---------|
+| **GLOBAL_RULES.md** | `~/GLOBAL_RULES.md` (this file) | Universal AI rules |
+| **Project CLAUDE.md** | `<project>/CLAUDE.md` | Project-specific rules |
+| **AGENTS.md** | `<project>/AGENTS.md` | Codex/Copilot format |
+| **Session State** | `<project>/.claude/session/CURRENT_STATE.md` | Resume exact state |
+| **KnowledgeBase** | `~/KnowledgeBase/` or `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/` | Patterns, fixes |
+| **LEARNING_LOG.md** | `KnowledgeBase/LEARNING_LOG.md` | Session discoveries |
+
+### Session Start Protocol (ANY Tool)
+
+```bash
+# 1. Read global rules
+cat ~/GLOBAL_RULES.md
+
+# 2. Read project config
+cat CLAUDE.md        # or AGENTS.md for Codex
+
+# 3. Read session state (if exists)
+cat .claude/session/CURRENT_STATE.md
+
+# 4. Check recent discoveries
+cat ~/KnowledgeBase/LEARNING_LOG.md | tail -50
+
+# 5. Continue from last known state
+```
+
+### Session End Protocol (ANY Tool)
+
+```bash
+# Update session state
+./scripts/session-update.sh "Summary of what was done"
+
+# Or manually update .claude/session/CURRENT_STATE.md
+```
+
+### Tool-Specific Configs
+
+| Tool | Config File | Auto-loads |
+|------|-------------|------------|
+| Claude Code | `CLAUDE.md` | Yes |
+| Codex/Copilot | `AGENTS.md` | Yes |
+| Cursor | `.cursorrules` | Yes |
+| Windsurf | `.windsurfrules` | Yes |
+| Rider | Uses MCP | Via JetBrains MCP |
+
+### For New Developers (Post-Clone)
+
+```bash
+# Run setup script (installs hooks, symlinks)
+./scripts/dev-setup.sh
+
+# This creates:
+# - Git hooks for session tracking
+# - Symlinks to global KB
+# - Initial session state file
+```
+
+---
+
 ## Session Management
 
 **Auto-Checkpoint (MANDATORY every 5-10 min)**:
