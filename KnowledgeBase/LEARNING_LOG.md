@@ -6,6 +6,45 @@
 
 ---
 
+## 2026-02-06 - Claude Code - HiFi Hologram VFX Configuration Fixes
+
+**Context**: HiFi hologram VFX files had invalid YAML configuration values causing rendering issues.
+
+### Problems Found & Fixed
+
+| File | Property | Old | New | Impact |
+|------|----------|-----|-----|--------|
+| `hifi_hologram_people.vfx` | UseParticleSize | 0 | 1 | Disabled dynamic particle sizing |
+| `hifi_hologram_pointcloud.vfx` | useBaseColorMap | 3 | 1 | Invalid enum (0=none, 1=enabled) |
+| `hifi_hologram_pointcloud.vfx` | stripCapacity | 1 | 16 | Too few vertices per strip for point clouds |
+
+### VFX YAML Property Reference
+
+**UseParticleSize** (Output Context):
+- `0` = Fixed size (ignores per-particle size attribute)
+- `1` = Dynamic size (uses per-particle size for quality presets)
+
+**useBaseColorMap** (Shader Graph):
+- `0` = No base color map
+- `1` = Enable base color map
+- Values >1 are invalid
+
+**stripCapacity** (Particle Strips):
+- Minimum vertices per strip
+- Point clouds need 16+ for visual quality
+- Default 1 causes sparse rendering
+
+### Detection Method
+Used parallel agents to:
+1. Analyze VFX file structure and find invalid configurations
+2. Cross-reference with VFX Graph property documentation
+3. Validate fixes against Unity 6 VFX Graph standards
+
+### Migration Note
+These fixes are documented in `MIGRATION_PLAN_TO_PORTALS_V4.md` for future migration to Portals project.
+
+---
+
 ## 2026-02-05 - Claude Code - VFXARBinder Auto-Fix Pattern
 
 **Context**: VFXARBinder had all `_bindXxxOverride` fields defaulting to false, causing bindings to be disabled even when VFX properties exist.
