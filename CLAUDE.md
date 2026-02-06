@@ -205,18 +205,22 @@ Unity source code research workbench from keijiro/AgentBench.
 - ✅ RGB color sampling (ColorMap from VFXARBinder)
 - ✅ VFX asset: hologram_depth_people_metavido.vfx
 
-**Spec 003** (in progress, 60%): Hologram Conferencing
-- ✅ Recording/playback
-- ⬜ WebRTC signaling server
-- ⬜ Multi-peer support
+**Spec 003** (✅ complete): Hologram Conferencing
+- ✅ Recording/playback (RecordingController.cs)
+- ✅ WebRTC conferencing (HologramConferenceManager.cs, 6 tests)
 
-### Completed Specs (6 total)
+### Completed Specs (11 total)
 - ✅ Spec 002 - H3M Hologram Foundation (Legacy, use Hologram.prefab)
+- ✅ Spec 003 - Hologram Conferencing (Recording + WebRTC)
 - ✅ Spec 004 - MetavidoVFX Systems
 - ✅ Spec 005 - AR Texture Safety
 - ✅ Spec 006 - VFX Library & Pipeline (73 VFX, 353 FPS)
-- ✅ **Spec 007 - VFX Multi-Mode** (all 6 phases, audio/physics)
-- ✅ **Spec 012 - Hand Tracking + Brush** (5 providers, gestures, tests)
+- ✅ Spec 007 - VFX Multi-Mode (all 6 phases, audio/physics)
+- ✅ Spec 008 - Multimodal ML Foundations (7 providers)
+- ✅ Spec 009 - Icosa/Sketchfab (GLTFast 6.12.1)
+- ✅ Spec 011 - Open Brush Integration (107 brushes)
+- ✅ Spec 012 - Hand Tracking + Brush (5 providers, gestures, tests)
+- ✅ Spec 014 - HiFi Hologram VFX (quality presets)
 - ✅ Spec 015 - VFX Binding Architecture
 
 ### Integration Opportunities
