@@ -534,6 +534,19 @@ NEVER wait for user to report bugs. Proactively find and fix.
 
 ### JetBrains MCP Quick Reference (When Rider Open)
 
+**⚠️ CRITICAL: JetBrains MCP only works with projects CURRENTLY OPEN in Rider.**
+
+Before using JetBrains MCP tools:
+1. **Check which project Rider has open** - may not match current working directory
+2. If project not open in Rider → use standard Glob/Grep/Read instead
+3. `projectPath` must match an **actually open** Rider project
+
+```bash
+# Error you'll see if project not open:
+# "projectPath doesn't correspond to any open project"
+# "Currently open projects: [different project]"
+```
+
 | Task | Command |
 |------|---------|
 | Check file errors | `get_file_problems(filePath)` |
