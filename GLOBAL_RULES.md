@@ -35,6 +35,28 @@ Explore → Plan → Code → Commit → Log discovery
 | Research + implementation | Spawn research agent, continue with what you know |
 | Build running in background | Continue other tasks, check result later |
 
+### Non-Blocking Principle (CRITICAL)
+
+**Research, rules updates, and KB updates should NEVER block ongoing dev/debugging.**
+
+| Task Type | Execution | Priority |
+|-----------|-----------|----------|
+| **Dev/Bug fixes** | Main thread, immediate | P0 - Never interrupted |
+| **Rules/KB updates** | Background agent OR after fix complete | P2 - Don't block |
+| **Research** | Spawn parallel agent | P1 - Inform but don't wait |
+| **Documentation** | After code working | P3 - Last priority |
+
+```
+# Pattern: Non-blocking updates
+1. Fix the bug FIRST
+2. THEN update rules/KB (or spawn agent to do it)
+3. NEVER stop fixing to document
+
+# If rules need updating during debugging:
+spawn_agent("Update GLOBAL_RULES with [pattern]", background=true)
+continue_debugging()
+```
+
 ### Auto-Wake Patterns
 ```
 # If progress stops:
