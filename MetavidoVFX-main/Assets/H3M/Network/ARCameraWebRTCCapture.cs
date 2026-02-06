@@ -340,27 +340,55 @@ namespace XRRAI.Hologram
 
         private void ReadPixelsFromTarget()
         {
+            // Validate target texture exists and has valid dimensions
+            if (targetRenderTexture == null || !targetRenderTexture.IsCreated() ||
+                targetRenderTexture.width <= 0 || targetRenderTexture.height <= 0)
+                return;
+
             var activeRenderTexture = RenderTexture.active;
-            RenderTexture.active = targetRenderTexture;
 
-            // Create texture if needed (RGBA32 for WebRTC compatibility)
-            if (m_LastCameraTexture == null)
+            try
             {
-                m_LastCameraTexture = new Texture2D(
-                    targetRenderTexture.width,
-                    targetRenderTexture.height,
-                    TextureFormat.RGBA32,
-                    false // No mipmaps for streaming
-                );
+                RenderTexture.active = targetRenderTexture;
+
+                // Double-check active texture is valid after assignment
+                if (RenderTexture.active == null || !RenderTexture.active.IsCreated())
+                    return;
+
+                int width = RenderTexture.active.width;
+                int height = RenderTexture.active.height;
+
+                if (width <= 0 || height <= 0)
+                    return;
+
+                // Create or recreate texture if dimensions changed (RGBA32 for WebRTC compatibility)
+                if (m_LastCameraTexture == null ||
+                    m_LastCameraTexture.width != width ||
+                    m_LastCameraTexture.height != height)
+                {
+                    if (m_LastCameraTexture != null)
+                        Destroy(m_LastCameraTexture);
+
+                    m_LastCameraTexture = new Texture2D(
+                        width,
+                        height,
+                        TextureFormat.RGBA32,
+                        false // No mipmaps for streaming
+                    );
+                }
+
+                // Bounds-safe ReadPixels
+                m_LastCameraTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+                m_LastCameraTexture.Apply();
             }
-
-            m_LastCameraTexture.ReadPixels(
-                new Rect(0, 0, targetRenderTexture.width, targetRenderTexture.height),
-                0, 0
-            );
-            m_LastCameraTexture.Apply();
-
-            RenderTexture.active = activeRenderTexture;
+            catch (System.Exception)
+            {
+                // Silently handle ReadPixels errors (texture state race condition)
+            }
+            finally
+            {
+                RenderTexture.active = activeRenderTexture;
+            }
         }
 
         private void SendToWebRTC(string deviceName)

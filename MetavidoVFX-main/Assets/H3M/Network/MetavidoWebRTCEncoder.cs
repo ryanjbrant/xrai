@@ -374,20 +374,46 @@ namespace XRRAI.Hologram
         /// </summary>
         public byte[] GetEncodedFrameBytes()
         {
-            if (_encodedTexture == null) return null;
+            // Validate texture exists and has valid dimensions
+            if (_encodedTexture == null || !_encodedTexture.IsCreated() ||
+                _encodedTexture.width <= 0 || _encodedTexture.height <= 0)
+                return null;
 
-            // Read pixels from render texture
-            var tex2D = new Texture2D(_encodedTexture.width, _encodedTexture.height, TextureFormat.RGBA32, false);
             var prevRT = RenderTexture.active;
-            RenderTexture.active = _encodedTexture;
-            tex2D.ReadPixels(new Rect(0, 0, _encodedTexture.width, _encodedTexture.height), 0, 0);
-            tex2D.Apply();
-            RenderTexture.active = prevRT;
 
-            var bytes = tex2D.GetRawTextureData();
-            Destroy(tex2D);
+            try
+            {
+                RenderTexture.active = _encodedTexture;
 
-            return bytes;
+                // Double-check active texture is valid after assignment
+                if (RenderTexture.active == null || !RenderTexture.active.IsCreated())
+                    return null;
+
+                int width = RenderTexture.active.width;
+                int height = RenderTexture.active.height;
+
+                if (width <= 0 || height <= 0)
+                    return null;
+
+                // Read pixels from render texture with validated dimensions
+                var tex2D = new Texture2D(width, height, TextureFormat.RGBA32, false);
+                tex2D.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+                tex2D.Apply();
+
+                var bytes = tex2D.GetRawTextureData();
+                Destroy(tex2D);
+
+                return bytes;
+            }
+            catch (System.Exception)
+            {
+                // Silently handle ReadPixels errors (texture state race condition)
+                return null;
+            }
+            finally
+            {
+                RenderTexture.active = prevRT;
+            }
         }
 
         /// <summary>
