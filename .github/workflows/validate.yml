@@ -1,0 +1,29 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quick-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Core Files
+        run: |
+          test -f MetavidoVFX-main/Assets/Scripts/Bridges/ARDepthSource.cs
+          test -f MetavidoVFX-main/Assets/Scripts/Bridges/VFXARBinder.cs
+          echo "Core files present"
+
+      - name: Count Tests
+        run: |
+          TESTS=$(grep -r "\[Test\]" MetavidoVFX-main/Assets/Scripts/Editor/Tests/ --include="*.cs" | wc -l)
+          echo "Found $TESTS tests"
+
+      - name: Check Namespace Usage
+        run: |
+          XRRAI=$(grep -r "namespace XRRAI" MetavidoVFX-main/Assets/Scripts --include="*.cs" | wc -l)
+          echo "$XRRAI files use XRRAI namespace"
