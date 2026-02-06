@@ -2,8 +2,11 @@
 
 **Feature Branch**: `014-hifi-hologram-vfx`
 **Created**: 2026-01-21
-**Status**: Phase 1 Complete (Controller + 3 VFX assets)
+**Updated**: 2026-02-06
+**Status**: Phase 1 Complete (Controller + 3 VFX assets + VFXARBinderMinimal)
 **Priority**: P0 (Critical for lifelike telepresence)
+
+**Core Principles**: Lifelike (RGB color sampling) | Fast (<1ms binding) | Scalable (10K-200K particles)
 
 ---
 
@@ -233,28 +236,58 @@ As a user in a conference, I want multiple high-fidelity holograms to render at 
 
 ## Implementation
 
+### Architecture: Separation of Concerns (Updated 2026-02-06)
+
+**Key Design Decision**: Split data binding from quality control for maximum performance and flexibility.
+
+| Component | Responsibility | Binding Cost |
+|-----------|----------------|--------------|
+| **VFXARBinder** or **VFXARBinderMinimal** | ALL data binding (ColorMap, DepthMap, PositionMap, RayParams, InverseView) | <0.5ms |
+| **HiFiHologramController** | Quality presets, appearance tuning, auto-quality | ~0.1ms |
+| **ARDepthSource** | Compute dispatch (ONE for all VFX) | O(1) |
+
+**Why this split?**
+- **Fast**: VFXARBinderMinimal has 5 SetTexture calls, no alias lookups
+- **Scalable**: Add more holograms without duplicating compute
+- **Lifelike**: ColorMap sampling handled at VFX Graph level, not in controller
+
 ### HiFiHologramController.cs
 
 **Location**: `Assets/H3M/VFX/HiFiHologramController.cs`
-**Status**: ✅ Implemented
+**Status**: ✅ Implemented (Simplified - Quality Only)
 
 ```csharp
+// SIMPLIFIED: VFXARBinder handles ALL data binding
+// This controller ONLY handles quality presets and appearance tuning
 public class HiFiHologramController : MonoBehaviour
 {
-    // Quality presets
+    // Quality presets (10K-200K particles)
     public HologramQuality Quality { get; set; }
 
-    // Texture inputs
-    public void SetColorMap(Texture2D colorMap);
-    public void SetDepthMap(Texture2D depthMap);
-    public void SetStencilMap(Texture2D stencilMap);
-
-    // Camera matrices
-    public void SetCameraMatrices(Matrix4x4 inverseView, Vector4 rayParams, Vector2 depthRange);
+    // Appearance controls (unique to HiFi)
+    public float ColorSaturation { get; set; }
+    public float ColorBrightness { get; set; }
 
     // Quality control
     public void ForceQuality(HologramQuality quality);
     public void EnableAutoQuality(int targetFPS = 60);
+}
+```
+
+### VFXARBinderMinimal.cs (NEW)
+
+**Location**: `Assets/Scripts/Bridges/VFXARBinderMinimal.cs`
+**Status**: ✅ Implemented
+
+```csharp
+// Lightweight binder for new VFX with standardized property names
+// 5 core properties: DepthMap, PositionMap, ColorMap, RayParams, InverseView
+// NO alias lookups, NO auto-detection overhead
+[RequireComponent(typeof(VisualEffect))]
+public class VFXARBinderMinimal : MonoBehaviour
+{
+    public void SetDepthRange(float near, float far);
+    public string GetBindingStatus();
 }
 ```
 
@@ -288,14 +321,15 @@ Assets/
 
 ## Integration Points
 
-### With ARDepthSource (Spec 006)
+### With ARDepthSource + VFXARBinderMinimal (Spec 006)
 
 ```csharp
-// ARDepthSource provides all required textures
-var source = ARDepthSource.Instance;
-controller.SetColorMap(source.ColorMap);
-controller.SetDepthMap(source.DepthMap);
-controller.SetCameraMatrices(source.InverseView, source.RayParams, source.DepthRange);
+// SIMPLIFIED: VFXARBinderMinimal auto-binds from ARDepthSource.Instance
+// Just add VFXARBinderMinimal to VFX GameObject - it handles everything
+// HiFiHologramController only sets quality:
+var controller = hologram.GetComponent<HiFiHologramController>();
+controller.Quality = HologramQuality.High;
+controller.EnableAutoQuality(60);
 ```
 
 ### With ConferenceLayoutManager (Spec 003)

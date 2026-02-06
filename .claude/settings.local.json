@@ -61,5 +61,11 @@
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enabledMcpjsonServers": [
+    "unity",
+    "jetbrains",
+    "github",
+    "claude-mem"
+  ]
 }

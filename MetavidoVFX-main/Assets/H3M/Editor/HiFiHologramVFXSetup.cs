@@ -17,6 +17,9 @@ namespace XRRAI.Hologram.Editor
         private const string OutputPath = "Assets/VFX/People/hifi_hologram_people.vfx";
         private const string ResourcesOutputPath = "Assets/Resources/VFX/People/hifi_hologram_people.vfx";
 
+        // Lifelike hologram - uses optimized VFX with PositionMap + ColorMap + Transform
+        private const string LifelikePath = "Assets/VFX/People/hifi_hologram_optimized.vfx";
+
         [MenuItem("H3M/HiFi Hologram/Create HiFi Hologram VFX")]
         public static void CreateHiFiHologramVFX()
         {
@@ -284,6 +287,72 @@ namespace XRRAI.Hologram.Editor
         {
             string status = found ? "\u2713" : "\u2717 MISSING";
             Debug.Log($"  [{status}] {component}: {details}");
+        }
+
+        /// <summary>
+        /// Creates a lifelike hologram setup optimized for:
+        /// - Real RGB colors (ColorMap sampling)
+        /// - Table placement with touch gestures
+        /// - Scalable for multiplayer
+        /// </summary>
+        [MenuItem("H3M/HiFi Hologram/Setup Lifelike Hologram (Recommended)", priority = 0)]
+        public static void SetupLifelikeHologram()
+        {
+            // Check if optimized VFX exists
+            var vfxAsset = AssetDatabase.LoadAssetAtPath<VisualEffectAsset>(LifelikePath);
+            if (vfxAsset == null)
+            {
+                Debug.LogError($"[Lifelike Hologram] VFX not found at {LifelikePath}");
+                Debug.LogError("Expected: hifi_hologram_optimized.vfx with PositionMap + ColorMap + Transform");
+                return;
+            }
+
+            // Create parent with HologramPlacer for touch gestures
+            var rigGO = new GameObject("Lifelike_Hologram");
+            var placer = rigGO.AddComponent<HologramPlacer>();
+
+            // Create VFX child
+            var vfxGO = new GameObject("Hologram_VFX");
+            vfxGO.transform.SetParent(rigGO.transform);
+            vfxGO.transform.localScale = Vector3.one * 0.15f; // Tabletop scale
+
+            // Add VisualEffect
+            var vfx = vfxGO.AddComponent<VisualEffect>();
+            vfx.visualEffectAsset = vfxAsset;
+
+            // Add minimal binder (exact property names, no aliases)
+            vfxGO.AddComponent<VFXARBinderMinimal>();
+
+            // Add quality controller
+            vfxGO.AddComponent<HiFiHologramController>();
+
+            // Wire HologramPlacer target
+            var placerSO = new SerializedObject(placer);
+            placerSO.FindProperty("_target").objectReferenceValue = vfxGO.transform;
+            placerSO.ApplyModifiedProperties();
+
+            // Ensure ARDepthSource exists
+            if (Object.FindFirstObjectByType<ARDepthSource>() == null)
+            {
+                var depthGO = new GameObject("ARDepthSource");
+                depthGO.AddComponent<ARDepthSource>();
+                Debug.Log("[Lifelike Hologram] Created ARDepthSource singleton");
+            }
+
+            Selection.activeGameObject = rigGO;
+            Debug.Log("[Lifelike Hologram] Setup complete!");
+            Debug.Log("Features:");
+            Debug.Log("  - hifi_hologram_optimized.vfx (PositionMap + ColorMap = lifelike RGB)");
+            Debug.Log("  - VFXARBinderMinimal (lightweight binding)");
+            Debug.Log("  - HiFiHologramController (quality presets)");
+            Debug.Log("  - HologramPlacer (tap to place, pinch to scale, twist to rotate)");
+            Debug.Log("");
+            Debug.Log("Touch Gestures:");
+            Debug.Log("  - Tap AR plane: Place hologram");
+            Debug.Log("  - 1-finger drag: Move X/Z");
+            Debug.Log("  - 2-finger drag: Adjust height");
+            Debug.Log("  - Pinch: Scale");
+            Debug.Log("  - Twist: Rotate");
         }
     }
 }

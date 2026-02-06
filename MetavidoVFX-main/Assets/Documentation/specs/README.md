@@ -1,7 +1,8 @@
 # Spec-Kit: Unity-XR-AI Feature Specifications
 
-**Last Updated**: 2026-01-22
+**Last Updated**: 2026-02-06
 **Triple Verified**: All specs cross-referenced with KB, docs, and online research
+**Cross-Project Sync**: Portals V4 voice-to-spatial patterns synced (see LEARNING_LOG.md)
 
 ---
 

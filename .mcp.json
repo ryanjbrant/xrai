@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "unity": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "mcpforunityserver==9.1.0",
+        "mcp-for-unity",
+        "--transport",
+        "stdio"
+      ]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "claude-mem": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "claude-mem",
+        "claude-mem",
+        "--db-path",
+        "/Users/jamestunick/.claude-mem/chroma_db"
+      ]
+    }
+  }
+}

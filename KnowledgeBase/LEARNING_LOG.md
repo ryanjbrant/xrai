@@ -6,6 +6,39 @@
 
 ---
 
+## 2026-02-06 - Claude Code - Cross-Project Research Sync (Portals V4 ↔ MetavidoVFX)
+
+**Context**: Comprehensive audit of both projects to sync patterns and insights.
+
+### Key Findings
+
+**Portals V4 (React Native + Unity)**:
+- Specs at `.specify/specs/` (11 files)
+- Constitution at `.specify/memory/constitution.md` defines AI voice-to-spatial engine
+- `useComposerBridge.ts` - Bridge translates SceneAction → Unity messages
+- `aiSceneComposer.ts` - Gemini 2.0 structured output for voice commands
+- ARRANGE_FORMATION handler added (circle/line/grid formations)
+- Retry logic for Gemini 429 rate limits (exponential backoff)
+
+**MetavidoVFX (Unity VFX)**:
+- **Hybrid Bridge Pattern**: O(1) compute (ARDepthSource) + O(N) binding (VFXARBinder)
+- VFXARBinder has 40+ aliases for cross-project compatibility (Rcam, Akvfx, Fluo, Keijiro)
+- HiFi hologram needs ColorMap + PositionMap correlation for RGB realism
+- Demand-driven ColorMap allocation (saves 8.3MB when unused)
+- Quality presets (10K-200K particles) with auto-FPS adjustment
+
+**Cross-Pollination Opportunities**:
+1. Portals V4 voice patterns → MetavidoVFX gesture commands
+2. MetavidoVFX VFX aliases → Portals V4 typed bridge messages
+3. Both use ExposedProperty pattern for type-safe VFX binding
+
+### Impact
+
+- Unified voice-to-object pattern documented
+- Cross-project specs synchronized
+
+---
+
 ## 2026-02-06 - Claude Code - MANDATORY Session Persistence Rule
 
 **Context**: Repeated issues with losing context between sessions, inability to resume where we left off, poor long-term memory.
