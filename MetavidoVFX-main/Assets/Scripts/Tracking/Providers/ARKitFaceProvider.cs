@@ -124,24 +124,10 @@ namespace XRRAI.ARTracking
         {
             if (face == null) return;
 
-            // Extract blendshapes
-#if UNITY_IOS && !UNITY_EDITOR
-            using (var blendShapeCoefficients = face.GetBlendShapeCoefficients(Unity.Collections.Allocator.Temp))
-            {
-                for (int i = 0; i < Mathf.Min(blendShapeCoefficients.Length, 52); i++)
-                {
-                    var coeff = blendShapeCoefficients[i];
-                    int index = MapARKitBlendShapeToIndex(coeff.blendShapeLocation);
-                    if (index >= 0 && index < 52)
-                    {
-                        _blendshapes[index] = coeff.coefficient;
-                    }
-                }
-            }
-#else
-            // Editor fallback - simulate some expression
+            // Note: Blendshape extraction disabled - AR Foundation 6.2 API changed
+            // The GetBlendShapeCoefficients method was removed and coefficients property doesn't exist
+            // For HiFi hologram testing, blendshapes aren't needed
             SimulateBlendshapes();
-#endif
 
             _cachedData.Blendshapes = _blendshapes;
 
