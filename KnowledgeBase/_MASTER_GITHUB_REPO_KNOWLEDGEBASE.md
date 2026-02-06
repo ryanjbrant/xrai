@@ -3,9 +3,11 @@
 **Purpose**: Comprehensive reference of GitHub repos used across all workspaces (Portals V4, Paint-AR, Open Brush) to improve Claude's coding capabilities for AR/VFX/XR/Unity development.
 
 **Last Updated**: 2026-02-06
-**Recent Additions**: VS Code React Native extension (microsoft/vscode-react-native), VFX Architecture patterns (O(1) compute, UV-to-world), Open Source strategy (XRAI/VNMF formats)
+**Recent Additions**: Keijiro complete catalog (80+ repos, 24 parallel searches), VS Code React Native extension (microsoft/vscode-react-native), VFX Architecture patterns (O(1) compute, UV-to-world), Open Source strategy (XRAI/VNMF formats)
 
 **Pattern KB Files**:
+- `LEARNING_LOG.md` - Keijiro complete catalog (Feb 6 2026, 80+ repos, VFX/depth/compute patterns)
+- `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` - Deep dive MetavidoVFX architecture
 - `_HAND_VFX_PATTERNS.md` - 52 hand tracking VFX effects (Buddha + HoloKit libraries)
 - `_GAUSSIAN_SPLATTING_VFX_PATTERNS.md` - SplatVFX patterns (keijiro)
 - `_AI_CHARACTER_PATTERNS.md` - LLMUnity AI character integration
@@ -138,7 +140,15 @@
 | [LightBuzz/Body-Tracking-ARKit](https://github.com/LightBuzz/Body-Tracking-ARKit) | ARKit body tracking sample | ARKit 3D skeleton | ✅ |
 | [emilianavt/OpenSeeFace](https://github.com/emilianavt/OpenSeeFace) | Robust face tracking | OpenCV, Unity integration | ✅ |
 | [homuler/MediaPipeUnityPlugin](https://github.com/homuler/MediaPipeUnityPlugin) | MediaPipe for Unity | ML body/face tracking | ✅ |
-| [keijiro/FaceLandmarkBarracuda](https://github.com/keijiro/FaceLandmarkBarracuda) | Face landmarks ML | MediaPipe, Barracuda | ✅ |
+| [keijiro/FaceLandmarkBarracuda](https://github.com/keijiro/FaceLandmarkBarracuda) | Face landmarks ML | MediaPipe, 468 landmarks | ✅ |
+| [keijiro/BlazeFaceBarracuda](https://github.com/keijiro/BlazeFaceBarracuda) | BlazeFace detection | MediaPipe BlazeFace | ✅ |
+| [keijiro/FaceMeshBarracuda](https://github.com/keijiro/FaceMeshBarracuda) | Face geometry capture | Face mesh generation | ✅ |
+| [keijiro/UltraFaceBarracuda](https://github.com/keijiro/UltraFaceBarracuda) | Ultra-light face detector | 1MB model, fast | ✅ |
+| [keijiro/BodyPixSentis](https://github.com/keijiro/BodyPixBarracuda) | Body segmentation | BodyPix, Unity Sentis | ✅ |
+| [keijiro/BodyPixBarracuda](https://github.com/keijiro/BodyPixBarracuda) | Body segmentation (legacy) | BodyPix, Barracuda | ✅ |
+| [keijiro/BodyPixSample](https://github.com/keijiro/BodyPixSample) | Virtual background samples | Face pixelization | ✅ |
+| [keijiro/NNCam](https://github.com/keijiro/NNCam) | Virtual background webcam | BodyPix + Barracuda | ❌ |
+| [keijiro/NNCam2](https://github.com/keijiro/NNCam2) | Semantic segmentation effects | BodyPix VFX | ❌ |
 | [yeemachine/kalidokit](https://github.com/yeemachine/kalidokit) | MediaPipe → VRM blendshapes | Face/pose/hands conversion | ✅ |
 | [yeemachine/kalidoface](https://github.com/yeemachine/kalidoface) | Live VTuber web app | three.js + MediaPipe | ✅ |
 | [yeemachine/kalidoface-3d](https://github.com/yeemachine/kalidoface-3d) | 3D face mesh generator | 468 landmarks → mesh | ✅ |
@@ -150,6 +160,18 @@
 | [keijiro/DkvfxSketches](https://github.com/keijiro/DkvfxSketches) | Depthkit VFX experiments | Volumetric video sketches | ✅ |
 | [keijiro/Akvfx](https://github.com/keijiro/Akvfx) | Azure Kinect → VFX | Depth sensor | ❌ |
 | [keijiro/VfxPyro](https://github.com/keijiro/VfxPyro) | Pyrotechnic VFX | VFX Graph effects | ✅ |
+| [keijiro/VfxGraphGraphicsBufferTest](https://github.com/keijiro/VfxGraphGraphicsBufferTest) | GraphicsBuffer operators | Compute → VFX direct | ✅ |
+| [keijiro/VFXCustomCode](https://github.com/keijiro/VFXCustomCode) | Custom HLSL nodes | Extend VFX Graph | ✅ |
+| [keijiro/VzoVfx](https://github.com/keijiro/VzoVfx) | VST-OSC bridge VFX | DAW sync VFX | ❌ |
+| [keijiro/GeoVfx](https://github.com/keijiro/GeoVfx) | Geographical data viz | GeoJSON → VFX | ✅ |
+| [keijiro/4DViewsTest2](https://github.com/keijiro/4DViewsTest2) | 4DViews volumetric video | Volumetric playback | ✅ |
+| [keijiro/HdrpVatExample](https://github.com/keijiro/HdrpVatExample) | Vertex Animation Texture | Houdini VAT, HDRP+URP | ✅ |
+| [keijiro/SdfVfxSamples](https://github.com/keijiro/SdfVfxSamples) | Signed Distance Field VFX | SDF primitives | ✅ |
+| [keijiro/Abcvfx](https://github.com/keijiro/Abcvfx) | Alembic animation VFX | Alembic → VFX Graph | ✅ |
+| [keijiro/Smrvfx](https://github.com/keijiro/Smrvfx) | Skinned mesh sampling | Particles from meshes | ✅ |
+| [keijiro/SplatVFX](https://github.com/keijiro/SplatVFX) | Gaussian Splatting | 3D Gaussian Splatting | ✅ |
+| [keijiro/VfxGraphModeling](https://github.com/keijiro/VfxGraphModeling) | Procedural modeling | Procedural VFX | ✅ |
+| [keijiro/ProcCharVfx](https://github.com/keijiro/ProcCharVfx) | Procedural character VFX | Shader Graph sprites | ✅ |
 | [hecomi/uDepth](https://github.com/hecomi/uDepth) | Depth visualization | Depth capture | ✅ |
 | [hecomi/uARKitFaceMesh](https://github.com/hecomi/uARKitFaceMesh) | ARKit face mesh | Face tracking | ✅ |
 | [hecomi/UnityARKitFaceTrackingExample](https://github.com/hecomi/UnityARKitFaceTrackingExample) | ARKit face tracking example | Face tracking | ✅ |

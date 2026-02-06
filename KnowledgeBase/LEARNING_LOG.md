@@ -6,6 +6,181 @@
 
 ---
 
+## 2026-02-06 - Claude Code - Keijiro Complete Repository Catalog (80+ Repos)
+
+**Context**: Comprehensive parallel search of keijiro's GitHub (902 repos, 23.4K followers) focusing on VFX Graph, depth/LiDAR, point clouds, AR/XR, and compute shaders.
+
+### Search Results
+
+**24 parallel searches** conducted across VFX Graph, depth processing, point clouds, AR/XR visualization, compute shaders, video streaming, audio-reactive, post-processing, shaders, face/body tracking, AI/ML, input systems, and 2025-2026 updates.
+
+**80+ repositories cataloged** (filtered subset from 902 total):
+
+### Key Categories
+
+1. **VFX Graph Projects** (15+ repos)
+   - VfxGraphTestbed/TestBed2, VfxGraphAssets (289 stars, Dec 4 2025)
+   - SplatVFX (Gaussian Splatting), Smrvfx (skinned mesh sampling)
+   - VfxGraphModeling, SdfVfxSamples, Abcvfx (Alembic)
+   - VfxGraphGraphicsBufferTest, VFXCustomCode (custom HLSL nodes)
+   - VzoVfx (VST-OSC), GeoVfx (geographical data), HdrpVatExample (VAT)
+
+2. **Depth & LiDAR Processing** (10+ repos)
+   - Rcam/Rcam2/Rcam3/Rcam4 (iOS LiDAR volumetric capture)
+   - Metavido (formerly Bibcam) - UV-multiplexed depth video format
+   - MetavidoVFX, MetavidoTimeline
+   - Rsvfx (RealSense), Akvfx (Azure Kinect)
+   - DepthInverseProjection (UV-to-world reconstruction)
+
+3. **Point Cloud Processing** (2 repos)
+   - Pcx (1.4k stars, .ply importer/renderer)
+   - PcxEffects3 (point cloud VFX)
+
+4. **Compute Shader Effects** (4 repos)
+   - MiniEngineAO (SSAO with TGSM/LDS optimization)
+   - MarchingCubesOnGPU (isosurface extraction)
+   - NoiseBall2/NoiseBall5 (procedural modeling)
+
+5. **Video Streaming & Interop** (6 repos)
+   - KlakNDI (899 stars, Dec 7 2025) - NDI network streaming
+   - KlakHap (Feb 5 2026) - HAP codec player
+   - KlakSpout (Windows), KlakSyphon (macOS) - texture sharing
+
+6. **Audio-Reactive Systems** (4 repos)
+   - Lasp (low-latency audio <16ms, C++ native)
+   - KlakLasp (Klak Wiring extension)
+   - LaspVfx (VFX Graph property binders)
+   - Reaktion (audio toolkit)
+
+7. **Post-Processing Effects** (Kino Family, 8+ repos)
+   - Kino (2.3k+ stars), KinoGlitch (2.7k stars)
+   - KinoEight (Jan 1 2026, 8-bit style URP)
+   - Face Anonymizer VFX (Dec 14 2025)
+   - KinoHatch, KinoRamp, KinoVision, MiniBokeh, KinoStreak
+
+8. **Shaders & Shader Graph** (8+ repos)
+   - NoiseShader (1,345 stars, Dec 4 2025)
+   - LinearGradient (Dec 12 2025), CosineGradient
+   - ProceduralMotion (Dec 8 2025)
+   - ShaderGraphExamples, UnityBasicShaders, UnitySkyboxShaders
+
+9. **Face & Body Tracking** (8+ repos)
+   - BodyPixSentis (Unity Sentis), BodyPixBarracuda (legacy)
+   - BlazeFaceBarracuda, FaceLandmarkBarracuda (468 landmarks)
+   - FaceMeshBarracuda, UltraFaceBarracuda (1MB model)
+   - NNCam/NNCam2 (virtual background applications)
+
+10. **AI/ML Integration** (2 repos)
+    - AICommand (4.1k stars, ChatGPT + Unity Editor)
+    - AIShader (2.4k stars, ChatGPT shader generator)
+
+11. **Input Systems** (6 repos)
+    - Minis (MIDI + Unity Input System), VfxMinisExamples
+    - OscJack, OscJackVS, OscKlak, unity-osc
+
+12. **Utility Libraries** (5+ repos)
+    - Klak (creative coding library)
+    - KlakMath (147 stars, Dec 5 2025, Unity Mathematics extension)
+    - Metatex, UnityProjectTemplate, Memo (dev notes)
+
+### New Discoveries (Not in Local Repos)
+
+1. **Rcam3/Rcam4** - Latest generations (2024, developed for concert)
+2. **VfxGraphGraphicsBufferTest** - GraphicsBuffer operators
+3. **VFXCustomCode** - Custom HLSL nodes in VFX Graph
+4. **VzoVfx** - VST-OSC bridge for VFX
+5. **GeoVfx** - Geographical data visualization
+6. **4DViewsTest2** - 4DViews volumetric video
+7. **UltraFaceBarracuda** - 1MB face detector
+8. **FaceLandmarkBarracuda** - 468 facial landmarks
+9. **FaceMeshBarracuda** - Face geometry capture
+10. **KinoEight** - 8-bit style post-processing (Jan 2026)
+11. **Face Anonymizer VFX** - Dec 2025
+12. **Duotone Effect** - Dec 2025 URP
+13. **LowLevelDigger** - Unity 6.3 2D Physics mini game
+14. **Funnel** - Older Syphon plugin
+15. **BodyPixSample** - Virtual background examples
+
+### Key Patterns Extracted
+
+**VFX Graph Techniques**:
+- GraphicsBuffer integration (compute shader → VFX)
+- Custom HLSL nodes
+- Subgraph operators (reusable building blocks)
+- Dynamic mesh input (Alembic, skinned meshes)
+- SDF integration
+- Audio reactivity (LASP property binders)
+
+**Depth Processing Patterns**:
+- UV-to-world projection (depth texture → 3D positions)
+- Burnt-in metadata (Metavido barcode in blue channel)
+- UV multiplexing (color/depth/stencil in single texture)
+- Hue-encoded depth visualization
+- LiDAR integration (iOS → Unity VFX pipeline)
+
+**Compute Shader Optimizations**:
+- TGSM/LDS local memory for performance
+- Marching cubes GPU acceleration
+- Procedural generation (GPU-driven)
+- GraphicsBuffer direct access
+
+**Interop & Streaming**:
+- NDI (network video streaming)
+- Spout/Syphon (local texture sharing)
+- HAP codec (fast video decode)
+- OSC/MIDI (external device control)
+
+### Installation Pattern
+
+Most keijiro packages use **"Keijiro" scoped registry**:
+
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "Keijiro",
+      "url": "https://registry.npmjs.com",
+      "scopes": [ "jp.keijiro" ]
+    }
+  ]
+}
+```
+
+Add to `Packages/manifest.json` for Package Manager access.
+
+**Guide**: https://gist.github.com/keijiro/f8c7e8ff29bfe63d86b888901b82644c
+
+### Integration with MetavidoVFX Project
+
+Our MetavidoVFX-main uses several keijiro patterns:
+1. VFX Architecture (Hybrid Bridge Pattern inspired by VfxGraphAssets)
+2. Depth Processing (Metavido format inspiration)
+3. VFX Library (73 VFX inspired by VfxGraphAssets organization)
+4. Body Segmentation (BodyPixSentis 24-part segmentation)
+5. Audio Reactive (AudioBridge inspired by Lasp/LaspVfx)
+
+### Sources
+- [keijiro GitHub profile](https://github.com/keijiro) (902 repos, 23.4K followers)
+- [VfxGraphAssets](https://github.com/keijiro/VfxGraphAssets)
+- [Metavido](https://github.com/keijiro/Metavido)
+- [SplatVFX](https://github.com/keijiro/SplatVFX)
+- [Rcam2](https://github.com/keijiro/Rcam2)
+- [BodyPixBarracuda](https://github.com/keijiro/BodyPixBarracuda)
+- [Lasp](https://github.com/keijiro/Lasp)
+- [KlakNDI](https://github.com/keijiro/KlakNDI)
+- [NoiseShader](https://github.com/keijiro/NoiseShader)
+- Dev Log: https://radiumsoftware.tumblr.com
+- Gists: https://gist.github.com/keijiro
+
+### Impact
+- 15+ new VFX Graph projects identified for potential integration
+- Rcam3/Rcam4 latest LiDAR patterns (2024)
+- Custom HLSL nodes pattern (VFXCustomCode) for extending VFX Graph
+- GraphicsBuffer direct compute→VFX pattern (VfxGraphGraphicsBufferTest)
+- Latest 2025-2026 updates tracked (12+ repos updated in last 3 months)
+
+---
+
 ## 2026-02-06 - Claude Code - XROrigin Singleton Rule (Critical)
 
 **Context**: Hologram tracking broke after commit 416533006.
@@ -3474,3 +3649,41 @@ make new display alarm at end of display alarms of theEvent with properties {tri
 5. Open Window > Portals > Bridge Tester (Cmd+Shift+B)
 6. Test "Pipe: red cube" button
 ```
+
+## 2026-02-06: Voice Composer Debugging Infrastructure
+
+**Project**: portals_main
+**Tags**: voice-composer, debugging, devlogger, logging
+
+### Created
+1. **DevLogger Service** (`src/services/devLogger.ts`)
+   - Structured JSONL logging to `Documents/voice_debug.jsonl`
+   - Voice interaction logging: transcription, actions, success, duration
+   - Error and action execution logging
+   - Auto-rotation at 1MB, session tracking
+
+2. **Log Capture Scripts**
+   - `scripts/pull_voice_logs.sh`: Pull logs from device
+     - `--raw`: Raw JSONL output
+     - `--analyze`: AI-friendly markdown for Claude Code
+     - `--tail`: Stream live logs
+   - `scripts/post_test_analysis.sh`: Full post-test capture
+
+### Fixed (from Build Log Analysis)
+1. **BATCH_TRANSFORM**: Now handles `vibeTags` from Gemini (maps to animations)
+2. **SET_VIBE handler**: New - atmosphere control (vibeTags + lightingTheme)
+3. **CHANGE_LIGHTING handler**: New - lighting themes
+4. **MOVE_OBJECT**: Detects "all", "them", "everything" for batch movement
+5. **Emitter scale**: Fixed from `[1,1,1]` to `[0.5,0.5,0.5]`
+
+### Enhanced
+- **UnifiedDebugOverlay**: Auto-save on close, "Save to File" button
+- **CLAUDE.md**: Added "Voice Composer Debugging" section
+
+### Key Files
+- `src/services/devLogger.ts`
+- `src/hooks/useComposerBridge.ts`
+- `src/services/aiSceneComposer.ts`
+- `scripts/pull_voice_logs.sh`
+- `scripts/post_test_analysis.sh`
+- `src/components/UnifiedDebugOverlay.tsx`

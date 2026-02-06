@@ -1315,3 +1315,433 @@ void Start()
 **Research Method**: 5 parallel web searches (WebSearch tool) + focused repository analysis
 **Patterns Extracted**: 7 new code patterns + 4 architectural insights
 **Status**: ✅ Mobile/WebGPU research complete (no code modifications)
+
+---
+
+## 14. Complete Keijiro Depth-to-VFX Repository Timeline
+
+**Last Updated**: 2026-02-06
+
+### 14.1 Era 1: Foundation (2017-2019) - Attribute Map Pattern Established
+
+| Repository | Created | Depth Source | Unity | VFX Graph | Key Innovation |
+|------------|---------|--------------|-------|-----------|----------------|
+| [Pcx](https://github.com/keijiro/Pcx) | 2017 | PLY files | 2017.4+ | N/A | Point cloud importer, ComputeBuffer rendering |
+| [Dkvfx](https://github.com/keijiro/Dkvfx) | 2018 | Depthkit recordings | 2019.1 | Early | Volumetric video → Position/Color maps |
+| [Rsvfx](https://github.com/keijiro/Rsvfx) | Feb 2019 | Intel RealSense D415 | 2019.2+ | v1.0+ | **PointCloudBaker: Position Map + Color Map** |
+| [Rcam](https://github.com/keijiro/Rcam) | Jun 2019 | RealSense D415 + T265 | 2019.3 | HDRP | Real-time volumetric for live performance |
+| [Akvfx](https://github.com/keijiro/Akvfx) | Aug 2019 | Azure Kinect DK | 2019.3+ | v1.0+ | Azure Kinect → Attribute maps, compute shader |
+
+**Key Pattern Established**:
+```
+Depth Sensor → PointCloudBaker → Position Map (RGBAFloat) + Color Map (RGBA)
+                                         ↓
+                          VFX Graph "Set Position/Color from Map" blocks
+```
+
+### 14.2 Era 2: Mobile LiDAR Revolution (2020-2022)
+
+| Repository | Created | Depth Source | Unity | Streaming | Key Innovation |
+|------------|---------|--------------|-------|-----------|----------------|
+| [Rcam2](https://github.com/keijiro/Rcam2) | Oct 2020 | iPad Pro LiDAR | 2020.2 | NDI | First mobile LiDAR → desktop VFX |
+| [Rcam2x](https://github.com/keijiro/Rcam2x) | Dec 2022 | iPhone Pro Max LiDAR | 2022.2 | NDI | Updated depth computation, new VFX |
+| [Metavido](https://github.com/keijiro/Metavido) | 2021 | iPhone LiDAR | 2022+ | Video file | Burnt-in barcode metadata format |
+
+**Rcam Architecture**:
+```
+iOS Device (Controller)          Desktop (Visualizer)
+┌─────────────────────┐         ┌─────────────────────┐
+│ ARKit LiDAR Capture │   NDI   │ VFX Graph Rendering │
+│ + Color Camera      │ ──────→ │ Position/Color Maps │
+│ + Camera Tracking   │         │ HDRP Effects        │
+└─────────────────────┘         └─────────────────────┘
+```
+
+### 14.3 Era 3: Modern VFX + WebGPU (2023-2025)
+
+| Repository | Updated | Depth Source | Unity | Platform | Key Innovation |
+|------------|---------|--------------|-------|----------|----------------|
+| [NNCam2](https://github.com/keijiro/NNCam2) | 2024 | Webcam + BodyPix ML | Unity 6 | Desktop | Semantic segmentation → HDRP VFX |
+| [BodyPixSentis](https://github.com/keijiro/BodyPixSentis) | Sep 2024 | Webcam | Unity 6 | Multi | Barracuda → Sentis migration |
+| [Rcam3](https://github.com/keijiro/Rcam3) | Dec 2024 | iPhone 15 Pro LiDAR | Unity 6 | iOS→Desktop | Depth sensing focus (not AR) |
+| [MetavidoVFX](https://github.com/keijiro/MetavidoVFX) | Apr 2025 | Metavido files | Unity 6 | WebGPU | VFX Graph + WebGPU browser deployment |
+| [Rcam4](https://github.com/keijiro/Rcam4) | Apr 2025 | iPhone LiDAR | Unity 6 | iOS→Desktop | **Latest iteration, ASTRA 2025 live show** |
+
+### 14.4 All Related Repositories
+
+#### Core Depth-to-VFX Projects
+
+| Repository | Description | Depth Source | Status |
+|------------|-------------|--------------|--------|
+| [keijiro/Rcam](https://github.com/keijiro/Rcam) | Original volumetric VFX | RealSense D415 + T265 | Archived |
+| [keijiro/Rcam2](https://github.com/keijiro/Rcam2) | iPad Pro LiDAR VFX | iPad Pro LiDAR | Superseded |
+| [keijiro/Rcam2x](https://github.com/keijiro/Rcam2x) | Updated Rcam2 | iPhone Pro Max LiDAR | Superseded |
+| [keijiro/Rcam3](https://github.com/keijiro/Rcam3) | Depth-focused VFX | iPhone 15 Pro LiDAR | Active |
+| [keijiro/Rcam4](https://github.com/keijiro/Rcam4) | Latest LiDAR VFX | iPhone LiDAR | **Active (2025)** |
+| [keijiro/Rsvfx](https://github.com/keijiro/Rsvfx) | RealSense → VFX | Intel RealSense D4xx | Active |
+| [keijiro/Akvfx](https://github.com/keijiro/Akvfx) | Azure Kinect → VFX | Azure Kinect DK | Active |
+| [keijiro/Dkvfx](https://github.com/keijiro/Dkvfx) | Depthkit → VFX | Depthkit recordings | Active |
+| [keijiro/Metavido](https://github.com/keijiro/Metavido) | Volumetric video format | iPhone LiDAR (recorded) | Active |
+| [keijiro/MetavidoVFX](https://github.com/keijiro/MetavidoVFX) | Metavido VFX demos | Metavido files | **Active (2025)** |
+
+#### Point Cloud Infrastructure
+
+| Repository | Description | Key Feature |
+|------------|-------------|-------------|
+| [keijiro/Pcx](https://github.com/keijiro/Pcx) | Point cloud importer (.ply) | Texture baking for VFX Graph |
+| [keijiro/PcxEffects3](https://github.com/keijiro/PcxEffects3) | Point cloud VFX samples | VFX Graph with Pcx |
+| [keijiro/DepthInverseProjection](https://github.com/keijiro/DepthInverseProjection) | Depth unprojection example | View/world space reconstruction |
+
+#### ML-Based Segmentation + VFX
+
+| Repository | Description | ML Model | Framework |
+|------------|-------------|----------|-----------|
+| [keijiro/NNCam](https://github.com/keijiro/NNCam) | Virtual background | BodyPix | Barracuda |
+| [keijiro/NNCam2](https://github.com/keijiro/NNCam2) | Semantic segmentation VFX | BodyPix | Barracuda |
+| [keijiro/BodyPixSentis](https://github.com/keijiro/BodyPixSentis) | BodyPix for Sentis | BodyPix | **Sentis** |
+
+#### Mesh/Skinned Mesh to VFX
+
+| Repository | Description | Input Type |
+|------------|-------------|------------|
+| [keijiro/Smrvfx](https://github.com/keijiro/Smrvfx) | Skinned mesh → VFX | SkinnedMeshRenderer |
+| [keijiro/Abcvfx](https://github.com/keijiro/Abcvfx) | Alembic → VFX | .abc files |
+
+#### Supporting Infrastructure
+
+| Repository | Description | Role |
+|------------|-------------|------|
+| [keijiro/KlakNDI](https://github.com/keijiro/KlakNDI) | NDI streaming plugin | Video transport for Rcam |
+| [keijiro/VfxGraphAssets](https://github.com/keijiro/VfxGraphAssets) | VFX Graph asset library | Common VFX components |
+| [keijiro/VfxGraphTestbed](https://github.com/keijiro/VfxGraphTestbed) | VFX Graph experiments | Testing ground |
+| [keijiro/VfxGraphGraphicsBufferTest](https://github.com/keijiro/VfxGraphGraphicsBufferTest) | GraphicsBuffer samples | Compute → VFX pattern |
+
+#### Audio-Reactive VFX (Related)
+
+| Repository | Description | Audio Source |
+|------------|-------------|--------------|
+| [keijiro/Lasp](https://github.com/keijiro/Lasp) | Low-latency audio input | Microphone/Line-in |
+| [keijiro/LaspVfx](https://github.com/keijiro/LaspVfx) | LASP → VFX Graph binders | LASP |
+| [keijiro/Khoreo](https://github.com/keijiro/Khoreo) | MIDI audio-visual | Roland MC-101 |
+| [keijiro/Grubo](https://github.com/keijiro/Grubo) | Audio-visual experience | Roland MC-101 |
+| [keijiro/Fluo](https://github.com/keijiro/Fluo) | Fluid visualizer | iPhone controller |
+
+### 14.5 Technical Pattern Evolution
+
+#### Pattern 1: Position/Color Map (Desktop Depth Sensors)
+
+```
+Depth Sensor → PointCloudBaker.cs → Position Map (RGBAFloat)
+            → Color Stream        → Color Map (RGBA)
+                                          ↓
+                              VFX Graph (Set from Map)
+```
+
+**Used in**: Rsvfx, Akvfx, Dkvfx, Pcx, Rcam (original)
+
+#### Pattern 2: NDI Streaming + Desktop Render (Mobile LiDAR)
+
+```
+iOS Device                    Desktop
+┌───────────────┐    NDI     ┌───────────────┐
+│ LiDAR Capture │ ────────→  │ VFX Render    │
+│ (Controller)  │            │ (Visualizer)  │
+└───────────────┘            └───────────────┘
+```
+
+**Used in**: Rcam2, Rcam2x, Rcam3, Rcam4
+
+#### Pattern 3: Burnt-in Metadata Video (Recording/Playback)
+
+```
+iPhone                    Video File                 VFX Graph
+┌──────────┐   Encode    ┌──────────┐   Decode      ┌──────────┐
+│ LiDAR    │ ─────────→  │ .metavido│ ──────────→   │ VFX      │
+│ + Camera │             │ Barcode  │              │ Effects  │
+└──────────┘             └──────────┘              └──────────┘
+```
+
+**Used in**: Metavido, MetavidoVFX
+
+#### Pattern 4: ML Segmentation + VFX (Webcam)
+
+```
+Webcam → Barracuda/Sentis → Segmentation Mask → VFX Graph
+                          → Pose Estimation    → HDRP Shader
+```
+
+**Used in**: NNCam, NNCam2, BodyPixSentis
+
+### 14.6 UV → World Position Algorithm (Canonical)
+
+**From Rcam4 RcamCommon.hlsl** (lines 79-85):
+```hlsl
+float3 RcamDistanceToWorldPosition(float2 uv, float d, float4 inv_proj, float4x4 inv_view)
+{
+    float3 p = float3((uv - 0.5) * 2, 1);         // UV [0,1] → NDC [-1,1]
+    p.xy = (p.xy * inv_proj.xy) + inv_proj.zw;     // Apply camera intrinsics
+    return mul(inv_view, float4(p * d, 1)).xyz;    // Depth scale + transform
+}
+```
+
+**InverseProjection Vector4 Computation**:
+```csharp
+// inv_proj = (centerShiftX, centerShiftY, widthScale, heightScale)
+var h = Mathf.Tan(meta.FieldOfView / 2);
+var invProj = new Vector4(centerShift.x, centerShift.y, h * 16/9, h);
+```
+
+### 14.7 Cloned Repositories (Local Reference)
+
+**Location**: `/Users/jamestunick/Documents/GitHub/Unity-XR-AI/_ref/`
+
+| Repository | Clone Date | Purpose |
+|------------|-----------|---------|
+| `Rsvfx/` | 2026-02-06 | Simplest Position Map pattern (RealSense) |
+| `Akvfx/` | 2026-02-06 | Azure Kinect Position Map pattern |
+| `Rcam3/` | 2026-02-06 | Depth Map + InverseProjection pattern |
+| `Rcam4/` | 2026-02-06 | **Latest** (April 2025) Depth Map pattern |
+| `NNCam2/` | 2026-02-06 | ML segmentation + VFX (GraphicsBuffer) |
+| `DepthInverseProjection/` | 2026-02-06 | Depth unprojection reference |
+
+### 14.8 Key Binder Patterns Compared
+
+#### Rsvfx/Akvfx (Position Map Approach)
+```csharp
+// Simple: sample pre-computed world positions
+component.SetTexture(PositionMapProperty, Target.PositionMap);
+component.SetTexture(ColorMapProperty, Target.ColorMap);
+```
+
+#### Rcam3/4 (Depth Map Approach)
+```csharp
+// Complex: pass depth + camera params for VFX-side computation
+component.SetTexture(ColorMapProperty, Target.ColorTexture);
+component.SetTexture(DepthMapProperty, Target.DepthTexture);
+component.SetVector4(InverseProjectionProperty, inv_proj);
+component.SetMatrix4x4(InverseViewProperty, inv_view);
+```
+
+#### NNCam2 (GraphicsBuffer Approach)
+```csharp
+// ML keypoints via GraphicsBuffer
+component.SetGraphicsBuffer(_property, Target.KeypointBuffer);
+```
+
+### 14.9 Our Approach (ARDepthSource + VFXARBinder)
+
+**Best of Both Worlds**: Uses Position Map approach (simpler VFX) with Depth Map availability.
+
+```csharp
+// ARDepthSource provides pre-computed PositionMap
+public RenderTexture PositionMap { get; }  // XYZ in RGB, validity in A
+public Texture DepthMap { get; }           // Raw depth (for optional VFX use)
+public Vector4 RayParams { get; }          // Camera intrinsics
+public Matrix4x4 InverseView { get; }      // Camera transform
+```
+
+**VFX can choose**:
+1. **Simple**: Sample PositionMap directly → world position (like Rsvfx)
+2. **Advanced**: Use DepthMap + RayParams for custom depth effects (like Rcam4)
+
+---
+
+## 15. Complete Keijiro GitHub Repository Catalog (2026-02-06)
+
+**Total Repositories**: 902 public repos
+**GitHub Profile**: https://github.com/keijiro
+**Followers**: 23,400+
+**Affiliation**: Unity Technologies Japan
+
+### 15.1 Most Recent Repos (Dec 2025 - Feb 2026)
+
+| Repository | Updated | Stars | Description | Technologies |
+|------------|---------|-------|-------------|--------------|
+| [KlakHapWork](https://github.com/keijiro/KlakHapWork) | Feb 6, 2026 | - | Working repository for KlakHap | C++ |
+| [KlakHap](https://github.com/keijiro/KlakHap) | Feb 5, 2026 | 366 | HAP video player plugin for Unity | C++ |
+| [KinoEightURP](https://github.com/keijiro/KinoEightURP) | Jan 1, 2026 | 92 | 8-bit style postprocessing effect for Unity URP | C#, HLSL |
+| [Anomask](https://github.com/keijiro/Anomask) | Dec 14, 2025 | - | Face anonymizer VFX | HLSL |
+| [Duotone](https://github.com/keijiro/Duotone) | Dec 13, 2025 | 155 | Duotone image effect for Unity URP | C# |
+| [LinearGradient](https://github.com/keijiro/LinearGradient) | Dec 12, 2025 | 50 | Utility extensions for Unity Gradient class | C# |
+| [ProceduralMotion](https://github.com/keijiro/ProceduralMotion) | Dec 8, 2025 | 245 | Collection of procedural motion scripts | C# |
+| [KlakNDI](https://github.com/keijiro/KlakNDI) | Dec 7, 2025 | 899 | NDI® plugin for Unity | C# |
+| [KlakMath](https://github.com/keijiro/KlakMath) | Dec 5, 2025 | 147 | Extension library for Unity Mathematics | C# |
+| [ShaderGraphAssets](https://github.com/keijiro/ShaderGraphAssets) | Dec 4, 2025 | 196 | Basic asset collection for Unity Shader Graph | HLSL |
+| [NoiseShader](https://github.com/keijiro/NoiseShader) | Dec 4, 2025 | 1,345 | Noise shader library for Unity | HLSL |
+| [VfxGraphAssets](https://github.com/keijiro/VfxGraphAssets) | Dec 4, 2025 | 289 | VFX Graph custom asset library | C# |
+
+### 15.2 Depth/LiDAR/Point Cloud Projects (Complete List)
+
+| Repository | Stars | Input Source | Output | Notes |
+|------------|-------|--------------|--------|-------|
+| [Rcam4](https://github.com/keijiro/Rcam4) | 21 | iPhone LiDAR | Desktop VFX | **LATEST** - ASTRA 2025 |
+| [Rcam3](https://github.com/keijiro/Rcam3) | - | iPhone 15 Pro LiDAR | Desktop VFX | Dec 2024, depth sensing focus |
+| [Rcam2x](https://github.com/keijiro/Rcam2x) | - | iPhone Pro Max LiDAR | Desktop VFX | NDI streaming |
+| [Rcam2](https://github.com/keijiro/Rcam2) | - | iPad Pro LiDAR | Desktop VFX | First mobile LiDAR VFX |
+| [Rcam](https://github.com/keijiro/Rcam) | - | RealSense D415 | Desktop VFX | Original Rcam |
+| [Rsvfx](https://github.com/keijiro/Rsvfx) | - | Intel RealSense | VFX Graph | Position Map pattern |
+| [Akvfx](https://github.com/keijiro/Akvfx) | - | Azure Kinect | VFX Graph | Azure Kinect plugin |
+| [Akvj](https://github.com/keijiro/Akvj) | - | Azure Kinect | Demo | Demo project for Akvfx |
+| [Dkvfx](https://github.com/keijiro/Dkvfx) | - | Depthkit recordings | VFX Graph | Volumetric video |
+| [DkvfxSketches](https://github.com/keijiro/DkvfxSketches) | - | Depthkit | VFX sketches | VFX experiments |
+| [Metavido](https://github.com/keijiro/Metavido) | - | iPhone LiDAR | Video file | Burnt-in barcode format |
+| [MetavidoVFX](https://github.com/keijiro/MetavidoVFX) | 642 | Metavido files | VFX/WebGPU | **WebGPU demo** |
+| [Pcx](https://github.com/keijiro/Pcx) | - | PLY files | Point cloud | Point cloud importer |
+| [PcxEffects3](https://github.com/keijiro/PcxEffects3) | - | Pcx | VFX samples | Point cloud VFX |
+| [DepthInverseProjection](https://github.com/keijiro/DepthInverseProjection) | - | Depth buffer | World pos | Depth unprojection |
+| [Dcam](https://github.com/keijiro/Dcam) | - | Webcam + SD | AI art | Real-time Stable Diffusion |
+
+### 15.3 ML/AI + VFX Projects
+
+| Repository | Stars | ML Model | Framework | Purpose |
+|------------|-------|----------|-----------|---------|
+| [AICommand](https://github.com/keijiro/AICommand) | 4,100 | ChatGPT | OpenAI API | Unity Editor AI integration |
+| [AIShader](https://github.com/keijiro/AIShader) | - | ChatGPT | OpenAI API | AI-generated shaders |
+| [NNCam](https://github.com/keijiro/NNCam) | - | BodyPix | Barracuda | Virtual background |
+| [NNCam2](https://github.com/keijiro/NNCam2) | - | BodyPix | Barracuda | Semantic segmentation VFX |
+| [BodyPixSentis](https://github.com/keijiro/BodyPixSentis) | - | BodyPix | **Sentis** | Latest ML inference engine |
+| [BodyPixSample](https://github.com/keijiro/BodyPixSample) | - | BodyPix | Barracuda | ML samples |
+
+### 15.4 VFX Graph Core Libraries
+
+| Repository | Stars | Category | Description |
+|------------|-------|----------|-------------|
+| [VfxGraphAssets](https://github.com/keijiro/VfxGraphAssets) | 289 | Assets | Custom asset library |
+| [VfxGraphTestbed](https://github.com/keijiro/VfxGraphTestbed) | - | Testing | VFX experiments |
+| [VfxGraphGraphicsBufferTest](https://github.com/keijiro/VfxGraphGraphicsBufferTest) | - | Compute | GraphicsBuffer → VFX |
+| [VfxGraphModeling](https://github.com/keijiro/VfxGraphModeling) | - | Procedural | Procedural modeling |
+| [VfxMinisExamples](https://github.com/keijiro/VfxMinisExamples) | - | MIDI | MIDI + VFX samples |
+
+### 15.5 Mesh/Animation → VFX
+
+| Repository | Stars | Input | Pattern |
+|------------|-------|-------|---------|
+| [Skinner](https://github.com/keijiro/Skinner) | 3,500 | Skinned mesh | Trail/particle effects |
+| [Smrvfx](https://github.com/keijiro/Smrvfx) | - | SkinnedMeshRenderer | VFX Graph sampling |
+| [Abcvfx](https://github.com/keijiro/Abcvfx) | - | Alembic (.abc) | VFX Graph |
+| [SkinnedVertexModifier](https://github.com/keijiro/SkinnedVertexModifier) | - | Skinned mesh | Vertex modification |
+
+### 15.6 Audio-Reactive VFX
+
+| Repository | Stars | Audio Source | Integration |
+|------------|-------|--------------|-------------|
+| [Lasp](https://github.com/keijiro/Lasp) | 670 | Microphone/Line-in | Low-latency audio input |
+| [LaspVfx](https://github.com/keijiro/LaspVfx) | - | LASP | VFX Graph binders |
+| [Khoreo](https://github.com/keijiro/Khoreo) | - | Roland MC-101 | MIDI audio-visual |
+| [Grubo](https://github.com/keijiro/Grubo) | - | Roland MC-101 | Audio-visual experience |
+| [Fluo](https://github.com/keijiro/Fluo) | - | iPhone remote | Fluid visualizer |
+
+### 15.7 Video/Streaming Infrastructure
+
+| Repository | Stars | Protocol | Purpose |
+|------------|-------|----------|---------|
+| [KlakNDI](https://github.com/keijiro/KlakNDI) | 899 | NDI | Video streaming (Rcam) |
+| [KlakHap](https://github.com/keijiro/KlakHap) | 366 | HAP | High-performance video |
+| [KlakSpout](https://github.com/keijiro/KlakSpout) | - | Spout | Windows video sharing |
+| [KlakSyphon](https://github.com/keijiro/KlakSyphon) | - | Syphon | macOS video sharing |
+
+### 15.8 MIDI/OSC Control
+
+| Repository | Stars | Protocol | Purpose |
+|------------|-------|----------|---------|
+| [Minis](https://github.com/keijiro/Minis) | - | MIDI | Input System extension |
+| [MidiJack](https://github.com/keijiro/MidiJack) | - | MIDI | MIDI input plugin |
+| [OscJack](https://github.com/keijiro/OscJack) | - | OSC | OSC server/client |
+| [OscKlak](https://github.com/keijiro/OscKlak) | - | OSC | OSC input events |
+| [OscJackVS](https://github.com/keijiro/OscJackVS) | - | OSC | Visual scripting |
+
+### 15.9 Post-Processing/Image Effects
+
+| Repository | Stars | Render Pipeline | Effect |
+|------------|-------|-----------------|--------|
+| [KinoGlitch](https://github.com/keijiro/KinoGlitch) | 2,700 | Built-in/URP | Video glitch effects |
+| [KinoEightURP](https://github.com/keijiro/KinoEightURP) | 92 | URP | 8-bit pixel effect |
+| [Duotone](https://github.com/keijiro/Duotone) | 155 | URP | Duotone color |
+| [KinoStreak](https://github.com/keijiro/KinoStreak) | - | URP | Light streaks |
+| [Kino](https://github.com/keijiro/Kino) | - | Multiple | Post-processing collection |
+
+### 15.10 Shader/Noise Libraries
+
+| Repository | Stars | Type | Key Features |
+|------------|-------|------|--------------|
+| [NoiseShader](https://github.com/keijiro/NoiseShader) | 1,345 | HLSL | Simplex, Classic, Periodic |
+| [ShaderGraphAssets](https://github.com/keijiro/ShaderGraphAssets) | 196 | Shader Graph | Basic assets |
+| [ShaderGraphExamples](https://github.com/keijiro/ShaderGraphExamples) | - | Shader Graph | Examples |
+
+### 15.11 Procedural Geometry
+
+| Repository | Stars | Technique | Output |
+|------------|-------|-----------|--------|
+| [Metamesh](https://github.com/keijiro/Metamesh) | - | Asset importer | Primitive meshes |
+| [Metawire](https://github.com/keijiro/Metawire) | - | Asset importer | Wireframe meshes |
+| [Emgen](https://github.com/keijiro/Emgen) | - | Library | Basic mesh shapes |
+| [NoiseBall2](https://github.com/keijiro/NoiseBall2) | - | Compute shader | Procedural mesh |
+| [ComputeMarchingCubes](https://github.com/keijiro/ComputeMarchingCubes) | - | Compute shader | Marching cubes |
+| [Cloner](https://github.com/keijiro/Cloner) | - | Instancing | Procedural clones |
+
+### 15.12 Most Starred Repositories (Top 15)
+
+| Rank | Repository | Stars | Category |
+|------|------------|-------|----------|
+| 1 | [AICommand](https://github.com/keijiro/AICommand) | 4,100+ | AI/Unity |
+| 2 | [Skinner](https://github.com/keijiro/Skinner) | 3,500+ | Mesh→VFX |
+| 3 | [KinoGlitch](https://github.com/keijiro/KinoGlitch) | 2,700+ | Post-processing |
+| 4 | [NoiseShader](https://github.com/keijiro/NoiseShader) | 1,345 | Shaders |
+| 5 | [KlakNDI](https://github.com/keijiro/KlakNDI) | 899 | Video streaming |
+| 6 | [Lasp](https://github.com/keijiro/Lasp) | 670 | Audio input |
+| 7 | [MetavidoVFX](https://github.com/keijiro/MetavidoVFX) | 642 | LiDAR VFX |
+| 8 | [KlakHap](https://github.com/keijiro/KlakHap) | 366 | Video |
+| 9 | [VfxGraphAssets](https://github.com/keijiro/VfxGraphAssets) | 289 | VFX Graph |
+| 10 | [ProceduralMotion](https://github.com/keijiro/ProceduralMotion) | 245 | Animation |
+| 11 | [ShaderGraphAssets](https://github.com/keijiro/ShaderGraphAssets) | 196 | Shaders |
+| 12 | [Duotone](https://github.com/keijiro/Duotone) | 155 | Post-processing |
+| 13 | [KlakMath](https://github.com/keijiro/KlakMath) | 147 | Math |
+| 14 | [KinoEightURP](https://github.com/keijiro/KinoEightURP) | 92 | Post-processing |
+| 15 | [LinearGradient](https://github.com/keijiro/LinearGradient) | 50 | Utilities |
+
+### 15.13 NPM Packages (Scoped Registry)
+
+All keijiro packages available via Unity Package Manager:
+- **Registry**: `https://registry.npmjs.com`
+- **Scope**: `jp.keijiro`
+
+| Package | Latest | Purpose |
+|---------|--------|---------|
+| `jp.keijiro.noiseshader` | - | Noise HLSL functions |
+| `jp.keijiro.klak.ndi` | - | NDI streaming |
+| `jp.keijiro.minis` | - | MIDI input |
+| `jp.keijiro.bodypix` | 4.0.0 | BodyPix Sentis |
+| `jp.keijiro.lasp` | - | Low-latency audio |
+
+### 15.14 Research Methodology
+
+1. **Web Search**: 8 parallel searches across categories
+2. **GitHub Profile Fetch**: Direct scrape of repo listing
+3. **Repository Analysis**: README extraction for key repos
+4. **Cross-Reference**: Verified against local clones
+
+### 15.15 Key Insights for FreshHologram
+
+**Simplest approach** (from Rsvfx):
+```csharp
+// Just 2 textures, VFX samples positions directly
+component.SetTexture(PositionMapProperty, Target.PositionMap);
+component.SetTexture(ColorMapProperty, Target.ColorMap);
+```
+
+**Our ARDepthSource already provides this**:
+- `PositionMap` (RGBAFloat) - XYZ in RGB, validity in A
+- `ColorMap` (RGBA) - Camera color
+
+**FreshHologram VFX** should:
+1. Use `Set Position from Map` block (sample PositionMap)
+2. Use `Set Color from Map` block (sample ColorMap)
+3. Filter by A channel > 0.5 (valid depth)
+4. Done - no custom HLSL needed!
+
+---
+
+**Research Status**: ✅ Complete (2026-02-06)
+**Repositories Analyzed**: 60+ keijiro repos cataloged
+**Patterns Documented**: 4 architectural approaches
+**Local Clones**: 6 repositories for reference
