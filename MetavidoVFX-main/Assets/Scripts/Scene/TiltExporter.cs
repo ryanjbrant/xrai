@@ -219,16 +219,16 @@ namespace XRRAI.Scene
             // Write control points
             foreach (var point in stroke.points)
             {
-                // Position (float32x3)
-                writer.Write(point.p.x);
-                writer.Write(point.p.y);
-                writer.Write(point.p.z);
+                // Position (float32x3) - use Position property for Vector3 access
+                writer.Write(point.Position.x);
+                writer.Write(point.Position.y);
+                writer.Write(point.Position.z);
 
-                // Rotation (quaternion float32x4)
-                writer.Write(point.r.x);
-                writer.Write(point.r.y);
-                writer.Write(point.r.z);
-                writer.Write(point.r.w);
+                // Rotation (quaternion float32x4) - use Rotation property for Quaternion access
+                writer.Write(point.Rotation.x);
+                writer.Write(point.Rotation.y);
+                writer.Write(point.Rotation.z);
+                writer.Write(point.Rotation.w);
             }
         }
 

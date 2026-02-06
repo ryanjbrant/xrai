@@ -44,6 +44,10 @@ namespace XRRAI.Auth
         // Events
         public event Action<AuthUser> OnSignIn;
         public event Action OnSignOut;
+        /// <summary>
+        /// Fired when auth state changes (user signs in or out). Wraps OnSignIn/OnSignOut.
+        /// </summary>
+        public event Action<AuthUser> OnAuthStateChanged;
 
         // Public properties
         public IAuthProvider AuthProvider => _authProvider;
@@ -173,6 +177,9 @@ namespace XRRAI.Auth
 
         void HandleAuthStateChanged(AuthUser user)
         {
+            // Always fire the unified event
+            OnAuthStateChanged?.Invoke(user);
+
             if (user != null)
             {
                 Debug.Log($"[AuthManager] User signed in: {user.Email}");
@@ -202,6 +209,20 @@ namespace XRRAI.Auth
         }
 
         #region Public API
+
+        // Cached user for WebGL external auth
+        AuthUser _webAuthUser;
+
+        /// <summary>
+        /// Set the current user from an external source (e.g., WebGL web auth).
+        /// This bypasses the auth provider and directly sets the user state.
+        /// </summary>
+        public void SetCurrentUser(AuthUser user)
+        {
+            _webAuthUser = user;
+            Debug.Log($"[AuthManager] External user set: {user?.Email ?? "null"}");
+            HandleAuthStateChanged(user);
+        }
 
         /// <summary>
         /// Sign in with email and password

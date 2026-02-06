@@ -92,8 +92,8 @@ namespace XRRAI.Bridges
                     UserId = webUser.userId,
                     Email = webUser.email,
                     DisplayName = webUser.displayName,
-                    PhotoUrl = webUser.photoUrl,
-                    IsAnonymous = false
+                    PhotoUrl = webUser.photoUrl
+                    // IsAnonymous is computed from Email (string.IsNullOrEmpty(Email))
                 };
 
                 OnAuthStateReceived?.Invoke(authUser);
