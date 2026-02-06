@@ -1,6 +1,7 @@
 # Global Rules
 
 **For**: All AI tools | **Goal**: Complete tasks faster with fewer errors
+**Reference**: `KnowledgeBase/_CLAUDE_CODE_OFFICIAL_BEST_PRACTICES.md` (Boris's guide - AUTO-IMPLEMENT)
 
 ---
 
@@ -11,6 +12,13 @@ Explore → Plan → Code → Commit → Log discovery
 ```
 
 **Simple tasks**: Search KB → Act → Done
+
+**Key Best Practices (from official guide)**:
+1. **Verification criteria** - Always provide tests/expected outputs so Claude can self-check
+2. **Subagents for exploration** - Keep main context clean
+3. **`/clear` between unrelated tasks** - Prevent context pollution
+4. **After 2 failures → `/clear`** - Fresh context, better prompt
+5. **Root cause over symptoms** - "fix build error" → "build fails with [error], fix root cause"
 
 ---
 
@@ -713,8 +721,9 @@ Every checkpoint MUST include:
 # Method 1: /checkpoint skill (PREFERRED)
 /checkpoint
 
-# Method 2: Manual save to claude-mem
-mcp__claude-mem__chroma_add_documents(["session summary..."], metadatas=[{project, date}])
+# Method 2: Session memory file (SIMPLE, RELIABLE)
+# Write to: ~/.claude/session_memories/<project>-<date>.md
+# Include: summary, current state, next steps, key decisions
 
 # Method 3: Git commit with WIP state
 git add -A && git commit -m "WIP: <summary of current work>"
@@ -1256,7 +1265,7 @@ When consolidating, archiving, deduping, or cleaning up:
 | Layer | Speed | Persistence | Use Case |
 |-------|-------|-------------|----------|
 | Conversation | Instant | Session | Current task |
-| claude-mem | ~2s | Permanent | Semantic recall |
+| Session files | <1s | Permanent | `~/.claude/session_memories/` |
 | KnowledgeBase | <1s | Permanent | Patterns, fixes |
 | LEARNING_LOG | Instant | Permanent | Discoveries |
 | Git history | ~1s | Permanent | Code archaeology |
@@ -1369,6 +1378,48 @@ git add -A && git commit -m "WIP: <summary>"
 │  7. Git commit → auto-syncs to all tools                     │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+### Measurement-Driven Improvement
+
+> **Core Principle**: "Question everything, assume nothing, measure and auto-improve everything."
+
+**Every significant operation MUST track metrics:**
+
+| Metric | When to Track | Where to Log |
+|--------|---------------|--------------|
+| `execution_ms` | Tool/pipeline completion | Telemetry service |
+| `success_rate` | After each generation/task | LEARNING_LOG.md |
+| `fallback_used` | When primary approach fails | _AUTO_FIX_PATTERNS.md |
+| `user_undo_rate` | Post-action feedback | User profile |
+| `error_frequency` | On any error | _QUICK_FIX.md |
+
+**Observability-First Development:**
+```
+┌────────────────────────────────────────────────────────────────┐
+│                   FEEDBACK LOOP (MANDATORY)                     │
+├────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ACTION → MEASURE → ANALYZE → IMPROVE → ACTION                  │
+│                                                                 │
+│  • No guessing - only evidence-based decisions                  │
+│  • Collect what matters, not everything                         │
+│  • Replace intuition with telemetry                             │
+│                                                                 │
+└────────────────────────────────────────────────────────────────┘
+```
+
+**Auto-Learning Triggers:**
+| Trigger | Automatic Action |
+|---------|------------------|
+| Error resolved (3+ attempts) | Add to `_AUTO_FIX_PATTERNS.md` |
+| New pattern discovered | Append to `LEARNING_LOG.md` |
+| Performance regression | Alert + document root cause |
+| Successful optimization | Log with metrics to KB |
+
+**Quality Gates Before Committing:**
+1. Does the change have measurable improvement?
+2. Are metrics logged for future comparison?
+3. Is the pattern documented if novel?
 
 ---
 
