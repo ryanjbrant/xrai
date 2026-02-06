@@ -1,16 +1,13 @@
-// HiFiHologramController.cs - High-fidelity hologram VFX controller
-// Ensures proper RGB color sampling from video texture for lifelike rendering
-// Based on Record3D and Metavido point cloud patterns
+// HiFiHologramController.cs - Quality controller for hologram VFX
+// SIMPLIFIED: VFXARBinder handles all data binding (ColorMap, DepthMap, etc.)
+// This controller ONLY handles quality presets and appearance tuning.
 //
-// Key principles:
-// 1. Sample actual RGB color from ColorMap texture at particle UV
-// 2. High particle count (50K-200K) for dense point cloud
-// 3. Small particle size (2-5mm) for crisp detail
-// 4. No color tinting - pure video color for realism
+// Required: VisualEffect + VFXARBinder (handles all texture/matrix binding)
+// This script: ParticleCount, ParticleSize, ColorSaturation, auto-quality
 
-using System;
 using UnityEngine;
 using UnityEngine.VFX;
+using XRRAI.VFXBinders;
 
 namespace XRRAI.Hologram
 {
@@ -31,8 +28,9 @@ namespace XRRAI.Hologram
     }
 
     /// <summary>
-    /// Controller for high-fidelity hologram VFX that samples actual RGB colors.
-    /// Attach to a GameObject with VisualEffect component.
+    /// Quality controller for HiFi hologram VFX.
+    /// NOTE: VFXARBinder handles all data binding (ColorMap, DepthMap, StencilMap, etc.)
+    /// This controller ONLY manages: ParticleCount, ParticleSize, ColorSaturation, auto-quality.
     /// </summary>
     [RequireComponent(typeof(VisualEffect))]
     public class HiFiHologramController : MonoBehaviour
@@ -44,26 +42,17 @@ namespace XRRAI.Hologram
         [SerializeField] private bool _autoAdjustQuality = true;
         [SerializeField] private int _targetFPS = 60;
 
-        [Header("Appearance")]
+        [Header("Appearance (Unique to HiFi)")]
         [SerializeField] private float _particleSizeMultiplier = 1f;
         [SerializeField] private float _colorSaturation = 1f;
         [SerializeField] private float _colorBrightness = 1f;
         [SerializeField] private bool _enableDepthFade = true;
         [SerializeField] private Vector2 _depthFadeRange = new Vector2(0.2f, 5f);
-
-        [Header("Input Textures")]
-        [SerializeField] private Texture2D _colorMap;
-        [SerializeField] private Texture2D _depthMap;
-        [SerializeField] private Texture2D _stencilMap;
-
-        [Header("Advanced")]
-        [SerializeField] private bool _enableVelocityStreaks = false;
         [SerializeField] private float _velocityStrength = 0.1f;
-        [SerializeField] private bool _enableSSAO = false;
-        [SerializeField] private bool _useGaussianSplat = false;
 
         [Header("Debug")]
         [SerializeField] private bool _showDebugInfo = false;
+        [SerializeField] private bool _verboseDebug = false;
 
         #endregion
 
@@ -74,8 +63,8 @@ namespace XRRAI.Hologram
         private int _frameCount;
         private float _currentFPS;
 
-        // Quality presets
-        private static readonly (int particles, float size)[] QualityPresets = new[]
+        // Quality presets: (particleCount, particleSize in meters)
+        private static readonly (int particles, float size)[] QualityPresets =
         {
             (10000, 0.005f),    // Low
             (50000, 0.003f),    // Medium
@@ -83,13 +72,9 @@ namespace XRRAI.Hologram
             (200000, 0.0015f)   // Ultra
         };
 
-        // VFX property IDs
+        // VFX property IDs (ONLY quality/appearance - NO textures/matrices)
         private static class PropertyID
         {
-            public static readonly int ColorMap = Shader.PropertyToID("ColorMap");
-            public static readonly int DepthMap = Shader.PropertyToID("DepthMap");
-            public static readonly int StencilMap = Shader.PropertyToID("StencilMap");
-            public static readonly int PositionMap = Shader.PropertyToID("PositionMap");
             public static readonly int ParticleCount = Shader.PropertyToID("ParticleCount");
             public static readonly int ParticleSize = Shader.PropertyToID("ParticleSize");
             public static readonly int ColorSaturation = Shader.PropertyToID("ColorSaturation");
@@ -97,9 +82,6 @@ namespace XRRAI.Hologram
             public static readonly int DepthFadeNear = Shader.PropertyToID("DepthFadeNear");
             public static readonly int DepthFadeFar = Shader.PropertyToID("DepthFadeFar");
             public static readonly int VelocityStrength = Shader.PropertyToID("VelocityStrength");
-            public static readonly int RayParams = Shader.PropertyToID("RayParams");
-            public static readonly int InverseView = Shader.PropertyToID("InverseView");
-            public static readonly int DepthRange = Shader.PropertyToID("DepthRange");
         }
 
         #endregion
@@ -117,6 +99,8 @@ namespace XRRAI.Hologram
         }
 
         public float CurrentFPS => _currentFPS;
+        public float ColorSaturation { get => _colorSaturation; set { _colorSaturation = value; ApplyAppearanceSettings(); } }
+        public float ColorBrightness { get => _colorBrightness; set { _colorBrightness = value; ApplyAppearanceSettings(); } }
 
         #endregion
 
@@ -135,84 +119,25 @@ namespace XRRAI.Hologram
 
         private void Update()
         {
-            // Update input textures if changed
-            UpdateInputTextures();
-
-            // FPS tracking for auto quality adjustment
             if (_autoAdjustQuality)
-            {
                 TrackFPS();
-            }
 
-            // Debug info
-            if (_showDebugInfo)
+            // Verbose debug logging every 60 frames
+            if (_verboseDebug && Time.frameCount % 60 == 0)
             {
-                DrawDebugInfo();
+                var binder = GetComponent<VFXARBinder>();
+                Debug.Log($"[HiFiHologram] {gameObject.name} Frame:{Time.frameCount} - Quality:{_quality}, FPS:{_currentFPS:F0}, AutoQuality:{_autoAdjustQuality}");
+                Debug.Log($"[HiFiHologram] Appearance - Saturation:{_colorSaturation:F2}, Brightness:{_colorBrightness:F2}, DepthFade:{_enableDepthFade}");
+                if (binder != null)
+                    Debug.Log($"[HiFiHologram] VFXARBinder present - check its verbose debug for binding status");
+                else
+                    Debug.LogWarning($"[HiFiHologram] NO VFXARBinder found! Add VFXARBinder component for AR data.");
             }
-        }
-
-        private void OnDestroy()
-        {
-            // Cleanup is handled by Unity for serialized texture references
-            // This method exists to ensure proper lifecycle management
-            _vfx = null;
         }
 
         #endregion
 
         #region Public API
-
-        /// <summary>
-        /// Set the color texture (RGB video frame).
-        /// </summary>
-        public void SetColorMap(Texture2D colorMap)
-        {
-            _colorMap = colorMap;
-            if (_vfx != null && _vfx.HasTexture(PropertyID.ColorMap))
-            {
-                _vfx.SetTexture(PropertyID.ColorMap, colorMap);
-            }
-        }
-
-        /// <summary>
-        /// Set the depth texture.
-        /// </summary>
-        public void SetDepthMap(Texture2D depthMap)
-        {
-            _depthMap = depthMap;
-            if (_vfx != null && _vfx.HasTexture(PropertyID.DepthMap))
-            {
-                _vfx.SetTexture(PropertyID.DepthMap, depthMap);
-            }
-        }
-
-        /// <summary>
-        /// Set the stencil/mask texture.
-        /// </summary>
-        public void SetStencilMap(Texture2D stencilMap)
-        {
-            _stencilMap = stencilMap;
-            if (_vfx != null && _vfx.HasTexture(PropertyID.StencilMap))
-            {
-                _vfx.SetTexture(PropertyID.StencilMap, stencilMap);
-            }
-        }
-
-        /// <summary>
-        /// Set camera matrices for depth-to-world conversion.
-        /// </summary>
-        public void SetCameraMatrices(Matrix4x4 inverseView, Vector4 rayParams, Vector2 depthRange)
-        {
-            if (_vfx != null)
-            {
-                if (_vfx.HasMatrix4x4(PropertyID.InverseView))
-                    _vfx.SetMatrix4x4(PropertyID.InverseView, inverseView);
-                if (_vfx.HasVector4(PropertyID.RayParams))
-                    _vfx.SetVector4(PropertyID.RayParams, rayParams);
-                if (_vfx.HasVector2(PropertyID.DepthRange))
-                    _vfx.SetVector2(PropertyID.DepthRange, depthRange);
-            }
-        }
 
         /// <summary>
         /// Force quality level change (bypasses auto-adjustment).
@@ -242,17 +167,11 @@ namespace XRRAI.Hologram
 
             var (particleCount, particleSize) = QualityPresets[(int)_quality];
 
-            // Apply particle count if property exists
             if (_vfx.HasUInt(PropertyID.ParticleCount))
-            {
                 _vfx.SetUInt(PropertyID.ParticleCount, (uint)particleCount);
-            }
 
-            // Apply particle size
             if (_vfx.HasFloat(PropertyID.ParticleSize))
-            {
                 _vfx.SetFloat(PropertyID.ParticleSize, particleSize * _particleSizeMultiplier);
-            }
 
             Debug.Log($"[HiFiHologram] Quality: {_quality} ({particleCount} particles, {particleSize * 1000:F1}mm)");
         }
@@ -261,14 +180,12 @@ namespace XRRAI.Hologram
         {
             if (_vfx == null) return;
 
-            // Color adjustments
             if (_vfx.HasFloat(PropertyID.ColorSaturation))
                 _vfx.SetFloat(PropertyID.ColorSaturation, _colorSaturation);
 
             if (_vfx.HasFloat(PropertyID.ColorBrightness))
                 _vfx.SetFloat(PropertyID.ColorBrightness, _colorBrightness);
 
-            // Depth fade
             if (_enableDepthFade)
             {
                 if (_vfx.HasFloat(PropertyID.DepthFadeNear))
@@ -277,11 +194,8 @@ namespace XRRAI.Hologram
                     _vfx.SetFloat(PropertyID.DepthFadeFar, _depthFadeRange.y);
             }
 
-            // Velocity streaks
             if (_vfx.HasFloat(PropertyID.VelocityStrength))
-            {
-                _vfx.SetFloat(PropertyID.VelocityStrength, _enableVelocityStreaks ? _velocityStrength : 0f);
-            }
+                _vfx.SetFloat(PropertyID.VelocityStrength, _velocityStrength);
         }
 
         private void TrackFPS()
@@ -294,21 +208,17 @@ namespace XRRAI.Hologram
                 _currentFPS = _frameCount / elapsed;
                 _frameCount = 0;
                 _lastFPSCheck = Time.time;
-
-                // Adjust quality if needed
                 AdjustQualityIfNeeded();
             }
         }
 
         private void AdjustQualityIfNeeded()
         {
-            // If FPS is too low, reduce quality
             if (_currentFPS < _targetFPS * 0.8f && _quality > HologramQuality.Low)
             {
                 Quality = _quality - 1;
                 Debug.Log($"[HiFiHologram] Reduced quality to {_quality} (FPS: {_currentFPS:F0})");
             }
-            // If FPS is very high, consider increasing quality
             else if (_currentFPS > _targetFPS * 1.2f && _quality < HologramQuality.Ultra)
             {
                 Quality = _quality + 1;
@@ -318,52 +228,20 @@ namespace XRRAI.Hologram
 
         #endregion
 
-        #region Input Textures
-
-        private void UpdateInputTextures()
-        {
-            if (_vfx == null) return;
-
-            // Update textures if they've changed
-            if (_colorMap != null && _vfx.HasTexture(PropertyID.ColorMap))
-            {
-                _vfx.SetTexture(PropertyID.ColorMap, _colorMap);
-            }
-
-            if (_depthMap != null && _vfx.HasTexture(PropertyID.DepthMap))
-            {
-                _vfx.SetTexture(PropertyID.DepthMap, _depthMap);
-            }
-
-            if (_stencilMap != null && _vfx.HasTexture(PropertyID.StencilMap))
-            {
-                _vfx.SetTexture(PropertyID.StencilMap, _stencilMap);
-            }
-        }
-
-        #endregion
-
         #region Debug
-
-        private void DrawDebugInfo()
-        {
-            var (particles, size) = QualityPresets[(int)_quality];
-            Debug.Log($"[HiFiHologram] Quality: {_quality}, Particles: {particles}, Size: {size * 1000:F2}mm, FPS: {_currentFPS:F0}");
-        }
 
         private void OnGUI()
         {
             if (!_showDebugInfo) return;
 
-            GUILayout.BeginArea(new Rect(Screen.width - 220, 10, 210, 150));
+            GUILayout.BeginArea(new Rect(Screen.width - 220, 10, 210, 130));
             GUILayout.BeginVertical("box");
 
-            GUILayout.Label($"HiFi Hologram", GUI.skin.box);
+            GUILayout.Label("HiFi Hologram (Quality Only)", GUI.skin.box);
             GUILayout.Label($"Quality: {_quality}");
             GUILayout.Label($"Particles: {QualityPresets[(int)_quality].particles:N0}");
             GUILayout.Label($"Size: {QualityPresets[(int)_quality].size * 1000:F2}mm");
-            GUILayout.Label($"FPS: {_currentFPS:F0}");
-            GUILayout.Label($"Auto: {(_autoAdjustQuality ? "On" : "Off")}");
+            GUILayout.Label($"FPS: {_currentFPS:F0} | Auto: {(_autoAdjustQuality ? "On" : "Off")}");
 
             GUILayout.EndVertical();
             GUILayout.EndArea();

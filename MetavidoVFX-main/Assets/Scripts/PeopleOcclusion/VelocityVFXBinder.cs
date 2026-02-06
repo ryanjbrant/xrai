@@ -77,10 +77,15 @@ namespace XRRAI
 
             // Set active FIRST, then validate bounds against active texture
             RenderTexture previous = RenderTexture.active;
-            RenderTexture.active = velocityTexture;
 
             try
             {
+                RenderTexture.active = velocityTexture;
+
+                // Double-check active texture is valid after assignment
+                if (RenderTexture.active == null || !RenderTexture.active.IsCreated())
+                    return;
+
                 // Validate active texture dimensions
                 int activeWidth = RenderTexture.active.width;
                 int activeHeight = RenderTexture.active.height;
@@ -88,9 +93,17 @@ namespace XRRAI
                 if (activeWidth <= 0 || activeHeight <= 0)
                     return;
 
+                // Ensure readback texture is ready
+                if (readbackTexture == null || readbackTexture.width != 1 || readbackTexture.height != 1)
+                    return;
+
                 // Calculate sample coordinates with bounds validation
                 sampleX = Mathf.Clamp((int)(samplePosition.x * activeWidth), 0, activeWidth - 1);
                 sampleY = Mathf.Clamp((int)(samplePosition.y * activeHeight), 0, activeHeight - 1);
+
+                // Final bounds check - Rect must be fully inside texture
+                if (sampleX + 1 > activeWidth || sampleY + 1 > activeHeight)
+                    return;
 
                 // Read single pixel from GPU (expensive - use sparingly)
                 readbackTexture.ReadPixels(new Rect(sampleX, sampleY, 1, 1), 0, 0, false);

@@ -48,6 +48,8 @@
 | Sample() not found in HLSL | Use `SampleLevel(tex, uv, 0)` instead |
 | VFX attribute error | Wrap with `#if VFX_HAS_ATTR_*` guards |
 | Custom HLSL not working | Use `void Func(inout VFXAttributes attrs)` signature |
+| **VFXARBinder no data** | Right-click → Reset OR enable `_bindXxxOverride` toggles |
+| VFX has props but no AR | Check VFXARBinder bindings enabled (DepthMap, ColorMap, etc.) |
 
 ## Compute Shaders
 
@@ -94,6 +96,7 @@
 | RenderTexture leak | Release in OnDestroy with `IsCreated()` check |
 | GraphicsBuffer resize crash | `buffer?.Release()` before new allocation |
 | ReadPixels race condition | Wrap in try-catch, return cached value |
+| **ReadPixels out of bounds** (AR Remote) | **SAFE TO IGNORE** - EditorViewSender screen/render mismatch |
 | Domain reload crash | Use `beforeAssemblyReload` to dispose resources |
 
 ## Web/API (Node.js, Express)
@@ -135,6 +138,8 @@
 | Undo not working | Add `Undo.RecordObject()` before modify |
 | Async Unity API fails | Wrap in `MainThread.Instance.Run()` |
 | Roslyn validation fails | Add `USE_ROSLYN` to Scripting Define Symbols |
+| **200+ VFXARBinder disabled** | **`H3M > VFX Pipeline Master > Reset All Binders`** |
+| **Bulk scene component fix** | **Use Editor script, not Edit tool (fails on 234+ matches)** |
 
 ## Build / Deploy
 

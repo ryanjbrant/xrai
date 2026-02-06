@@ -42,6 +42,28 @@ When in doubt: Ask user, keep changes minimal, prefer reversible.
 
 ---
 
+## Parallel Agents (ALWAYS)
+
+**Spawn multiple agents in parallel whenever possible:**
+
+| Scenario | Do This | Not This |
+|----------|---------|----------|
+| Research 3 specs | 3 parallel Explore agents | 1 agent, 3 sequential reads |
+| Check 5 files | 5 parallel Read calls | 5 sequential reads |
+| Multi-task request | Parallel Task tools in one message | Wait for each to finish |
+
+**Key Rule**: If tasks are independent, run them in **one message with multiple tool calls**.
+
+```typescript
+// GOOD: Single message, parallel execution
+<Task A> + <Task B> + <Task C>
+
+// BAD: Sequential, slower
+<Task A> → wait → <Task B> → wait → <Task C>
+```
+
+---
+
 ## Standard Workflow (MEMORIZE)
 
 **For all code changes, follow this cycle:**
@@ -62,6 +84,30 @@ audit → test → auto-fix → [re-test if fixes] → improve → document → 
 | **Push** | `git push` | Sync to all tools |
 
 **Re-test Rule**: If auto-fix changed any code, ALWAYS re-run tests before proceeding. Never commit untested fixes.
+
+### Auto-Debug Loop (MANDATORY)
+
+**After ANY code change, run this loop until zero errors:**
+
+```
+while (errors exist):
+    1. read_console(types=["error"], count=10)
+    2. Analyze error → identify fix
+    3. Apply fix
+    4. Re-check console
+    5. Repeat until clean
+```
+
+**Unity-Specific Auto-Debug:**
+```bash
+# Check console after each change
+read_console(types=["error","warning"], count=10)
+
+# If errors found, fix and recheck
+# NEVER stop until console is clean or user says stop
+```
+
+**Key Principle**: Don't wait for user to report errors. Proactively check console after every code change.
 
 ### Auto-Improve During Testing
 
@@ -84,6 +130,139 @@ audit → test → auto-fix → [re-test if fixes] → improve → document → 
 | Environment issue found | Document in setup/prereqs |
 
 **Key Principle**: Every success and failure is a learning opportunity. The system should get smarter with every iteration.
+
+### Triple-Verified Insights (Add Here When Confirmed)
+
+**Bulk Scene Fixes** (verified 2026-02-06):
+| Problem | Bad Approach | Good Approach |
+|---------|--------------|---------------|
+| 200+ components to fix | Manual Edit tool calls | Unity Editor script + Reset() |
+| SerializeField defaults wrong | Change code (doesn't fix scenes) | Change defaults + add Reset() + OnValidate() |
+| Non-unique edit patterns | Fail on "234 matches" | Use fileID or scripted batch fix |
+
+**Debug Strategy Patterns** (verified 2026-02-06):
+| Strategy | Result | Add To |
+|----------|--------|--------|
+| Verbose debug per-component | ✅ Traceable data flow | Component code |
+| Parallel agents for bulk work | ✅ Faster + unblocks main work | Agent orchestration |
+| Checkpoint before /clear | ✅ Preserves progress | .claude/checkpoints/ |
+| Wrong path assumptions | ❌ File not found | Always glob first |
+
+**SerializeField Best Practice** (Unity-specific):
+```
+1. Set defaults to ENABLED (true) for common features
+2. Add Reset() - called when component added in Editor
+3. Add OnValidate() - called when Inspector changes
+4. Existing scenes need manual Reset or Editor menu
+```
+
+---
+
+## Unity Editor Development Workflow
+
+### Console Check Commands
+
+```bash
+# JetBrains MCP (if Rider open)
+mcp__jetbrains__get_file_problems(filePath, projectPath, errorsOnly=true)
+
+# Unity MCP (if available)
+read_console(types=["error"], count=10)
+read_console(types=["error","warning"], count=20)
+
+# Direct log check (fallback)
+tail -100 ~/Library/Logs/Unity/Editor.log | grep -E "(error|Error|CS[0-9]{4})"
+```
+
+### Auto-Workflow (MANDATORY After Code Changes)
+
+**After EVERY code change, auto-run this sequence:**
+
+1. **Check console** → `read_console(types=["error"], count=10)` or JetBrains `get_file_problems`
+2. **If errors** → Fix → Recheck (loop until clean)
+3. **Reload Unity** → `refresh_unity(mode="if_dirty")` or bring Editor to front
+4. **Verify hierarchy** → Check scene components are properly wired
+5. **Test in Play** → Run Play mode if needed for runtime validation
+
+**Known Safe-to-Ignore Warnings:**
+| Warning | Source | Why Safe |
+|---------|--------|----------|
+| `ReadPixels out of bounds` | AR Foundation Remote EditorViewSender | Screen/render size mismatch, harmless |
+| `CAMetalLayer invalid setDrawableSize` | macOS Metal init | UI layer sizing during startup |
+| `StopSubsystems without initialized manager` | XR Management | Scene unload timing, self-recovers |
+
+**Auto-Fix Known Patterns:**
+| Error Pattern | Auto-Fix Action |
+|---------------|-----------------|
+| `CS0246 type not found` | Add missing `using` statement |
+| `ReadPixels bounds` | Already protected by try-catch in VFXBinders |
+| `NullReferenceException AR texture` | Use TryGetTexture pattern |
+| `VFXARBinder no data` | Run `H3M > VFX Pipeline Master > Reset All Binders` |
+
+### After ANY Code Change
+
+```
+1. Save file (auto or manual)
+2. Wait for Unity to recompile (~1-3 sec)
+3. Check console: read_console OR get_file_problems
+4. If errors → fix → goto step 1
+5. If clean → proceed with testing
+```
+
+### Play Mode Testing
+
+```
+1. Enter Play Mode (Editor must be running)
+2. Check for runtime errors: read_console(types=["error","exception"])
+3. Test functionality manually OR via test harness
+4. Exit Play Mode
+5. Check for cleanup errors (OnDestroy, etc.)
+```
+
+### Common Unity Debug Patterns
+
+| Symptom | Check | Fix |
+|---------|-------|-----|
+| Script won't compile | `get_file_problems` | Fix CS errors |
+| Component missing | `find_gameobjects` → `manage_components` | Add component |
+| Null reference at runtime | Add Debug.Log or breakpoint | Check initialization order |
+| VFX not updating | VFXARBinder Inspector | Enable bind toggles |
+| AR texture null | Wait for ARSession ready | Use TryGetTexture pattern |
+| Scene changes lost | Check scene saved | Save before Play |
+
+### JetBrains MCP Quick Reference (When Rider Open)
+
+| Task | Command |
+|------|---------|
+| Check file errors | `get_file_problems(filePath)` |
+| Search code | `search_in_files_by_text("pattern", fileMask="*.cs")` |
+| Find file | `find_files_by_name_keyword("keyword")` |
+| Read file | `get_file_text_by_path(pathInProject)` |
+| Replace text | `replace_text_in_file(pathInProject, oldText, newText)` |
+| Rename symbol | `rename_refactoring(pathInProject, symbolName, newName)` |
+| Directory tree | `list_directory_tree(directoryPath)` |
+
+### Unity MCP Quick Reference (When Available)
+
+| Task | Command |
+|------|---------|
+| Read console | `read_console(types, count)` |
+| Clear console | `clear_console()` |
+| Find objects | `find_gameobjects(search_term)` |
+| Manage components | `manage_components(target, action)` |
+| Play/Stop | `editor_command("play")` / `editor_command("stop")` |
+| Select object | `select_object(instance_id)` |
+| Get hierarchy | `get_hierarchy(parent_path)` |
+
+### Editor Testing Checklist
+
+- [ ] Console clean (no errors/warnings)
+- [ ] Scene saved before testing
+- [ ] AR components have required references
+- [ ] VFXARBinder bindings enabled
+- [ ] ARDepthSource singleton exists
+- [ ] Play Mode enters without crash
+- [ ] Exit Play Mode cleanly
 
 ---
 
@@ -329,6 +508,40 @@ All features must be:
 - Append **"use subagents"** to any request for more compute
 - Offload tasks → keeps main context clean
 - Example: "investigate auth using subagents"
+
+### Parallel Agents (Speed Up)
+
+**ALWAYS launch parallel agents when tasks are independent:**
+
+```
+# Good: Launch 3 agents simultaneously
+Task(agent=Explore, "check VFX bindings")
+Task(agent=Explore, "extract HLSL code")
+Task(agent=Explore, "analyze scene setup")
+```
+
+| Scenario | Do This |
+|----------|---------|
+| Research multiple files | Parallel agents, one per topic |
+| Compare implementations | Parallel agents for each codebase |
+| Investigate + fix | Agent researches while you code |
+
+### Large File Handling
+
+**When Read fails with token limit:**
+
+```
+# Instead of Read(file)
+Grep(pattern="m_Source:|HLSL|function", file, output_mode="content", -C=10)
+```
+
+| File Type | Strategy |
+|-----------|----------|
+| VFX (.vfx, .vfxblock) | Grep for `m_ExposedName`, `m_HLSLCode`, `m_Source` |
+| Unity scenes (.unity) | Grep for component names, GUIDs |
+| Large code files | Grep for function/class names |
+
+**Never retry Read on large files** - use Grep immediately.
 
 ---
 

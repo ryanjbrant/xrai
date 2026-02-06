@@ -169,6 +169,36 @@ public class VFXARBinder : MonoBehaviour
         _vfx = GetComponent<VisualEffect>();
     }
 
+#if UNITY_EDITOR
+    /// <summary>
+    /// Called when component is added in Editor or Reset from context menu.
+    /// Auto-detects VFX properties and enables appropriate bindings.
+    /// </summary>
+    void Reset()
+    {
+        _vfx = GetComponent<VisualEffect>();
+        if (_vfx != null && _vfx.visualEffectAsset != null)
+        {
+            AutoDetectBindings();
+            Debug.Log($"[VFXARBinder] Auto-detected {BoundCount} bindings on {gameObject.name}");
+        }
+    }
+
+    /// <summary>
+    /// Called when any value changes in Inspector.
+    /// Re-runs detection if VFX asset was just assigned.
+    /// </summary>
+    void OnValidate()
+    {
+        if (_vfx == null) _vfx = GetComponent<VisualEffect>();
+        // Only auto-detect if we have no bindings yet (fresh component)
+        if (_vfx != null && _vfx.visualEffectAsset != null && BoundCount == 0)
+        {
+            AutoDetectBindings();
+        }
+    }
+#endif
+
     void OnEnable()
     {
         // Reset frame counter for delayed binding detection
@@ -204,6 +234,22 @@ public class VFXARBinder : MonoBehaviour
         // Lazy load source if needed
         if (_source == null) _source = ARDepthSource.Instance;
         if (_source == null || _vfx == null) return;
+
+        // Verbose debug logging for troubleshooting binding issues
+        if (_verboseDebug && Time.frameCount % 60 == 0)
+        {
+            Debug.Log($"[VFXARBinder] {gameObject.name} Frame:{Time.frameCount} - Bindings Active: " +
+                      $"DepthMap:{_bindDepthMapOverride}, ColorMap:{_bindColorMapOverride}, " +
+                      $"PositionMap:{_bindPositionMapOverride}, StencilMap:{_bindStencilMapOverride}, " +
+                      $"VelocityMap:{_bindVelocityMapOverride}, RayParams:{_bindRayParamsOverride}");
+            Debug.Log($"[VFXARBinder] {gameObject.name} - Textures Valid: " +
+                      $"Depth:{(_source.DepthMap != null)}, Color:{(_source.ColorMap != null)}, " +
+                      $"Position:{(_source.PositionMap != null)}, Stencil:{(_source.StencilMap != null)}, " +
+                      $"Velocity:{(_source.VelocityMap != null)}");
+            Debug.Log($"[VFXARBinder] {gameObject.name} - Property IDs: " +
+                      $"Depth:{_idDepth}, Color:{_idColor}, Position:{_idPosition}, " +
+                      $"Stencil:{_idStencil}, Velocity:{_idVelocity}, RayParams:{_idRayParams}");
+        }
 
         // Re-detect bindings after a few frames if nothing was bound
         // (VFX asset may load asynchronously)
@@ -384,10 +430,22 @@ public class VFXARBinder : MonoBehaviour
                              (_idPosition != 0 ? 1 : 0) + (_idColor != 0 ? 1 : 0) +
                              (_idVelocity != 0 ? 1 : 0);
 
-    // Individual binding toggles (Editor can override, defaults to auto-detected)
-    [SerializeField] bool _bindDepthMapOverride, _bindStencilMapOverride, _bindPositionMapOverride;
-    [SerializeField] bool _bindColorMapOverride, _bindVelocityMapOverride, _bindRayParamsOverride;
-    [SerializeField] bool _bindInverseViewOverride, _bindDepthRangeOverride, _bindThrottleOverride, _bindAudioOverride;
+    // Individual binding toggles (defaults to TRUE for common AR bindings)
+    // Editor can disable specific bindings if needed
+    [SerializeField] bool _bindDepthMapOverride = true;
+    [SerializeField] bool _bindStencilMapOverride = true;
+    [SerializeField] bool _bindPositionMapOverride = true;
+    [SerializeField] bool _bindColorMapOverride = true;
+    [SerializeField] bool _bindVelocityMapOverride = true;
+    [SerializeField] bool _bindRayParamsOverride = true;
+    [SerializeField] bool _bindInverseViewOverride = true;
+    [SerializeField] bool _bindDepthRangeOverride = true;
+    [SerializeField] bool _bindThrottleOverride = true;
+    [SerializeField] bool _bindAudioOverride = false; // Audio is opt-in
+
+    [Header("Debug")]
+    [Tooltip("Enable verbose debug logging every 60 frames for troubleshooting binding issues")]
+    [SerializeField] bool _verboseDebug = false;
 
     public bool BindDepthMap { get => _idDepth != 0 && _bindDepthMapOverride; set => _bindDepthMapOverride = value; }
     public bool BindStencilMap { get => _idStencil != 0 && _bindStencilMapOverride; set => _bindStencilMapOverride = value; }

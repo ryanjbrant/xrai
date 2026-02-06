@@ -6,6 +6,134 @@
 
 ---
 
+## 2026-02-05 - Claude Code - VFXARBinder Auto-Fix Pattern
+
+**Context**: VFXARBinder had all `_bindXxxOverride` fields defaulting to false, causing bindings to be disabled even when VFX properties exist.
+
+### Problem
+- Scene serialization preserves false defaults
+- AutoDetectBindings() runs but serialized values override runtime
+- Result: VFX has properties but bindings disabled → no data flow
+
+### Permanent Fix Applied
+
+1. **Default Values Changed to TRUE** (VFXARBinder.cs:387-398)
+   ```csharp
+   [SerializeField] bool _bindDepthMapOverride = true;
+   [SerializeField] bool _bindColorMapOverride = true;
+   [SerializeField] bool _bindRayParamsOverride = true;
+   // etc.
+   ```
+
+2. **Reset() Method Added** - Auto-detects on component add
+   ```csharp
+   #if UNITY_EDITOR
+   void Reset() {
+       AutoDetectBindings();
+       Debug.Log($"[VFXARBinder] Auto-detected {BoundCount} bindings");
+   }
+   #endif
+   ```
+
+3. **OnValidate() Added** - Re-detects if VFX asset assigned
+
+### Impact
+- **New VFX**: Bindings auto-enabled when VFXARBinder added
+- **Existing VFX**: May need manual re-enable or Reset from context menu
+- **Scene files**: Old scenes preserve false values (fix manually or use Reset)
+
+### Quick Fix for Existing Scenes
+1. Select VFX with VFXARBinder
+2. Right-click component → Reset
+3. Or manually enable bind toggles in Inspector
+
+---
+
+## 2026-02-06 03:05 PST - Claude Code - Debug Strategy Insights
+
+**Context**: Session working on HiFi VFX pipeline simplification
+
+### Strategies That Work
+
+| Strategy | Benefit |
+|----------|---------|
+| **Parallel agents** | Use for bulk scene fixes (200+ components) while continuing other work |
+| **Verbose debug per-component** | Each component logs its own state, easy to trace data flow |
+| **Reset() + OnValidate()** | Auto-detect bindings when component added or Inspector changed |
+| **SerializeField defaults = true** | New components work out of box (existing scenes need Reset) |
+| **Checkpoint before /clear** | Preserve progress in .claude/checkpoints/ |
+
+### Strategies That Cause Problems
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| Multiple enabled duplicates | VFXLibraryManager x2, HiFi_VFX x2 | Disable all but one |
+| Edit tool fails | Non-unique patterns in scene (200+ matches) | Use fileID or script-based fix |
+| Wrong scene path | HOLOGRAM.unity in Assets/ not Scenes/ | Always glob first |
+| Bulk edits timeout | 200+ VFXARBinder manual edits | Use Editor script or Reset() |
+| Context lost | Long sessions exceed token limit | Checkpoint + /clear + resume |
+
+### Best Practice - Unity Component Debugging
+
+```
+1. Check console first (read_console or Editor.log)
+2. Enable verbose debug on component
+3. Run 60+ frames to see periodic logs
+4. Check binding status in logs
+5. Fix and verify (re-check console)
+```
+
+---
+
+## 2026-02-06 02:50 PST - Claude Code - HiFi VFX Binding Deep Dive
+
+**Context**: Investigating why HiFi hologram VFX might not receive DepthMap/ColorMap
+
+### Key Discoveries
+
+1. **HiFi_VFX Setup is NOT Overcomplicated**
+   - VFXARBinder: ✅ ENABLED (doing all the work)
+   - HiFiHologramController: ⚠️ DISABLED (not duplicating bindings)
+   - VFXCategory: metadata only
+
+2. **Simplest Working Setup**
+   - Just need: VisualEffect + VFXARBinder + ARDepthSource singleton
+   - HiFiHologramController is optional (for quality presets only)
+
+3. **ColorMap is Demand-Driven (CRITICAL)**
+   - ColorMap RenderTexture only allocated when VFXARBinder detects ColorMap property
+   - VFXARBinder.OnEnable() calls `ARDepthSource.RequestColorMap(true)`
+   - If no VFX requests ColorMap, it stays null
+
+4. **Property Name Matching**
+   - VFX expects: ColorMap, DepthMap, RayParams, InverseView, DepthRange
+   - VFXARBinder aliases: ColorAliases, DepthAliases, RayAliases, InvViewAliases
+   - All match! No naming mismatch issue.
+
+5. **Rcam/Metavido Subgraph Pattern**
+   - Same inputs: DepthMap (Texture2D), RayParams (Vector4), InverseViewMatrix (Matrix4x4)
+   - UV → depth sample → ray direction → world position
+   - VFX computes position internally (doesn't need PositionMap)
+
+### Binding Debug Checklist
+| Check | How |
+|-------|-----|
+| ARDepthSource active | Dashboard shows "ARDepthSource: Active" |
+| VFXARBinder on VFX | Component enabled, _source = null (uses Instance) |
+| ColorMap allocated | ARDepthSource._colorMapRequestCount > 0 |
+| VFX has ColorMap prop | `vfx.HasTexture("ColorMap")` returns true |
+
+### Pattern: Parallel Agents for Research
+```
+# Launch 3 agents simultaneously for different aspects
+Task(agent=Explore, "analyze scene setup")
+Task(agent=Explore, "extract HLSL code")
+Task(agent=Explore, "check property bindings")
+```
+- Added to GLOBAL_RULES.md for future use
+
+---
+
 ## 2026-02-05 23:30 PST - Claude Code - Spec Verification Testing Framework
 
 **Context**: Deep audit of MetavidoVFX specs with emphasis on fast, evidence-based verification
@@ -2691,3 +2819,26 @@ make new display alarm at end of display alarms of theEvent with properties {tri
 **Anti-pattern**: Creating one LaunchAgent plist per reminder interval.
 
 **Source**: WarpJobs interview-calendar.js simplification
+
+## 2026-02-05 - AR Foundation 6.2 API Breaking Changes
+
+**Context**: iOS build failed due to removed ARFace API methods
+
+**Learning**: AR Foundation 6.2 removed `ARFace.GetBlendShapeCoefficients()` method - the API has changed significantly between versions.
+
+**Version Check Checklist** (add to standard workflow):
+1. Unity Editor version (6000.2.14f1)
+2. AR Foundation version (6.2.1)
+3. XR Package versions (ARKit 6.2.1)
+4. VFX Graph version (17.2.0)
+5. Xcode version (16.4)
+6. iOS Deployment target (15.0+)
+
+**Pattern**: Before using any AR Foundation API, check:
+- Package version in manifest.json
+- API docs at that specific version
+- Unity forums for known breaking changes
+
+**Fix Applied**: Disabled blendshape extraction (not needed for HiFi hologram testing)
+
+**Tags**: #ar-foundation #api-changes #ios #build-errors

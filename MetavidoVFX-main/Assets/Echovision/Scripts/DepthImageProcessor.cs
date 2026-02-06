@@ -6,10 +6,10 @@ using UnityEngine.XR.ARSubsystems;
 
 
 /// <summary>
-/// 
+///
 /// Code is from DisplayDepthImage of UnityEngine.XR.ARFoundation.Samples
 /// To make depth image correctly cover color image in both orientation modes
-/// 
+///
 /// </summary>
 public class DepthImageProcessor : MonoBehaviour
 {
@@ -60,7 +60,7 @@ public class DepthImageProcessor : MonoBehaviour
 
     void Awake()
     {
-       
+
     }
 
     void OnEnable()

@@ -34,6 +34,27 @@ static readonly int SizeID = Shader.PropertyToID("Size");
 vfx.SetFloat(SizeID, 1.0f);
 ```
 
+### VFXARBinder Bindings Disabled
+**Symptom**: VFX has correct properties but receives no AR data
+**Cause**: `_bindXxxOverride` fields serialized as false in scene
+
+```csharp
+// FIX 1: Right-click VFXARBinder → Reset (triggers AutoDetectBindings)
+
+// FIX 2: Manual toggle in Inspector
+// Enable: DepthMap, ColorMap, RayParams, InverseView, DepthRange
+
+// FIX 3: Script fix (existing scenes)
+foreach (var binder in FindObjectsByType<VFXARBinder>(FindObjectsSortMode.None))
+{
+    binder.BindDepthMap = true;
+    binder.BindColorMap = true;
+    binder.BindRayParams = true;
+    binder.BindInverseView = true;
+    binder.BindDepthRange = true;
+}
+```
+
 ### Null-Safe Component Access
 ```csharp
 // WRONG

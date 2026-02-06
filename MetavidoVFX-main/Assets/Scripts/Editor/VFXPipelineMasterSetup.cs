@@ -171,6 +171,32 @@ public static class VFXPipelineMasterSetup
         return added;
     }
 
+    [MenuItem("H3M/VFX Pipeline Master/Pipeline Components/Reset All Binders (Fix Disabled)", false, 102)]
+    public static void ResetAllBinders()
+    {
+        var binders = Object.FindObjectsByType<VFXARBinder>(FindObjectsSortMode.None);
+        int fixed_ = 0;
+
+        foreach (var binder in binders)
+        {
+            Undo.RecordObject(binder, "Reset VFXARBinder");
+            binder.AutoDetectBindings();
+            EditorUtility.SetDirty(binder);
+            fixed_++;
+        }
+
+        // Mark scene dirty to save
+        UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(
+            UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+
+        Debug.Log($"[VFXPipelineMasterSetup] Reset {fixed_} VFXARBinder components. Save scene to persist.");
+        EditorUtility.DisplayDialog("Reset All Binders",
+            $"Reset {fixed_} VFXARBinder components.\n\n" +
+            "All bindings re-detected based on VFX properties.\n" +
+            "Save scene (Ctrl+S) to persist changes.",
+            "OK");
+    }
+
     [MenuItem("H3M/VFX Pipeline Master/Pipeline Components/Auto-Detect All Bindings", false, 104)]
     public static void AutoDetectAllBindings()
     {

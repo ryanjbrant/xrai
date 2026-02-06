@@ -389,6 +389,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &14278090
 VFXRenderer:
@@ -567,6 +568,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &17360201
 VFXRenderer:
@@ -745,6 +747,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &18487099
 VFXRenderer:
@@ -923,6 +926,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &18852110
 VFXRenderer:
@@ -1101,6 +1105,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &20355153
 VFXRenderer:
@@ -1279,6 +1284,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &21730921
 VFXRenderer:
@@ -1457,6 +1463,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &22069335
 VFXRenderer:
@@ -1635,6 +1642,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &22930179
 VFXRenderer:
@@ -1813,6 +1821,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &23764518
 VFXRenderer:
@@ -1991,6 +2000,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &31669972
 VFXRenderer:
@@ -2316,6 +2326,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &40697914
 VFXRenderer:
@@ -2494,6 +2505,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &53863575
 VFXRenderer:
@@ -2596,7 +2608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &55622477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,6 +2745,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &60580190
 VFXRenderer:
@@ -2911,6 +2924,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &61073825
 VFXRenderer:
@@ -3089,6 +3103,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &61077554
 VFXRenderer:
@@ -3267,6 +3282,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &63646633
 VFXRenderer:
@@ -3445,6 +3461,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &73434659
 VFXRenderer:
@@ -3623,6 +3640,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &76030408
 VFXRenderer:
@@ -3801,6 +3819,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &76957527
 VFXRenderer:
@@ -3979,6 +3998,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &77800567
 VFXRenderer:
@@ -4157,6 +4177,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &81098803
 VFXRenderer:
@@ -4335,6 +4356,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &87711631
 VFXRenderer:
@@ -4916,6 +4938,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &99856367
 VFXRenderer:
@@ -5094,6 +5117,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &101899382
 VFXRenderer:
@@ -5303,6 +5327,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &117261633
 VFXRenderer:
@@ -5598,6 +5623,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &124624431
 MonoBehaviour:
@@ -5726,6 +5752,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &128002794
 VFXRenderer:
@@ -5904,6 +5931,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &129078177
 VFXRenderer:
@@ -6082,6 +6110,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &129114704
 VFXRenderer:
@@ -6260,6 +6289,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &133504328
 VFXRenderer:
@@ -6438,6 +6468,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &138630883
 VFXRenderer:
@@ -6616,6 +6647,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &139530365
 VFXRenderer:
@@ -6794,6 +6826,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &151113020
 VFXRenderer:
@@ -7003,6 +7036,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &154325690
 VFXRenderer:
@@ -7181,6 +7215,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &155929669
 VFXRenderer:
@@ -7470,6 +7505,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &166026871
 VFXRenderer:
@@ -7648,6 +7684,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &169530801
 VFXRenderer:
@@ -7826,6 +7863,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &172170085
 VFXRenderer:
@@ -8004,6 +8042,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &176835705
 VFXRenderer:
@@ -8182,6 +8221,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &178667675
 VFXRenderer:
@@ -8360,6 +8400,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &181632392
 VFXRenderer:
@@ -8538,6 +8579,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &183635301
 VFXRenderer:
@@ -8716,6 +8758,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &191820778
 VFXRenderer:
@@ -9057,6 +9100,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &200398846
 VFXRenderer:
@@ -9235,6 +9279,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &201154966
 VFXRenderer:
@@ -9413,6 +9458,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &202223219
 VFXRenderer:
@@ -9591,6 +9637,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &202352576
 VFXRenderer:
@@ -9769,6 +9816,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &204825935
 VFXRenderer:
@@ -9947,6 +9995,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &210549549
 VFXRenderer:
@@ -10125,6 +10174,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &215697709
 VFXRenderer:
@@ -10414,6 +10464,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &234154002
 VFXRenderer:
@@ -10641,6 +10692,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &248444191
 VFXRenderer:
@@ -10819,6 +10871,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &259444022
 VFXRenderer:
@@ -10997,6 +11050,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &267341052
 VFXRenderer:
@@ -11233,6 +11287,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &286193957
 VFXRenderer:
@@ -11411,6 +11466,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &288500231
 VFXRenderer:
@@ -11589,6 +11645,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &290336458
 VFXRenderer:
@@ -11767,6 +11824,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &291526725
 VFXRenderer:
@@ -11945,6 +12003,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &301556440
 VFXRenderer:
@@ -12123,6 +12182,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &304867776
 VFXRenderer:
@@ -12301,6 +12361,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &311036863
 VFXRenderer:
@@ -12479,6 +12540,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &314461048
 VFXRenderer:
@@ -12689,6 +12751,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &322934491
 VFXRenderer:
@@ -12953,6 +13016,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &324215447
 VFXRenderer:
@@ -13131,6 +13195,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &327781661
 VFXRenderer:
@@ -13512,6 +13577,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &339974788
 VFXRenderer:
@@ -13690,6 +13756,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &344089267
 VFXRenderer:
@@ -13868,6 +13935,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &345911057
 VFXRenderer:
@@ -14046,6 +14114,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &348368208
 VFXRenderer:
@@ -14462,6 +14531,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &365653291
 VFXRenderer:
@@ -14815,6 +14885,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &373372192
 VFXRenderer:
@@ -15090,6 +15161,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &376819260
 VFXRenderer:
@@ -15320,6 +15392,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &380036570
 VFXRenderer:
@@ -15498,6 +15571,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &380950320
 VFXRenderer:
@@ -15676,6 +15750,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &384360714
 VFXRenderer:
@@ -15893,6 +15968,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &392751912
 VFXRenderer:
@@ -16071,6 +16147,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &393762662
 VFXRenderer:
@@ -16249,6 +16326,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &394400624
 VFXRenderer:
@@ -16492,6 +16570,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &403778457
 VFXRenderer:
@@ -16670,6 +16749,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &404486870
 VFXRenderer:
@@ -16848,6 +16928,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &417722469
 VFXRenderer:
@@ -17026,6 +17107,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &419387482
 VFXRenderer:
@@ -17315,6 +17397,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &426149761
 VFXRenderer:
@@ -17493,6 +17576,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &428905678
 VFXRenderer:
@@ -17671,6 +17755,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &429969298
 VFXRenderer:
@@ -17857,8 +17942,9 @@ MonoBehaviour:
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &437898389
 MonoBehaviour:
@@ -18130,6 +18216,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &439540536
 VFXRenderer:
@@ -18308,6 +18395,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &440104184
 VFXRenderer:
@@ -18486,6 +18574,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &447830746
 VFXRenderer:
@@ -18850,6 +18939,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &459173556
 VFXRenderer:
@@ -19028,6 +19118,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &460976960
 VFXRenderer:
@@ -19206,6 +19297,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &462620503
 VFXRenderer:
@@ -19444,6 +19536,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &474537190
 VFXRenderer:
@@ -19622,6 +19715,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &482204662
 VFXRenderer:
@@ -19800,6 +19894,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &489342768
 VFXRenderer:
@@ -19960,8 +20055,9 @@ MonoBehaviour:
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &508759689
 MonoBehaviour:
@@ -20259,6 +20355,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &516719296
 VFXRenderer:
@@ -20437,6 +20534,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &519484398
 VFXRenderer:
@@ -20615,6 +20713,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &520520379
 VFXRenderer:
@@ -20793,6 +20892,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &521087086
 VFXRenderer:
@@ -20971,6 +21071,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &523749713
 VFXRenderer:
@@ -21149,6 +21250,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &526821346
 VFXRenderer:
@@ -21327,6 +21429,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &527238895
 VFXRenderer:
@@ -21616,6 +21719,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &531938957
 VFXRenderer:
@@ -21794,6 +21898,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &541932617
 VFXRenderer:
@@ -21972,6 +22077,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &543378718
 VFXRenderer:
@@ -22150,6 +22256,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &551053388
 VFXRenderer:
@@ -22328,6 +22435,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &564045451
 VFXRenderer:
@@ -22506,6 +22614,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &566376864
 VFXRenderer:
@@ -22684,6 +22793,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &571032466
 VFXRenderer:
@@ -22862,6 +22972,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &575869764
 VFXRenderer:
@@ -23040,6 +23151,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &580213571
 VFXRenderer:
@@ -23218,6 +23330,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &584582389
 VFXRenderer:
@@ -23396,6 +23509,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &594547481
 VFXRenderer:
@@ -23574,6 +23688,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &597030161
 VFXRenderer:
@@ -23913,6 +24028,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &604973142
 VFXRenderer:
@@ -24091,6 +24207,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &617850621
 VFXRenderer:
@@ -24269,6 +24386,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &618821550
 VFXRenderer:
@@ -24429,8 +24547,9 @@ MonoBehaviour:
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &620258534
 MonoBehaviour:
@@ -24728,6 +24847,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &622145318
 VFXRenderer:
@@ -24906,6 +25026,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &622789797
 VFXRenderer:
@@ -25195,6 +25316,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &625030779
 VFXRenderer:
@@ -25373,6 +25495,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &626245228
 VFXRenderer:
@@ -25551,6 +25674,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &630460167
 VFXRenderer:
@@ -25729,6 +25853,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &632824423
 VFXRenderer:
@@ -25907,6 +26032,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &649701332
 VFXRenderer:
@@ -26085,6 +26211,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &660346303
 VFXRenderer:
@@ -26263,6 +26390,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &665829370
 VFXRenderer:
@@ -26552,6 +26680,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &681151100
 VFXRenderer:
@@ -26707,14 +26836,15 @@ MonoBehaviour:
   _interactableRadius: 0.1
   _bindDepthMapOverride: 0
   _bindStencilMapOverride: 0
-  _bindPositionMapOverride: 0
-  _bindColorMapOverride: 0
+  _bindPositionMapOverride: 1
+  _bindColorMapOverride: 1
   _bindVelocityMapOverride: 0
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &695147425
 MonoBehaviour:
@@ -27037,6 +27167,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &697135175
 VFXRenderer:
@@ -27215,6 +27346,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &698114785
 VFXRenderer:
@@ -27393,6 +27525,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &701325953
 VFXRenderer:
@@ -27571,6 +27704,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &702316348
 VFXRenderer:
@@ -27860,6 +27994,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &702718252
 VFXRenderer:
@@ -28038,6 +28173,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &710991484
 VFXRenderer:
@@ -28216,6 +28352,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &714645476
 VFXRenderer:
@@ -28394,6 +28531,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &716285359
 VFXRenderer:
@@ -28572,6 +28710,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &719574747
 VFXRenderer:
@@ -28750,6 +28889,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &722853725
 VFXRenderer:
@@ -29039,6 +29179,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &729998618
 VFXRenderer:
@@ -29217,6 +29358,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &734407637
 VFXRenderer:
@@ -29395,6 +29537,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &736115975
 VFXRenderer:
@@ -29573,6 +29716,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &737684150
 VFXRenderer:
@@ -29751,6 +29895,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &742333110
 VFXRenderer:
@@ -29929,6 +30074,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &746630802
 VFXRenderer:
@@ -30107,6 +30253,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &754415207
 VFXRenderer:
@@ -30267,8 +30414,9 @@ MonoBehaviour:
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &759334485
 MonoBehaviour:
@@ -30523,14 +30671,15 @@ MonoBehaviour:
   _interactableRadius: 0.1
   _bindDepthMapOverride: 1
   _bindStencilMapOverride: 0
-  _bindPositionMapOverride: 1
+  _bindPositionMapOverride: 0
   _bindColorMapOverride: 1
   _bindVelocityMapOverride: 0
   _bindRayParamsOverride: 1
   _bindInverseViewOverride: 1
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
-  _bindAudioOverride: 1
+  _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &765500514
 VFXRenderer:
@@ -30750,6 +30899,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &774176367
 VFXRenderer:
@@ -30928,6 +31078,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &779176371
 VFXRenderer:
@@ -31106,6 +31257,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &782766479
 VFXRenderer:
@@ -31284,6 +31436,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &793768911
 VFXRenderer:
@@ -31493,6 +31646,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &804546114
 VFXRenderer:
@@ -31671,6 +31825,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &806684031
 VFXRenderer:
@@ -31928,6 +32083,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &815486787
 VFXRenderer:
@@ -32279,6 +32435,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &823236524
 VFXRenderer:
@@ -32457,6 +32614,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &826392549
 VFXRenderer:
@@ -32635,6 +32793,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &830614230
 VFXRenderer:
@@ -33052,6 +33211,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &834236618
 VFXRenderer:
@@ -33230,6 +33390,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &835582587
 VFXRenderer:
@@ -33408,6 +33569,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &839139979
 VFXRenderer:
@@ -33586,6 +33748,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &842739671
 VFXRenderer:
@@ -33764,6 +33927,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &843656534
 VFXRenderer:
@@ -33942,6 +34106,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &851525369
 VFXRenderer:
@@ -34120,6 +34285,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &852721147
 VFXRenderer:
@@ -34279,8 +34445,9 @@ MonoBehaviour:
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &854245232
 MonoBehaviour:
@@ -34541,6 +34708,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &867783119
 VFXRenderer:
@@ -34719,6 +34887,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &870482408
 VFXRenderer:
@@ -35008,6 +35177,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &872762980
 VFXRenderer:
@@ -35186,6 +35356,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &879387245
 VFXRenderer:
@@ -35347,6 +35518,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &885764176
 MonoBehaviour:
@@ -35604,6 +35776,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &885782092
 VFXRenderer:
@@ -35782,6 +35955,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &889047071
 VFXRenderer:
@@ -35960,6 +36134,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &898462549
 VFXRenderer:
@@ -36138,6 +36313,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &898630904
 VFXRenderer:
@@ -36316,6 +36492,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &899301084
 VFXRenderer:
@@ -36527,6 +36704,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &911200950
 VFXRenderer:
@@ -36705,6 +36883,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &916860131
 VFXRenderer:
@@ -36941,6 +37120,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &926121462
 VFXRenderer:
@@ -37119,6 +37299,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &954201061
 VFXRenderer:
@@ -37390,15 +37571,16 @@ MonoBehaviour:
   _interactablePos: {x: 0, y: 0, z: 0}
   _interactableRadius: 0.1
   _bindDepthMapOverride: 1
-  _bindStencilMapOverride: 1
+  _bindStencilMapOverride: 0
   _bindPositionMapOverride: 0
   _bindColorMapOverride: 1
   _bindVelocityMapOverride: 0
   _bindRayParamsOverride: 1
-  _bindInverseViewOverride: 0
+  _bindInverseViewOverride: 1
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &956126070
 MonoBehaviour:
@@ -37418,9 +37600,11 @@ MonoBehaviour:
   leftHandVFX: {fileID: 0}
   rightHandVFX: {fileID: 0}
   availableVFXAssets: []
+  audioBridge: {fileID: 0}
   audioProcessor: {fileID: 2016840819}
   enhancedAudioProcessor: {fileID: 2016840822}
   audioReactive: 1
+  suppressLogs: 0
   pinchStartDistance: 0.02
   pinchEndDistance: 0.03
   grabStartDistance: 0.04
@@ -37434,6 +37618,13 @@ MonoBehaviour:
   velocityToTrailLength: 0.5
   pinchToBrushWidth: 0.1
   audioToEmissionRate: 100
+  _leftHandActiveDisplay: 0
+  _rightHandActiveDisplay: 0
+  _leftHandSpeedDisplay: 0
+  _rightHandSpeedDisplay: 0
+  _leftPinchingDisplay: 0
+  _rightPinchingDisplay: 0
+  _trackingSourceDisplay: None
 --- !u!114 &956126071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37547,6 +37738,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &959019736
 VFXRenderer:
@@ -37725,6 +37917,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &960112395
 VFXRenderer:
@@ -37903,6 +38096,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &964378199
 VFXRenderer:
@@ -38273,16 +38467,17 @@ MonoBehaviour:
   _depthOffset: 0
   _interactablePos: {x: 0, y: 0, z: 0}
   _interactableRadius: 0.1
-  _bindDepthMapOverride: 0
+  _bindDepthMapOverride: 1
   _bindStencilMapOverride: 0
   _bindPositionMapOverride: 0
-  _bindColorMapOverride: 0
+  _bindColorMapOverride: 1
   _bindVelocityMapOverride: 0
-  _bindRayParamsOverride: 0
-  _bindInverseViewOverride: 0
-  _bindDepthRangeOverride: 0
+  _bindRayParamsOverride: 1
+  _bindInverseViewOverride: 1
+  _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!1 &967975015
 GameObject:
@@ -38377,6 +38572,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &967975019
 VFXRenderer:
@@ -38555,6 +38751,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &981114524
 VFXRenderer:
@@ -38733,6 +38930,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &982960440
 VFXRenderer:
@@ -38911,6 +39109,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &990309399
 VFXRenderer:
@@ -39218,6 +39417,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1021101885
 VFXRenderer:
@@ -39396,6 +39596,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1023002084
 VFXRenderer:
@@ -39574,6 +39775,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1026517840
 VFXRenderer:
@@ -39752,6 +39954,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1026814310
 VFXRenderer:
@@ -40041,6 +40244,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1037101866
 VFXRenderer:
@@ -40219,6 +40423,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1047414577
 VFXRenderer:
@@ -40397,6 +40602,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1048540433
 VFXRenderer:
@@ -40575,6 +40781,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1052468466
 VFXRenderer:
@@ -40864,6 +41071,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1066798907
 VFXRenderer:
@@ -41042,6 +41250,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1069393965
 VFXRenderer:
@@ -41331,6 +41540,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1077871861
 VFXRenderer:
@@ -41509,6 +41719,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1078087412
 VFXRenderer:
@@ -41687,6 +41898,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1085587348
 VFXRenderer:
@@ -42202,6 +42414,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1100980138
 VFXRenderer:
@@ -42507,6 +42720,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1106895963
 VFXRenderer:
@@ -42796,6 +43010,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1110894414
 VFXRenderer:
@@ -43085,6 +43300,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1119445794
 VFXRenderer:
@@ -43263,6 +43479,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1129758977
 VFXRenderer:
@@ -43441,6 +43658,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1130842547
 VFXRenderer:
@@ -43619,6 +43837,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1131581798
 VFXRenderer:
@@ -43797,6 +44016,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1131958859
 VFXRenderer:
@@ -43975,6 +44195,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1158748482
 VFXRenderer:
@@ -44153,6 +44374,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1161511106
 VFXRenderer:
@@ -44331,6 +44553,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1164523501
 VFXRenderer:
@@ -44509,6 +44732,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1166409044
 VFXRenderer:
@@ -44687,6 +44911,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1166849251
 VFXRenderer:
@@ -44865,6 +45090,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1171410039
 VFXRenderer:
@@ -45154,6 +45380,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1188686194
 VFXRenderer:
@@ -45444,6 +45671,11 @@ MonoBehaviour:
   _mockResolution: {x: 256, y: 192}
   _colorResolution: {x: 1920, y: 1080}
   _verboseLogging: 0
+  _isReadyDisplay: 0
+  _usingMockDataDisplay: 0
+  _depthResolutionDisplay: N/A
+  _computeTimeDisplay: 0
+  _colorMapAllocatedDisplay: 0
   _colorProvider: {fileID: 1283464414}
   _enableVelocity: 0
 --- !u!4 &1197446207
@@ -45923,6 +46155,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1203893494
 VFXRenderer:
@@ -46101,6 +46334,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1204009616
 VFXRenderer:
@@ -46279,6 +46513,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1207462664
 VFXRenderer:
@@ -46457,6 +46692,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1210293141
 VFXRenderer:
@@ -46635,6 +46871,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1211718203
 VFXRenderer:
@@ -46924,6 +47161,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1218518901
 VFXRenderer:
@@ -47205,6 +47443,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1239552566
 VFXRenderer:
@@ -47353,16 +47592,17 @@ MonoBehaviour:
   _depthOffset: 0
   _interactablePos: {x: 0, y: 0, z: 0}
   _interactableRadius: 0.1
-  _bindDepthMapOverride: 0
+  _bindDepthMapOverride: 1
   _bindStencilMapOverride: 0
   _bindPositionMapOverride: 0
-  _bindColorMapOverride: 0
+  _bindColorMapOverride: 1
   _bindVelocityMapOverride: 0
-  _bindRayParamsOverride: 0
-  _bindInverseViewOverride: 0
-  _bindDepthRangeOverride: 0
+  _bindRayParamsOverride: 1
+  _bindInverseViewOverride: 1
+  _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &1245148057
 MonoBehaviour:
@@ -47384,14 +47624,9 @@ MonoBehaviour:
   _colorBrightness: 1
   _enableDepthFade: 1
   _depthFadeRange: {x: 0.2, y: 5}
-  _colorMap: {fileID: 0}
-  _depthMap: {fileID: 0}
-  _stencilMap: {fileID: 0}
-  _enableVelocityStreaks: 0
   _velocityStrength: 0.1
-  _enableSSAO: 0
-  _useGaussianSplat: 0
   _showDebugInfo: 0
+  _verboseDebug: 0
 --- !u!73398921 &1245148058
 VFXRenderer:
   serializedVersion: 1
@@ -47569,6 +47804,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1248848921
 VFXRenderer:
@@ -47729,8 +47965,9 @@ MonoBehaviour:
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &1249524869
 MonoBehaviour:
@@ -48028,6 +48265,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1250638780
 VFXRenderer:
@@ -48560,6 +48798,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1261388835
 VFXRenderer:
@@ -48738,6 +48977,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1261511118
 VFXRenderer:
@@ -48916,6 +49156,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1268337512
 VFXRenderer:
@@ -49094,6 +49335,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1272527539
 VFXRenderer:
@@ -49877,6 +50119,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1286162672
 VFXRenderer:
@@ -50248,6 +50491,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1297687097
 VFXRenderer:
@@ -50426,6 +50670,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1301539678
 VFXRenderer:
@@ -50604,6 +50849,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1302947326
 VFXRenderer:
@@ -50782,6 +51028,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1304571893
 VFXRenderer:
@@ -50960,6 +51207,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1307708024
 VFXRenderer:
@@ -51138,6 +51386,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1312831538
 VFXRenderer:
@@ -51316,6 +51565,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1313686377
 VFXRenderer:
@@ -51494,6 +51744,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1323828981
 VFXRenderer:
@@ -51621,6 +51872,12 @@ MonoBehaviour:
   _okColor: {r: 0.3, g: 0.9, b: 0.3, a: 1}
   _warningColor: {r: 0.9, g: 0.7, b: 0.2, a: 1}
   _errorColor: {r: 0.9, g: 0.3, b: 0.3, a: 1}
+  _currentFpsDisplay: 0
+  _avgFpsDisplay: 0
+  _activeVFXCountDisplay: 0
+  _totalParticlesDisplay: 0
+  _pipelineReadyDisplay: 0
+  _boundBindersDisplay: 0
 --- !u!4 &1327034459
 Transform:
   m_ObjectHideFlags: 0
@@ -51729,6 +51986,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1329287105
 VFXRenderer:
@@ -51907,6 +52165,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1329872403
 VFXRenderer:
@@ -52268,6 +52527,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1333608459
 VFXRenderer:
@@ -52557,6 +52817,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1340416916
 VFXRenderer:
@@ -52735,6 +52996,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1343201884
 VFXRenderer:
@@ -52969,6 +53231,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1348474856
 VFXRenderer:
@@ -53147,6 +53410,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1367145141
 VFXRenderer:
@@ -53325,6 +53589,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1368810381
 VFXRenderer:
@@ -53503,6 +53768,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1375017615
 VFXRenderer:
@@ -53681,6 +53947,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1381098694
 VFXRenderer:
@@ -53859,6 +54126,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1384673288
 VFXRenderer:
@@ -54083,6 +54351,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1391407042
 VFXRenderer:
@@ -54261,6 +54530,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1395857394
 VFXRenderer:
@@ -54439,6 +54709,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1395922884
 VFXRenderer:
@@ -54855,6 +55126,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1405229326
 VFXRenderer:
@@ -55033,6 +55305,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1405758293
 VFXRenderer:
@@ -55464,6 +55737,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1428791737
 VFXRenderer:
@@ -55642,6 +55916,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1436696282
 VFXRenderer:
@@ -55859,6 +56134,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1442609727
 VFXRenderer:
@@ -56037,6 +56313,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1444066904
 VFXRenderer:
@@ -56215,6 +56492,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1445445468
 VFXRenderer:
@@ -56393,6 +56671,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1448868239
 VFXRenderer:
@@ -56755,6 +57034,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1466315747
 VFXRenderer:
@@ -56933,6 +57213,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1473208412
 VFXRenderer:
@@ -57042,7 +57323,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475487776}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d8cc743c93d94e0296c0de7bff5ea66, type: 3}
   m_Name: 
@@ -57070,6 +57351,11 @@ MonoBehaviour:
   hologramVFX: {fileID: 0}
   hologramVFXName: hologram
   _arDepthSource: {fileID: 0}
+  _pipelineReadyDisplay: 0
+  _totalVFXDisplay: 0
+  _activeVFXDisplay: 0
+  _boundVFXDisplay: 0
+  _activeVFXNames: []
 --- !u!4 &1475487778
 Transform:
   m_ObjectHideFlags: 0
@@ -57184,6 +57470,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1478683877
 VFXRenderer:
@@ -57398,6 +57685,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1489120699
 VFXRenderer:
@@ -57608,6 +57896,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1494818691
 VFXRenderer:
@@ -57786,6 +58075,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1500424403
 VFXRenderer:
@@ -58021,6 +58311,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1522769475
 VFXRenderer:
@@ -58199,6 +58490,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1525930699
 VFXRenderer:
@@ -58389,8 +58681,8 @@ Transform:
   m_GameObject: {fileID: 1526401163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 1}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.06, y: 2.11, z: 1.04}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -58488,6 +58780,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1547532613
 VFXRenderer:
@@ -58939,6 +59232,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1558636377
 VFXRenderer:
@@ -59154,6 +59448,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1567856236
 VFXRenderer:
@@ -59332,6 +59627,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1570770142
 VFXRenderer:
@@ -59510,6 +59806,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1577512637
 VFXRenderer:
@@ -59688,6 +59985,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1580344446
 VFXRenderer:
@@ -59866,6 +60164,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1588226822
 VFXRenderer:
@@ -60044,6 +60343,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1592218634
 VFXRenderer:
@@ -60222,6 +60522,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1592914314
 VFXRenderer:
@@ -60400,6 +60701,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1596064748
 VFXRenderer:
@@ -60578,6 +60880,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1596263985
 VFXRenderer:
@@ -60756,6 +61059,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1598338354
 VFXRenderer:
@@ -60934,6 +61238,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1598462233
 VFXRenderer:
@@ -61223,6 +61528,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1604033167
 VFXRenderer:
@@ -61401,6 +61707,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1611645953
 VFXRenderer:
@@ -61579,6 +61886,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1618498641
 VFXRenderer:
@@ -61757,6 +62065,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1618698630
 VFXRenderer:
@@ -61935,6 +62244,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1618872334
 VFXRenderer:
@@ -62113,6 +62423,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1631370459
 VFXRenderer:
@@ -62291,6 +62602,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1640796440
 VFXRenderer:
@@ -62469,6 +62781,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1643261553
 VFXRenderer:
@@ -62647,6 +62960,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1643531128
 VFXRenderer:
@@ -62942,6 +63256,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1650153780
 VFXRenderer:
@@ -63120,6 +63435,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1666348752
 VFXRenderer:
@@ -63298,6 +63614,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1667832876
 VFXRenderer:
@@ -63785,6 +64102,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1675661794
 VFXRenderer:
@@ -64125,6 +64443,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1694949805
 VFXRenderer:
@@ -64303,6 +64622,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1702721172
 VFXRenderer:
@@ -64845,6 +65165,12 @@ MonoBehaviour:
   _minBeatInterval: 0.1
   _enableAudioDataTexture: 1
   _verboseLogging: 1
+  _volumeDisplay: 0
+  _bassDisplay: 0
+  _midsDisplay: 0
+  _trebleDisplay: 0
+  _beatPulseDisplay: 0
+  _isOnsetDisplay: 0
 --- !u!114 &1713640552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64964,6 +65290,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1718203361
 VFXRenderer:
@@ -65142,6 +65469,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1719729136
 VFXRenderer:
@@ -65320,6 +65648,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1729765626
 VFXRenderer:
@@ -65498,6 +65827,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1732012413
 VFXRenderer:
@@ -65676,6 +66006,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1732320321
 VFXRenderer:
@@ -65854,6 +66185,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1735901490
 VFXRenderer:
@@ -66032,6 +66364,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1738307902
 VFXRenderer:
@@ -66210,6 +66543,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1743422614
 VFXRenderer:
@@ -66388,6 +66722,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1750770421
 VFXRenderer:
@@ -66566,6 +66901,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1750833980
 VFXRenderer:
@@ -66755,6 +67091,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1760302430
 VFXRenderer:
@@ -66947,7 +67284,6 @@ MonoBehaviour:
   m_ExecuteInEditor: 1
   m_Bindings:
   - {fileID: 1764639386}
-  - {fileID: 1764639390}
   m_VisualEffect: {fileID: 1764639389}
 --- !u!73398921 &1764639388
 VFXRenderer:
@@ -67073,75 +67409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecba6aeee59694952979ab5e6fcc7e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MetavidoVFX.VFX.Binders.VFXARDataBinder
-  occlusionManager: {fileID: 1283464404}
-  cameraBackground: {fileID: 1283464406}
-  arCamera: {fileID: 1283464408}
-  colorProvider: {fileID: 0}
-  bindDepthMap: 1
-  bindStencilMap: 1
-  bindColorMap: 1
-  bindPositionMap: 1
-  bindCameraMatrices: 1
-  bindThrottle: 0
-  throttleValue: 1
-  bindNormalMap: 0
-  normalMapOverride: {fileID: 0}
-  bindVelocity: 0
-  velocityScale: 1
-  velocitySmoothing: 0.5
-  bindGravity: 0
-  gravityStrength: -9.81
-  bindAudio: 0
-  audioProcessor: {fileID: 0}
-  audioVolumeMultiplier: 1
-  audioBandMultiplier: 1
-  rotateDepthTexture: 1
-  maskDepthWithStencil: 1
-  depthMapProperty:
-    m_Name: DepthMap
-  stencilMapProperty:
-    m_Name: StencilMap
-  colorMapProperty:
-    m_Name: ColorMap
-  positionMapProperty:
-    m_Name: PositionMap
-  inverseViewProperty:
-    m_Name: InverseView
-  inverseProjectionProperty:
-    m_Name: InverseProjection
-  rayParamsProperty:
-    m_Name: RayParams
-  depthRangeProperty:
-    m_Name: DepthRange
-  throttleProperty:
-    m_Name: Throttle
-  normalMapProperty:
-    m_Name: NormalMap
-  velocityProperty:
-    m_Name: Velocity
-  referenceVelocityProperty:
-    m_Name: ReferenceVelocity
-  speedProperty:
-    m_Name: Speed
-  cameraSpeedProperty:
-    m_Name: CameraSpeed
-  gravityProperty:
-    m_Name: Gravity
-  gravityStrengthProperty:
-    m_Name: GravityStrength
-  audioVolumeProperty:
-    m_Name: AudioVolume
-  audioBassProperty:
-    m_Name: AudioBass
-  audioMidProperty:
-    m_Name: AudioMid
-  audioTrebleProperty:
-    m_Name: AudioTreble
-  audioSubBassProperty:
-    m_Name: AudioSubBass
-  depthRange: {x: 0.1, y: 10}
-  updateInterval: 1
-  verboseLogging: 0
 --- !u!1 &1766783848
 GameObject:
   m_ObjectHideFlags: 0
@@ -67235,6 +67502,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1766783852
 VFXRenderer:
@@ -67444,6 +67712,7 @@ GameObject:
   - component: {fileID: 1769437797}
   - component: {fileID: 1769437796}
   - component: {fileID: 1769437795}
+  - component: {fileID: 1769437799}
   m_Layer: 0
   m_Name: hifi_hologram_pointcloud
   m_TagString: Untagged
@@ -67498,7 +67767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56892d9bbe01b4e8599b7f6492a5b319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VFXARBinder
-  _source: {fileID: 0}
+  _source: {fileID: 1197446206}
   _handTransform: {fileID: 0}
   _sdfTexture: {fileID: 0}
   _bodyPartSegmenter: {fileID: 0}
@@ -67524,7 +67793,8 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
-  _anchorTransform: {fileID: 0}
+  _verboseDebug: 0
+  _anchorTransform: {fileID: 1526401167}
 --- !u!73398921 &1769437797
 VFXRenderer:
   serializedVersion: 1
@@ -67609,6 +67879,20 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!114 &1769437799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769437793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decd81d6f45174966adea098a5f3b5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXNoCull
+  _boundsSize: 1000
+  _updateEveryFrame: 1
 --- !u!1 &1775455797
 GameObject:
   m_ObjectHideFlags: 0
@@ -67702,6 +67986,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1775455801
 VFXRenderer:
@@ -67991,6 +68276,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1789242206
 VFXRenderer:
@@ -68220,6 +68506,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1798751319
 VFXRenderer:
@@ -68398,6 +68685,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1798758119
 VFXRenderer:
@@ -68576,6 +68864,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1801134870
 VFXRenderer:
@@ -68754,6 +69043,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1801328113
 VFXRenderer:
@@ -68978,6 +69268,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1813923612
 VFXRenderer:
@@ -69156,6 +69447,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1823369670
 VFXRenderer:
@@ -69334,6 +69626,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1827361037
 VFXRenderer:
@@ -69512,6 +69805,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1828995116
 VFXRenderer:
@@ -69690,6 +69984,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1831400826
 VFXRenderer:
@@ -69799,7 +70094,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832787074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d8cc743c93d94e0296c0de7bff5ea66, type: 3}
   m_Name: 
@@ -69820,6 +70115,11 @@ MonoBehaviour:
   hologramVFX: {fileID: 0}
   hologramVFXName: hologram
   _arDepthSource: {fileID: 0}
+  _pipelineReadyDisplay: 0
+  _totalVFXDisplay: 0
+  _activeVFXDisplay: 0
+  _boundVFXDisplay: 0
+  _activeVFXNames: []
 --- !u!4 &1832787076
 Transform:
   m_ObjectHideFlags: 0
@@ -69934,6 +70234,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1836960939
 VFXRenderer:
@@ -70112,6 +70413,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1838930159
 VFXRenderer:
@@ -70528,6 +70830,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1839173949
 VFXRenderer:
@@ -70706,6 +71009,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1840372163
 VFXRenderer:
@@ -70884,6 +71188,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1856478407
 VFXRenderer:
@@ -71062,6 +71367,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1857561647
 VFXRenderer:
@@ -71240,6 +71546,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1858631327
 VFXRenderer:
@@ -71418,6 +71725,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1859477032
 VFXRenderer:
@@ -71717,6 +72025,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1867161452
 VFXRenderer:
@@ -71958,6 +72267,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1871089722
 VFXRenderer:
@@ -72082,6 +72392,12 @@ MonoBehaviour:
   _minBeatInterval: 0.1
   _enableAudioDataTexture: 1
   _verboseLogging: 0
+  _volumeDisplay: 0
+  _bassDisplay: 0
+  _midsDisplay: 0
+  _trebleDisplay: 0
+  _beatPulseDisplay: 0
+  _isOnsetDisplay: 0
 --- !u!4 &1871705188
 Transform:
   m_ObjectHideFlags: 0
@@ -72190,6 +72506,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1872753453
 VFXRenderer:
@@ -72368,6 +72685,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1881979929
 VFXRenderer:
@@ -72652,6 +72970,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1883873208
 VFXRenderer:
@@ -72830,6 +73149,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1884278672
 VFXRenderer:
@@ -73008,6 +73328,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1888657700
 VFXRenderer:
@@ -73186,6 +73507,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1890292494
 VFXRenderer:
@@ -73396,6 +73718,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1901014324
 VFXRenderer:
@@ -73574,6 +73897,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1901227358
 VFXRenderer:
@@ -73752,6 +74076,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1911976031
 VFXRenderer:
@@ -73930,6 +74255,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1916219340
 VFXRenderer:
@@ -74108,6 +74434,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1920536543
 VFXRenderer:
@@ -74286,6 +74613,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1924876698
 VFXRenderer:
@@ -74464,6 +74792,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1927795398
 VFXRenderer:
@@ -74753,6 +75082,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1932290767
 VFXRenderer:
@@ -74931,6 +75261,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1935687476
 VFXRenderer:
@@ -75109,6 +75440,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1940088011
 VFXRenderer:
@@ -75287,6 +75619,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1947631480
 VFXRenderer:
@@ -75466,7 +75799,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949552021}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73a025b51106444e18fb408fde19ac53, type: 3}
   m_Name: 
@@ -75571,6 +75904,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1951299715
 VFXRenderer:
@@ -75774,9 +76108,11 @@ MonoBehaviour:
   - {fileID: 8926484042661614526, guid: bdb84af1693e849bfa594bdb01e0dc5e, type: 3}
   - {fileID: 8926484042661614526, guid: a84c97276009d4686bcec86f44d731a2, type: 3}
   - {fileID: 8926484042661614526, guid: 750fc403086144b0f90ce8be1df9014a, type: 3}
+  audioBridge: {fileID: 0}
   audioProcessor: {fileID: 2016840819}
   enhancedAudioProcessor: {fileID: 2016840822}
   audioReactive: 1
+  suppressLogs: 0
   pinchStartDistance: 0.02
   pinchEndDistance: 0.03
   grabStartDistance: 0.04
@@ -75790,6 +76126,13 @@ MonoBehaviour:
   velocityToTrailLength: 0.5
   pinchToBrushWidth: 0.1
   audioToEmissionRate: 100
+  _leftHandActiveDisplay: 0
+  _rightHandActiveDisplay: 0
+  _leftHandSpeedDisplay: 0
+  _rightHandSpeedDisplay: 0
+  _leftPinchingDisplay: 0
+  _rightPinchingDisplay: 0
+  _trackingSourceDisplay: None
 --- !u!4 &1960950352
 Transform:
   m_ObjectHideFlags: 0
@@ -75900,6 +76243,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1961237615
 VFXRenderer:
@@ -76078,6 +76422,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1961376319
 VFXRenderer:
@@ -76256,6 +76601,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1963305153
 VFXRenderer:
@@ -76354,8 +76700,9 @@ GameObject:
   - component: {fileID: 1970325843}
   - component: {fileID: 1970325842}
   - component: {fileID: 1970325841}
+  - component: {fileID: 1970325845}
   m_Layer: 0
-  m_Name: HiFi_VFX
+  m_Name: HiFi_VFX_DUPLICATE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76391,7 +76738,7 @@ MonoBehaviour:
   _source: {fileID: 1197446206}
   _handTransform: {fileID: 0}
   _sdfTexture: {fileID: 0}
-  _bodyPartSegmenter: {fileID: 0}
+  _bodyPartSegmenter: {fileID: 377290827}
   _throttle: 1
   _spawn: 1
   _size: 1
@@ -76412,9 +76759,10 @@ MonoBehaviour:
   _bindRayParamsOverride: 1
   _bindInverseViewOverride: 1
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
-  _anchorTransform: {fileID: 0}
+  _verboseDebug: 0
+  _anchorTransform: {fileID: 1526401167}
 --- !u!114 &1970325842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76422,27 +76770,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970325839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b6745c5aeee346b39f3449d78669015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MetavidoVFX.H3M.VFX.HiFiHologramController
-  _quality: 2
+  _quality: 0
   _autoAdjustQuality: 1
-  _targetFPS: 60
+  _targetFPS: 30
   _particleSizeMultiplier: 1
   _colorSaturation: 1
   _colorBrightness: 1
-  _enableDepthFade: 1
+  _enableDepthFade: 0
   _depthFadeRange: {x: 0.2, y: 5}
-  _colorMap: {fileID: 0}
-  _depthMap: {fileID: 0}
-  _stencilMap: {fileID: 0}
-  _enableVelocityStreaks: 0
   _velocityStrength: 0.1
-  _enableSSAO: 0
-  _useGaussianSplat: 0
-  _showDebugInfo: 0
+  _showDebugInfo: 1
+  _verboseDebug: 0
 --- !u!73398921 &1970325843
 VFXRenderer:
   serializedVersion: 1
@@ -76452,7 +76795,7 @@ VFXRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970325839}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -76497,7 +76840,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970325839}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 71a61d86e46ba496c952c5c670b7e3ca, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: a84c97276009d4686bcec86f44d731a2, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -76506,13 +76849,22 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 1
+        m_Name: Throttle
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Ripple
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0, y: 0, z: 0, w: 0}
+        m_Name: RayParams
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -76524,9 +76876,38 @@ VisualEffect:
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 0}
+        m_Name: ColorMap
+        m_Overridden: 1
+      - m_Value: {fileID: 0}
+        m_Name: DepthMap
+        m_Overridden: 1
     m_Bool:
-      m_Array: []
+      m_Array:
+      - m_Value: 0
+        m_Name: Background
+        m_Overridden: 0
+--- !u!114 &1970325845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970325839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8f8b5cc14f84f119f10ad4e8dcf12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XRRAI.VFXBinders.VFXCategory
+  bindingMode: 0
+  category: 5
+  bindings: 7
+  displayName: 
+  thumbnail: {fileID: 0}
+  description: 
+  performanceTier: 3
+  mobileOptimized: 1
 --- !u!1 &1971778709
 GameObject:
   m_ObjectHideFlags: 0
@@ -76620,6 +77001,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1971778713
 VFXRenderer:
@@ -76798,6 +77180,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1976277498
 VFXRenderer:
@@ -77017,6 +77400,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1983215734
 VFXRenderer:
@@ -77195,6 +77579,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1988764294
 VFXRenderer:
@@ -77373,6 +77758,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1988861984
 VFXRenderer:
@@ -77551,6 +77937,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1996275335
 VFXRenderer:
@@ -77649,6 +78036,7 @@ GameObject:
   - component: {fileID: 1998544741}
   - component: {fileID: 1998544740}
   - component: {fileID: 1998544739}
+  - component: {fileID: 1998544743}
   m_Layer: 0
   m_Name: hifi_hologram_people
   m_TagString: Untagged
@@ -77703,7 +78091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56892d9bbe01b4e8599b7f6492a5b319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VFXARBinder
-  _source: {fileID: 0}
+  _source: {fileID: 1197446206}
   _handTransform: {fileID: 0}
   _sdfTexture: {fileID: 0}
   _bodyPartSegmenter: {fileID: 0}
@@ -77729,7 +78117,8 @@ MonoBehaviour:
   _bindDepthRangeOverride: 1
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
-  _anchorTransform: {fileID: 0}
+  _verboseDebug: 0
+  _anchorTransform: {fileID: 1526401167}
 --- !u!73398921 &1998544741
 VFXRenderer:
   serializedVersion: 1
@@ -77814,6 +78203,20 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!114 &1998544743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998544737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decd81d6f45174966adea098a5f3b5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXNoCull
+  _boundsSize: 1000
+  _updateEveryFrame: 1
 --- !u!1 &1998794702
 GameObject:
   m_ObjectHideFlags: 0
@@ -77907,6 +78310,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &1998794706
 VFXRenderer:
@@ -78085,6 +78489,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2009393355
 VFXRenderer:
@@ -78263,6 +78668,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2016692277
 VFXRenderer:
@@ -78366,7 +78772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2016840819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78642,6 +79048,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2018247276
 VFXRenderer:
@@ -78933,6 +79340,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2028740688
 VFXRenderer:
@@ -79402,6 +79810,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2035382567
 VFXRenderer:
@@ -79580,6 +79989,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2065096437
 VFXRenderer:
@@ -79758,6 +80168,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2069313739
 VFXRenderer:
@@ -79936,6 +80347,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2072650105
 VFXRenderer:
@@ -80201,6 +80613,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2076270269
 VFXRenderer:
@@ -80455,6 +80868,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2097826870
 VFXRenderer:
@@ -80633,6 +81047,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2099018635
 VFXRenderer:
@@ -80793,8 +81208,9 @@ MonoBehaviour:
   _bindRayParamsOverride: 0
   _bindInverseViewOverride: 0
   _bindDepthRangeOverride: 0
-  _bindThrottleOverride: 0
+  _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!114 &2102168472
 MonoBehaviour:
@@ -81092,6 +81508,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2103034040
 VFXRenderer:
@@ -81270,6 +81687,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2105237779
 VFXRenderer:
@@ -81448,6 +81866,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2109055251
 VFXRenderer:
@@ -81626,6 +82045,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2126442473
 VFXRenderer:
@@ -81804,6 +82224,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2138528084
 VFXRenderer:
@@ -81982,6 +82403,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2140230416
 VFXRenderer:
@@ -82107,6 +82529,11 @@ MonoBehaviour:
   _boundColor: {r: 0.3, g: 0.9, b: 0.3, a: 1}
   _unboundColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _errorColor: {r: 0.9, g: 0.3, b: 0.3, a: 1}
+  _totalVFXDisplay: 0
+  _selectedIndexDisplay: 0
+  _selectedVFXNameDisplay: None
+  _propertyCountDisplay: 0
+  _boundPropertiesDisplay: 0
 --- !u!4 &2142795085
 Transform:
   m_ObjectHideFlags: 0
@@ -82215,6 +82642,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 0
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2145588393
 VFXRenderer:
@@ -82393,6 +82821,7 @@ MonoBehaviour:
   _bindDepthRangeOverride: 0
   _bindThrottleOverride: 1
   _bindAudioOverride: 0
+  _verboseDebug: 0
   _anchorTransform: {fileID: 0}
 --- !u!73398921 &2146781106
 VFXRenderer:
@@ -82500,7 +82929,6 @@ SceneRoots:
   - {fileID: 813519091}
   - {fileID: 924228863}
   - {fileID: 330018025}
-  - {fileID: 1526401167}
   - {fileID: 1197446207}
   - {fileID: 1871705188}
   - {fileID: 1327034459}
@@ -82517,3 +82945,4 @@ SceneRoots:
   - {fileID: 322121401}
   - {fileID: 2142795085}
   - {fileID: 1491589186}
+  - {fileID: 1526401167}
