@@ -3687,3 +3687,148 @@ make new display alarm at end of display alarms of theEvent with properties {tri
 - `scripts/pull_voice_logs.sh`
 - `scripts/post_test_analysis.sh`
 - `src/components/UnifiedDebugOverlay.tsx`
+
+## 2026-02-07 01:58 - WebXR Immersive Web Reference Added
+- **Source**: https://immersiveweb.dev/
+- **File**: _WEBXR_IMMERSIVE_WEB_REFERENCE.md
+- **Content**: WebXR Device API specs, browser support matrix, development frameworks (A-Frame, Babylon.js, Three.js, Needle Engine, Unity WebXR Export), W3C standards links
+- **Relevance**: Alternative web-based deployment path for XR experiences, bypasses app stores
+
+
+## 2026-02-07 02:02 - OpenUSD Reference Added
+- **Sources**: openusd.org, Isaac Sim docs
+- **File**: _OPENUSD_REFERENCE.md
+- **Content**: USD core concepts (prims, stages, layers), composition arcs (LIVRPS), Python API, file formats (.usda/.usdc/.usdz), schemas, Unity integration notes
+- **Relevance**: 3D interchange format, USDZ for iOS AR Quick Look, Unity 6 native support
+
+
+## 2026-02-07 02:04 - Synthetic Data Generation Reference Added
+- **Source**: Isaac Sim Replicator/Cosmos docs
+- **File**: _SYNTHETIC_DATA_GENERATION.md
+- **Content**: NVIDIA Replicator multi-modal capture, Cosmos Transfer, domain randomization strategies, Unity Perception comparison, output formats (COCO, KITTI, SOLO)
+- **Relevance**: Training data for hand tracking, object detection, scene understanding models
+
+
+## 2026-02-07 03:18 - Claude Code System Prompt Analysis Added
+- **Source**: GitHub x1xhlol/system-prompts-and-models-of-ai-tools
+- **File**: _CLAUDE_CODE_SYSTEM_PROMPT_ANALYSIS.md
+- **Key Learnings**:
+  - 12 tools in 3 categories (task, file, external)
+  - Pre-requisite chains (Read before Edit)
+  - Atomic batch operations (MultiEdit)
+  - TodoWrite pattern for visibility
+  - Safety architecture (git protocol, hook integration)
+  - Proactivity balance (ask before acting)
+  - Search hierarchy (Glob→Grep→Task agent)
+- **Relevance**: Template for designing custom AI agents
+
+
+## 2026-02-07 03:25 - AI Coding Tools Comparison & Patterns Added
+- **Source**: github.com/x1xhlol/system-prompts-and-models-of-ai-tools
+- **Files Created**:
+  - `_AI_CODING_TOOLS_COMPARISON.md` - Deep comparison of 5 tools
+  - `~/.claude/skills/agent-patterns.md` - Quick reference skill
+- **Files Updated**:
+  - `~/GLOBAL_RULES.md` - Added §Agent Patterns section
+  - `portals_main/CLAUDE.md` - Added project-specific patterns
+- **Key Patterns Extracted**:
+  1. Pre-requisite chains (Read before Edit)
+  2. Multi-search methodology (3 passes)
+  3. Batch vs Sequence (parallel independent, sequence dependent)
+  4. One-tool-per-iteration (observe after each action)
+  5. Non-interactive commands (--no-pager everywhere)
+  6. Discussion first (clarify ambiguous)
+  7. Secret management (never inline)
+- **Relevance**: Faster coding, fewer errors, better automation
+
+
+## 2026-02-07 - Claude Code - FreshHologram VFX Template (Working Pipeline Reference)
+
+**Context**: Established the FreshHologram VFX as the canonical working template for the Hybrid Bridge Pattern (ARDepthSource + VFXARBinder).
+
+### Key Discoveries
+
+1. **In-Graph Depth Decoding** - FreshHologram decodes depth directly in VFX Graph:
+   - Sample DepthMap at UV
+   - Use RayParams (tan(fov/2)*aspect, tan(fov/2)) to compute view-space direction
+   - Multiply by depth to get view-space position
+   - Transform by InverseView to get world position
+   - **Advantage**: Single texture sample, no CPU compute overhead for PositionMap
+
+2. **VFXARBinder Property Aliases** - Cross-project compatibility via alias groups:
+   ```
+   DepthAliases = { "DepthMap", "DepthTexture", "_Depth", "Depth" }
+   ColorAliases = { "ColorMap", "ColorTexture", "_MainTex", "MainTex", "Background" }
+   RayAliases = { "RayParams", "CameraParams", "RayParamsMatrix" }
+   InvViewAliases = { "InverseView", "InvView", "InverseViewMatrix" }
+   ```
+
+3. **AR Companion Workflow (MANDATORY)**:
+   - Launch AR Companion on phone FIRST: `xcrun devicectl device process launch --device <UDID> <bundle_id>`
+   - THEN enter Play mode in Unity Editor
+   - AR data streams at 63x84 resolution (AR Remote) or 256x192 (device)
+
+4. **MCP Speed Prevention**:
+   - Check for iOS build: `pgrep -f "il2cppOutput\|clang.*unity"`
+   - Dismiss dialogs: `osascript -e 'tell application "System Events" to keystroke return'`
+   - Never MCP during IL2CPP compilation
+
+### Files Created
+- `MetavidoVFX-main/Assets/Documentation/FRESH_HOLOGRAM_VFX_REVIEW.md` - Complete template documentation
+- Updated `MetavidoVFX-main/CLAUDE.md` with MCP Speed Rules, VFX Edit Rules
+
+### Cross-References
+- `Assets/VFX/People/fresh_hologram.vfx` - Template VFX asset
+- `Assets/Scripts/Bridges/VFXARBinder.cs` - Per-VFX binding component
+- `Assets/Scripts/Bridges/ARDepthSource.cs` - Singleton AR data provider
+- `Assets/Scripts/Editor/FreshHologramSetup.cs` - One-Click Setup menu
+
+### Template Safety Rules
+- **BEFORE editing fresh_hologram.vfx**: Duplicate first OR commit+push
+- **Naming convention**: `<name>_variant.vfx` for experimental changes
+- **Recovery**: `git checkout -- Assets/VFX/People/fresh_hologram.vfx`
+
+**Relevance**: Canonical reference for all future hologram VFX development
+
+
+## 2026-02-07 - Cross-CLI Performance + Coplay MCP Baseline Correction
+
+**Confidence:** High (direct config inspection + process/timing measurements)
+
+### Key Insights
+
+1. **Global rules drift can silently remove Coplay workflow gains.**
+   - `~/GLOBAL_RULES.md` is a symlink to `~/Documents/GitHub/Unity-XR-AI/GLOBAL_RULES.md`.
+   - Editing the symlink target changed behavior for all tools at once.
+   - Guardrail: treat this file as canonical and back it up before edits.
+
+2. **Main slowdown came from config complexity, not model quality.**
+   - Large/overlapping instruction layers + aggressive hooks caused prompt pollution and inconsistent behavior.
+   - MCP server sprawl increased startup/tool routing overhead.
+   - `uvx --no-cache --refresh` added avoidable startup latency.
+
+3. **Coplay/Unity MCP efficient baseline (restored/standardized):**
+   - `unityMCP`: `/Users/jamestunick/.local/bin/uvx --from mcpforunityserver==9.0.8 mcp-for-unity --transport stdio`
+   - `coplay-mcp`: `uvx --python >=3.11 coplay-mcp-server@latest`
+   - `MCP_TOOL_TIMEOUT=240000`
+   - Use 2-server default (Unity + Coplay) unless task requires extras.
+
+4. **Measured effect after removing refresh-heavy flags:**
+   - Unity MCP warm start improved from **~2.43s** to **~1.18s**.
+
+5. **Critical consistency fix for Codex:**
+   - Repo `.codex/config.toml` can override global behavior.
+   - `model_reasoning_effort` should stay `medium` for speed unless task explicitly needs deeper reasoning.
+
+### Recommended Ongoing Workflow
+
+- Resource-first grounding -> Intent IR -> deterministic MCP plan -> verify/repair loop.
+- Verify loop: `read_console -> validate_script -> refresh_unity -> run_tests -> get_test_job`.
+- Keep instructions short, avoid duplicate directives across global and project files.
+
+### Evidence/References
+
+- `docs/AI_TOOLCHAIN_AUDIT_2026-02-07.md`
+- `docs/AI_TOOLCHAIN_CONFIG_MATRIX.md`
+- `specs/COPLAY_TOOLCHAIN_NORTHSTAR_2026.md`
+

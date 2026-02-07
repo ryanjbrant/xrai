@@ -14,20 +14,22 @@ namespace XRRAI.Editor
     /// </summary>
     public static class ARRemotePlayModeTestRunner
     {
-        private const string AR_COMPANION_BUNDLE_ID = "com.imclab.metavidovfxARCompanion";
-        private const string DEVICE_ID = "93485B6C-D0DD-5535-BD87-A80D0FC9FB54"; // IMClab 15
+        private static ARRemoteTestConfig Config => ARRemoteTestConfig.LoadOrCreate();
 
         [MenuItem("H3M/Testing/AR Remote/Launch Companion App on Device")]
         public static void LaunchCompanionApp()
         {
-            Debug.Log("[AR Remote] Launching AR Companion app on device...");
+            var deviceId = Config.deviceId;
+            var bundleId = Config.bundleId;
+
+            Debug.Log($"[AR Remote] Launching AR Companion app on device {deviceId} (bundle {bundleId})...");
 
             var process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = "xcrun",
-                    Arguments = $"devicectl device process launch --device {DEVICE_ID} {AR_COMPANION_BUNDLE_ID}",
+                    Arguments = $"devicectl device process launch --device {deviceId} {bundleId}",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
@@ -63,13 +65,17 @@ namespace XRRAI.Editor
         [MenuItem("H3M/Testing/AR Remote/Run Hand Tracking PlayMode Tests")]
         public static void RunHandTrackingPlayModeTests()
         {
-            Debug.Log("[AR Remote] Starting hand tracking PlayMode tests...");
+            var tests = (Config.playModeTestNames != null && Config.playModeTestNames.Length > 0)
+                ? Config.playModeTestNames
+                : new[] { "MetavidoVFX.Tests.HandTrackingPlayModeTests" };
+
+            Debug.Log($"[AR Remote] Starting PlayMode tests: {string.Join(", ", tests)}...");
 
             var testRunnerApi = ScriptableObject.CreateInstance<TestRunnerApi>();
             var filter = new Filter
             {
                 testMode = TestMode.PlayMode,
-                testNames = new[] { "MetavidoVFX.Tests.HandTrackingPlayModeTests" }
+                testNames = tests
             };
 
             testRunnerApi.Execute(new ExecutionSettings(filter));
@@ -88,8 +94,9 @@ namespace XRRAI.Editor
             LaunchCompanionApp();
 
             // 3. Wait for app to start
-            Debug.Log("[AR Remote] Waiting 5 seconds for companion app to start...");
-            await Task.Delay(5000);
+            var delay = Mathf.Max(0, Config.postLaunchDelayMs);
+            Debug.Log($"[AR Remote] Waiting {delay} ms for companion app to start...");
+            await Task.Delay(delay);
 
             // 4. Verify scene setup
             ARRemoteTestingSetup.VerifySceneSetup();
@@ -113,6 +120,11 @@ namespace XRRAI.Editor
 
             // Setup optimal config first
             ARRemoteTestingSetup.SetupOptimalConfig();
+
+            if (Config.autoLaunchOnPlay)
+            {
+                LaunchCompanionApp();
+            }
 
             // Enter play mode
             EditorApplication.isPlaying = true;

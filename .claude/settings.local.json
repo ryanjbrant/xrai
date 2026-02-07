@@ -63,7 +63,10 @@
       "mcp__unity__manage_vfx",
       "mcp__unity__set_active_instance",
       "mcp__unity__refresh_unity",
-      "mcp__unity__execute_menu_item"
+      "mcp__unity__execute_menu_item",
+      "mcp__unity__manage_asset",
+      "mcp__unity__batch_execute",
+      "mcp__coplay-mcp__set_unity_project_root"
     ],
     "deny": [],
     "ask": []

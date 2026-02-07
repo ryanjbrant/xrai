@@ -256,6 +256,7 @@
     <Compile Include="Assets/Scripts/Editor/Spec011SceneSetup.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/Serialization/Processors/RetimeProcessorSettings.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/VFX/Scripts/Editor/WireImporter/WireMeshImporter.cs" />
+    <Compile Include="Assets/Scripts/Editor/FreshHologramSetup.cs" />
     <Compile Include="Assets/Samples/Inference Engine/2.3.0/Encrypt a model/Editor/EncryptAndSaveModel.cs" />
     <Compile Include="Assets/Samples/App UI/1.3.1/StoryBook/Editor/ListViewItem.stories.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/GIBLI/TOON SHADERS/URP_Toon/ChiliMilkToonShader/Editor/ToonShaderGUI.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="Assets/Scripts/Editor/VFXLibrarySetup.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/Common Tools/WelcomeScreen/Editor/WelcomeScreen/PreferenceDefinition/ProjectEditorPreferenceDefinitionBase.cs" />
     <Compile Include="Assets/3rdparty/Mirza Beig/Editor Extensions/Utilities/Particle Playback/Editor/ParticlePlaybackEditorWindow.cs" />
+    <Compile Include="Assets/Scripts/Editor/ARCompanionBuilder.cs" />
     <Compile Include="Assets/Scripts/Editor/VFXPipelineAuditor.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/GIBLI/Scripts GIBLI/effectsControllerGIBLI/Editor/effectsControllerGIBLIEditor.cs" />
     <Compile Include="Assets/3rdparty/FERM/Scripting/Editor/FERM_RendererEditor.cs" />
@@ -332,6 +334,7 @@
     <Compile Include="Assets/3rdparty/ARTnGAME/Common Tools/WelcomeScreen/Editor/WelcomeScreen/GuiElements/OpenUrlButton.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/GIBLI/TOON SHADERS/kShading/Editor/BaseGUI.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/Editor/Utility/CurveDrawer.cs" />
+    <Compile Include="Assets/Scripts/Editor/ARRemoteTestConfig.cs" />
     <Compile Include="Assets/NNCam/Scripts/Editor/NNCamVFXSubgraphSwapper.cs" />
     <Compile Include="Assets/Scripts/Editor/PostProcessingSetup.cs" />
     <Compile Include="Assets/Samples/App UI/1.3.1/StoryBook/Editor/MenuItem.stories.cs" />
@@ -759,6 +762,9 @@
     <Reference Include="SQLitePCLRaw.batteries_v2">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/SQLitePCLRaw.config.e_sqlite3.3.0.2/lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
+    <Reference Include="Coplay-v8.12.1">
+      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@c863818ba98b/Editor/Unity-v2022.3/Coplay-v8.12.1.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.unity.ext.nunit@031a54704bff/net40/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
@@ -812,9 +818,6 @@
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0/lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
-    </Reference>
-    <Reference Include="Coplay-v8.10.2">
-      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@1e2b9040305f/Editor/Unity-v2022.3/Coplay-v8.10.2.dll</HintPath>
     </Reference>
     <Reference Include="NuGetForUnity.PluginAPI">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.github-glitchenzo.nugetforunity@e93995edfb73/Editor/PluginAPI/NuGetForUnity.PluginAPI.dll</HintPath>

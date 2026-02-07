@@ -14,18 +14,32 @@ namespace XRRAI.Editor
     public static class ARRemoteTestingSetup
     {
         private const string AUTO_OPEN_PREF = "ARRemote_AutoOpenOnPlay";
+        private static ARRemoteTestConfig Config => ARRemoteTestConfig.LoadOrCreate();
 
         static ARRemoteTestingSetup()
         {
             EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
         }
 
-        private static void OnPlayModeStateChanged(PlayModeStateChange state)
+        private static async void OnPlayModeStateChanged(PlayModeStateChange state)
         {
             if (state == PlayModeStateChange.EnteredPlayMode && EditorPrefs.GetBool(AUTO_OPEN_PREF, true))
             {
                 // Auto-open AR Remote window
                 OpenARRemoteWindow();
+
+                if (Config.autoLaunchOnPlay)
+                {
+                    ARRemotePlayModeTestRunner.LaunchCompanionApp();
+                    var delay = Mathf.Max(0, Config.postLaunchDelayMs);
+                    Debug.Log($"[AR Remote] Waiting {delay} ms after launch before continuing...");
+                    await System.Threading.Tasks.Task.Delay(delay);
+
+                    if (Config.autoRunPlayModeTests)
+                    {
+                        ARRemotePlayModeTestRunner.RunHandTrackingPlayModeTests();
+                    }
+                }
             }
         }
 
@@ -99,6 +113,14 @@ namespace XRRAI.Editor
             {
                 Debug.LogWarning($"[AR Remote] Could not open window: {e.Message}. AR Foundation Remote may not be installed.");
             }
+        }
+
+        [MenuItem("H3M/Testing/AR Remote/Edit Config")]
+        public static void EditConfig()
+        {
+            var config = ARRemoteTestConfig.LoadOrCreate();
+            Selection.activeObject = config;
+            EditorGUIUtility.PingObject(config);
         }
 
         [MenuItem("H3M/Testing/AR Remote/Quick Start Guide")]

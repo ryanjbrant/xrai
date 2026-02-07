@@ -426,6 +426,9 @@
     <Reference Include="SQLitePCLRaw.batteries_v2">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/SQLitePCLRaw.config.e_sqlite3.3.0.2/lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
+    <Reference Include="Coplay-v8.12.1">
+      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@c863818ba98b/Editor/Unity-v2022.3/Coplay-v8.12.1.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.unity.ext.nunit@031a54704bff/net40/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
@@ -479,9 +482,6 @@
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/Microsoft.CodeAnalysis.CSharp.Workspaces.5.0.0/lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
-    </Reference>
-    <Reference Include="Coplay-v8.10.2">
-      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@1e2b9040305f/Editor/Unity-v2022.3/Coplay-v8.10.2.dll</HintPath>
     </Reference>
     <Reference Include="NuGetForUnity.PluginAPI">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.github-glitchenzo.nugetforunity@e93995edfb73/Editor/PluginAPI/NuGetForUnity.PluginAPI.dll</HintPath>

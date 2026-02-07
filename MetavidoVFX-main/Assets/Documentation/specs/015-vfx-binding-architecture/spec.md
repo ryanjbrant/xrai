@@ -112,13 +112,42 @@ Legacy components moved to `.deprecated/` folder during setup:
 - `VFXARDataBinder.cs` → Replaced by VFXARBinder
 - `OptimalARVFXBridge.cs` → Merged into ARDepthSource
 
+### Working Template: FreshHologram VFX
+
+The **FreshHologram VFX** (`Assets/VFX/People/fresh_hologram.vfx`) serves as the canonical working template for this architecture:
+
+| Property | Type | Bound By |
+|----------|------|----------|
+| ColorMap | Texture2D | VFXARBinder → ARDepthSource |
+| DepthMap | Texture2D | VFXARBinder → ARDepthSource |
+| RayParams | Vector4 | VFXARBinder → ARDepthSource |
+| InverseView | Matrix4x4 | VFXARBinder → ARDepthSource |
+| DepthRange | Vector2 | VFXARBinder → ARDepthSource |
+
+**In-Graph Depth Decoding**: FreshHologram uses depth decoding directly in the VFX Graph (no PositionMap compute needed):
+1. Sample DepthMap at UV
+2. Use RayParams to compute view-space direction
+3. Multiply by depth for view-space position
+4. Transform by InverseView for world position
+
+**One-Click Setup**: `H3M/FreshHologram/One-Click Setup (Recommended)`
+
+**Safety Rules**:
+- **BEFORE editing**: Duplicate first OR commit+push
+- **Naming**: Use `<name>_variant.vfx` for experimental changes
+- **Recovery**: `git checkout -- Assets/VFX/People/fresh_hologram.vfx`
+
+See `Assets/Documentation/FRESH_HOLOGRAM_VFX_REVIEW.md` for complete template documentation.
+
 ### References
 
 - `Assets/Documentation/VFX_PIPELINE_FINAL_RECOMMENDATION.md` - Architecture decision
 - `Assets/Documentation/SYSTEM_ARCHITECTURE.md` - Full system docs
+- `Assets/Documentation/FRESH_HOLOGRAM_VFX_REVIEW.md` - Working template documentation
 
 ---
 
 *Created: 2026-01-16*
 *Completed: 2026-01-16*
+*Updated: 2026-02-07 - Added FreshHologram working template*
 *Author: Claude Code + User*
