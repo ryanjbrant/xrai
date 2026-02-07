@@ -19,6 +19,33 @@ MetavidoVFX is a Unity 6 AR/VFX demonstration project that visualizes volumetric
 - See `RULES.md` for the full Tool Selection and Fast Workflows tables.
 - Codex also follows the Cross-Tool Integration and Unity MCP Optimization guidance in `RULES.md`.
 
+## MCP Speed Rules (CRITICAL)
+
+**Before ANY MCP call**, check if Unity is blocked:
+```bash
+pgrep -f "il2cppOutput\|clang.*unity" > /dev/null && echo "BUILDING - skip MCP"
+```
+
+**Causes of MCP timeouts**:
+1. **iOS build in progress** - IL2CPP compilation blocks Unity (check for clang processes)
+2. **Modal dialogs** - EditorUtility.DisplayDialog blocks Unity
+3. **Play mode transitions** - Brief blocking during enter/exit
+
+**Fixes**:
+- If building: Wait or use file edits instead of MCP
+- If dialog: `osascript -e 'tell application "System Events" to keystroke return'`
+- Always use **parallel tool calls** when possible
+
+**AR Companion Workflow (ALWAYS)**:
+1. Launch AR Companion on phone FIRST: `xcrun devicectl device process launch --device 00008130-001E55443409001C com.imclab.metavidovfxARCompanion`
+2. THEN enter Play mode in Unity Editor
+3. AR data streams from phone to Editor for testing
+
+**Unity Session Rules (ALWAYS)**:
+- **NEVER let Unity close unexpectedly** - always quit gracefully via MCP or menu
+- **After reopening Unity**, immediately dismiss any dialogs: `osascript -e 'tell application "System Events" to keystroke return'`
+- **Before iOS build**, stop Play mode first to avoid MCP disconnect
+
 ## Build Commands
 
 ### iOS Build (Primary)
