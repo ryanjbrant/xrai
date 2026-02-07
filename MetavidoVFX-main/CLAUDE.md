@@ -46,6 +46,12 @@ pgrep -f "il2cppOutput\|clang.*unity" > /dev/null && echo "BUILDING - skip MCP"
 - **After reopening Unity**, immediately dismiss any dialogs: `osascript -e 'tell application "System Events" to keystroke return'`
 - **Before iOS build**, stop Play mode first to avoid MCP disconnect
 
+**VFX Graph Edit Rules (CRITICAL)**:
+- **BEFORE editing any VFX Graph**: Either duplicate it first OR commit+push current state
+- **Template VFX** (`fresh_hologram.vfx`): ALWAYS duplicate before modifying
+- **Naming**: Use `<name>_variant.vfx` for experimental changes
+- **Recovery**: If VFX breaks, revert from git: `git checkout -- Assets/VFX/People/fresh_hologram.vfx`
+
 ## Build Commands
 
 ### iOS Build (Primary)
