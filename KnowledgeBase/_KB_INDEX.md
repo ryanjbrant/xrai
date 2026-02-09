@@ -1,6 +1,6 @@
 # KnowledgeBase Index
 
-**Files**: 174 | **Size**: ~4MB | **Updated**: 2026-02-05
+**Files**: 241 | **Size**: ~4MB | **Updated**: 2026-02-09
 
 > **On audits**: Verify Quick Access matches current projects. Check `ls -lt ~/Documents/GitHub/ | head -10` for active work. Archive stale files (>6 months). See GLOBAL_RULES.md §KB Relevance Check.
 
@@ -359,3 +359,9 @@ kbtag "vfx"
 ```
 
 **Tags**: `#unity` `#vfx` `#ar` `#ml` `#tools` `#web` `#fix` `#claude` `#mcp`
+
+| Gemini CLI MCP Patterns | `_GEMINI_CLI_MCP_SERVER_PATTERNS.md` | Transport, OAuth, and trust config for Gemini CLI. |
+
+| Gemini CLI Best Practices | `_GEMINI_CLI_BEST_PRACTICES.md` | Config optimization, context hierarchy, and speed tips. |
+
+| Gemini Workflow Analysis | `_GEMINI_CLI_WORKFLOW_ANALYSIS.md` | Hard vs Soft automation strategy. Code over Context. |

@@ -47,7 +47,7 @@ Explore → Plan → Code → Commit → Log discovery
 - **On error**: Check `_QUICK_FIX.md`
 - **Discovery**: Append to `LEARNING_LOG.md`
 - **User patterns**: See `_USER_PATTERNS_JAMES.md`
-- **Agents guide**: Keep `AGENTS.md` synchronized with codebase/docs/specs/KB and `CLAUDE.md`.
+- **Agents guide**: Keep `CLAUDE.md` synchronized with codebase/docs/specs/KB and `CLAUDE.md`.
 - **Cross-tool sync**: Keep docs/rules/memory aligned across Codex, Claude Code, and Gemini.
 - **KB Index**: `~/KnowledgeBase/_KB_INDEX.md`
 - **GitHub trends**: `~/KnowledgeBase/_GITHUB_TRENDING_INDEX.md` (auto-updates every 12h)
@@ -201,7 +201,7 @@ Error/Question arrives
 ### Shared Resources (All Tools)
 ```
 ~/GLOBAL_RULES.md                    ← This file
-~/AGENTS.md                          ← Codex compatibility
+~/CLAUDE.md                          ← Codex compatibility
 ~/KnowledgeBase/  ← Pattern library
 ```
 
@@ -216,7 +216,7 @@ Error/Question arrives
 | Implementation | Claude Code + MCP | Primary, best integration |
 | Research | Gemini CLI / Antigravity | FREE 1M context |
 | Quick edits | Windsurf | Cascade for multi-file |
-| Code gen | Codex | AGENTS.md compatible |
+| Code gen | Codex | CLAUDE.md compatible |
 | Navigation | Rider + JetBrains MCP | Indexed search |
 
 ### Project Quick Commands
@@ -247,7 +247,7 @@ batch_execute([{...}, {...}], parallel=true)  # Multiple VFX ops
 ### Configuration Sync (Single Source of Truth)
 ```
 Unity-XR-AI/GLOBAL_RULES.md  →  ~/GLOBAL_RULES.md  →  all tools
-Unity-XR-AI/AGENTS.md        →  ~/AGENTS.md        →  Codex
+Unity-XR-AI/CLAUDE.md        →  ~/CLAUDE.md        →  Codex
 Unity-XR-AI/KnowledgeBase/   →  all tool KB dirs
 ```
 
@@ -257,7 +257,7 @@ Unity-XR-AI/KnowledgeBase/   →  all tool KB dirs
 | Tool | Config Location | Symlinks |
 |------|-----------------|----------|
 | Claude Code | ~/.claude/ | knowledgebase, CLAUDE.md |
-| Codex | ~/.codex/ | AGENTS.md, GLOBAL_RULES.md, knowledgebase |
+| Codex | ~/.codex/ | CLAUDE.md, GLOBAL_RULES.md, knowledgebase |
 | Antigravity | ~/.antigravity/ | GLOBAL_RULES.md, knowledgebase |
 | Windsurf | ~/.windsurf/ | GLOBAL_RULES.md, knowledgebase |
 | Rider | JetBrains MCP | port 63342 |

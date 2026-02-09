@@ -109,3 +109,18 @@ Voice → Gemini 2.0 → SceneAction JSON → useComposerBridge → BridgeTarget
 - `unity/Assets/Scripts/BridgeTarget.cs` - Unity message handlers
 - `unity/Assets/Scripts/WireSystem.cs` - Reactive binding system
 - `unity/Assets/Scripts/VoiceToWire.cs` - NL → Wire conversion
+
+## Thin Client & Meta-Registry Architecture (Restored 2026-02-09)
+
+The system uses a "Meta-Registry" to ensure the AI, TypeScript, and Unity C# stay in sync without manual coding.
+
+### 1. The Source of Truth: `unity/registry_config.json`
+Define supported components, defaults, and editable properties in this file.
+
+### 2. Auto-Generation: `scripts/generate_registry.cjs`
+Running `npm run prebuild` triggers this script, which generates C# handlers, AI schema, and tests.
+
+### 3. Unity Execution: `BridgeTarget.cs`
+The bridge routes generic `ADD_COMPONENT` and `SET_PROPERTY` messages through the `ComponentRegistry`.
+
+**Stable Baseline Commit**: `f43d94342` (Feb 9 01:54)

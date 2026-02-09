@@ -955,7 +955,6 @@
     <None Include="Assets/3rdparty/ARTnGAME/GIBLI/URP IMAGE EFFECTS/URPCustomPostProcessing/Shaders/API/D3D11.hlsl" />
     <None Include="Assets/Fluo/06 Monitor/DebugView/DebugView.shader" />
     <None Include="Assets/3rdparty/ARTnGAME/GIBLI/SHADING/GRAPHS/Noisy-Nodes/NoiseShader/HLSL/BCCNoise8.hlsl" />
-    <None Include="Assets/Shaders/DepthToWorld.compute" />
     <None Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/#___LENS_FLARES2020/Kino/Fog/Shader/Fog.shader" />
     <None Include="Assets/Shaders/VFXProxCommon copy.hlsl" />
     <None Include="Assets/Samples/App UI/1.3.1/UI Kit/SampleResources/ExampleTransparent.uxml" />
@@ -1274,6 +1273,7 @@
     <None Include="Assets/3rdparty/KriptoFX/Realistic Effects Pack v4/SceneResources/Other/CullOffMobileDiffuse.shader" />
     <None Include="Assets/Packages/System.Composition.Runtime.9.0.0/lib/netstandard2.0/System.Composition.Runtime.xml" />
     <None Include="Assets/3rdparty/ARTnGAME/GIBLI/TOON SHADERS/kShading/Shaders/ToonLit.shader" />
+    <None Include="Assets/Resources/PerformanceTestRunSettings.json" />
     <None Include="Assets/3rdparty/KriptoFX/Realistic Effects Pack v4/Effects/Shaders/DemoMobileDiffuse.shader" />
     <None Include="Assets/3rdparty/Stylized Character_Archer/ToonShader/Shader/CustomLighting/CustomLighting.hlsl" />
     <None Include="Assets/3rdparty/ARTnGAME/GIBLI/Scripts GIBLI/Painterly FX/SRP_SHADERS/image-ultra/Resources/Shaders/UnderwaterGIBLION_TRANSP.shader" />
@@ -1434,6 +1434,7 @@
     <None Include="Assets/3rdparty/FERM/_Shaders/Include/Raymarching.cginc" />
     <None Include="Assets/3rdparty/ARTnGAME/GIBLI/SHADING/URP-LWRP-Shaders/LICENSE.txt" />
     <None Include="Assets/3rdparty/ARTnGAME/GIBLI/SHADING/GRAPHS/Noisy-Nodes/NoiseShader/HLSL/Voronoi3D.hlsl" />
+    <None Include="Assets/Resources/PerformanceTestRunInfo.json" />
     <None Include="Assets/3rdparty/ARTnGAME/GIBLI/TOON SHADERS/ShaderGraph-OneOffEffects/TextMesh Pro/Resources/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/UI/Monitor.uxml" />
     <None Include="Assets/Packages/Microsoft.Bcl.AsyncInterfaces.9.0.0/lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml" />

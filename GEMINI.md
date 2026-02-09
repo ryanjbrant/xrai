@@ -37,8 +37,9 @@ The project has transitioned to the **Hybrid Bridge** architecture in `MetavidoV
 
 ### MCP Configuration
 Gemini is configured to use MCP servers defined in `.ai/mcp/mcp.json`.
-*   **UnityMCP**: Powered by `uvx` (v9.0.1) for rapid Unity Editor interaction.
+*   **unity**: Powered by `uvx` (v9.1.0) for rapid Unity Editor interaction.
 *   **claude-mem**: Persistent memory via ChromaDB.
+*   **github**: GitHub repository integration.
 *   **Local Settings**: Optimized rules are stored in `.gemini/settings.json`.
 *   **Reference**: See `KnowledgeBase/_GEMINI_UNITY_MCP_SETUP.md` for full command reference and optimization patterns.
 

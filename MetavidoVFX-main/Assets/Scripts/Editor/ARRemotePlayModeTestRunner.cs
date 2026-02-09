@@ -4,6 +4,8 @@ using UnityEditor.TestTools.TestRunner.Api;
 using UnityEngine;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.IO;
 using Debug = UnityEngine.Debug;
 
 namespace XRRAI.Editor
@@ -15,6 +17,7 @@ namespace XRRAI.Editor
     public static class ARRemotePlayModeTestRunner
     {
         private static ARRemoteTestConfig Config => ARRemoteTestConfig.LoadOrCreate();
+        private static Process _logProcess;
 
         [MenuItem("H3M/Testing/AR Remote/Launch Companion App on Device")]
         public static void LaunchCompanionApp()
@@ -78,8 +81,73 @@ namespace XRRAI.Editor
                 testNames = tests
             };
 
+            testRunnerApi.RegisterCallbacks(new ARTestResultCallback());
             testRunnerApi.Execute(new ExecutionSettings(filter));
             Debug.Log("[AR Remote] PlayMode tests started. Check Test Runner window for results.");
+        }
+
+        [MenuItem("H3M/Testing/AR Remote/Start Device Log Capture")]
+        public static void StartDeviceLogCapture()
+        {
+            if (_logProcess != null && !_logProcess.HasExited)
+            {
+                Debug.Log("[AR Remote] Log capture already running.");
+                return;
+            }
+
+            var deviceId = Config.deviceId;
+            if (string.IsNullOrEmpty(deviceId) || deviceId.Contains("REPLACE"))
+            {
+                Debug.LogWarning("[AR Remote] Invalid Device ID in config. Cannot capture logs.");
+                return;
+            }
+
+            string logDir = Path.Combine(Application.dataPath, "../Logs");
+            Directory.CreateDirectory(logDir);
+            string logPath = Path.Combine(logDir, "DeviceLogs.txt");
+
+            Debug.Log($"[AR Remote] Starting log capture for device {deviceId} to {logPath}...");
+
+            // We use a shell command to pipe output easily
+            var processInfo = new ProcessStartInfo
+            {
+                FileName = "/bin/sh",
+                Arguments = $"-c \"xcrun devicectl device stream --device {deviceId} > '{logPath}' 2>&1\"",
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            try
+            {
+                _logProcess = Process.Start(processInfo);
+                Debug.Log($"[AR Remote] Log capture started (PID: {_logProcess.Id})");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"[AR Remote] Failed to start log capture: {e.Message}");
+            }
+        }
+
+        [MenuItem("H3M/Testing/AR Remote/Stop Device Log Capture")]
+        public static void StopDeviceLogCapture()
+        {
+            if (_logProcess != null && !_logProcess.HasExited)
+            {
+                try
+                {
+                    _logProcess.Kill();
+                    Debug.Log("[AR Remote] Log capture stopped.");
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError($"[AR Remote] Failed to stop log capture: {e.Message}");
+                }
+                _logProcess = null;
+            }
+            else
+            {
+                Debug.Log("[AR Remote] No log capture running.");
+            }
         }
 
         [MenuItem("H3M/Testing/AR Remote/Full AR Test Sequence")]
@@ -124,6 +192,7 @@ namespace XRRAI.Editor
             if (Config.autoLaunchOnPlay)
             {
                 LaunchCompanionApp();
+                StartDeviceLogCapture();
             }
 
             // Enter play mode
@@ -132,19 +201,59 @@ namespace XRRAI.Editor
         }
     }
 
+    [System.Serializable]
+    public class TestRunReport
+    {
+        public string timestamp;
+        public int total;
+        public int passed;
+        public int failed;
+        public int skipped;
+        public List<TestResultData> results = new List<TestResultData>();
+    }
+
+    [System.Serializable]
+    public class TestResultData
+    {
+        public string name;
+        public string status;
+        public string message;
+        public double duration;
+    }
+
     /// <summary>
     /// Test result callback for PlayMode tests.
     /// </summary>
     public class ARTestResultCallback : ICallbacks
     {
+        private TestRunReport _report;
+
         public void RunStarted(ITestAdaptor testsToRun)
         {
             Debug.Log($"[AR Tests] Starting {testsToRun.TestCaseCount} tests...");
+            _report = new TestRunReport
+            {
+                timestamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                total = testsToRun.TestCaseCount
+            };
         }
 
         public void RunFinished(ITestResultAdaptor result)
         {
+            _report.passed = result.PassCount;
+            _report.failed = result.FailCount;
+            _report.skipped = result.SkipCount;
+
             Debug.Log($"[AR Tests] Finished: {result.PassCount} passed, {result.FailCount} failed, {result.SkipCount} skipped");
+
+            // Save report
+            string logDir = Path.Combine(Application.dataPath, "../Logs");
+            Directory.CreateDirectory(logDir);
+            string reportPath = Path.Combine(logDir, "TestResults.json");
+            
+            string json = JsonUtility.ToJson(_report, true);
+            File.WriteAllText(reportPath, json);
+            Debug.Log($"[AR Tests] Report saved to {reportPath}");
 
             if (result.FailCount > 0)
             {
@@ -154,11 +263,25 @@ namespace XRRAI.Editor
             {
                 Debug.Log("[AR Tests] All tests passed!");
             }
+            
+            // Stop log capture if it was started automatically
+            ARRemotePlayModeTestRunner.StopDeviceLogCapture();
         }
 
         public void TestStarted(ITestAdaptor test) { }
         public void TestFinished(ITestResultAdaptor result)
         {
+            if (_report != null)
+            {
+                _report.results.Add(new TestResultData
+                {
+                    name = result.Test.Name,
+                    status = result.TestStatus.ToString(),
+                    message = result.Message,
+                    duration = result.Duration
+                });
+            }
+
             if (result.TestStatus == TestStatus.Failed)
             {
                 Debug.LogError($"[AR Tests] FAILED: {result.Test.Name}\n{result.Message}");

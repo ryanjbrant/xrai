@@ -287,6 +287,7 @@
     <Compile Include="Assets/Scripts/Editor/ARRemotePlayModeTestRunner.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/#___LENS_FLARES2020/Kino/Vignette/Editor/VignetteEditor.cs" />
     <Compile Include="Assets/3rdparty/FERM/Scripting/Editor/FERM_MultiParamAccessEditor.cs" />
+    <Compile Include="Assets/Scripts/Editor/ARRemoteDebugger.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/Processors/AlphaFromRGBProcessor.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/Common Tools/SplineMesh/Scripts/Editor/SplineExtrusionEditor.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/Serialization/Processors/DecimateProcessorSettings.cs" />
@@ -320,6 +321,7 @@
     <Compile Include="Assets/3rdparty/ARTnGAME/Common Tools/WelcomeScreen/Editor/WelcomeScreen/GuiElements/LastUpdateButton.cs" />
     <Compile Include="Library/PackageCache/jp.keijiro.duotone@9801a860cbba/Editor/Utility.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/Serialization/ProcessorInfo.cs" />
+    <Compile Include="Assets/Scripts/Editor/AutoTestRunner.cs" />
     <Compile Include="Assets/Scripts/Editor/BrushTestRunner.cs" />
     <Compile Include="Assets/Scripts/Editor/LegacyComponentCleanup.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/GIBLI/URP IMAGE EFFECTS/ScreenSpaceCavity/ShaderPack/Editor/ToonyLitShader.cs" />
@@ -762,9 +764,6 @@
     <Reference Include="SQLitePCLRaw.batteries_v2">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/SQLitePCLRaw.config.e_sqlite3.3.0.2/lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
-    <Reference Include="Coplay-v8.12.1">
-      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@c863818ba98b/Editor/Unity-v2022.3/Coplay-v8.12.1.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.unity.ext.nunit@031a54704bff/net40/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
@@ -845,6 +844,9 @@
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/Microsoft.CodeAnalysis.CSharp.5.0.0/lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Coplay-v8.13.0">
+      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@ee55171e6a57/Editor/Unity-v2022.3/Coplay-v8.13.0.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/6000.2.14f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

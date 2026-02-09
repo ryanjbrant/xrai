@@ -5,6 +5,9 @@
     "TOKEN_EFFICIENCY_MODE": "aggressive",
     "PREFER_JETBRAINS_MCP": "true"
   },
+  "context": {
+    "loadMemoryFromIncludeDirectories": false
+  },
   "rules": [
     "Always check Unity console via read_console after code changes.",
     "Use JetBrains MCP (search_in_files_by_text) over grep for project-wide searches when Rider is active.",

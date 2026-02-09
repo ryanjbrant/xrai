@@ -183,22 +183,24 @@ fi
 echo ""
 echo "9. External Links Check (Sample)"
 echo "---------------------------------"
-# Check a few critical links
-if curl -s -o /dev/null -w "%{http_code}" "https://docs.unity3d.com" | grep -q "200"; then
-    echo -e "${GREEN}✓${NC} Unity docs accessible"
-    ((PASS++)) || true
-else
-    echo -e "${YELLOW}⚠${NC} Unity docs may be down"
-    ((WARN++)) || true
-fi
+# Check a few critical links (allow redirects and edge auth/rate-limit responses)
+check_external_site() {
+    local url="$1"
+    local label="$2"
+    local code
+    code=$(curl -L -s -o /dev/null --connect-timeout 5 --max-time 15 -w "%{http_code}" "$url" || echo "000")
 
-if curl -s -o /dev/null -w "%{http_code}" "https://threejs.org" | grep -q "200"; then
-    echo -e "${GREEN}✓${NC} Three.js site accessible"
-    ((PASS++)) || true
-else
-    echo -e "${YELLOW}⚠${NC} Three.js site may be down"
-    ((WARN++)) || true
-fi
+    if [[ "$code" =~ ^2[0-9][0-9]$ || "$code" =~ ^3[0-9][0-9]$ || "$code" == "401" || "$code" == "403" || "$code" == "429" ]]; then
+        echo -e "${GREEN}✓${NC} $label accessible (HTTP $code)"
+        ((PASS++)) || true
+    else
+        echo -e "${YELLOW}⚠${NC} $label may be down (HTTP $code)"
+        ((WARN++)) || true
+    fi
+}
+
+check_external_site "https://docs.unity3d.com" "Unity docs"
+check_external_site "https://threejs.org" "Three.js site"
 
 # 10. Self-Healing (Auto-Repair)
 echo ""

@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="71" result="Passed" total="71" passed="71" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.5162492">
+  <test-suite type="TestSuite" id="1000" name="MetavidoVFX" fullname="MetavidoVFX" runstate="Runnable" testcasecount="71" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.516249" total="71" passed="71" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1072" name="Assembly-CSharp-Editor.dll" fullname="/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="68" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.334381" total="68" passed="68" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="62811" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1073" name="MetavidoVFX" fullname="MetavidoVFX" runstate="Runnable" testcasecount="68" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.318628" total="68" passed="68" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1074" name="Editor" fullname="MetavidoVFX.Editor" runstate="Runnable" testcasecount="68" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.301018" total="68" passed="68" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1075" name="Tests" fullname="MetavidoVFX.Editor.Tests" runstate="Runnable" testcasecount="68" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.274464" total="68" passed="68" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="HandTrackingTests" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.034621" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1011" name="GestureConfig_AppliesTo_Detector" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureConfig_AppliesTo_Detector" methodname="GestureConfig_AppliesTo_Detector" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1594247100" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.005583" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="GestureConfig_CasualPreset_HasForgivingThresholds" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureConfig_CasualPreset_HasForgivingThresholds" methodname="GestureConfig_CasualPreset_HasForgivingThresholds" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="652807821" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.001472" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="GestureConfig_PrecisePreset_HasTightThresholds" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureConfig_PrecisePreset_HasTightThresholds" methodname="GestureConfig_PrecisePreset_HasTightThresholds" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1158963813" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000135" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="GestureDetector_GrabDetection_RequiresMultipleFingers" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureDetector_GrabDetection_RequiresMultipleFingers" methodname="GestureDetector_GrabDetection_RequiresMultipleFingers" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1406962106" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000521" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="GestureDetector_PinchHysteresis_PreventFlickering" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureDetector_PinchHysteresis_PreventFlickering" methodname="GestureDetector_PinchHysteresis_PreventFlickering" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1226562055" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000371" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="GestureDetector_PinchStrength_CalculatedCorrectly" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureDetector_PinchStrength_CalculatedCorrectly" methodname="GestureDetector_PinchStrength_CalculatedCorrectly" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="867096455" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000060" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="GestureDetector_QueryMethods_Work" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureDetector_QueryMethods_Work" methodname="GestureDetector_QueryMethods_Work" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="119660973" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000126" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="GestureType_HasAllExpectedGestures" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.GestureType_HasAllExpectedGestures" methodname="GestureType_HasAllExpectedGestures" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="974839094" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000110" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="Hand_HasLeftAndRight" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.Hand_HasLeftAndRight" methodname="Hand_HasLeftAndRight" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1873298234" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000039" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="HandJointID_FingertipsHaveCorrectIndices" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.HandJointID_FingertipsHaveCorrectIndices" methodname="HandJointID_FingertipsHaveCorrectIndices" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1668836758" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000054" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="HandJointID_HasAllRequiredJoints" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.HandJointID_HasAllRequiredJoints" methodname="HandJointID_HasAllRequiredJoints" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="229835266" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000091" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="HandJointID_HasCorrectCount" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.HandJointID_HasCorrectCount" methodname="HandJointID_HasCorrectCount" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="189895110" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000036" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="HandTrackingProviderAttribute_DefaultPriorityIsZero" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.HandTrackingProviderAttribute_DefaultPriorityIsZero" methodname="HandTrackingProviderAttribute_DefaultPriorityIsZero" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="260669894" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000065" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="HandTrackingProviderAttribute_StoresIdAndPriority" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.HandTrackingProviderAttribute_StoresIdAndPriority" methodname="HandTrackingProviderAttribute_StoresIdAndPriority" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1938269525" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000047" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="VelocityCalculation_CorrectMagnitude" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.VelocityCalculation_CorrectMagnitude" methodname="VelocityCalculation_CorrectMagnitude" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1483538902" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000382" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="VelocityCalculation_ZeroWhenStationary" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.VelocityCalculation_ZeroWhenStationary" methodname="VelocityCalculation_ZeroWhenStationary" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="1973469354" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000698" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1016" name="VelocitySmoothing_ReducesJitter" fullname="MetavidoVFX.Editor.Tests.HandTrackingTests.VelocitySmoothing_ReducesJitter" methodname="VelocitySmoothing_ReducesJitter" classname="MetavidoVFX.Editor.Tests.HandTrackingTests" runstate="Runnable" seed="691339833" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000091" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1019" name="SpecVerificationTests" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" testcasecount="29" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.186664" total="29" passed="29" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1044" name="Build_iOSBuildTarget_Configured" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Build_iOSBuildTarget_Configured" methodname="Build_iOSBuildTarget_Configured" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1118512375" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000149" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1045" name="Build_MainScene_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Build_MainScene_Exists" methodname="Build_MainScene_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="865650075" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000065" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1043" name="Build_NoCompilationErrors" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Build_NoCompilationErrors" methodname="Build_NoCompilationErrors" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="530203761" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.001654" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <reason>
+                  <message><![CDATA[Project compiles without errors]]></message>
+                </reason>
+              </test-case>
+              <test-case id="1046" name="Build_SpecDemoScenes_Exist" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Build_SpecDemoScenes_Exist" methodname="Build_SpecDemoScenes_Exist" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1430761377" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000166" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1039" name="CrossSpec_AllXRRAINamespaces_Present" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.CrossSpec_AllXRRAINamespaces_Present" methodname="CrossSpec_AllXRRAINamespaces_Present" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="121016245" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.146390" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1041" name="CrossSpec_ARDepthSource_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.CrossSpec_ARDepthSource_Exists" methodname="CrossSpec_ARDepthSource_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="254496661" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000930" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1042" name="CrossSpec_VFXARBinder_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.CrossSpec_VFXARBinder_Exists" methodname="CrossSpec_VFXARBinder_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="2008299194" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000058" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1040" name="CrossSpec_VFXLibrary_HasMinimumVFX" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.CrossSpec_VFXLibrary_HasMinimumVFX" methodname="CrossSpec_VFXLibrary_HasMinimumVFX" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="355445878" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.002966" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1048" name="Performance_NoObviousMemoryLeaks" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Performance_NoObviousMemoryLeaks" methodname="Performance_NoObviousMemoryLeaks" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="55926244" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000373" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1047" name="Performance_ScriptCount_Reasonable" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Performance_ScriptCount_Reasonable" methodname="Performance_ScriptCount_Reasonable" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="495753662" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.001568" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="Spec003_HologramConferenceManager_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec003_HologramConferenceManager_Exists" methodname="Spec003_HologramConferenceManager_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1493040865" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000053" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1025" name="Spec003_HologramPrefab_HasRequiredComponents" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec003_HologramPrefab_HasRequiredComponents" methodname="Spec003_HologramPrefab_HasRequiredComponents" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="598074782" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.011277" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1023" name="Spec003_MetavidoPackage_Installed" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec003_MetavidoPackage_Installed" methodname="Spec003_MetavidoPackage_Installed" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="230695353" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000836" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="Spec003_RecordingController_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec003_RecordingController_Exists" methodname="Spec003_RecordingController_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="432362201" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000055" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1022" name="Spec003_WebRTCVFXBinder_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec003_WebRTCVFXBinder_Exists" methodname="Spec003_WebRTCVFXBinder_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1754237490" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000048" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1024" name="Spec003_WebRtcVideoChatPlugin_Installed" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec003_WebRtcVideoChatPlugin_Installed" methodname="Spec003_WebRtcVideoChatPlugin_Installed" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1546633503" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000055" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1030" name="Spec009_IcosaDefine_Set" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec009_IcosaDefine_Set" methodname="Spec009_IcosaDefine_Set" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="55312044" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000163" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <reason>
+                  <message><![CDATA[ICOSA_AVAILABLE check: defined]]></message>
+                </reason>
+              </test-case>
+              <test-case id="1028" name="Spec009_ModelCache_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec009_ModelCache_Exists" methodname="Spec009_ModelCache_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="867577183" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000045" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1032" name="Spec009_ModelPlacer_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec009_ModelPlacer_Exists" methodname="Spec009_ModelPlacer_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="367627693" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000043" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1027" name="Spec009_SketchfabClient_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec009_SketchfabClient_Exists" methodname="Spec009_SketchfabClient_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1078334427" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000046" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1026" name="Spec009_UnifiedModelSearch_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec009_UnifiedModelSearch_Exists" methodname="Spec009_UnifiedModelSearch_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1881670494" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000043" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1031" name="Spec009_VoiceProviderManager_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec009_VoiceProviderManager_Exists" methodname="Spec009_VoiceProviderManager_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1466460567" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000042" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1029" name="Spec009_WhisperIcosaController_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec009_WhisperIcosaController_Exists" methodname="Spec009_WhisperIcosaController_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1839342421" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000043" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1038" name="Spec016_EditorSetupMenu_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec016_EditorSetupMenu_Exists" methodname="Spec016_EditorSetupMenu_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="99957122" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000043" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1035" name="Spec016_GLTFExporter_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec016_GLTFExporter_Exists" methodname="Spec016_GLTFExporter_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="1384173111" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000046" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1036" name="Spec016_IcosaGalleryManager_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec016_IcosaGalleryManager_Exists" methodname="Spec016_IcosaGalleryManager_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="25217060" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000041" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1033" name="Spec016_XRRAIScene_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec016_XRRAIScene_Exists" methodname="Spec016_XRRAIScene_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="2140936805" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000051" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1037" name="Spec016_XRRAIScene_SerializesToValidJSON" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec016_XRRAIScene_SerializesToValidJSON" methodname="Spec016_XRRAIScene_SerializesToValidJSON" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="998817644" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000053" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1034" name="Spec016_XRRAISceneManager_Exists" fullname="MetavidoVFX.Editor.Tests.SpecVerificationTests.Spec016_XRRAISceneManager_Exists" methodname="Spec016_XRRAISceneManager_Exists" classname="MetavidoVFX.Editor.Tests.SpecVerificationTests" runstate="Runnable" seed="6541188" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000050" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1049" name="XRRAISceneTests" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.034955" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1060" name="AnchorData_GenerateId_HasCorrectPrefix" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.AnchorData_GenerateId_HasCorrectPrefix" methodname="AnchorData_GenerateId_HasCorrectPrefix" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1756886736" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000428" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1056" name="BoundsData_FromUnityBounds_ConvertsCorrectly" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.BoundsData_FromUnityBounds_ConvertsCorrectly" methodname="BoundsData_FromUnityBounds_ConvertsCorrectly" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1300901431" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000359" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1057" name="BoundsData_ToUnityBounds_ConvertsCorrectly" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.BoundsData_ToUnityBounds_ConvertsCorrectly" methodname="BoundsData_ToUnityBounds_ConvertsCorrectly" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="824014437" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000190" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1066" name="HologramData_DefaultQuality_IsMedium" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.HologramData_DefaultQuality_IsMedium" methodname="HologramData_DefaultQuality_IsMedium" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1819223026" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000060" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1065" name="HologramData_DefaultType_IsLive" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.HologramData_DefaultType_IsLive" methodname="HologramData_DefaultType_IsLive" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1845065608" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000038" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1067" name="LayerData_DefaultValues_AreCorrect" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.LayerData_DefaultValues_AreCorrect" methodname="LayerData_DefaultValues_AreCorrect" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="963266254" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000059" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1058" name="SceneNode_GenerateId_IsUnique" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.SceneNode_GenerateId_IsUnique" methodname="SceneNode_GenerateId_IsUnique" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="287492027" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000177" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1061" name="StrokePoint_Constructor_SetsAllValues" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.StrokePoint_Constructor_SetsAllValues" methodname="StrokePoint_Constructor_SetsAllValues" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="760242402" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000236" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1062" name="StrokePoint_JsonRoundTrip_PreservesValues" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.StrokePoint_JsonRoundTrip_PreservesValues" methodname="StrokePoint_JsonRoundTrip_PreservesValues" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1962395666" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000224" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1055" name="TransformData_ApplyToTransform_SetsCorrectValues" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.TransformData_ApplyToTransform_SetsCorrectValues" methodname="TransformData_ApplyToTransform_SetsCorrectValues" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="909371667" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000768" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1054" name="TransformData_FromTransform_ExtractsCorrectValues" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.TransformData_FromTransform_ExtractsCorrectValues" methodname="TransformData_FromTransform_ExtractsCorrectValues" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1364970648" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000268" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1070" name="XRRAIScene_Created_IsSetOnConstruction" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_Created_IsSetOnConstruction" methodname="XRRAIScene_Created_IsSetOnConstruction" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="732178084" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000760" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1069" name="XRRAIScene_DefaultGenerator_IsMetavidoVFX" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_DefaultGenerator_IsMetavidoVFX" methodname="XRRAIScene_DefaultGenerator_IsMetavidoVFX" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1405496938" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000044" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1068" name="XRRAIScene_DefaultVersion_Is1_0" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_DefaultVersion_Is1_0" methodname="XRRAIScene_DefaultVersion_Is1_0" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1498522320" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000040" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1053" name="XRRAIScene_JsonRoundTrip_PreservesAnchors" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_JsonRoundTrip_PreservesAnchors" methodname="XRRAIScene_JsonRoundTrip_PreservesAnchors" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="434477023" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000635" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1051" name="XRRAIScene_JsonRoundTrip_PreservesMetadata" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_JsonRoundTrip_PreservesMetadata" methodname="XRRAIScene_JsonRoundTrip_PreservesMetadata" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1590012840" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000439" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1052" name="XRRAIScene_JsonRoundTrip_PreservesStrokes" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_JsonRoundTrip_PreservesStrokes" methodname="XRRAIScene_JsonRoundTrip_PreservesStrokes" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="189770559" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000383" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1050" name="XRRAIScene_JsonRoundTrip_PreservesVersion" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_JsonRoundTrip_PreservesVersion" methodname="XRRAIScene_JsonRoundTrip_PreservesVersion" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="894097464" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:37Z" duration="0.000071" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1071" name="XRRAIScene_MarkModified_UpdatesTimestamp" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIScene_MarkModified_UpdatesTimestamp" methodname="XRRAIScene_MarkModified_UpdatesTimestamp" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="136681954" result="Passed" start-time="2026-02-09 11:18:37Z" end-time="2026-02-09 11:18:38Z" duration="0.011012" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1059" name="XRRAIStrokeData_GenerateId_HasCorrectPrefix" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIStrokeData_GenerateId_HasCorrectPrefix" methodname="XRRAIStrokeData_GenerateId_HasCorrectPrefix" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="806064778" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.000066" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1064" name="XRRAIStrokeData_GetUnityColor_ReturnsCorrectColor" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIStrokeData_GetUnityColor_ReturnsCorrectColor" methodname="XRRAIStrokeData_GetUnityColor_ReturnsCorrectColor" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1621338612" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.000083" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1063" name="XRRAIStrokeData_SetColor_StoresRGBA" fullname="MetavidoVFX.Editor.Tests.XRRAISceneTests.XRRAIStrokeData_SetColor_StoresRGBA" methodname="XRRAIStrokeData_SetColor_StoresRGBA" classname="MetavidoVFX.Editor.Tests.XRRAISceneTests" runstate="Runnable" seed="1346342004" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.000063" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1082" name="com.github.asus4.onnxruntime.unity.tests.dll" fullname="/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/ScriptAssemblies/com.github.asus4.onnxruntime.unity.tests.dll" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.162947" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="62811" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1083" name="Microsoft" fullname="Microsoft" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.146210" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1084" name="ML" fullname="Microsoft.ML" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.129646" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1085" name="OnnxRuntime" fullname="Microsoft.ML.OnnxRuntime" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.113922" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1086" name="Unity" fullname="Microsoft.ML.OnnxRuntime.Unity" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.098230" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="1087" name="Tests" fullname="Microsoft.ML.OnnxRuntime.Unity.Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.082630" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="1076" name="MathUtilsTest" fullname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest" classname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.048967" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-suite type="ParameterizedMethod" id="1079" name="TestResizeToMaxSize" fullname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest.TestResizeToMaxSize" classname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.019492" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                    <properties />
+                    <test-case id="1077" name="TestResizeToMaxSize(1000,560,1920,1080,1000,8)" fullname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest.TestResizeToMaxSize(1000,560,1920,1080,1000,8)" methodname="TestResizeToMaxSize" classname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest" runstate="Runnable" seed="1746709096" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.000492" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1078" name="TestResizeToMaxSize(560,1000,1080,1920,1000,8)" fullname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest.TestResizeToMaxSize(560,1000,1080,1920,1000,8)" methodname="TestResizeToMaxSize" classname="Microsoft.ML.OnnxRuntime.Unity.Tests.MathUtilsTest" runstate="Runnable" seed="1388917102" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.000027" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                  </test-suite>
+                </test-suite>
+                <test-suite type="TestFixture" id="1080" name="OrtUnityEnvTest" fullname="Microsoft.ML.OnnxRuntime.Unity.Tests.OrtUnityEnvTest" classname="Microsoft.ML.OnnxRuntime.Unity.Tests.OrtUnityEnvTest" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.018059" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1081" name="GetOrtLibPathExists" fullname="Microsoft.ML.OnnxRuntime.Unity.Tests.OrtUnityEnvTest.GetOrtLibPathExists" methodname="GetOrtLibPathExists" classname="Microsoft.ML.OnnxRuntime.Unity.Tests.OrtUnityEnvTest" runstate="Runnable" seed="422788663" result="Passed" start-time="2026-02-09 11:18:38Z" end-time="2026-02-09 11:18:38Z" duration="0.000259" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: /Users/jamestunick/Library/Application Support/DefaultCompany/MetavidoVFX/TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

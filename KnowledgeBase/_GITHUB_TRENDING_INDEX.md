@@ -1,6 +1,6 @@
 # GitHub Trending Index - AI/XR/VFX
 
-**Auto-updated**: 2026-02-05
+**Auto-updated**: 2026-02-09
 **Tags**: #github #trending #ai #xr #vfx #unity #react-native
 **Cross-refs**: `_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md`, `_KEIJIRO_METAVIDO_VFX_RESEARCH.md`
 

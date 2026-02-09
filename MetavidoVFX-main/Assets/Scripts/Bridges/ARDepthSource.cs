@@ -109,7 +109,7 @@ public class ARDepthSource : MonoBehaviour
             _depthToWorld = Resources.Load<ComputeShader>("DepthToWorld");
             #if UNITY_EDITOR
             if (_depthToWorld == null)
-                _depthToWorld = UnityEditor.AssetDatabase.LoadAssetAtPath<ComputeShader>("Assets/Shaders/DepthToWorld.compute");
+                _depthToWorld = UnityEditor.AssetDatabase.LoadAssetAtPath<ComputeShader>("Assets/Resources/DepthToWorld.compute");
             #endif
             if (_depthToWorld == null)
                 Debug.LogError("[ARDepthSource] DepthToWorld.compute not found in Resources or Shaders folder!");

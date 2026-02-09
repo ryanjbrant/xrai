@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-02-09T02:34:30Z",
-  "passed": 15,
-  "warnings": 4,
+  "timestamp": "2026-02-09T15:19:19Z",
+  "passed": 16,
+  "warnings": 3,
   "failed": 0,
   "healed": 0,
-  "estimated_tokens": 666605,
-  "size": "4.8M",
-  "file_count": 234
+  "estimated_tokens": 688834,
+  "size": "4.9M",
+  "file_count": 247
 }

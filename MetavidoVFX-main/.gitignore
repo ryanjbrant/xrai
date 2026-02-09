@@ -32,3 +32,4 @@ Assets/Textures/Myaku/
 
 # ChatLLM models (downloaded via Sentis > Sample > Chat > Download Models)
 Assets/ChatLLM/Resources/Models/
+.env
