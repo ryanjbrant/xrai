@@ -37,6 +37,22 @@ Before writing any code or making changes, silently answer these questions. If a
 6. **Is this evidence-based or an assumption?** Verify before acting on assumptions.
 7. **Has the user already been told this / does this already exist?** Don't repeat or rebuild.
 
+## TOKEN EMERGENCY MODE (until 2026-02-11) — ALWAYS ACTIVE, NEVER SKIP
+- **ALL sub-agents MUST use `model: "haiku"`** — no exceptions unless user explicitly overrides.
+- **MAX 3 tool calls per response.** Batch aggressively.
+- **ZERO narration.** No "let me", "I'll", "now I'll". Results only.
+- **ZERO re-reads.** Never read a file twice in a session.
+- **ZERO explanations unless asked.** Just do the work, show the result.
+- **Skip KB/learning log updates** until Feb 11.
+- **No WebSearch/WebFetch** unless user explicitly requests it.
+- **No Explore agents** — use targeted Grep with `head_limit: 5`.
+- **No Task agents for simple lookups** — inline Grep/Glob only.
+- **Prefer `/compact` over `/clear`** to preserve context without re-bootstrap.
+- **End sessions at 50K tokens.** Checkpoint and stop. No exceptions.
+- **Single-shot edits only.** Get it right the first time or ask user.
+- **1-2 sentence responses max** unless user asks for detail.
+- **This section persists across all sessions until removed.** Every new session must honor it.
+
 ## Token efficiency (mandatory, all tools)
 - **Pre-task validation saves the most tokens.** Catching unnecessary work before it starts prevents entire wasted cycles. Run the checklist above.
 - **Delegate multi-step debugging to sub-agents/background tasks.** Any fix-test-retry loop of 3+ rounds must run in an agent with its own budget, not in the main conversation.
@@ -53,7 +69,7 @@ Before writing any code or making changes, silently answer these questions. If a
 - **JetBrains MCP over raw Grep/Glob/Read** when Rider is open (5-10x faster).
 - **`.claudeignore` / `.gitignore`** — keep ignore files tuned. Unity projects save 180K+ tokens.
 - **`/clear` between unrelated tasks** (saves 10-50K). `/compact <focus>` proactively when context grows.
-- **Stop early if budget pressure.** At ~80% token budget, shift all non-critical work to lower-cost models or end session with checkpoint.
+- **Stop early if budget pressure.** At ~60% token budget, shift all non-critical work to lower-cost models or end session with checkpoint.
 
 ## Speed + quality defaults
 - Prefer minimal context and minimal instructions.

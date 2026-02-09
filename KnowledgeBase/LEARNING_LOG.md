@@ -6,6 +6,22 @@
 
 ---
 
+## 2026-02-09 - claude-mem Zombie Permission (Over-Engineering Lesson)
+
+**Problem**: Zombie permission `mcp__claude-mem__*` in settings.json after disabling claude-mem MCP (2026-02-06)
+**Root cause**: Config simplification (GLOBAL_RULES 1149→195 lines) removed memory philosophy section; permission not cleaned up
+**Fix**: Removed permission + restored GLOBAL_RULES.md §Memory philosophy (non-negotiable) + §Agent patterns + §Verification criteria (+22 lines, now 217 total)
+
+**Key learning**: When simplifying configs, extract key decisions to KB FIRST, then simplify. Don't delete, extract.
+
+**Meta-learning**: Then over-engineered the fix (validation scripts, checklists, 93-line decision records) burning ~15K tokens for a one-time problem. Simple fix: -1 line settings.json, +10 lines GLOBAL_RULES. Done.
+
+**Prevention**: After disabling any MCP, grep all configs for its name and purge completely.
+
+**Tags**: `config-management` `over-engineering` `simplicity`
+
+---
+
 ## 2026-02-08 - Token Efficiency: Delegate Debug Loops to Sub-Agents
 
 **Context**: Voice pipeline P0 implementation burned ~30% extra tokens debugging Jest `transformIgnorePatterns` in main conversation (5 rounds of read-test-fix).
