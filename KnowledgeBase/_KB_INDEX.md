@@ -36,17 +36,18 @@
 
 ---
 
-## Claude Code (10 active + 4 archived)
+## Claude Code (11 active + 4 archived)
 
 | File | Content |
 |------|---------|
 | `_CLAUDE_CODE_MASTER.md` | Features, workflows, commands |
 | `_CLAUDE_CODE_OFFICIAL_BEST_PRACTICES.md` | Official best practices (Feb 2026) |
-| `_CLAUDE_MD_BEST_PRACTICES.md` | **Official CLAUDE.md guidance (token optimization)** |
+| `_CLAUDE_MD_BEST_PRACTICES.md` | Official CLAUDE.md guidance (token optimization) |
+| `_ACE_CONTEXT_ENGINEERING_PATTERNS.md` | **Advanced context engineering (Research→Plan→Implement)** |
 | `_CLAUDE_CODE_SKILLS_PATTERNS.md` | Skills: structure, frontmatter |
 | `_CLAUDE_CODE_AGENT_TEAMS_PATTERNS.md` | Agent teams vs subagents |
 | `_CLAUDE_API_OPTIMIZATION_PATTERNS.md` | CLI patterns (simplified) |
-| `_AGENTSKILLS_OPEN_FORMAT_PATTERNS.md` | **Open format design principles** |
+| `_AGENTSKILLS_OPEN_FORMAT_PATTERNS.md` | Open format design principles |
 | `_CLAUDE_CODE_HOOKS.md` | Hooks reference & patterns |
 | `_CLAUDE_CODE_SUBAGENTS.md` | Subagent patterns |
 | `_CLAUDE_CODE_UNITY_WORKFLOW.md` | Unity-specific workflows |
