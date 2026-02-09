@@ -1,7 +1,7 @@
 # Global Rules (Lean)
 
 Version: 2026-02-08
-Purpose: keep agents fast, accurate, and predictable across Codex, Claude Code, Windsurf, Rider, and Antigravity.
+Purpose: Keep agents fast, accurate, and predictable across Codex, Claude Code, Windsurf, Rider, and Antigravity.
 
 ## Priority
 1. User request
@@ -10,220 +10,162 @@ Purpose: keep agents fast, accurate, and predictable across Codex, Claude Code, 
 4. This global file
 
 ## Session awareness (mandatory)
-Read `~/user-context.md` at session start. It contains active projects, user patterns, and disambiguation rules. Never assume project context without checking it first.
+Read `~/user-context.md` at session start. Contains active projects, user patterns, disambiguation rules.
 
 ## Auto-maintain configs (mandatory)
-When you discover new patterns, project changes, or context shifts during a session, update the relevant config files automatically:
-- `~/user-context.md` — project priorities, disambiguation, user patterns
-- Project `CLAUDE.md` / `AGENTS.md` — project-specific rules, common issues, build commands
-- `~/.claude/rules/*.md` — path-targeted rules when a pattern applies to specific file types
-- `~/GLOBAL_RULES.md` — only for universal cross-tool rules (keep lean)
-- `~/KnowledgeBase/LEARNING_LOG.md` — successes, failures, insights (always)
-Do not ask permission for routine config updates. Surface the change to the user after making it.
+When you discover patterns, update configs automatically:
+- `~/user-context.md` — project priorities, user patterns
+- Project `CLAUDE.md` / `AGENTS.md` — project rules, build commands
+- `~/KnowledgeBase/LEARNING_LOG.md` — successes, failures, insights (>1K token savings only until Feb 11)
+Surface changes to user after making them.
 
 ## Core loop
-Search existing code/KB -> plan briefly -> implement -> verify -> report.
-- **Verify before documenting.** Never update docs, specs, TODO, or KB until changes are triple-verified and demonstrated working in local workflows or builds. The order is always: change → verify (tsc/lint/tests/Unity console/build) → document.
-- **Auto-verify after major changes.** After any batch of code, config, or pipeline changes, automatically run the verification suite (tsc, tests, build) before moving to the next task. Don't wait for the user to ask.
-- **"Commit & push" means docs-first.** When user says commit/push, always update docs, specs, TODO.md, and task status BEFORE staging and committing. Include doc updates in the same commit.
+Search KB → plan briefly → implement → verify → report.
+- **Verify before documenting.** Order: change → verify (tsc/lint/tests/Unity console/build) → document.
+- **Auto-verify after major changes.** Don't wait for user to ask.
+- **"Commit & push" means docs-first.** Update docs, specs, TODO.md before staging.
 
-## Pre-task validation (mandatory, every dev task)
-Before writing any code or making changes, silently answer these questions. If any answer is "no" or uncertain, resolve it before proceeding:
-1. **Did I check KB/existing patterns?** Search before building.
-2. **Are specs/tasks/docs up to date?** If stale, update them as part of the work.
-3. **Does this serve overall project goals?** Check `~/user-context.md` priorities.
-4. **Is this absolutely needed?** Don't build what isn't asked for or clearly required.
-5. **Is this modular, simple, and best practice?** If it's overcomplicating, simplify.
-6. **Is this evidence-based or an assumption?** Verify before acting on assumptions.
-7. **Has the user already been told this / does this already exist?** Don't repeat or rebuild.
+## Pre-task validation (mandatory)
+Before any code/changes, silently check:
+1. Did I check KB/existing patterns?
+2. Are specs/tasks/docs up to date?
+3. Does this serve project goals? (check `~/user-context.md`)
+4. Is this absolutely needed?
+5. Is this simple and best practice?
+6. Is this evidence-based or assumption?
+7. Does this already exist?
 
-## TOKEN EMERGENCY MODE (until 2026-02-11) — ALWAYS ACTIVE, NEVER SKIP
-- **ALL sub-agents MUST use `model: "haiku"`** — no exceptions unless user explicitly overrides.
-- **MAX 3 tool calls per response.** Batch aggressively.
-- **ZERO narration.** No "let me", "I'll", "now I'll". Results only.
-- **ZERO re-reads.** Never read a file twice in a session.
-- **ZERO explanations unless asked.** Just do the work, show the result.
-- **Skip KB/learning log updates** until Feb 11.
-- **No WebSearch/WebFetch** unless user explicitly requests it.
-- **No Explore agents** — use targeted Grep with `head_limit: 5`.
-- **No Task agents for simple lookups** — inline Grep/Glob only.
-- **Prefer `/compact` over `/clear`** to preserve context without re-bootstrap.
-- **End sessions at 50K tokens.** Checkpoint and stop. No exceptions.
-- **Single-shot edits only.** Get it right the first time or ask user.
-- **1-2 sentence responses max** unless user asks for detail.
-- **This section persists across all sessions until removed.** Every new session must honor it.
+## TOKEN EMERGENCY MODE (until 2026-02-11)
+- **Sub-agents use `model: "haiku"`** — no exceptions
+- **MAX 3 tool calls per response**
+- **ZERO narration** — Results only
+- **ZERO re-reads** — Never read file twice
+- **ZERO explanations** unless asked
+- **Selective KB updates** — Only when insight saves >1K tokens
+- **No WebSearch/WebFetch** unless requested
+- **No Explore agents** — Use targeted Grep `head_limit: 5`
+- **End sessions at 50K tokens** — Checkpoint and stop
+- **1-2 sentence responses** unless asked
+- Persists until removed
 
-## Token efficiency (mandatory, all tools)
-- **Pre-task validation saves the most tokens.** Catching unnecessary work before it starts prevents entire wasted cycles. Run the checklist above.
-- **Delegate multi-step debugging to sub-agents/background tasks.** Any fix-test-retry loop of 3+ rounds must run in an agent with its own budget, not in the main conversation.
-- **Parallel tool calls** for all independent reads, searches, and commands. Never sequential when parallel is possible.
-- **Edit over Write.** Always. Write only for new files.
-- **Read targeted line ranges** when you already know the area. Never re-read a file already in context.
-- **Use search agents** (Explore, code-searcher) for open-ended searches instead of manual Grep/Glob rounds in main context.
-- **Haiku/low-cost model for mechanical tasks**: config lookups, grep, simple fixes, test reruns. 3-4 specialized agents optimal (not 10+ parallel).
-- **Resume sub-agents** instead of restarting — preserves context, avoids re-bootstrap cost.
-- **Concise responses.** Skip restating tool output. No preamble. Tables over paragraphs.
-- **Don't explain what you're about to do — just do it.** Narration burns tokens. Show results, not intent.
-- **Plan before code.** Use plan mode for non-trivial tasks — prevents false-start token waste.
-- **MCP resources over tools** for read-only data (fewer round-trips).
-- **JetBrains MCP over raw Grep/Glob/Read** when Rider is open (5-10x faster).
-- **`.claudeignore` / `.gitignore`** — keep ignore files tuned. Unity projects save 180K+ tokens.
-- **`/clear` between unrelated tasks** (saves 10-50K). `/compact <focus>` proactively when context grows.
-- **Stop early if budget pressure.** At ~60% token budget, shift all non-critical work to lower-cost models or end session with checkpoint.
+## Tool selection (Claude Code CLI)
+Prefer higher over lower:
+1. **Zero-token**: `kb search`, `kbfix`, shell commands
+2. **Skills**: `~/.claude/skills/` — Build after 3+ uses of same pattern
+3. **Direct tools**: Read, Edit, Grep (parallel when independent)
+4. **Task agents**: Multi-step mechanical work (`model: "haiku"`)
+5. **In-context**: Only when above don't apply
 
-## Speed + quality defaults
-- Prefer minimal context and minimal instructions.
-- Prefer direct edits over broad rewrites.
-- Prefer deterministic checks (tests/lint/build/logs) over guessing.
-- Parallelize only independent work.
-- If stuck after 2 failed attempts, re-plan (don't keep pushing).
-- After corrections, write a prevention rule in the appropriate config (CLAUDE.md, AGENTS.md).
-- Verify every change: tests, console, diff output. Verification 2-3x quality.
+**Build skill triggers**: 3+ reps, 5+ tool calls, >20% token savings, >2x faster
 
-## Model routing defaults
-- Deep architecture, hard debugging, incidents, and high-stakes decisions: use highest-capability model tier.
-- Standard implementation and refactors: use default mid/high model tier.
-- Fast lookups, narrow edits, and mechanical tasks: use lower-cost model tier.
-- If token/cost pressure rises (>80% budget), keep deep work on top tier but shift low-risk tasks to lower tier immediately.
+## Token efficiency
+- Pre-task validation saves most tokens (prevents wasted cycles)
+- Parallel tool calls for independent work
+- Edit over Write (always)
+- Delegate 3+ round loops to Task agents
+- Concise responses, no preamble
+- Plan before code (prevents false starts)
+- JetBrains MCP when Rider open (5-10x faster)
+- `.claudeignore` tuned (Unity saves 180K+ tokens)
+- `/clear` between unrelated tasks, `/compact` when context grows
+- Stop at 60% budget — shift to lower-cost models or end session
 
-## Context hygiene
-- Keep global rules short.
-- Avoid duplicated directives across global + project files.
-- Use `/clear` between unrelated tasks.
-- Use `/compact` only when needed, after checkpointing key facts.
+## Model routing
+- Deep/complex/high-stakes: Opus
+- Standard implementation: Sonnet
+- Mechanical/lookups: Haiku
+- >80% budget: shift low-risk to Haiku
 
-## MCP hygiene
-- Keep MCP servers minimal by default (only task-relevant servers enabled).
-- Prefer stable pinned server versions over `@latest` where reliability matters.
-- Avoid startup flags that force refresh/download each launch.
-- Set reasonable startup/tool timeouts; fail fast on unavailable servers.
-- **Before pinning a version**, verify it exists (e.g., `pip index versions <pkg>` or check PyPI). Config ≠ reality — a phantom version silently fails on cold start.
-- **Verify runtime state, not just config files.** Running MCP processes reflect config at spawn time; check `ps aux | grep mcp` to confirm actual versions match config.
-- All 5 tool configs (Cursor, Windsurf, Gemini, Codeium/Windsurf, Rider) must stay version-aligned. After any MCP config change, run `ai-sync-verify` to confirm parity.
-
-## Unity workflow defaults
-- Ground state first: instance, scene/editor state, console.
-- Batch related operations.
-- After mutations, verify: console -> script validation -> tests.
-- Use IDs/paths for deterministic targeting when possible.
-
-## Safety and reversibility
-- Make small, reversible changes.
-- Back up config before broad tooling edits.
-- Do not run destructive commands unless explicitly requested.
-
-## When performance degrades
-- Reduce active MCP servers.
-- Disable non-essential hooks/automation.
-- Trim oversized instruction surfaces.
-- Restart affected tool session(s) and re-measure.
-
-## Cross-tool learning
-- All tools share `~/GLOBAL_RULES.md` (this file) and `~/KnowledgeBase/`.
-- Discoveries in one tool should be written to the shared KB or this file, not siloed.
-- Tool-specific rules go in tool-specific configs only (CLAUDE.md, AGENTS.md, .cursorrules).
-- After major config changes, triple-verify: read the file back, check for conflicts with other tool configs, confirm no duplication.
-
-## Cross-agent handoff (minimal)
-- Use one active handoff file: `~/KnowledgeBase/_AGENT_HANDOFF.md`.
-- Before starting substantial work, read the latest handoff entry.
-- After meaningful progress, append one concise entry: `when`, `what changed`, `evidence`, `next check`.
-- Before final output, re-read handoff + local diffs and resolve any drift.
-- Keep handoff entries short; put durable long-form insights in `LEARNING_LOG.md`.
-
-## Knowledge base usage
-- **Before researching or building ANY new workflow/capability**, search KB first. Triggers: new debug approach, new automation, new tool integration, unfamiliar error.
-- Check `_KB_INDEX.md` Quick Access table when starting a task — existing tools/patterns often already cover what you need.
-- Log only high-confidence, evidence-backed insights.
-
-## Memory philosophy (non-negotiable)
-**Files are memory. Knowledgebase IS your AI memory.** No semantic MCPs (claude-mem, ChromaDB).
+## Memory philosophy
+**Files are memory. KB IS your AI memory.** No semantic MCPs.
 - Session facts → `~/.claude/session_memories/<project>.md`
 - Discoveries → `~/KnowledgeBase/LEARNING_LOG.md`
 - Cross-tool context → `~/user-context.md`
 - Patterns → KB files (grep-based, zero tokens)
 
-## Agent patterns (for project reference)
-- **Pre-requisite chains**: Read → Edit → Verify (never Edit without Read first)
-- **Multi-search**: Run 3-5 related searches in parallel
-- **Non-interactive commands**: Use `--no-pager`, `2>&1 | tee`, timeout flags
-- **Batch-then-verify**: Make all edits, then verify once (not per-file)
+## Zero-token KB commands
+```bash
+kb search "topic"    # Search all KB
+kbfix "CS0246"       # Quick fix lookup
+kbtag "vfx"          # Pattern tag search
+kbrepo "hand track"  # Search 520+ repos
+ss / ssu             # Screenshot device/Unity
+```
 
-## Verification criteria (quality boost 2-3x)
-Include expected output in requests. Claude self-verifies.
+## Verification criteria (2-3x quality boost)
+Include expected output in requests:
 - ❌ "implement validation" → ✅ "write validateEmail(). tests: user@example.com=true, invalid=false. run tests after"
 - ❌ "make dashboard better" → ✅ "[screenshot] implement this. take screenshot and compare"
 
-### Zero-token KB commands (shell — no AI tokens)
-```bash
-kb search "topic"       # Search all KB files (local + repo)
-kb quick "error"        # Quick fix lookup
-kb fix "error" "fix"    # Add error→fix to QUICK_FIX
-kbfix "CS0246"          # Shell function: quick fix lookup
-kbtag "vfx"             # Shell function: pattern tag search
-kbrepo "hand track"     # Shell function: search 520+ GitHub repos
-ss                      # Screenshot (ai-screenshot)
-ssu                     # Unity screenshot (ai-screenshot --unity)
-```
+## Agent patterns
+- **Pre-requisite chains**: Read → Edit → Verify
+- **Multi-search**: Run 3-5 searches in parallel
+- **Batch-then-verify**: All edits, then verify once
+- **Non-interactive**: `--no-pager`, `2>&1 | tee`, timeout flags
 
-## Anti-patterns (never do)
+## Anti-patterns
 - Grep/Read when Rider open (use JetBrains MCP)
 - Write when Edit works
 - Re-read files already in context
-- Explain what you're about to do (just do it)
-- Sequential edit→verify per file (batch then verify once)
-- Search without scope (always use fileMask/glob/type)
-- 10+ parallel agents (3-4 optimal, more is wasteful)
-- Polling test status (use wait_timeout)
-- Restart sub-agents when resume works (preserves context)
+- Explain before doing (just do it)
+- Sequential edit→verify per file
+- 10+ parallel agents (3-4 optimal)
 
 ## Common fixes (don't research)
-- CS0246 → Add `using`
-- CS0103 → Check spelling or add `using`
-- CS0029 → Add explicit cast
+- CS0246/CS0103 → Add `using`
+- CS0029 → Add cast
 - NullRef in AR → TryGetTexture pattern
-- Jest transform error → Check `transformIgnorePatterns` for bare package name
-- Metro blockList → Must use anchored regex (`/^unity\/.*/`)
+- Jest transform → Check `transformIgnorePatterns`
+- Metro blockList → Anchored regex (`/^unity\/.*/`)
 
-## Tool rollover (when token limits hit)
+## MCP hygiene
+- Keep servers minimal (task-relevant only)
+- Pin stable versions where reliability matters
+- Verify versions exist before pinning (`pip index versions`)
+- Check runtime state: `ps aux | grep mcp`
+- After MCP changes: `ai-sync-verify` to sync all 5 tools
+
+## Unity workflow
+- Ground state first: instance, scene, console
+- Batch operations
+- After mutations: console → script validation → tests
+- Use IDs/paths for deterministic targeting
+
+## Safety
+- Small, reversible changes
+- Back up before broad edits
+- No destructive commands unless requested
+
+## Cross-tool learning
+- All tools share this file + `~/KnowledgeBase/`
+- Discoveries → shared KB (not siloed)
+- Tool-specific rules → tool configs only
+
+## Learning operations
+- Capture: key success, key failure, or key insight (with evidence)
+- Write to `LEARNING_LOG.md` when insight saves >1K tokens (until Feb 11)
+- Short coordination → `_AGENT_HANDOFF.md`
+- Surface top findings in final updates
+- When learning needs code change: create executable TODO with file:line + snippet
+- Suggest improvements based on repeated failures/successes/token drift
+- If user stuck on low-value path: say so, suggest high-leverage alternative
+
+## Auto-implement optimizations
+- **Never just document** — implement it
+- **Prefer zero-token automation** — Shell scripts, git hooks, CLI wrappers
+- **Audit KB for unimplemented strategies** at session start
+- **Verify automation runs** before committing
+
+## Session checkpointing
+At ~80K tokens or before `/clear`/`/compact`: auto-save to `~/.claude/session_memories/<project>-<date>.md`
+Format: Accomplished / Key Learnings / Current State / Next Steps
+Do proactively, don't wait for user.
+
+## Tool rollover (when limits hit)
 | Tool | Best For | Context | Cost |
 |------|----------|---------|------|
-| Claude Code | Implementation, complex code | 200K | $$$ |
-| Gemini CLI | Research, large docs | 1M | FREE |
-| Codex CLI | Quick fixes, automation | 128K | $$ |
+| Claude Code | Implementation | 200K | $$$ |
+| Gemini CLI | Research, docs | 1M | FREE |
+| Codex CLI | Quick fixes | 128K | $$ |
 
-When Claude Code hits limits, switch to Gemini or Codex. Both read same files: `~/GLOBAL_RULES.md`, project `CLAUDE.md`, `KnowledgeBase/`.
-
-## Session checkpointing (mandatory)
-- At ~80K tokens, before `/clear` or `/compact`, or when session is getting long: auto-save to `~/.claude/session_memories/<project>-<date>.md` with: Accomplished / Key Learnings / Current State / Next Steps.
-- Do not wait for user to ask. Do it proactively.
-
-## Learning operations (mandatory)
-- For each substantial task, capture at least one of: key success, key failure, key insight (with evidence).
-- Write durable findings to `~/KnowledgeBase/LEARNING_LOG.md` automatically — do not wait for user to ask.
-- Write short in-flight coordination to `~/KnowledgeBase/_AGENT_HANDOFF.md`.
-- In final user updates, surface the top findings explicitly and briefly.
-- When a new rule/pattern is identified, offer scope choice:
-  - `project-only` (local repo/docs/config only)
-  - `global` (shared cross-tool rules/config)
-- **When a learning requires a code/config change to implement**, immediately create an executable TODO with exact file:line and code snippet — not just a prose note. High-friction learnings with no executable path get forgotten.
-- Be proactive but lightweight: periodically suggest improvements based on repeated failures, repeated successes, token/cost drift, or recurring blockers.
-- If user appears stuck or over-focused on a low-value path, say so directly and suggest a simpler high-leverage next step.
-
-## Auto-implement optimizations (mandatory)
-- **Never just document an optimization — implement it.** If a KB file, session memory, or research reveals a workflow improvement, build the script/hook/config change in the same session. Prose-only learnings are waste.
-- **Prefer zero-token automation.** Shell scripts, git hooks, cron/launchd, and CLI wrappers cost zero AI tokens. Always prefer these over in-session AI work for repeatable tasks (KB search, lint, test runs, config checks).
-- **Audit existing KB for unimplemented strategies** at session start when relevant. If `_TOKEN_EFFICIENCY_COMPLETE.md` or `_QUICK_FIX.md` has a strategy not yet wired into tooling, implement it — don't re-document it.
-- **Install automation that exists but isn't running.** Check for uninst alled daemons, unused hooks, unlinked scripts. Wire them up.
-- **After building any automation, verify it runs.** Don't commit a script without executing it once.
-
-## Priority coaching (mandatory)
-- Maintain focus on user goals and active priorities, not local micro-optimizations.
-- Infer likely next high-leverage step from recent requests and current state; suggest it proactively.
-- Preempt blockers early: call out prerequisites, dependency risks, and likely failure points before they stall progress.
-- Use observed patterns (repeated failures, repeated context resets, token/cost spikes, recurring unresolved tasks) to recommend course corrections.
-- Keep recommendations short and actionable; avoid process bloat.
-- In substantial final responses include:
-  - `Priority next step`
-  - `Potential blocker`
-  - `Preemptive action`
+Switch when Claude Code hits limits. All read same configs.
