@@ -6,6 +6,19 @@
 
 ---
 
+## 2026-02-08 - Auto-Recognition + First Skill (unity-status)
+
+**Achievement**: Implemented auto-recognition rules + built first skill (1/10 target)
+**Token savings**: ~2K tokens per unity-status use (consolidates 5-7 tool calls: read_console + manage_editor + editor_selection into 1 command)
+**KB additions** (3 files, 815 lines):
+- `_CLAUDE_CODE_SKILLS_PATTERNS.md` - Skills architecture, frontmatter, 10+ ideas
+- `_CLAUDE_CODE_AGENT_TEAMS_PATTERNS.md` - Agent teams vs subagents, when to use
+- `_CLAUDE_API_OPTIMIZATION_PATTERNS.md` - Caching, latency, Claude 4.6 prompting
+**GLOBAL_RULES additions**: §Auto-recognize optimization opportunities (triggers: 2+ reps, 5+ tool calls, >20% token reduction, >2x faster)
+**Selective KB updates**: Only write when insight saves >1K tokens (meets TOKEN EMERGENCY MODE constraint until Feb 11)
+
+**Next 9 skills**: verify-all, techdebt, context-dump, session-recap, kb-sync, pre-commit, token-report, dependency-check, build-status
+
 ## 2026-02-09 - claude-mem Zombie Permission (Over-Engineering Lesson)
 
 **Problem**: Zombie permission `mcp__claude-mem__*` in settings.json after disabling claude-mem MCP (2026-02-06)
