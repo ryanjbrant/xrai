@@ -328,3 +328,8 @@ Use this format:
 - what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-09.md`.
 - evidence: Trigger SessionEnd/clear; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/6f1ee320-ef62-4a90-ba1e-ae8c634b79eb.jsonl`.
 - next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-09 13:53 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/unity-2026-02-09.md`.
+- evidence: Trigger SessionEnd/other; project `/Users/jamestunick/Documents/GitHub/portals_main/unity`.
+- next_check: Resume from checkpoint and verify pending priorities.

@@ -809,6 +809,9 @@
     <Reference Include="Microsoft.CodeAnalysis.VisualBasic">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/Microsoft.CodeAnalysis.VisualBasic.5.0.0/lib/netstandard2.0/Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
     </Reference>
+    <Reference Include="Coplay-v8.13.0">
+      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@ee55171e6a57/Editor/Unity-v2022.3/Coplay-v8.13.0.dll</HintPath>
+    </Reference>
     <Reference Include="System.Composition.AttributedModel">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/System.Composition.AttributedModel.9.0.0/lib/netstandard2.0/System.Composition.AttributedModel.dll</HintPath>
     </Reference>
@@ -844,9 +847,6 @@
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp">
       <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Assets/Packages/Microsoft.CodeAnalysis.CSharp.5.0.0/lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Coplay-v8.13.0">
-      <HintPath>/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/PackageCache/com.coplaydev.coplay@ee55171e6a57/Editor/Unity-v2022.3/Coplay-v8.13.0.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/6000.2.14f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

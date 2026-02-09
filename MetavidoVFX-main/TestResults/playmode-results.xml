@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="11" result="Passed" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.1346132">
+  <test-suite type="TestSuite" id="1020" name="MetavidoVFX" fullname="MetavidoVFX" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.134613" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1013" name="MetavidoVFX.Tests.PlayMode.dll" fullname="/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main/Library/ScriptAssemblies/MetavidoVFX.Tests.PlayMode.dll" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.130992" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="61384" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1014" name="MetavidoVFX" fullname="MetavidoVFX" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.130399" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1015" name="Tests" fullname="MetavidoVFX.Tests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.129818" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1016" name="PlayMode" fullname="MetavidoVFX.Tests.PlayMode" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.129533" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="HandTrackingPlayModeTests" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.128661" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1011" name="BrushSelector_CircularLayout_Correct" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.BrushSelector_CircularLayout_Correct" methodname="BrushSelector_CircularLayout_Correct" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="1538743421" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.007192" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="BrushSelector_NearestBrush_Found" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.BrushSelector_NearestBrush_Found" methodname="BrushSelector_NearestBrush_Found" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="1887739744" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.001665" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="ColorPicker_HSBtoRGB_Converts" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.ColorPicker_HSBtoRGB_Converts" methodname="ColorPicker_HSBtoRGB_Converts" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="2092785118" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.001280" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="ColorPicker_PalmProjection_Calculates" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.ColorPicker_PalmProjection_Calculates" methodname="ColorPicker_PalmProjection_Calculates" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="1558970970" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.001040" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="GestureHysteresis_PreventsFlickering" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.GestureHysteresis_PreventsFlickering" methodname="GestureHysteresis_PreventsFlickering" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="746615136" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.002076" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="GestureVelocity_CalculatesCorrectly" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.GestureVelocity_CalculatesCorrectly" methodname="GestureVelocity_CalculatesCorrectly" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="1078898084" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.000939" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="JointTransform_ParentChild_Preserved" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.JointTransform_ParentChild_Preserved" methodname="JointTransform_ParentChild_Preserved" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="876421494" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.001268" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="PinchDistance_CalculatesCorrectly" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.PinchDistance_CalculatesCorrectly" methodname="PinchDistance_CalculatesCorrectly" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="1339146957" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.002453" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="PlayMode_FrameAdvances" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.PlayMode_FrameAdvances" methodname="PlayMode_FrameAdvances" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="1209927131" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:43Z" duration="0.001207" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="PlayMode_TimeProgresses" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.PlayMode_TimeProgresses" methodname="PlayMode_TimeProgresses" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="709665514" result="Passed" start-time="2026-02-09 18:59:43Z" end-time="2026-02-09 18:59:44Z" duration="0.100893" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="ProviderPriority_HigherWins" fullname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests.ProviderPriority_HigherWins" methodname="ProviderPriority_HigherWins" classname="MetavidoVFX.Tests.PlayMode.HandTrackingPlayModeTests" runstate="Runnable" seed="273747674" result="Passed" start-time="2026-02-09 18:59:44Z" end-time="2026-02-09 18:59:44Z" duration="0.000731" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: /Users/jamestunick/Library/Application Support/DefaultCompany/MetavidoVFX/TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

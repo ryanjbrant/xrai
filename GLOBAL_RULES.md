@@ -1147,3 +1147,10 @@ See `KnowledgeBase/_TOKEN_EFFICIENCY_COMPLETE.md` for full details.
 **Loop**: Error → `kbfix` → Fix → Log if new
 
 **Reference**: `KnowledgeBase/_SYSTEM_ARCHITECTURE.md`
+
+## ⚠️ CORE MANDATE: Incrementality
+**Start small. Be ruthless about modularity.**
+- **Micro-steps**: Build one simple, proven block at a time.
+- **Verification Chain**: Headless -> Editor -> Device. Never skip a link.
+- **Automate**: If you do it twice, script it.
+- **Compound**: Leverage existing trusted tools/patterns.
