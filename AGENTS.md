@@ -1,71 +1,79 @@
 # AGENTS.md - Cross-Tool AI Rules
 
-**Version**: 1.0 | **Updated**: 2026-02-05
+**Version**: 1.1 | **Updated**: 2026-02-08
 **Compatibility**: Codex, Claude Code, Gemini, Windsurf, Antigravity, Rider
 
 ---
 
 ## Core Loop
 ```
-Search KB → Plan → Code → Commit → Log discovery
+Search KB → Plan → Code → Verify → Log discovery
 ```
 
 ## Session Start Check (Quiet)
-- If `GLOBAL_RULES.md` is missing **and** it blocks the task **or** it will with 98% confidence speed up, improve accuracy, save tokens, or otherwise help the developer task, ask once at session start.
+- If `GLOBAL_RULES.md` is missing and clearly blocks task quality/speed, ask once at session start.
 
 ## Session Start Defaults (No Prompt)
 - Defaults: `toolchain=auto-detect`, `scope=project-only`, `verbosity=concise`.
 - Only ask if user explicitly requests global sharing.
 
 ## Insight Prompt (Low Friction)
-- If a key insight is confirmed (99% confidence + evidence), **ask once at end of session** to log it.
+- If a key insight is confirmed (high confidence + evidence), ask once at end of session to log it.
 - Keep it one-line. If user declines, do not ask again that session.
-- **Web research**: If key insight comes from web sources, log it to KB with citations/links.
+- Web-derived insights should be logged with citations/links.
 
 ## KnowledgeBase Access (Default)
-- **Read access**: ON by default (use KB for answers).
-- **Write/commit/PR**: ONLY when a key insight is confirmed (99% confidence + evidence).
+- Read access: ON by default (use KB for answers).
+- KB write/commit/PR: only when a key insight is confirmed (high confidence + evidence).
+- Code edits: proceed as requested by the active task.
 
 ## Before Any Change
-1. **Need it?** Check KB for existing solution
-2. **Side effects?** Keep changes minimal, reversible
+1. Need it? Check KB for an existing pattern
+2. Side effects? Keep changes minimal and reversible
+
+## Boris Cherny Defaults (Applied)
+- Use highest-capability model tier available for complex coding tasks.
+- Use git worktrees for parallel tasks (`wtnew`, `wtls`, `wtrm`).
+- Use reusable commands/skills for repeat workflows instead of re-prompting each session.
+- Use automatic lint/test failure follow-up hooks where the tool supports hooks.
+- Use voice for planning/review where the client supports voice.
 
 ## Tool Selection
 | Task | Tool | Why |
 |------|------|-----|
-| Implementation | Claude Code | MCP, subagents |
-| Research | Gemini/Antigravity | 1M context free |
-| Quick edits | Windsurf | Fast Cascade |
-| Navigation | Rider | JetBrains MCP |
-| Code gen | Codex | AGENTS.md native |
+| Implementation | Claude Code / Codex | Strong agentic coding + MCP |
+| Research | Gemini/Antigravity | Very large context |
+| Quick edits | Windsurf/Cursor | Fast IDE loop |
+| Navigation | Rider | JetBrains indexed search |
+| OpenAI/Codex docs | openaiDeveloperDocs MCP | Primary source |
 
 ## Quick Commands
 - `kb "term"` - Search knowledgebase
 - `kbfix "error"` - Error→fix lookup
-- `/clear` - Reset context between tasks
-- `/compact` - Shrink context
+- `/clear` - Reset context between unrelated tasks (tool-specific)
+- `/compact` - Shrink context (tool-specific)
 
 ## Token Rules
 - Stay <95% weekly limit
 - Use agents for 3+ step tasks (independent budgets)
-- Parallel tool calls when possible
+- Parallelize independent tool calls
 - Edit over Write (smaller diffs)
 
 ## Output Mode (All CLIs)
-- **Default**: concise, no structured schema, no reasoning output.
-- **On-demand**: enable structured output + reasoning for PR reviews, CI, incident fixes, specs, audits, or automation.
+- Default: concise, no unnecessary structure.
+- On-demand: structured output for PR reviews, CI, incident fixes, specs, audits, automation.
 
 ## OpenAI Docs MCP
 - For OpenAI/Codex questions, consult the `openaiDeveloperDocs` MCP server first.
 
 ## Toolchain Deltas (Official Docs)
-- Codex: prefer `.codex/skills/` for reusable instructions (custom prompts deprecated).
-- Codex: project config loads only when folder is trusted.
-- Codex: use `/permissions` for URL access.
-- Claude Code: prefer HTTP MCP transport; SSE deprecated.
+- Codex: use `.agents/skills` (repo/user/admin/system skill discovery) for reusable skills.
+- Codex: project-scoped `.codex/config.toml` loads only when folder/project is trusted.
+- Codex: use `web_search`/`--search` settings for live web retrieval.
+- Claude Code: prefer HTTP MCP transport; SSE is deprecated.
 
 ## Anti-Patterns
-- Writing code without searching KB first
+- Writing code without checking KB when a known pattern likely exists
 - Duplicating existing utilities
 - Over-engineering simple tasks
 - Ignoring verification criteria
@@ -78,7 +86,7 @@ Location: `~/KnowledgeBase/`
 - `LEARNING_LOG.md` - Session discoveries
 
 ## Session Management
-- Commit before `/clear`
+- Commit or checkpoint before `/clear`
 - Name sessions with `/rename`
 - Resume with `--continue` or `--resume`
 

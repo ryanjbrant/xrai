@@ -29,5 +29,8 @@
     "track_runs": true,
     "log_errors": true,
     "retention_days": 30
-  }
+  },
+  "daemon_installed": true,
+  "daemon_platform": "macos",
+  "daemon_installed_date": "2026-02-08"
 }

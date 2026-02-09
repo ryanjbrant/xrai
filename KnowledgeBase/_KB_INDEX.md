@@ -18,6 +18,7 @@
 | Token tips | `_TOKEN_EFFICIENCY_COMPLETE.md` |
 | GitHub repos | `_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md` |
 | Community sources | `_TRUSTED_COMMUNITY_SOURCES.md` |
+| Visual debugging | `_KB_SEARCH_COMMANDS.md` §Screenshot Commands |
 
 ### portals_v4 Specific
 | Need | File |
@@ -27,7 +28,7 @@
 | Voice → Unity | `_VOICE_COMPOSER_PATTERNS.md` |
 | Wire system | `_VOICE_COMPOSER_PATTERNS.md` |
 | Hand VFX | `_HAND_VFX_PATTERNS.md` |
-| Keijiro patterns | `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` |
+| Keijiro patterns | `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` (**Updated 2026-02-08: Full architecture research**) |
 | Icosa Gallery API | `_ICOSA_GALLERY_PATTERNS.md` |
 | Normcore multiplayer | `_NORMCORE_MULTIPLAYER_PATTERNS.md` |
 
@@ -200,7 +201,7 @@
 | `_ECHARTS_VISUALIZATION_PATTERNS.md` | ECharts patterns |
 | `_VISUALIZATION_RESOURCES_INDEX.md` | Viz resources index |
 
-## AI/ML (12 files)
+## AI/ML (12 files + OpenClaw research in LEARNING_LOG.md)
 
 | File | Content |
 |------|---------|
@@ -216,6 +217,7 @@
 | `_AI_CONFIG_FILES_REFERENCE.md` | AI config reference |
 | `_ADVANCED_AI_INFRASTRUCTURE_GUIDE.md` | Advanced AI infrastructure |
 | `_COMPREHENSIVE_AI_DEVELOPMENT_GUIDE.md` | Comprehensive AI guide |
+| `LEARNING_LOG.md` | **Feb 8: OpenClaw agent patterns (10 searches)** |
 
 ## Tools/Integration (15 files)
 

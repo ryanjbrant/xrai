@@ -37,6 +37,9 @@
 | [github/spec-kit](https://github.com/github/spec-kit) | Spec-Driven Development toolkit - transforms specs into executable implementations via AI | AI-assisted development workflow |
 | [anthropics/claude-code](https://github.com/anthropics/claude-code) | Claude Code CLI for AI-assisted development | AI coding assistant |
 | [microsoft/vscode-react-native](https://github.com/microsoft/vscode-react-native) | VS Code React Native debugging & Expo commands | RN/Expo development |
+| [openclaw/openclaw](https://github.com/openclaw/openclaw) | Local-first AI agent with multi-channel support (WhatsApp, Telegram, Slack, Discord, etc.) | Autonomous AI assistant, tool orchestration |
+| [openclaw/clawhub](https://github.com/openclaw/clawhub) | Skill directory for OpenClaw with 2,999+ community skills | Skill discovery and management |
+| [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) | Curated collection of OpenClaw skills (24+ categories) | Skill reference and integration patterns |
 
 **VS Code React Native Extension** (Added 2026-02-06):
 - Marketplace: `msjsdiag.vscode-react-native` (stable) / `msjsdiag.vscode-react-native-preview` (nightly)

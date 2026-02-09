@@ -1,16 +1,19 @@
 # User Patterns: James Tunick
 
-**Purpose**: Learn from usage to serve faster, smarter, more accurately.
-**Update**: Append observations, don't overwrite history.
+> **CANONICAL SOURCE**: `~/user-context.md` — active projects, patterns, disambiguation.
+> This file is supplementary. For current project priorities and tool setup, always read `~/user-context.md` first.
+
+**Purpose**: Historical usage observations (append-only archive).
 
 ---
 
 ## Core Profile
 
-**Role**: XR/AR Developer, Unity Specialist
-**Primary Project**: MetavidoVFX (Hologram systems)
-**Tools**: Rider + Claude Code + Unity MCP
-**AI Style**: Opus 4.5 with thinking enabled
+**Role**: XR/AR Developer, Unity + React Native hybrid apps
+**Primary Project**: portals_main (RN 0.81 + Unity 6000.2 UAAL, AR Foundation 6.3.2)
+**Tools**: Claude Code, Windsurf, Cursor, Codex, Rider (all share ~/GLOBAL_RULES.md)
+**MCP**: coplay-mcp (86 tools, @latest) + github
+**AI Style**: Opus 4.6 with thinking enabled
 
 ---
 
