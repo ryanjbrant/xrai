@@ -6,6 +6,40 @@
 
 ---
 
+## 2026-02-08 - Open Format Patterns + Official Guidance Analysis
+
+**Achievement**: Deep analysis of official Anthropic patterns, added 2 KB reference docs
+**KB additions** (2 files, 612 lines total):
+- `_AGENTSKILLS_OPEN_FORMAT_PATTERNS.md` (312 lines) - Open format design principles from agentskills.io
+- `_CLAUDE_MD_BEST_PRACTICES.md` (300 lines) - Official CLAUDE.md optimization from Anthropic blog
+
+**Key insights extracted**:
+
+### Agent Skills (Open Format Design)
+- **Progressive disclosure**: Metadata (~100 tokens) → Full content → Resources (on-demand)
+- **Minimal viable spec**: 2 required fields (name, description), everything else optional
+- **Filesystem as structure**: Portable, versionable, self-contained
+- **Validation from day 1**: `skills-ref` validator ensures format compliance
+- **Hybrid governance**: Anthropic stewardship + community contributions
+- **Extension points**: `metadata` field for future growth without breaking changes
+
+### CLAUDE.md Best Practices
+- **Concise**: 1-5KB optimal (saves 2-5KB by eliminating repetitive context)
+- **Concrete over theoretical**: Solve actual problems, not imagined ones
+- **Custom commands**: `.claude/commands/` for repeated workflows (not yet using)
+- **Subagents for isolation**: Security reviews, performance analysis need fresh context
+- **Token optimization**: Break large docs into references, use commands for specialized workflows
+- **Iterative refinement**: Start minimal (`/init`), expand based on friction
+
+**Validation of our architecture**:
+- ✅ Tool selection hierarchy (zero-token → skills → direct → agents) = official pattern from anthropic-cookbook
+- ✅ Skills architecture (progressive disclosure) = official Agent Skills spec
+- ✅ CLAUDE.md structure (concise, project-specific) = Anthropic blog guidance
+- ⚠️ Could use custom commands more (`.claude/commands/` underutilized)
+- ⚠️ Portals CLAUDE.md at 296 lines (could trim or split references)
+
+**Token savings**: >2K per future session (prevents re-research of official patterns, guides CLAUDE.md optimization)
+
 ## 2026-02-08 - Auto-Recognition + First Skill (unity-status)
 
 **Achievement**: Implemented auto-recognition rules + built first skill (1/10 target)
