@@ -136,6 +136,24 @@ Before writing any code or making changes, silently answer these questions. If a
 - Check `_KB_INDEX.md` Quick Access table when starting a task — existing tools/patterns often already cover what you need.
 - Log only high-confidence, evidence-backed insights.
 
+## Memory philosophy (non-negotiable)
+**Files are memory. Knowledgebase IS your AI memory.** No semantic MCPs (claude-mem, ChromaDB).
+- Session facts → `~/.claude/session_memories/<project>.md`
+- Discoveries → `~/KnowledgeBase/LEARNING_LOG.md`
+- Cross-tool context → `~/user-context.md`
+- Patterns → KB files (grep-based, zero tokens)
+
+## Agent patterns (for project reference)
+- **Pre-requisite chains**: Read → Edit → Verify (never Edit without Read first)
+- **Multi-search**: Run 3-5 related searches in parallel
+- **Non-interactive commands**: Use `--no-pager`, `2>&1 | tee`, timeout flags
+- **Batch-then-verify**: Make all edits, then verify once (not per-file)
+
+## Verification criteria (quality boost 2-3x)
+Include expected output in requests. Claude self-verifies.
+- ❌ "implement validation" → ✅ "write validateEmail(). tests: user@example.com=true, invalid=false. run tests after"
+- ❌ "make dashboard better" → ✅ "[screenshot] implement this. take screenshot and compare"
+
 ### Zero-token KB commands (shell — no AI tokens)
 ```bash
 kb search "topic"       # Search all KB files (local + repo)
