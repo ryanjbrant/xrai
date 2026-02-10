@@ -4634,9 +4634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 98931385}
-  - {fileID: 98931384}
+  m_Bindings: []
   m_VisualEffect: {fileID: 98931388}
 --- !u!73398921 &98931387
 VFXRenderer:
@@ -16491,7 +16489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22400762, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000022888184
+      value: -0.000011444092
       objectReference: {fileID: 0}
     - target: {fileID: 22426080, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -24123,7 +24121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &600369233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50103,8 +50101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15f82cc229284894964d2d30806969d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.AROcclusionManager
-  m_HumanSegmentationStencilMode: 1
-  m_HumanSegmentationDepthMode: 1
+  m_HumanSegmentationStencilMode: 3
+  m_HumanSegmentationDepthMode: 2
   m_EnvironmentDepthMode: 1
   m_EnvironmentDepthTemporalSmoothing: 1
   m_OcclusionPreferenceMode: 1
@@ -50610,8 +50608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 1286437086}
+  m_Bindings: []
   m_VisualEffect: {fileID: 1286437089}
 --- !u!73398921 &1286437088
 VFXRenderer:
@@ -55235,9 +55232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 1397431559}
-  - {fileID: 1397431557}
+  m_Bindings: []
   m_VisualEffect: {fileID: 1397431562}
 --- !u!73398921 &1397431561
 VFXRenderer:
@@ -57162,8 +57157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 1460455977}
+  m_Bindings: []
   m_VisualEffect: {fileID: 1460455980}
 --- !u!73398921 &1460455979
 VFXRenderer:
@@ -64156,8 +64150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 1673875998}
+  m_Bindings: []
   m_VisualEffect: {fileID: 1673875997}
 --- !u!73398921 &1673876000
 VFXRenderer:
@@ -65224,8 +65217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 1710502879}
+  m_Bindings: []
   m_VisualEffect: {fileID: 1710502882}
 --- !u!73398921 &1710502881
 VFXRenderer:
@@ -67615,8 +67607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 1764639386}
+  m_Bindings: []
   m_VisualEffect: {fileID: 1764639389}
 --- !u!73398921 &1764639388
 VFXRenderer:
@@ -67732,7 +67723,7 @@ VisualEffect:
         m_Overridden: 1
 --- !u!114 &1764639390
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -70427,7 +70418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832787074}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d8cc743c93d94e0296c0de7bff5ea66, type: 3}
   m_Name: 
