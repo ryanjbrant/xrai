@@ -127,18 +127,22 @@ AR Foundation VFX project with XRRAI (XR Real-time AI) systems.
 **Build**: `./build_ios.sh`
 **Deploy**: `./deploy_ios.sh`
 
-### Core Architecture (Updated 2026-01-20)
+### Core Architecture (Updated 2026-02-10)
 
 **Primary Pipeline**: Hybrid Bridge Pattern (ARDepthSource + VFXARBinder) - O(1) compute scaling
-- Single compute dispatch (ARDepthSource) for all active VFX
-- Lightweight per-VFX binders (VFXARBinder) for texture/data mapping
-- VFXLibraryManager (~920 LOC) for pipeline-aware VFX management
-- 73 VFX in Resources/VFX organized by category (People, Environment, NNCam2, Akvfx, Rcam2-4, SdfVfx)
-- 353 FPS verified with 10 active VFX
-- Legacy components removed: VFXBinderManager, VFXARDataBinder (moved to _Legacy folder)
+- Single compute dispatch (`DepthToWorld.compute`) handles person/background separation via Stencil once for all VFX.
+- **Reference**: `MetavidoVFX-main/Assets/Documentation/VFX_PIPELINE_FINAL_RECOMMENDATION.md`
+- **Top Candidates**: `hifi_hologram_people.vfx` (Flagship), `lifelike_hologram.vfx` (Reliable), `DisplacedMeshBuilder` (Solid Mesh).
+
+**Verified Patterns**:
+- **Awaitable Switcher**: Use `await Awaitable.WaitForSecondsAsync(Interval)` for zero-latency VFX toggling (Unity 6 standard).
+- **Touch Manipulation**: Use `TouchDragManipulator` for production-grade two-finger zoom/rotate.
+- **Stochastic Transparency**: Use `RcamBackground.shader` for "Ghostly" hologram transitions without alpha sorting.
+- **Lite Rendering Strategy**: Use `Configurator.cs` to switch between `RendererFull` and `RendererLite` URP settings based on platform (Mobile vs Desktop) to maintain 60FPS.
+- **Camera Proxy**: Use `cameraproxy_depth_any_metavido.vfx` to visualize the source camera's frustum and orientation in the AR scene.
 
 **Systems**:
-- **VFX Management**: ARDepthSource (PRIMARY), VFXARBinder, VFXLibraryManager, VFXToggleUI
+- **VFX Management**: ARDepthSource (PRIMARY), VFXARBinder, VFXLibraryManager, VfxSwitcher
 - **Hand Tracking**: HandVFXController (velocity-driven, pinch detection), HoloKit integration
 - **Audio**: AudioBridge (FFT frequency bands to global shader props), SoundWaveEmitter
 - **Performance**: VFXAutoOptimizer (FPS-adaptive), VFXLODController, VFXProfiler

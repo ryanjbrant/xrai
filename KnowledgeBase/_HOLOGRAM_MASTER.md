@@ -23,14 +23,34 @@ This document defines the optimal pipeline architecture for:
 
 | Pipeline | File | Status | Segmentation | Use Case |
 |----------|------|--------|--------------|----------|
-| **Hybrid Bridge** | `ARDepthSource.cs` | **PRIMARY** | All segments | O(1) compute for all VFX |
-| **VFXARBinder** | `VFXARBinder.cs` | **PRIMARY** | Properties | Lightweight per-VFX binding |
+| **Hybrid Bridge** | `ARDepthSource.cs` | **DEFINITIVE STANDARD** | All segments | O(1) compute for all VFX. Uses `jp.keijiro.metavido` protocols. |
+| **VFXARBinder** | `VFXARBinder.cs` | **DEFINITIVE STANDARD** | Properties | Universal binder. Compatible with 418+ legacy VFX graphs. |
 | **HandVFXController** | `HandVFXController.cs` | ACTIVE | Hands (21 joints) | Hand-driven brush VFX |
 | **MeshVFX (Echovision)** | `MeshVFX.cs` | ACTIVE | Environment | LiDAR mesh → VFX |
 | **SoundWaveEmitter** | `SoundWaveEmitter.cs` | ACTIVE | Audio | Expanding sound waves |
 | **VFXBinderManager** | `VFXBinderManager.cs` | ❌ LEGACY | Body (stencil) | Superseded by Hybrid Bridge |
 | **PeopleOcclusionVFX** | `PeopleOcclusionVFXManager.cs` | LEGACY | Body (stencil) | Human silhouette VFX |
 
+## Strategic Resolution (Feb 2026): The "Simplest Lifelike" Standard
+
+We have triple-verified the following components as the **Gold Standard** for the Standalone App and Portals V4:
+
+### 1. The Visual Standard
+*   **Stochastic Transparency**: Use `RcamBackground.shader`. It blends holograms using noise-based discarding instead of expensive alpha sorting.
+*   **Subgraph Synergy**: "Lifelike" quality requires:
+    *   `Metavido Filter`: Alpha > 0.9999 for precision segmentation.
+    *   `Metavido Inverse Projection`: Unified math for rock-solid tracking.
+    *   `Metavido Sample Random`: Organic particle distribution (no grid artifacts).
+
+### 2. The Interaction Standard
+*   **Zero-Latency Swapping**: Use `VfxSwitcher.cs` logic. Toggle the `Spawn` boolean property to cross-fade effects. Do NOT disable GameObjects.
+*   **Modern Async**: Use `await Awaitable.WaitForSecondsAsync(Interval)` (Unity 6) instead of Coroutines.
+*   **Touch Manipulation**: Use `TouchDragManipulator.cs` for production-grade two-finger zoom/rotate.
+
+### 3. Top Candidates
+*   **Flagship**: `hifi_hologram_people.vfx` (Fixed dynamic sizing).
+*   **Reliable**: `lifelike_hologram.vfx` (Simplest logic).
+*   **Solid**: `DisplacedMeshBuilder.cs` (Mesh + Lighting).
 
 ### Missing Pipelines (Need Implementation)
 

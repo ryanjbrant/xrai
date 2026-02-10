@@ -1687,7 +1687,7 @@ MonoBehaviour:
   - {fileID: 114350483966675671}
   dataType: 0
   capacity: 98304
-  stripCapacity: 1
+  stripCapacity: 16
   particlePerStripCount: 128
   needsComputeBounds: 0
   boundsMode: 1
@@ -10313,7 +10313,7 @@ MonoBehaviour:
   materialType: 0
   workflowMode: 0
   smoothnessSource: 0
-  useBaseColorMap: 3
+  useBaseColorMap: 1
   useOcclusionMap: 0
   useMetallicMap: 0
   useSpecularMap: 0
@@ -10687,7 +10687,7 @@ MonoBehaviour:
   - {fileID: 114350483966675613}
   dataType: 0
   capacity: 128
-  stripCapacity: 1
+  stripCapacity: 16
   particlePerStripCount: 128
   needsComputeBounds: 0
   boundsMode: 0
