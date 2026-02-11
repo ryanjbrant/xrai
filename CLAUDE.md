@@ -18,6 +18,7 @@ This repository contains production-ready code patterns, 520+ GitHub repo refere
 | MCP timeout | Wait appropriate time with `sleep`, then retry |
 | Build failed | Diagnose, try alternative approach |
 | "What should I test?" | Test everything, report results |
+| VFX Graph Broken? | Run `XRRAI > VFX > Validate All Graphs` to check properties |
 | Same error 3x | Try different approach, don't retry blindly |
 
 **Unity-specific unblocks:**

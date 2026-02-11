@@ -941,6 +941,33 @@ float4 MyFunction(float3 position)
 
 ---
 
+## Automated Validation
+
+### VFXGraphValidator Tool
+
+**Location**: `MetavidoVFX-main/Assets/Scripts/Editor/VFXGraphValidator.cs`
+**Menu**: `XRRAI > VFX > Validate All Graphs`
+
+The project includes an automated validator to ensure all 418+ VFX graphs comply with the **Hybrid Bridge** standard.
+
+**Validation Checks**:
+1.  **Pipeline Properties**: Must expose `DepthMap`, `ColorMap`, and `RayParams` (or `InverseView`).
+2.  **Switching Logic**: Must expose a `Spawn` boolean (or `_vfx_enabled`) for zero-latency toggling.
+3.  **Mobile Performance**: (Future) Warns if `capacity` > 500,000.
+
+**CLI Mode**: `run_vfx_validation_cli.sh` performs a quick grep-based scan of the `Assets/VFX` directory.
+
+### Standard Fix Pattern
+
+To fix a `[FAIL]` result:
+1.  Open the VFX Graph.
+2.  Add a **Texture2D** property named `DepthMap` (Exposed).
+3.  Add a **Bool** property named `Spawn` (Exposed).
+4.  Connect `Spawn` to the `Loop State` of your Spawner context.
+5.  Use `Metavido Inverse Projection` or `AR Inverse Projection` subgraphs for position logic.
+
+---
+
 ## Unity YAML Format (Official Documentation)
 
 > Source: [UnityYAML](https://docs.unity3d.com/Manual/UnityYAML.html), [Format Description](https://docs.unity3d.com/Manual/FormatDescription.html)

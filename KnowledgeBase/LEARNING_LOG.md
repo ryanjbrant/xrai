@@ -19,3 +19,13 @@
 **Action**: Hardened the `MetavidoVFX-main` project as the L3 verification target. Fixed critical bugs in `hifi_hologram_people.vfx` (dynamic sizing) and `hifi_hologram_pointcloud.vfx` (strip capacity). Standardized URP assets for Lite/Full parity.
 
 **Next Step**: Deploy `HOLOGRAM 3.unity` to iPhone 12+ for final 60FPS verification.
+## 2026-02-10 22:08 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by SessionEnd (other) in `portals_main`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`

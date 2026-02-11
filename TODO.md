@@ -23,7 +23,8 @@ We have **fully resolved** that the **Hybrid Bridge** (`ARDepthSource` + `VFXARB
 ## 🟡 ACTIVE TASKS (P1)
 
 - [ ] **Automate "Spawn" Property Check**: Verify all 418+ VFX graphs have a `Spawn` boolean property.
-    - **Reason**: Required for the `VfxSwitcher` zero-latency swapping logic.
+    - **Status**: Tool created (`VFXGraphValidator.cs`). Preliminary CLI scan shows many FAILs.
+    - **Next**: Run in Unity Editor and fix the top 5 flagship graphs.
 - [ ] **Portals V4 Shader Port**: Port "Stochastic Transparency" from `RcamBackground.shader` to Portals V4.
 - [ ] **FaceVFXController**: Implement ARKit Blendshape binding to `VFXARBinder`.
 - [ ] **BodyPartSegmenter**: Integrate `BodyPixSentis` for 24-part mask driving specialized VFX (e.g. glowing head).
@@ -33,6 +34,17 @@ We have **fully resolved** that the **Hybrid Bridge** (`ARDepthSource` + `VFXARB
 - [ ] **Multi-User SFU**: Research MediaSoup/SRS for 10+ concurrent holograms.
 - [ ] **XRAI Format**: Finalize binary container spec for AI-native spatial media.
 
+## 📦 MIGRATION STATUS (STAGED)
+
+The following components have been staged in `PortalsV4_Migration_Staging/` for transfer to Portals V4:
+- [x] **CameraProxy**: `AxisLines`, `Frustum`, `ImagePlane` (Context visualization).
+- [x] **Stochastic Shader**: `RcamBackground.shader` (Ghostly transparency).
+- [x] **Flagship VFX**: `hifi_hologram_people.vfx` (Fixed version).
+
+**Action Required**:
+1.  Drag `PortalsV4_Migration_Staging/Assets/*` into `Portals V4/Assets/`.
+2.  Manually import `jp.keijiro.metavido.vfxgraph` package to get the Subgraph Operators.
+
 ## 🧠 SESSION MEMORY
 
-- **2026-02-10**: Deep analyzed Keijiro's source vs local implementations. Confirmed "Position-Based" VFX are superior due to unified stencil filtering. Fixed critical bugs in flagship VFX assets. Pipeline is now "Hardened".
+- **2026-02-10**: Deep analyzed Keijiro's source vs local implementations. Confirmed "Position-Based" VFX are superior due to unified stencil filtering. Fixed critical bugs in flagship VFX assets. Created `VFXGraphValidator.cs` to enforce the standard.
