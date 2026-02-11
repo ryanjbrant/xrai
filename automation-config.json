@@ -1,20 +1,20 @@
 {
-  "enabled": true,
+  "enabled": false,
   "first_run_prompted": true,
   "version": "1.0",
   "agents": {
     "auto_improve": {
-      "enabled": true,
+      "enabled": false,
       "interval_hours": 1,
       "description": "System health, MCP check"
     },
     "github_trends": {
-      "enabled": true,
+      "enabled": false,
       "interval_hours": 12,
       "description": "Update trending repos"
     },
     "kb_health": {
-      "enabled": true,
+      "enabled": false,
       "interval_hours": 6,
       "description": "KB integrity check"
     }

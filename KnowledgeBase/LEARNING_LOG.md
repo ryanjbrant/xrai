@@ -29,3 +29,36 @@
 - **Category**: workflow
 - **ROI**: High - prevents context loss at transition boundaries.
 - **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+## 2026-02-11 00:17 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by SessionEnd (other) in `unity-xr-ai`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+## 2026-02-11 00:52 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by SessionEnd (other) in `metavidovfx-main`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+## 2026-02-11 07:15 EST - Performance Optimization - IDE & Workflow De-bloating
+- **Discovery**: Significant IDE latency (Rider/Unity) caused by background automation agents and synchronous git hooks.
+- **Context**: Rider CPU spikes (26%+) from Semantic Search/Backend; Unity refresh loops.
+- **Impact**: 
+  - Reduced background CPU overhead by disabling automation agents in `automation-config.json`.
+  - Faster git operations by disabling synchronous `pre-commit` and `post-commit` hooks.
+  - Improved Play Mode entry speed via `m_EnterPlayModeOptionsEnabled`.
+- **Pattern**: Rename git hooks to `.disabled` and set `automation-config.json:enabled` to `false` for low-spec or high-load environments.
+- **Category**: #performance #workflow #devops
+- **ROI**: High - increases developer velocity by reducing tool-induced friction.

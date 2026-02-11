@@ -22,6 +22,7 @@
 10. [Data Flow Diagrams](#10-data-flow-diagrams)
 11. [VFX Property Reference](#11-vfx-property-reference)
 12. [Troubleshooting](#12-troubleshooting)
+13. [Development Optimization](#13-development-optimization)
 
 ---
 
@@ -733,3 +734,21 @@ var depth = TryGetTexture(() => occlusionManager.humanDepthTexture);
 ---
 
 *Document updated for Hybrid Bridge architecture + AR Texture Safety - 2026-01-20*
+
+---
+
+## 13. Development Optimization
+
+To maintain high development velocity and reduce IDE friction (Rider/Unity), the following environmental optimizations are applied:
+
+### Automation & Validation
+- **Automation Agents**: Background agents (KB health, improvement) are disabled in `automation-config.json` to preserve CPU for compilation.
+- **Git Hooks**: Synchronous `pre-commit` and `post-commit` hooks are disabled (`.disabled`) to ensure instant git operations. Manual validation is preferred via `Scripts/automation/quick-validate.sh`.
+
+### Unity Editor Optimization
+- **Play Mode Options**: `EnterPlayModeOptions` is enabled with Domain/Scene Reload disabled (optimized in `EditorSettings.asset`).
+- **Asset Import**: It is recommended to set "Asset Import on Idle" to Disabled in Unity General settings for large asset sets.
+
+### Rider Optimization
+- **Solution-wide Analysis**: Recommended OFF for large projects to reduce Backend process load.
+- **Semantic Search**: Recommended OFF if CPU spikes occur during background indexing.
