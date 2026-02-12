@@ -138,7 +138,13 @@ run_improve() {
   done
   [ "$broken_links" -gt 0 ] && warn "Found $broken_links broken internal links"
 
-  # 4. Git commit if changes (only for cloned repos with write access)
+  # 4. Run KB visualization pipeline (generates kb-graph.json, KB_MAP.md, KB_HEALTH.md)
+  if command -v node &>/dev/null && [ -f "$SCRIPT_DIR/../kb-viz-generate.mjs" ]; then
+    log "Running KB viz pipeline..."
+    node "$SCRIPT_DIR/../kb-viz-generate.mjs" --all 2>/dev/null && log "KB viz pipeline complete" || warn "KB viz pipeline failed (non-fatal)"
+  fi
+
+  # 5. Git commit if changes (only for cloned repos with write access)
   if git diff --quiet 2>/dev/null; then
     log "No changes to commit"
   else
