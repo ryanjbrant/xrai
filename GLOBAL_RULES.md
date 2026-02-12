@@ -271,32 +271,40 @@ L1-L2 Pass → Open Unity Editor → Enable XR Simulation → Play Mode Tests �
 
 Automatically sense when a workflow, pattern, or automation should be codified. Apply this check continuously.
 
-### When to Codify
-A workflow should be codified as a rule/skill/KB entry when ANY of these are true:
-- **Repeated manually 2+ times** across sessions
-- **Involves 3+ steps** that must happen in sequence
-- **Has been forgotten** and caused rework or errors
-- **Is environment-specific** (AR, device, platform) and easy to skip
+### Trigger Phrases (IMMEDIATE ACTION — same response, no deferral)
+When the user says any of these, codify NOW in the same response:
+- **"always remember"**, **"never forget"**, **"from now on"**
+- **"always do X"**, **"never do X"**, **"stop doing X"**
+- **"make sure to"**, **"don't ever"**, **"every time you"**
+- Any correction repeated 2+ times in a session
 
-### How to Codify
-1. **Rules** (GLOBAL_RULES.md / project CLAUDE.md) -- for mandatory processes
-2. **Skills** (`.claude/skills/`) -- for multi-step automatable sequences
-3. **KB entries** (`KnowledgeBase/`) -- for reference patterns and solutions
-4. **Scripts** (`scripts/`) -- for fully automatable shell workflows
+**Do not just acknowledge.** Write the rule to the correct file immediately, then confirm what was written and where.
+
+### Auto-Sense Triggers (detect without user saying so)
+Codify when ANY of these are true:
+- **Same mistake twice** in one session — write a prevention rule
+- **Manual workaround repeated** across sessions — automate as script or skill
+- **3+ sequential steps** that must happen in order — create a skill or script
+- **Environment-specific gotcha** (AR, device, platform) that's easy to skip
+- **User corrects you** on approach — codify as a "never do X" rule
+
+### Where to Codify (Decision Tree)
+| Signal | Destination | Example |
+|--------|------------|---------|
+| Applies to ALL projects/tools | `~/GLOBAL_RULES.md` | "never use osascript" |
+| Applies to THIS project only | `<project>/CLAUDE.md` learned rules | "Unity primitive mapping" |
+| Multi-step automation (3+ steps) | `.claude/skills/` or `scripts/` | "ensure Unity + run test + check logs" |
+| Reference pattern / solution | `KnowledgeBase/` | "AR texture access pattern" |
+| Error → fix mapping | `_AUTO_FIX_PATTERNS.md` | "MCP timeout → pkill + retry" |
 
 ### Auto-Implementation Protocol
-When you identify something to codify:
-1. **Flag it** -- mention to user: "This should be codified as [rule/skill/KB]"
-2. **Draft it** -- write the codified version inline
-3. **Place it** -- add to the correct location (rules file, KB, script)
-4. **Verify** -- ensure the codified version doesn't conflict with existing rules
-5. **Cross-reference** -- link from related rules/docs if applicable
+When codifying (trigger detected or auto-sensed):
+1. **Classify** — use decision tree above to pick destination
+2. **Grep for conflicts** — search destination file for contradictions
+3. **Write it** — add to the correct file immediately
+4. **Confirm** — tell user: "Codified to [file]: [one-line summary]"
 
-### Triple Verification (for all codified rules)
-Before committing any new rule or workflow:
-1. **No conflicts** -- grep existing rules for contradictions
-2. **No regressions** -- ensure it doesn't break existing workflows
-3. **Evidence-based** -- rule must trace to a concrete incident or repeated pattern
+No "flag and defer." No "should we codify this?" Write it, confirm it, move on.
 
 ---
 

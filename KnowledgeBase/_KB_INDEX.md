@@ -1,6 +1,6 @@
 # KnowledgeBase Index
 
-**Files**: 250 | **Size**: ~4MB | **Updated**: 2026-02-11
+**Files**: 258 | **Size**: ~4MB | **Updated**: 2026-02-12
 
 > **On audits**: Verify Quick Access matches current projects. Check `ls -lt ~/Documents/GitHub/ | head -10` for active work. Archive stale files (>6 months). See GLOBAL_RULES.md §KB Relevance Check.
 
