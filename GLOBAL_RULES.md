@@ -63,6 +63,27 @@ Explore → Plan → Code → Commit → Log discovery
 - Defaults: `toolchain=auto-detect`, `scope=project-only`, `verbosity=concise`.
 - Only ask if user explicitly requests global sharing.
 
+### Session Start Banner (MANDATORY)
+**Print at start of EVERY session** (Claude Code, Codex, Gemini, Cursor, Windsurf, any IDE/CLI):
+
+```
+## Config Hierarchy (active)
+1. [tool-specific config]     ← e.g., ~/.claude/CLAUDE.md
+2. ~/GLOBAL_RULES.md          ← Universal rules
+3. project/CLAUDE.md          ← Project overrides
+
+## Token Overhead
+- Config files loaded: ~X tokens
+- Mode: [concise/verbose] (switch: /compact or --output-format)
+
+## Current Token Use
+- Session: ~X tokens used
+- Limit: [tool limit] | Status: [OK/WARN/CRITICAL]
+```
+
+**Why**: Transparency on what rules are active, token cost of config, and budget awareness.
+**Optional mode switch**: If overhead >5K tokens, suggest `/compact` or config pruning.
+
 ### Insight Prompt (Low Friction)
 - If a key insight is confirmed (99% confidence + evidence), **ask once at end of session** to log it.
 - Keep it one-line. If user declines, do not ask again that session.

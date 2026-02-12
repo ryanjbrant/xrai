@@ -45,8 +45,8 @@ public class VFXGraphValidator : EditorWindow
         int needsFix = 0;
 
         sb.AppendLine($"# VFX Validation Report ({System.DateTime.Now})");
-        sb.AppendLine($"Scanning {total} VFX Graphs...
-");
+        sb.AppendLine($"Scanning {total} VFX Graphs...");
+        sb.AppendLine();
 
         foreach (string guid in guids)
         {
@@ -86,8 +86,8 @@ public class VFXGraphValidator : EditorWindow
             }
         }
 
-        sb.AppendLine($"
-SUMMARY: {valid} Valid, {needsFix} Need Attention.");
+        sb.AppendLine();
+        sb.AppendLine($"SUMMARY: {valid} Valid, {needsFix} Need Attention.");
         _report = sb.ToString();
         
         // Save report

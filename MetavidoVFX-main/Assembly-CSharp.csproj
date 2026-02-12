@@ -494,6 +494,7 @@
     <Compile Include="Assets/Scripts/HandTracking/Providers/BodyPixHandTrackingProvider.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/Common Tools/Unity cloth simulation/Scripts/WindController.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/#___LENS_FLARES2020/StarGen/Demo/Scripts/ColorPanel.cs" />
+    <Compile Include="Assets/Scripts/Runtime/GeminiConfig.cs" />
     <Compile Include="Assets/Fluo/01 Input/Prefilter/Prefilter.cs" />
     <Compile Include="Assets/Samples/Input System/1.16.0/Simple Demo/SimpleController_UsingActionAsset.cs" />
     <Compile Include="Assets/Samples/HoloKit Unity SDK/0.5.6/Phone Model Specs Calibration/Scripts/Vibrator.cs" />
@@ -602,6 +603,7 @@
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Klak/Motion/ConstantMotion.cs" />
     <Compile Include="Assets/Scripts/Scene/XRRAIScene.cs" />
     <Compile Include="Assets/Samples/Input System/1.16.0/Simple Demo/SimpleController_UsingActions.cs" />
+    <Compile Include="Assets/Scripts/Config/GeminiConfig.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/GIBLI/Scripts GIBLI/effectsControllerGIBLI/connectVisualFXGIBLI.cs" />
     <Compile Include="Assets/3rdparty/FERM/Scripting/Physics/FERM_Caster.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/#___LENS_FLARES2020/Kino/Glitch/DigitalGlitch.cs" />

@@ -1,0 +1,8 @@
+{
+  "name": "vfx",
+  "description": "Search VFX patterns in knowledge base",
+  "command": "kb_search {pattern}",
+  "parameters": {
+    "pattern": "vfx graph"
+  }
+}

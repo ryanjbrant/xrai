@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Knowledge Base Search</title>
+  <style>
+    :root {
+      --primary-color: #4a6fa5;
+      --secondary-color: #6c757d;
+      --background: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-color: #212529;
+      --border-color: #dee2e6;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background-color: var(--background);
+      color: var(--text-color);
+      min-width: 400px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .search-container {
+      position: sticky;
+      top: 0;
+      background: var(--background);
+      padding: 16px 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .search-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    
+    input[type="text"]:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+    }
+    
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #3a5a8c;
+    }
+    
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    
+    .tag {
+      background-color: #e9ecef;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .tag:hover, .tag.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .results {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 8px 0;
+    }
+    
+    .result-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .result-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .result-title {
+      margin: 0 0 8px 0;
+      color: var(--primary-color);
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .result-content {
+      margin: 8px 0;
+      font-size: 14px;
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+    
+    .result-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--secondary-color);
+      margin-top: 12px;
+    }
+    
+    .result-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--secondary-color);
+    }
+    
+    .add-knowledge {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .add-knowledge:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    
+    .highlight {
+      background-color: #fff3cd;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search knowledge base..." autofocus>
+      <button id="searchButton">Search</button>
+    </div>
+    <div class="filters" id="tagFilters">
+      <!-- Tags will be populated here -->
+    </div>
+  </div>
+  
+  <div class="results" id="searchResults">
+    <div class="empty-state">
+      <p>Search for knowledge or add new entries to get started.</p>
+    </div>
+  </div>
+  
+  <button class="add-knowledge" id="addKnowledgeButton" title="Add new knowledge">+</button>
+
+  <script type="module" src="search.js"></script>
+</body>
+</html>

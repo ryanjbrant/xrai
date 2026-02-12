@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>KB-CLI Tab Tracker - Settings</title>
+  <style>
+    body {
+      width: 500px;
+      padding: 24px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 16px;
+    }
+    .header img {
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+    }
+    .header h1 {
+      font-size: 20px;
+      margin: 0;
+      color: #1a73e8;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .help-text {
+      font-size: 12px;
+      color: #5f6368;
+      margin-top: 4px;
+    }
+    .button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-right: 8px;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #1557b0;
+    }
+    .button.secondary {
+      background-color: #f1f3f4;
+      color: #5f6368;
+    }
+    .button.secondary:hover {
+      background-color: #e8eaed;
+    }
+    .status {
+      padding: 12px;
+      border-radius: 4px;
+      margin: 16px 0;
+      display: none;
+    }
+    .status.success {
+      background-color: #e6f4ea;
+      color: #137333;
+      display: block;
+    }
+    .status.error {
+      background-color: #fce8e6;
+      color: #c5221f;
+      display: block;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin: 16px 0;
+    }
+    .checkbox-container input[type="checkbox"] {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" alt="KB-CLI">
+    <h1>KB-CLI Tab Tracker - Settings</h1>
+  </div>
+
+  <div id="status" class="status"></div>
+
+  <form id="settingsForm">
+    <div class="form-group">
+      <label for="apiKey">KB-CLI API Key</label>
+      <input type="password" id="apiKey" placeholder="Enter your KB-CLI API key">
+      <p class="help-text">
+        Get this from your KB-CLI configuration. This is required to sync tabs with your knowledge base.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="apiUrl">KB-CLI API URL</label>
+      <input type="text" id="apiUrl" value="http://localhost:8000/api/tabs">
+      <p class="help-text">
+        The URL where your KB-CLI API is running.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="syncInterval">Sync Interval (minutes)</label>
+      <input type="number" id="syncInterval" min="1" max="1440" value="5">
+      <p class="help-text">
+        How often to automatically sync tabs with KB-CLI (1-1440 minutes).
+      </p>
+    </div>
+
+    <div class="checkbox-container">
+      <input type="checkbox" id="autoSync" checked>
+      <label for="autoSync">Enable automatic syncing</label>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="button">Save Settings</button>
+      <button type="button" id="testConnection" class="button secondary">Test Connection</button>
+    </div>
+  </form>
+
+  <div class="form-group">
+    <h3>Data Management</h3>
+    <button id="clearData" class="button secondary">Clear Local Data</button>
+    <p class="help-text">
+      Clear all locally stored tab data. This will not affect data already synced to KB-CLI.
+    </p>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "entryPoints": [
+    "./chrome-extension/knowledgeBase.js",
+    "./chrome-extension/knowledgeApi.js",
+    "./chrome-extension/background.js"
+  ],
+  "out": "./docs/api",
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "hideGenerator": true,
+  "includeVersion": true,
+  "name": "KB-CLI Chrome Extension API",
+  "readme": "none",
+  "theme": "default",
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ],
+  "exclude": [
+    "**/node_modules/**",
+    "**/*.test.js",
+    "**/*.spec.js"
+  ],
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "Core",
+    "API",
+    "Utilities",
+    "Other"
+  ],
+  "sort": [
+    "source-order",
+    "alphabetical"
+  ]
+}

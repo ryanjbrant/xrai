@@ -49,6 +49,11 @@ namespace XRRAI.Debugging
         private Texture2D _cpuDepthMap;
         private Texture2D _cpuStencilMap;
 
+        // Cached arrays to avoid allocations every frame
+        private Color[] _colorBuffer;
+        private Color[] _depthBuffer;
+        private Color[] _stencilBuffer;
+
         // Camera simulation
         private Matrix4x4 _inverseView = Matrix4x4.identity;
         private Vector4 _rayParams = new Vector4(0, 0, 1, 1);
@@ -102,6 +107,10 @@ namespace XRRAI.Debugging
             _cpuDepthMap = new Texture2D(_textureSize, _textureSize, TextureFormat.RFloat, false);
             _cpuStencilMap = new Texture2D(_textureSize, _textureSize, TextureFormat.R8, false);
 
+            _colorBuffer = new Color[_textureSize * _textureSize];
+            _depthBuffer = new Color[_textureSize * _textureSize];
+            _stencilBuffer = new Color[_textureSize * _textureSize];
+
             _depthRange = new Vector2(_depthMin, _depthMax);
         }
 
@@ -114,15 +123,15 @@ namespace XRRAI.Debugging
             if (_cpuColorMap != null) DestroyImmediate(_cpuColorMap);
             if (_cpuDepthMap != null) DestroyImmediate(_cpuDepthMap);
             if (_cpuStencilMap != null) DestroyImmediate(_cpuStencilMap);
+            
+            _colorBuffer = null;
+            _depthBuffer = null;
+            _stencilBuffer = null;
         }
 
         private void UpdateTextures()
         {
-            if (_cpuColorMap == null || _cpuDepthMap == null) return;
-
-            Color[] colors = new Color[_textureSize * _textureSize];
-            Color[] depths = new Color[_textureSize * _textureSize];
-            Color[] stencils = new Color[_textureSize * _textureSize];
+            if (_cpuColorMap == null || _cpuDepthMap == null || _colorBuffer == null) return;
 
             for (int y = 0; y < _textureSize; y++)
             {
@@ -192,23 +201,23 @@ namespace XRRAI.Debugging
                         stencil = 1f;
                     }
 
-                    colors[i] = color;
-                    depths[i] = new Color(depth, 0, 0, 1);
-                    stencils[i] = new Color(stencil, 0, 0, 1);
+                    _colorBuffer[i] = color;
+                    _depthBuffer[i] = new Color(depth, 0, 0, 1);
+                    _stencilBuffer[i] = new Color(stencil, 0, 0, 1);
                 }
             }
 
-            _cpuColorMap.SetPixels(colors);
+            _cpuColorMap.SetPixels(_colorBuffer);
             _cpuColorMap.Apply();
             Graphics.Blit(_cpuColorMap, _colorMap);
 
-            _cpuDepthMap.SetPixels(depths);
+            _cpuDepthMap.SetPixels(_depthBuffer);
             _cpuDepthMap.Apply();
             Graphics.Blit(_cpuDepthMap, _depthMap);
 
             if (_generateStencil)
             {
-                _cpuStencilMap.SetPixels(stencils);
+                _cpuStencilMap.SetPixels(_stencilBuffer);
                 _cpuStencilMap.Apply();
                 Graphics.Blit(_cpuStencilMap, _stencilMap);
             }

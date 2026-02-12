@@ -1,0 +1,8 @@
+{
+  "name": "fix",
+  "description": "Search for error fix in knowledge base",
+  "command": "kb_search {error}",
+  "parameters": {
+    "error": ""
+  }
+}

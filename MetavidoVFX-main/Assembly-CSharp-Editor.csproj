@@ -118,6 +118,7 @@
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/Serialization/Processors/BreakFilpbookProcessorSettings.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/Processors/RotateProcessor.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/ProcessingFrame.cs" />
+    <Compile Include="Assets/Scripts/Editor/VFXGraphValidator.cs" />
     <Compile Include="Assets/3rdparty/ARTnGAME/Common Tools/WelcomeScreen/Editor/WelcomeScreen/ProductWelcomeScreenBase.cs" />
     <Compile Include="Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Head/VFXToolbox/ImageSequencer/Editor/Serialization/Processors/FixBordersProcessorSettings.cs" />
     <Compile Include="Assets/Scripts/UI/Editor/VFXGallerySetup.cs" />

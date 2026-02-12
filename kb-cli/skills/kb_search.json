@@ -1,0 +1,9 @@
+{
+  "name": "search",
+  "description": "Search knowledge base for patterns",
+  "command": "kb_search {query}",
+  "parameters": {
+    "query": "",
+    "limit": 10
+  }
+}

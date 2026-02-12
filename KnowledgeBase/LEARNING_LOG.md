@@ -62,3 +62,25 @@
 - **Pattern**: Rename git hooks to `.disabled` and set `automation-config.json:enabled` to `false` for low-spec or high-load environments.
 - **Category**: #performance #workflow #devops
 - **ROI**: High - increases developer velocity by reducing tool-induced friction.
+
+## 2026-02-11 07:56 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by SessionEnd (other) in `unity`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+## 2026-02-11 20:33 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by SessionEnd (logout) in `portals_main`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`

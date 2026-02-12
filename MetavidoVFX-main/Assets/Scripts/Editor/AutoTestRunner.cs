@@ -5,6 +5,7 @@ using XRRAI.Editor;
 
 public class AutoTestRunner
 {
+    [MenuItem("H3M/Testing/AR Remote/Run Auto Test")]
     public static void Execute()
     {
         // 1. Load Config

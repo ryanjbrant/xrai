@@ -1,0 +1,8 @@
+{
+  "name": "git_status",
+  "description": "Show git repository status",
+  "command": "git {command}",
+  "parameters": {
+    "command": "status"
+  }
+}

@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔄 Updating documentation and checking for TODOs..."
+node scripts/update_docs.js
+
+# Add the updated files
+TODOS=$(grep -r "TODO" . --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" --include="*.md" | wc -l | tr -d ' ')
+
+if [ "$TODOS" -gt 0 ]; then
+  echo "⚠️  Found $TODOS TODO items. Please address them before committing."
+  echo "   Run 'node scripts/update_docs.js' to update TODO.md"
+  exit 1
+fi
+
+echo "✅ Documentation is up to date"
+
+# Run linting and tests
+echo "🔍 Running linter..."
+npm run lint
+
+echo "🧪 Running tests..."
+npm test

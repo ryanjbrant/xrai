@@ -1,0 +1,10 @@
+{
+  "name": "unity",
+  "description": "Call Unity MCP tools",
+  "command": "mcp_call {server} {tool} {params}",
+  "parameters": {
+    "server": "unity",
+    "tool": "read_console",
+    "params": {"count": 5}
+  }
+}

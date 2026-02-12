@@ -353,3 +353,43 @@ Use this format:
 - what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-10.md`.
 - evidence: Trigger SessionEnd/other; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/78bf23b2-e3b8-49f7-992f-2813ca608e10.jsonl`.
 - next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 00:17 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/unity-xr-ai-2026-02-11.md`.
+- evidence: Trigger SessionEnd/other; project `/Users/jamestunick/Documents/GitHub/Unity-XR-AI`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 00:20 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/unity-xr-ai-2026-02-11.md`.
+- evidence: Trigger SessionEnd/other; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-Unity-XR-AI/c9ecf0bb-dd3d-4e89-be1b-3195ced3a2a3.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 00:52 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/metavidovfx-main-2026-02-11.md`.
+- evidence: Trigger SessionEnd/other; project `/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 04:07 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/metavidovfx-main-2026-02-11.md`.
+- evidence: Trigger SessionEnd/other; project `/Users/jamestunick/Documents/GitHub/Unity-XR-AI/MetavidoVFX-main`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 06:48 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/unity-xr-ai-2026-02-11.md`.
+- evidence: Trigger SessionEnd/other; project `/Users/jamestunick/Documents/GitHub/Unity-XR-AI`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 07:56 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/unity-2026-02-11.md`.
+- evidence: Trigger SessionEnd/other; project `/Users/jamestunick/Documents/GitHub/portals_main/unity`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 20:33 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-11.md`.
+- evidence: Trigger SessionEnd/logout; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/69b04071-015c-411a-8d21-ef00d718580e.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-11 21:28 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-11.md`.
+- evidence: Trigger SessionEnd/other; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/247a828e-142f-46f0-8725-54cbd3336bc9.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.

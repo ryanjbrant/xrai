@@ -1,0 +1,975 @@
+#!/usr/bin/env python3
+"""
+KB CLI - Agentic Knowledge Base Command Line Interface
+Mirrors Claude Code's architecture with rapid parallel processing
+Based on patterns from: claude.md, agents.md, skills, tools, mcps
+
+Architecture Reference:
+- OpenClaw 6-stage pipeline (Channel Adapter → Gateway → Lane Queue → Agent Runner → Response)
+- Claude Code MCP transport (HTTP preferred)
+- Codex skill discovery (.agents/skills)
+"""
+
+import asyncio
+import json
+import os
+import sys
+import time
+import argparse
+import subprocess
+import shutil
+from pathlib import Path
+from typing import Dict, List, Optional, Any
+from dataclasses import dataclass, asdict, field
+from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
+import aiohttp
+import base64
+
+# ============================================================================
+# VERSION & METADATA
+# ============================================================================
+VERSION = "1.0.0"
+KB_CLI_PATH = Path(__file__).parent.resolve()
+CONFIG_HOME = Path(os.environ.get("XDG_CONFIG_HOME", os.path.expanduser("~/.config"))) / "kb-cli"
+DATA_HOME = Path(os.environ.get("XDG_DATA_HOME", os.path.expanduser("~/.local/share"))) / "kb-cli"
+
+# ============================================================================
+# CORE DATASTRUCTURES (Channel Adapter Pattern)
+# ============================================================================
+
+@dataclass
+class KBMessage:
+    """Standardized message format - Channel Adapter output"""
+    id: str
+    content: str
+    timestamp: str
+    session_id: str
+    attachments: List[str] = field(default_factory=list)
+    metadata: Dict[str, Any] = field(default_factory=dict)
+
+@dataclass
+class KBTask:
+    """Task execution unit for Lane Queue"""
+    id: str
+    message: KBMessage
+    priority: int = 0
+    parallel_safe: bool = False
+    tools: List[str] = field(default_factory=list)
+    channel: str = "default"
+
+@dataclass
+class KBTool:
+    """Tool definition matching Claude Code's tool schema"""
+    name: str
+    description: str
+    input_schema: Dict[str, Any]
+    handler: str  # Function name to call
+
+@dataclass
+class KBSkill:
+    """Skill definition - reusable command patterns"""
+    name: str
+    description: str
+    command: str  # Template with placeholders
+    parameters: Dict[str, Any] = field(default_factory=dict)
+
+# ============================================================================
+# CONFIGURATION (Hierarchical - CLI > Env > User > Default)
+# ============================================================================
+
+class KBConfig:
+    """Configuration management with hierarchical overrides"""
+
+    DEFAULT_CONFIG = {
+        "version": VERSION,
+        "model": {
+            "provider": "ollama",
+            "name": "qwen2.5:7b-instruct",  # Fast reasoning
+            "multimodal": "qwen2.5-vl:7b",   # Vision capabilities
+            "api_url": "http://localhost:11434",
+            "temperature": 0.7,
+            "max_tokens": 4096
+        },
+        "kb_path": os.path.expanduser("~/KnowledgeBase"),
+        "project_kb": ".kb",
+        "session_path": str(DATA_HOME / "sessions"),
+        "logs_path": str(DATA_HOME / "logs"),
+        "tools": {
+            "enabled": ["file_ops", "search", "grep", "git", "web", "mcp"],
+            "mcp_servers": {}  # {"server_name": {"command": "...", "env": {...}}}
+        },
+        "execution": {
+            "max_parallel": 4,
+            "timeout": 30,
+            "retry_count": 3,
+            "stream": True
+        },
+        "skills_path": [".kb/skills", str(KB_CLI_PATH / "skills")],
+        "logging": {
+            "level": "INFO",
+            "jsonl": True,
+            "transcript": True
+        },
+        "http_mcp": {
+            "enabled": True,
+            "port": 3847
+        }
+    }
+
+    def __init__(self, config_path: Optional[str] = None):
+        self.config_path = Path(config_path) if config_path else CONFIG_HOME / "config.json"
+        self.config = self._load_config()
+
+    def _load_config(self) -> Dict[str, Any]:
+        """Load config with hierarchy: CLI arg > Env > User > Default"""
+        config = self.DEFAULT_CONFIG.copy()
+
+        # Environment overrides
+        for key in ["KB_MODEL", "KB_API_URL", "KB_PATH", "KB_PARALLEL"]:
+            if key in os.environ:
+                self._set_nested(config, key.lower(), os.environ[key])
+
+        # User config
+        if self.config_path.exists():
+            try:
+                with open(self.config_path) as f:
+                    user_config = json.load(f)
+                    config = self._deep_merge(config, user_config)
+            except Exception as e:
+                print(f"Warning: Failed to load config {self.config_path}: {e}")
+
+        return config
+
+    def _set_nested(self, d: Dict, key: str, value: Any):
+        """Set nested dict value from flat key"""
+        keys = key.replace("kb_", "").split("_")
+        target = d
+        for k in keys[:-1]:
+            target = target.setdefault(k, {})
+        target[keys[-1]] = value
+
+    def _deep_merge(self, base: Dict, override: Dict) -> Dict:
+        """Deep merge configs"""
+        result = base.copy()
+        for key, value in override.items():
+            if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+                result[key] = self._deep_merge(result[key], value)
+            else:
+                result[key] = value
+        return result
+
+    def save(self):
+        """Save user config"""
+        self.config_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(self.config_path, 'w') as f:
+            json.dump(self.config, f, indent=2)
+
+    def get(self, key: str, default: Any = None) -> Any:
+        """Get config value by dot notation"""
+        keys = key.split(".")
+        target = self.config
+        for k in keys:
+            if isinstance(target, dict) and k in target:
+                target = target[k]
+            else:
+                return default
+        return target
+
+# ============================================================================
+# LANE QUEUE (Claude Code's Serial-by-Default with Controlled Parallelism)
+# ============================================================================
+
+class LaneQueue:
+    """Serial-by-default execution queue with controlled parallelism"""
+
+    def __init__(self, max_parallel: int = 4):
+        self.max_parallel = max_parallel
+        self.serial_queue = asyncio.Queue()
+        self.parallel_queue = asyncio.Queue()
+        self.active_count = 0
+        self.lock = asyncio.Lock()
+
+    async def add_task(self, task: KBTask):
+        """Add task to appropriate lane"""
+        if task.parallel_safe:
+            await self.parallel_queue.put(task)
+        else:
+            await self.serial_queue.put(task)
+
+    async def process_queues(self, agent: 'KBAgent'):
+        """Process both serial and parallel queues with semaphore control"""
+        semaphore = asyncio.Semaphore(self.max_parallel)
+
+        async def bounded_parallel():
+            async with semaphore:
+                await self._process_parallel(agent)
+
+        # Start parallel workers
+        parallel_workers = [
+            bounded_parallel() for _ in range(self.max_parallel)
+        ]
+
+        # Serial processor (only one)
+        serial_worker = self._process_serial(agent)
+
+        await asyncio.gather(serial_worker, *parallel_workers)
+
+    async def _process_serial(self, agent: 'KBAgent'):
+        """Process serial queue - one at a time"""
+        while True:
+            try:
+                task = await self.serial_queue.get()
+                await agent.execute_task(task)
+                self.serial_queue.task_done()
+            except asyncio.CancelledError:
+                break
+
+    async def _process_parallel(self, agent: 'KBAgent'):
+        """Process parallel queue - multiple concurrent"""
+        while True:
+            try:
+                task = await self.parallel_queue.get()
+                await agent.execute_task(task)
+                self.parallel_queue.task_done()
+            except asyncio.CancelledError:
+                break
+
+# ============================================================================
+# TOOL REGISTRY (Claude Code-compatible)
+# ============================================================================
+
+class ToolRegistry:
+    """Registry of available tools - similar to Claude Code's tool system"""
+
+    def __init__(self, config: KBConfig):
+        self.config = config
+        self.tools: Dict[str, KBTool] = {}
+        self._register_builtins()
+
+    def _register_builtins(self):
+        """Register built-in tools"""
+        self.tools = {
+            "read_file": KBTool(
+                name="read_file",
+                description="Read file contents",
+                input_schema={
+                    "type": "object",
+                    "properties": {"path": {"type": "string"}}
+                },
+                handler="tool_read_file"
+            ),
+            "write_to_file": KBTool(
+                name="write_to_file",
+                description="Write or create a file",
+                input_schema={
+                    "type": "object",
+                    "properties": {
+                        "path": {"type": "string"},
+                        "content": {"type": "string"}
+                    }
+                },
+                handler="tool_write_file"
+            ),
+            "search_files": KBTool(
+                name="search_files",
+                description="Search for text in files",
+                input_schema={
+                    "type": "object",
+                    "properties": {
+                        "path": {"type": "string"},
+                        "regex": {"type": "string"}
+                    }
+                },
+                handler="tool_grep"
+            ),
+            "list_files": KBTool(
+                name="list_files",
+                description="List directory contents",
+                input_schema={
+                    "type": "object",
+                    "properties": {
+                        "path": {"type": "string"},
+                        "recursive": {"type": "boolean"}
+                    }
+                },
+                handler="tool_ls"
+            ),
+            "git": KBTool(
+                name="git",
+                description="Execute git commands",
+                input_schema={
+                    "type": "object",
+                    "properties": {"command": {"type": "string"}}
+                },
+                handler="tool_git"
+            ),
+            "run_command": KBTool(
+                name="run_command",
+                description="Run shell command",
+                input_schema={
+                    "type": "object",
+                    "properties": {
+                        "command": {"type": "string"},
+                        "timeout": {"type": "integer"}
+                    }
+                },
+                handler="tool_run"
+            ),
+            "kb_search": KBTool(
+                name="kb_search",
+                description="Search knowledge base",
+                input_schema={
+                    "type": "object",
+                    "properties": {
+                        "query": {"type": "string"},
+                        "limit": {"type": "integer"}
+                    }
+                },
+                handler="tool_kb_search"
+            ),
+            "mcp_call": KBTool(
+                name="mcp_call",
+                description="Call MCP server tool",
+                input_schema={
+                    "type": "object",
+                    "properties": {
+                        "server": {"type": "string"},
+                        "tool": {"type": "string"},
+                        "params": {"type": "object"}
+                    }
+                },
+                handler="tool_mcp"
+            )
+        }
+
+    def list_tools(self) -> List[Dict]:
+        """List all registered tools"""
+        return [
+            {
+                "name": name,
+                "description": tool.description,
+                "input_schema": tool.input_schema
+            }
+            for name, tool in self.tools.items()
+        ]
+
+# ============================================================================
+# SKILL DISCOVERY (Codex-style .agents/skills)
+# ============================================================================
+
+class SkillManager:
+    """Discover and manage skills from .kb/skills directories"""
+
+    def __init__(self, config: KBConfig):
+        self.config = config
+        self.skills: Dict[str, KBSkill] = {}
+        self._discover_skills()
+
+    def _discover_skills(self):
+        """Load skills from configured paths"""
+        skill_paths = self.config.get("skills_path", [])
+
+        for skill_path in skill_paths:
+            skill_dir = Path(skill_path)
+            if skill_dir.exists():
+                self._load_skills_from_dir(skill_dir)
+
+    def _load_skills_from_dir(self, dir_path: Path):
+        """Load skills from a directory (JSON or .md files)"""
+        for skill_file in dir_path.glob("*.json"):
+            self._load_skill_file(skill_file)
+
+        for skill_file in dir_path.glob("*.md"):
+            self._load_skill_markdown(skill_file)
+
+    def _load_skill_file(self, path: Path):
+        """Load skill from JSON"""
+        try:
+            with open(path) as f:
+                data = json.load(f)
+                skill = KBSkill(
+                    name=data.get("name", path.stem),
+                    description=data.get("description", ""),
+                    command=data.get("command", ""),
+                    parameters=data.get("parameters", {})
+                )
+                self.skills[skill.name] = skill
+        except Exception as e:
+            print(f"Warning: Failed to load skill {path}: {e}")
+
+    def _load_skill_markdown(self, path: Path):
+        """Load skill from markdown with frontmatter"""
+        try:
+            with open(path) as f:
+                content = f.read()
+                # Parse frontmatter
+                if content.startswith("---"):
+                    parts = content.split("---", 2)
+                    if len(parts) >= 2:
+                        frontmatter = json.loads(parts[1])
+                        skill = KBSkill(
+                            name=frontmatter.get("name", path.stem),
+                            description=frontmatter.get("description", ""),
+                            command=frontmatter.get("command", parts[0].strip()),
+                            parameters=frontmatter.get("parameters", {})
+                        )
+                        self.skills[skill.name] = skill
+        except Exception:
+            pass  # Skip invalid files
+
+    def list_skills(self) -> List[Dict]:
+        """List all discovered skills"""
+        return [
+            {"name": name, "description": s.description, "command": s.command}
+            for name, s in self.skills.items()
+        ]
+
+# ============================================================================
+# MCP CLIENT (HTTP Transport - Claude Code compatible)
+# ============================================================================
+
+class MCPClient:
+    """MCP client with HTTP transport (preferred over SSE)"""
+
+    def __init__(self, config: KBConfig):
+        self.config = config
+        self.servers: Dict[str, Dict] = {}
+        self._load_servers()
+
+    def _load_servers(self):
+        """Load MCP servers from config"""
+        mcp_config = self.config.get("tools.mcp_servers", {})
+        self.servers = {
+            name: {"config": cfg, "process": None}
+            for name, cfg in mcp_config.items()
+        }
+
+    async def call_tool(self, server: str, tool: str, params: Dict) -> Any:
+        """Call a tool on an MCP server"""
+        # HTTP transport implementation
+        base_url = self.config.get("http_mcp.url", f"http://localhost:{self.config.get('http_mcp.port', 3847)}")
+
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    f"{base_url}/tools/call",
+                    json={"server": server, "tool": tool, "params": params}
+                ) as response:
+                    if response.status == 200:
+                        return await response.json()
+                    else:
+                        return {"error": f"MCP error: {response.status}"}
+        except Exception as e:
+            return {"error": str(e)}
+
+    def list_servers(self) -> List[str]:
+        """List configured MCP servers"""
+        return list(self.servers.keys())
+
+# ============================================================================
+# MAIN AGENT (6-Stage Pipeline - OpenClaw Architecture)
+# ============================================================================
+
+class KBAgent:
+    """
+    Main agent - 6-stage pipeline implementation:
+    1. Channel Adapter - Normalize input
+    2. Gateway - Session coordination
+    3. Task Router - Route to Lane Queue
+    4. Agent Runner - Model selection, prompt assembly
+    5. Execution - Tool calls
+    6. Response Path - Format output
+    """
+
+    def __init__(self, config: Optional[KBConfig] = None):
+        self.config = config or KBConfig()
+        self.queue = LaneQueue(self.config.get("execution.max_parallel", 4))
+        self.tools = ToolRegistry(self.config)
+        self.skills = SkillManager(self.config)
+        self.mcp = MCPClient(self.config)
+        self.session_id = self._generate_session_id()
+        self.transcript_path = self._setup_transcript()
+        self.history: List[Dict] = []
+
+    def _generate_session_id(self) -> str:
+        return f"kb_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+    def _setup_transcript(self) -> Path:
+        log_dir = Path(self.config.get("logs_path", str(DATA_HOME / "logs")))
+        log_dir.mkdir(parents=True, exist_ok=True)
+        return log_dir / f"{self.session_id}.jsonl"
+
+    def _log_transcript(self, event: Dict[str, Any]):
+        """JSONL transcript logging for audit"""
+        if not self.config.get("logging.transcript", True):
+            return
+
+        with open(self.transcript_path, 'a') as f:
+            json.dump({
+                "timestamp": datetime.now().isoformat(),
+                "session_id": self.session_id,
+                **event
+            }, f)
+            f.write('\n')
+
+    async def process_message(self, content: str, attachments: List[str] = None) -> str:
+        """Main entry point - 6-stage pipeline"""
+
+        # Stage 1: Channel Adapter - Normalize input
+        message = KBMessage(
+            id=f"msg_{int(time.time() * 1000)}",
+            content=content,
+            timestamp=datetime.now().isoformat(),
+            session_id=self.session_id,
+            attachments=attachments or []
+        )
+
+        self._log_transcript({"stage": "channel_adapter", "message_id": message.id})
+
+        # Stage 2: Gateway - Session coordination
+        self._log_transcript({"stage": "gateway", "session": self.session_id})
+
+        # Stage 3: Task Router - Determine parallelism
+        task = await self._create_task(message)
+        self._log_transcript({
+            "stage": "task_router",
+            "task_id": task.id,
+            "parallel": task.parallel_safe
+        })
+
+        # Execute based on lane
+        if task.parallel_safe:
+            await self.execute_task(task)
+        else:
+            await self.queue.add_task(task)
+            await self.queue.process_queues(self)
+
+        return self._format_response(task)
+
+    async def _create_task(self, message: KBMessage) -> KBTask:
+        """Analyze message and create task"""
+        content = message.content.lower()
+
+        # Detect parallel-safe operations
+        parallel_safe = any(kw in content
+            for kw in ["search", "read", "list", "grep", "find", "show", "get"])
+
+        # Detect required tools
+        tools = self._detect_tools(content)
+
+        # Check for skill invocation
+        skill = self._match_skill(message.content)
+        if skill:
+            message.content = self._render_skill(skill, message.content)
+
+        return KBTask(
+            id=f"task_{int(time.time() * 1000)}",
+            message=message,
+            priority=self._calculate_priority(content),
+            parallel_safe=parallel_safe,
+            tools=tools
+        )
+
+    def _detect_tools(self, content: str) -> List[str]:
+        """Detect which tools are needed"""
+        tools = []
+        if any(kw in content for kw in ["file", "read", "write", "edit", "create"]):
+            tools.extend(["read_file", "write_to_file"])
+        if any(kw in content for kw in ["search", "grep", "find"]):
+            tools.append("search_files")
+        if any(kw in content for kw in ["list", "dir", "ls"]):
+            tools.append("list_files")
+        if any(kw in content for kw in ["git", "commit", "branch"]):
+            tools.append("git")
+        return tools
+
+    def _match_skill(self, content: str) -> Optional[KBSkill]:
+        """Check if content matches a skill pattern"""
+        for skill in self.skills.skills.values():
+            if skill.name in content.lower() or content.startswith(skill.command[:20]):
+                return skill
+        return None
+
+    def _render_skill(self, skill: KBSkill, content: str) -> str:
+        """Render skill command template"""
+        # Simple parameter substitution
+        result = skill.command
+        params = skill.parameters
+        for key, value in params.items():
+            result = result.replace(f"{{{key}}}", str(value))
+        return result
+
+    def _calculate_priority(self, content: str) -> int:
+        """Calculate task priority"""
+        high_priority = ["urgent", "critical", "error", "fix", "security"]
+        if any(kw in content for kw in high_priority):
+            return 10
+        return 0
+
+    async def execute_task(self, task: KBTask):
+        """Stage 4-5: Agent Runner + Execution"""
+        self._log_transcript({"stage": "agent_runner", "task_id": task.id})
+
+        try:
+            # Build context from KB
+            context = await self._build_context(task.message.content)
+
+            # Assemble prompt
+            prompt = self._assemble_prompt(task, context)
+
+            # Call model
+            response = await self._call_model(prompt, task.message.attachments)
+
+            # Parse and execute tool calls
+            tool_results = await self._execute_tool_calls(response)
+
+            task.result = response
+            task.tool_results = tool_results
+
+        except Exception as e:
+            task.error = str(e)
+            self._log_transcript({"stage": "error", "task_id": task.id, "error": str(e)})
+
+    async def _build_context(self, query: str) -> str:
+        """Build context from knowledge base"""
+        kb_path = Path(self.config.get("kb_path"))
+
+        if not kb_path.exists():
+            return "Knowledge base not found."
+
+        # Quick grep-based search
+        try:
+            result = subprocess.run(
+                ["grep", "-r", "-i", "--include=*.md",
+                 query[:100], str(kb_path)],
+                capture_output=True, text=True, timeout=10
+            )
+            if result.returncode == 0:
+                lines = result.stdout.split('\n')[:10]
+                return '\n'.join(lines)
+        except Exception:
+            pass
+
+        return "No KB context found."
+
+    def _assemble_prompt(self, task: KBTask, context: str) -> str:
+        """Assemble prompt with context"""
+        tools_json = json.dumps(self.tools.list_tools(), indent=2)
+
+        return f"""You are a knowledge base assistant with access to:
+- Knowledge Base: {self.config.get('kb_path')}
+- Available tools: {tools_json}
+- Session: {self.session_id}
+
+Context from KB:
+{context}
+
+User Request: {task.message.content}
+
+Provide a helpful response. If you need to use tools, respond in JSON format:
+{{"tool": "tool_name", "params": {{"param": "value"}}}}
+
+Otherwise, provide your response directly."""
+
+    async def _call_model(self, prompt: str, attachments: List[str] = None) -> str:
+        """Call Ollama model with fallback"""
+        model_config = self.config.get("model", {})
+        api_url = model_config.get("api_url", "http://localhost:11434")
+
+        # Select model
+        model = model_config.get("name", "qwen2.5:7b-instruct")
+        if attachments:
+            model = model_config.get("multimodal", model)
+
+        messages = [{"role": "user", "content": prompt}]
+
+        # Handle images
+        if attachments:
+            for att in attachments:
+                if att.endswith(('.png', '.jpg', '.jpeg')):
+                    try:
+                        with open(att, 'rb') as f:
+                            img_data = base64.b64encode(f.read()).decode()
+                        messages[-1]["images"] = [img_data]
+                    except Exception:
+                        pass
+
+        payload = {
+            "model": model,
+            "messages": messages,
+            "stream": self.config.get("execution.stream", True),
+            "options": {
+                "temperature": model_config.get("temperature", 0.7),
+                "num_predict": model_config.get("max_tokens", 4096)
+            }
+        }
+
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(f"{api_url}/api/chat", json=payload) as response:
+                    if response.status == 200:
+                        result = await response.json()
+                        return result.get("message", {}).get("content", "")
+                    else:
+                        return f"Model error: {response.status}"
+        except Exception as e:
+            return f"Model call failed: {e}"
+
+    async def _execute_tool_calls(self, response: str) -> List[Dict]:
+        """Parse and execute tool calls from response"""
+        results = []
+
+        # Simple JSON detection
+        if response.strip().startswith("{"):
+            try:
+                call = json.loads(response)
+                if "tool" in call and "params" in call:
+                    result = await self._call_tool(call["tool"], call["params"])
+                    results.append({"tool": call["tool"], "result": result})
+            except json.JSONDecodeError:
+                pass
+
+        return results
+
+    async def _call_tool(self, tool_name: str, params: Dict) -> Any:
+        """Execute a tool call"""
+        handler = getattr(self, f"tool_{tool_name}", None)
+        if handler:
+            return await handler(params)
+        return {"error": f"Unknown tool: {tool_name}"}
+
+    async def tool_read_file(self, params: Dict) -> str:
+        """read_file file contents"""
+        path = params.get("path", "")
+        if Path(path).exists():
+            with open(path) as f:
+                return f.read()[:10000]
+        return f"File not found: {path}"
+
+    async def tool_write_file(self, params: Dict) -> str:
+        """write_to_file file"""
+        path = Path(params.get("path", ""))
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, 'w') as f:
+            f.write(params.get("content", ""))
+        return f"Written: {path}"
+
+    async def tool_grep(self, params: Dict) -> str:
+        """grep for text in files"""
+        try:
+            result = subprocess.run(
+                ["grep", "-r", "-n", params.get("regex", ""),
+                 params.get("path", "."), "-l"],
+                capture_output=True, text=True, timeout=30
+            )
+            return result.stdout or "No matches found."
+        except Exception as e:
+            return f"grep failed: {e}"
+
+    async def tool_ls(self, params: Dict) -> str:
+        """List directory"""
+        path = Path(params.get("path", "."))
+        if path.exists():
+            items = list(path.iterdir())
+            return '\n'.join([f.name + ('/' if i.is_dir() else '') for i in items])
+        return f"Path not found: {path}"
+
+    async def tool_kb_search(self, params: Dict) -> str:
+        """Search knowledge base"""
+        query = params.get("query", "")
+        kb_path = Path(self.config.get("kb_path"))
+
+        if not kb_path.exists():
+            return "KB not found"
+
+        try:
+            result = subprocess.run(
+                ["grep", "-r", "-i", "--include=*.md",
+                 query[:50], str(kb_path)],
+                capture_output=True, text=True, timeout=10
+            )
+            lines = result.stdout.split('\n')[:params.get("limit", 5)]
+            return '\n'.join(lines)
+        except Exception as e:
+            return f"KB search failed: {e}"
+
+    def _format_response(self, task: KBTask) -> str:
+        """Stage 6: Format response"""
+        response = getattr(task, 'result', '')
+        tool_results = getattr(task, 'tool_results', [])
+
+        if tool_results:
+            formatted = f"{response}\n\nTool Results:\n"
+            for tr in tool_results:
+                formatted += f"- {tr['tool']}: {tr['result']}\n"
+            return formatted
+
+        return response or getattr(task, 'error', 'No result')
+
+# ============================================================================
+# CLI INTERFACE
+# ============================================================================
+
+class KBCLI:
+    """Main CLI interface"""
+
+    def __init__(self, config: KBConfig = None):
+        self.config = config or KBConfig()
+        self.agent = KBAgent(self.config)
+
+    async def run_interactive(self):
+        """Interactive chat mode"""
+        print(f"KB CLI v{VERSION} - Interactive Mode")
+        print(f"KB: {self.config.get('kb_path')}")
+        print(f"Model: {self.config.get('model.name')}")
+        print("Type 'exit' to quit, 'help' for commands")
+        print()
+
+        while True:
+            try:
+                user_input = input("kb> ").strip()
+
+                if not user_input:
+                    continue
+                if user_input.lower() in ['exit', 'quit']:
+                    break
+                elif user_input.lower() == 'help':
+                    self._show_help()
+                elif user_input.lower() == 'skills':
+                    self._show_skills()
+                elif user_input.lower() == 'tools':
+                    self._show_tools()
+                elif user_input.lower().startswith('config'):
+                    self._handle_config(user_input)
+                else:
+                    response = await self.agent.process_message(user_input)
+                    print(f"\n{response}\n")
+
+            except KeyboardInterrupt:
+                print("\nExiting...")
+                break
+            except Exception as e:
+                print(f"Error: {e}")
+
+    async def run_command(self, command: str, attachments: List[str] = None):
+        """Single command execution"""
+        response = await self.agent.process_message(command, attachments)
+        print(response)
+
+    def _show_help(self):
+        print("""
+KB CLI Commands:
+  help              - Show this help
+  skills            - List available skills
+  tools             - List available tools
+  config show       - Show configuration
+  config model <n>  - Change model
+  config kb <path>  - Change KB path
+  exit/quit         - Exit interactive mode
+
+Examples:
+  kb 'search vfx patterns'
+  kb 'read /path/to/file.md'
+  kb 'grep "function_name" --path src/'
+  kb 'git status'
+        """)
+
+    def _show_skills(self):
+        skills = self.agent.skills.list_skills()
+        if skills:
+            print("Skills:")
+            for s in skills:
+                print(f"  {s['name']}: {s['description']}")
+        else:
+            print("No skills found. Add .kb/skills/*.json")
+
+    def _show_tools(self):
+        tools = self.agent.tools.list_tools()
+        print("Available Tools:")
+        for t in tools:
+            print(f"  {t['name']}: {t['description']}")
+
+    def _handle_config(self, command: str):
+        parts = command.split()
+        if len(parts) < 2:
+            print("Usage: config show|model|kb|parallel")
+            return
+
+        if parts[1] == 'show':
+            print(json.dumps(self.agent.config.config, indent=2))
+        elif parts[1] == 'model' and len(parts) > 2:
+            self.agent.config.config['model']['name'] = parts[2]
+            self.agent.config.save()
+            print(f"Model: {parts[2]}")
+        elif parts[1] == 'kb' and len(parts) > 2:
+            self.agent.config.config['kb_path'] = parts[2]
+            self.agent.config.save()
+            print(f"KB: {parts[2]}")
+        elif parts[1] == 'parallel' and len(parts) > 2:
+            try:
+                self.agent.config.config['execution']['max_parallel'] = int(parts[2])
+                self.agent.config.save()
+                print(f"Parallel: {parts[2]}")
+            except ValueError:
+                print("Invalid number")
+        else:
+            print("Unknown config option")
+
+# ============================================================================
+# MAIN ENTRY POINT
+# ============================================================================
+
+async def main():
+    parser = argparse.ArgumentParser(
+        description="KB CLI - Agentic Knowledge Base",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  kb -i                    # Interactive mode
+  kb 'search unity vfx'    # Search KB
+  kb 'read file.md'        # Read file
+  kb 'grep "pattern"'      # grep in files
+  kb 'git status'          # Run git command
+
+Config:
+  ~/.config/kb-cli/config.json
+  .kb/                     # Project-level config
+        """
+    )
+    parser.add_argument('command', nargs='*', help='Command to execute')
+    parser.add_argument('--attach', '-a', action='append', help='Attach files')
+    parser.add_argument('--interactive', '-i', action='store_true', help='Interactive mode')
+    parser.add_argument('--config', '-c', help='Config file path')
+    parser.add_argument('--model', '-m', help='Override model')
+    parser.add_argument('--kb', '-k', help='Override KB path')
+    parser.add_argument('--parallel', '-p', type=int, help='Override parallel workers')
+    parser.add_argument('--version', '-v', action='store_true', show_version=True)
+
+    args = parser.parse_args()
+
+    if args.version:
+        print(f"KB CLI v{VERSION}")
+        return
+
+    # Create CLI with optional overrides
+    config = KBConfig(args.config) if args.config else KBConfig()
+
+    # Apply CLI overrides
+    if args.model:
+        config.config['model']['name'] = args.model
+    if args.kb:
+        config.config['kb_path'] = args.kb
+    if args.parallel:
+        config.config['execution']['max_parallel'] = args.parallel
+
+    cli = KBCLI(config)
+
+    if args.interactive or not args.command:
+        await cli.run_interactive()
+    else:
+        command = ' '.join(args.command)
+        await cli.run_command(command, args.attach)
+
+if __name__ == "__main__":
+    asyncio.run(main())
