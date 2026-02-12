@@ -1,19 +1,65 @@
 # Knowledgebase Access Guide
 
 **Purpose**: How to access the Unity XR Knowledgebase from any tool, IDE, or platform.
-**Version**: 1.0 (2026-01-22)
+**Version**: 2.0 (2026-02-12)
+
+---
+
+## AI-Optimized Access (Start Here)
+
+**257 files, 4.8MB, 8302 indexed chunks in Chroma**
+
+### 1. Semantic Search (fastest - local MCP tools only)
+```
+chroma_query_documents("kb_knowledge", ["your question here"], n_results=5)
+```
+Returns ranked chunks with file paths, sections, and relevance scores.
+One call, conceptual matching, no keywords needed.
+
+### 2. Manifest Routing (any tool - works via GitHub)
+Read `kb-manifest.json`, match tags/summaries/sections, then read specific files.
+```
+Local:   ~/.claude/knowledgebase/kb-manifest.json
+GitHub:  https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/kb-manifest.json
+CDN:     https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/kb-manifest.json
+```
+
+### 3. Read Files
+```
+Local:   ~/.claude/knowledgebase/<filename>
+GitHub:  https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/<filename>
+```
+
+### 4. Keyword Search (fallback)
+```bash
+grep -ri "term" ~/.claude/knowledgebase/
+```
+
+### 5. Write-back
+```
+Local:   Edit file directly, git commit & push from ~/Documents/GitHub/Unity-XR-AI/
+GitHub:  create_or_update_file API on imclab/xrai repo
+```
+
+### Refresh Pipeline (when KB files change)
+```bash
+cd ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase
+node scripts/generate-kb-manifest.js           # Update manifest
+node scripts/ingest-kb-chroma.js               # Generate chunks
+python3 scripts/ingest-kb-chroma.py            # Re-ingest into Chroma
+```
 
 ---
 
 ## Quick Access Methods
 
-| Method | Best For | Setup |
-|--------|----------|-------|
-| **File Symlinks** | AI CLIs (Claude, Cursor, etc.) | Already configured |
-| **MCP Server** | Claude Code, Windsurf, Rider | Built-in |
-| **REST API** | Any HTTP client | `node api/kb-api.js` |
-| **GitHub Raw** | CI/CD, Scripts | Direct URL |
-| **Shell Aliases** | Terminal users | Already configured |
+| Method | Best For | Speed | Setup |
+|--------|----------|-------|-------|
+| **Chroma Semantic** | Any question (conceptual match) | 1 call | Already indexed (8302 chunks) |
+| **Manifest JSON** | Route to right file by tags | 1-2 calls | `kb-manifest.json` in repo |
+| **File Symlinks** | AI CLIs (Claude, Cursor, etc.) | Direct read | Already configured |
+| **GitHub Raw** | CI/CD, cross-tool, remote agents | HTTP fetch | Direct URL |
+| **Shell Aliases** | Terminal users | Instant | Already configured |
 
 ---
 
@@ -278,22 +324,26 @@ function searchKB(query) {
 
 ## Statistics
 
-- **Files**: 137 markdown files
+- **Files**: 257 (245 indexed in manifest)
+- **Chroma Chunks**: 8302 semantic-searchable
 - **Patterns**: 106 auto-fix (80% auto-apply)
 - **GitHub Repos**: 520+ indexed
 - **Code Snippets**: 50+ production-ready
-- **Categories**: VFX, AR, Compute, Hand Tracking, Networking, etc.
+- **Categories**: VFX, AR, Compute, Hand Tracking, Networking, Web, AI/ML, etc.
 
 ---
 
 ## Troubleshooting
 
-### MCP Server Not Responding
+### Chroma Not Returning Results
 ```bash
-# Check if running
-lsof -i :3847
-# Restart
-cd mcp-server && npm start
+# Check MCP server running
+ps aux | grep chroma-mcp
+# Verify collection
+# Use: chroma_get_collection_count("kb_knowledge") — should return 8302
+# Re-ingest if needed:
+cd ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase
+node scripts/ingest-kb-chroma.js && python3 scripts/ingest-kb-chroma.py
 ```
 
 ### Symlink Broken
@@ -302,14 +352,12 @@ cd mcp-server && npm start
 ln -sf ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase ~/.claude/knowledgebase
 ```
 
-### API Returns Empty
+### Manifest Stale
 ```bash
-# Check KB path
-ls ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/*.md | wc -l
-# Should return 137
+node ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/generate-kb-manifest.js
 ```
 
 ---
 
-**Last Updated**: 2026-01-22
+**Last Updated**: 2026-02-12
 **Maintained By**: system-improver agent

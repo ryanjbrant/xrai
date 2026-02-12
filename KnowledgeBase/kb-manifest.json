@@ -1,0 +1,5467 @@
+{
+  "version": "1.0",
+  "generated": "2026-02-12",
+  "total_files": 245,
+  "total_size_kb": 3949,
+  "files": [
+    {
+      "file": "_WEB_MASTER.md",
+      "title": "Web Interoperability & Spatial Media Standards",
+      "tags": [
+        "web",
+        "master"
+      ],
+      "summary": "## Overview This document tracks research and analysis of emerging standards for spatial media interoperability, focusing on formats that enable cross-platform XR experiences, AI model sharing, and...",
+      "sections": [
+        "overview",
+        "🚀 portals v4 format strategy (2026-02-05)",
+        "1. metaverse standards forum - 3d web interoperability",
+        "2. current spatial media formats - comparative analysis",
+        "3. emerging neural-based formats",
+        "4. neural representation technologies",
+        "5. conceptual frameworks & research directions",
+        "6. success factors of low-level formats"
+      ],
+      "size_kb": 266,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_ADVANCED_AR_FEATURES_IMPLEMENTATION_PLAN.md",
+      "title": "🎨 PORTALS iOS APP - ADVANCED AR FEATURES IMPLEMENTATION PLAN",
+      "tags": [
+        "advanced",
+        "ar",
+        "features",
+        "implementation",
+        "plan"
+      ],
+      "summary": "## STATUS UPDATE — 2025-11-21 (v2 merge) **What changed (verified in codebase):** - 🔴 **ParticlePainter.cs** (v3) instantiates/destroys per point; must be refactored to pooling + emission control ...",
+      "sections": [
+        "status update — 2025-11-21 (v2 merge)",
+        "table of contents",
+        "0. particle brush system overhaul (p0 priority)",
+        "1. interaction scene analysis",
+        "2. hand tracking painting implementation",
+        "3. vfx graph body tracking implementation",
+        "4. audio reactive brushes implementation",
+        "5. whisper.icosa speech-to-object integration"
+      ],
+      "size_kb": 256,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_WEB_INTEROPERABILITY_STANDARDS.md",
+      "title": "Web Interoperability & Spatial Media Standards",
+      "tags": [
+        "web",
+        "interoperability",
+        "standards"
+      ],
+      "summary": "## Overview This document tracks research and analysis of emerging standards for spatial media interoperability, focusing on formats that enable cross-platform XR experiences, AI model sharing, and...",
+      "sections": [
+        "overview",
+        "🚀 portals v4 format strategy (2026-02-05)",
+        "1. metaverse standards forum - 3d web interoperability",
+        "2. current spatial media formats - comparative analysis",
+        "3. emerging neural-based formats",
+        "4. neural representation technologies",
+        "5. conceptual frameworks & research directions",
+        "6. success factors of low-level formats"
+      ],
+      "size_kb": 232,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_VFX_MASTER_PATTERNS.md",
+      "title": "VFX Graph YAML Reference (Detailed)",
+      "tags": [
+        "vfx",
+        "yaml",
+        "unity",
+        "detailed-spec",
+        "master",
+        "patterns"
+      ],
+      "summary": "Unity VFX Graph YAML reference for programmatic manipulation. **Updated**: 2026-01-20 | **Unity**: 6000.2.14f1 (VFX Graph 17.2.0) ---",
+      "sections": [
+        "file types",
+        "yaml structure overview",
+        "core components",
+        "context types",
+        "data containers",
+        "slots and properties",
+        "exposed properties (m_parameterinfo)",
+        "parameter node structure"
+      ],
+      "size_kb": 105,
+      "modified": "2026-02-10"
+    },
+    {
+      "file": "_VFX_AR_MASTER.md",
+      "title": "AR + VFX Project Index (500+ Projects)",
+      "tags": [
+        "vfx",
+        "ar",
+        "arfoundation",
+        "projects",
+        "master"
+      ],
+      "summary": "## Human Depth/Stencil/Body Tracking → VFX (45+ Projects) | Project | Description | Techniques | iOS Support | |---------|-------------|------------|-------------| | [YoHana19/HumanParticleEffect](...",
+      "sections": [
+        "human depth/stencil/body tracking → vfx (45+ projects)",
+        "🎵 audio reactive vfx (30+ projects)",
+        "🌍 environment depth → vfx (25+ projects)",
+        "🎨 additional vfx resources",
+        "✨ hologram shaders (for vfx output)",
+        "🌐 web-based gaussian splat viewers",
+        "📹 webcam → particle systems (web)",
+        "🧪 experimental/advanced projects"
+      ],
+      "size_kb": 100,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_KEIJIRO_METAVIDO_VFX_RESEARCH.md",
+      "title": "Keijiro Takahashi - Unity Patterns & Architecture Research",
+      "tags": [
+        "keijiro",
+        "metavido",
+        "vfx",
+        "research"
+      ],
+      "summary": "## Overview Keijiro Takahashi is a Unity developer specializing in VFX, shaders, creative coding, and real-time graphics. This document extracts architectural patterns, code conventions, and Unity ...",
+      "sections": [
+        "overview",
+        "part a: metavidovfx deep research",
+        "executive summary",
+        "1. architecture overview",
+        "2. core components",
+        "3. vfx graph integration",
+        "4. key patterns & best practices",
+        "5. urp compatibility"
+      ],
+      "size_kb": 95,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_VFX_BINDINGS_MASTER.md",
+      "title": "VFX Binding Specification (Rcam/Metavido)",
+      "tags": [
+        "vfx",
+        "bindings",
+        "rcam",
+        "keijiro",
+        "master"
+      ],
+      "summary": "Binding reference for Keijiro Rcam-based VFX integration (73 assets analyzed). **Updated**: 2026-01-20 | **Source**: MetavidoVFX, Rcam2/3/4, VFXARBinder.cs ---",
+      "sections": [
+        "executive summary",
+        "vfx asset inventory",
+        "property binding matrix",
+        "compute shader requirements",
+        "vfxarbinder integration",
+        "body vs environment separation",
+        "inverseprojection calculation (rcam3/4 standard)",
+        "rayparams vs inverseprojection"
+      ],
+      "size_kb": 91,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_HOLOGRAM_MASTER.md",
+      "title": "Comprehensive Hologram Pipeline Architecture",
+      "tags": [
+        "hologram",
+        "master"
+      ],
+      "summary": "## Executive Summary This document defines the optimal pipeline architecture for: - Ultra-fast, high-fidelity live holograms - Segmented tracking (body, hands, face, environment)",
+      "sections": [
+        "executive summary",
+        "pipeline inventory",
+        "unified architecture",
+        "vfx property reference (complete)",
+        "performance budget (iphone 15 pro @ 60fps)",
+        "implementation priority",
+        "recommended tools & dependencies",
+        "sources (triple verified)"
+      ],
+      "size_kb": 75,
+      "modified": "2026-02-10"
+    },
+    {
+      "file": "_PORTALS_V4_STRATEGIC_ROADMAP.md",
+      "title": "Portals V4 Strategic Roadmap",
+      "tags": [
+        "portals",
+        "v4",
+        "strategic",
+        "roadmap"
+      ],
+      "summary": "## Executive Summary This document synthesizes research from Open Brush, Portals V3, MetavidoVFX, and keijiro's reference projects to define the strategic roadmap for Portals V4. **The Goal**: Buil...",
+      "sections": [
+        "executive summary",
+        "🪄 magic features priority (easy wins first)",
+        "current state assessment",
+        "key insights synthesis",
+        "proposed spec sequence (magic-first ordering)",
+        "detailed spec proposals",
+        "success/failure scenarios",
+        "implementation priorities"
+      ],
+      "size_kb": 73,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_JT_PRIORITIES.md",
+      "title": "H3M PORTALS - JT IMPLEMENTATION PRIORITIES",
+      "tags": [
+        "jt",
+        "priorities"
+      ],
+      "summary": "## 🎯 EXECUTIVE SUMMARY This document consolidates implementation priorities for the H3M Portals AR application. Now fully migrated to **Portals V4** architecture with Unity as a Library (UAAL) + R...",
+      "sections": [
+        "🎯 executive summary",
+        "🚀 portals v4 current status (2026-02-05)",
+        "📋 updated priority tiers",
+        "📊 legacy priorities (portals_6 reference)",
+        "📋 priority tiers",
+        "🗓️ recommended implementation sequence",
+        "📊 resource allocation",
+        "🎯 immediate next steps"
+      ],
+      "size_kb": 57,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_TOKEN_EFFICIENCY_COMPLETE.md",
+      "title": "Token Efficiency - Complete Reference",
+      "tags": [
+        "token",
+        "efficiency",
+        "complete"
+      ],
+      "summary": "## ⚠️ TOKEN LIMIT RULE **Check every response. Stay below 95% weekly limit.** If approaching: stop non-essential work, summarize, end session. ---",
+      "sections": [
+        "⚠️ token limit rule",
+        "quick rules (always apply)",
+        "claude code cli commands (official)",
+        "subagent optimization (independent context windows)",
+        "rider + claude code + unity integration (primary workflow)",
+        "session management",
+        "tool usage optimization",
+        "response efficiency"
+      ],
+      "size_kb": 51,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md",
+      "title": "Master GitHub Repository Knowledge Base (530+ Projects)",
+      "tags": [
+        "master",
+        "github",
+        "repo",
+        "knowledgebase"
+      ],
+      "summary": "- `LEARNING_LOG.md` - Keijiro complete catalog (Feb 6 2026, 80+ repos, VFX/depth/compute patterns) - `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` - Deep dive MetavidoVFX architecture - `_HAND_VFX_PATTERNS.m...",
+      "sections": [
+        "📱 workspace projects (active development)",
+        "🛠️ development workflow & ai tools",
+        "🎨 unity xr development tools & frameworks",
+        "🎮 multiplayer & networking tools",
+        "🧠 ml & neural rendering (keijiro collection)",
+        "🧍 human depth/stencil/body tracking → vfx (45+ projects)",
+        "🎵 audio reactive vfx (35+ projects)",
+        "🌍 environment depth → vfx (25+ projects)"
+      ],
+      "size_kb": 48,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_HOLOGRAM_RECORDING_PLAYBACK.md",
+      "title": "Hologram Recording & Playback Guide",
+      "tags": [
+        "hologram",
+        "recording",
+        "playback"
+      ],
+      "summary": "## Overview This document explains optimal low-memory approaches for recording and playing back holographic content using the MetavidoVFX technique. ---",
+      "sections": [
+        "overview",
+        "key insight: metavido vs avfi (package separation)",
+        "metavido: the optimal low-memory approach",
+        "recording architecture",
+        "playback architecture",
+        "use case: record person → play on desk",
+        "memory optimization strategies",
+        "complete scene setup"
+      ],
+      "size_kb": 45,
+      "modified": "2026-01-21"
+    },
+    {
+      "file": "_KB_META.md",
+      "title": "Knowledgebase Access Guide",
+      "tags": [
+        "search",
+        "grep",
+        "knowledgebase",
+        "all-tools",
+        "holistic",
+        "kb",
+        "meta"
+      ],
+      "summary": "## Quick Access Methods | Method | Best For | Setup | |--------|----------|-------| | **File Symlinks** | AI CLIs (Claude, Cursor, etc.) | Already configured |",
+      "sections": [
+        "quick access methods",
+        "1. file symlinks (zero setup)",
+        "2. mcp server (semantic search)",
+        "3. rest api (http access)",
+        "4. github raw access (direct urls)",
+        "5. shell aliases (terminal)",
+        "6. ide integration",
+        "7. programmatic access (python/node)"
+      ],
+      "size_kb": 43,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_AGENT_HANDOFF.md",
+      "title": "Agent Handoff (Active Session)",
+      "tags": [
+        "agent",
+        "handoff"
+      ],
+      "summary": "Purpose: minimal shared state between concurrent agents. Use this format: ```md",
+      "sections": [
+        "yyyy-mm-dd hh:mm tz - <agent/tool>",
+        "2026-02-08 17:08 pst - codex",
+        "2026-02-08 17:11 pst - codex",
+        "2026-02-08 17:16 pst - codex",
+        "2026-02-08 17:23 est - codex",
+        "2026-02-08 17:29 est - codex",
+        "2026-02-08 17:33 est - codex",
+        "2026-02-08 17:41 est - codex"
+      ],
+      "size_kb": 41,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "SUCCESS_LOG.md",
+      "title": "SUCCESS LOG",
+      "tags": [
+        "success",
+        "log"
+      ],
+      "summary": "06:36 ✓ Edit 06:36 ✓ Bash 06:36 ✓ Bash 06:36 ✓ Bash 06:37 ✓ Bash",
+      "sections": [],
+      "size_kb": 40,
+      "modified": "2026-02-07"
+    },
+    {
+      "file": "_XR_CAPABILITIES_MASTER.md",
+      "title": "AR Foundation 6.x Complete Tracking Capabilities Reference",
+      "tags": [
+        "xr",
+        "capabilities",
+        "master"
+      ],
+      "summary": "## Executive Summary AR Foundation 6.x provides **16 native tracking subsystems**. iOS ARKit has superior support (body 91j, face 468pt, LiDAR meshing). This document catalogs ALL tracking capabili...",
+      "sections": [
+        "executive summary",
+        "1. human body tracking (arhumanbodymanager)",
+        "2. human segmentation / occlusion (arocclusionmanager)",
+        "3. face tracking (arfacemanager)",
+        "4. ar mesh detection (armeshmanager)",
+        "5. hand tracking (xr hands - separate package)",
+        "6. image tracking (artrackedimagemanager)",
+        "7. object tracking (artrackedobjectmanager)"
+      ],
+      "size_kb": 39,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_ARFOUNDATION_VFX_KNOWLEDGE_BASE.md",
+      "title": "AR FOUNDATION VFX - KNOWLEDGE BASE",
+      "tags": [
+        "arfoundation",
+        "vfx",
+        "knowledge",
+        "base"
+      ],
+      "summary": "## ⚠️ CRITICAL: Live AR vs Encoded Streams ### Understanding Pipeline Origins | Project | Original Data Source | Our Adaptation |",
+      "sections": [
+        "⚠️ critical: live ar vs encoded streams",
+        "🎯 knowledge categories",
+        "🧠 architectural insights",
+        "📚 repo categories & use cases",
+        "🎯 implementation priority",
+        "📝 knowledge accumulation protocol",
+        "🔗 quick reference",
+        "🔧 quick implementation snippets"
+      ],
+      "size_kb": 38,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_ML_RESEARCH_MASTER.md",
+      "title": "Live AI Style Transfer / Neural Overlay Research",
+      "tags": [
+        "ai",
+        "ar",
+        "sentis",
+        "onnx",
+        "style",
+        "transfer",
+        "neural",
+        "filters",
+        "ml",
+        "research",
+        "master"
+      ],
+      "summary": "## Overview Real-time neural style transfer and AR neural filters using Unity Sentis, ARFoundation, and ONNX models. Pipeline: ARF→Sentis/ONNX→Optimize. ---",
+      "sections": [
+        "overview",
+        "key repositories",
+        "live style transfer pipeline",
+        "onnx style transfer models",
+        "performance optimization",
+        "urp render features",
+        "openupm ai packages",
+        "related tools"
+      ],
+      "size_kb": 36,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_ML_MASTER.md",
+      "title": "Unity Sentis ML Inference Guide",
+      "tags": [
+        "unity",
+        "ml",
+        "master"
+      ],
+      "summary": "## Overview Unity Sentis is the neural inference engine for Unity, enabling on-device AI model execution across all platforms. ### Key Capabilities",
+      "sections": [
+        "overview",
+        "package samples",
+        "chat sample (multimodal llm)",
+        "tensor conversion patterns",
+        "model optimization",
+        "platform-specific notes",
+        "vfx graph integration",
+        "references"
+      ],
+      "size_kb": 36,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_CLAUDE_CODE_OFFICIAL_PATTERNS_2026.md",
+      "title": "Claude Code Official Patterns (2026-02-08)",
+      "tags": [
+        "claude",
+        "code",
+        "official",
+        "patterns",
+        "2026"
+      ],
+      "summary": "## Quick Reference **Core Architecture**: Agentic loop (gather context → take action → verify results) **Context Target**: 40-60% utilization (80-120K for 200K budget) per ACE-FCA **Permission Hier...",
+      "sections": [
+        "quick reference",
+        "architecture patterns",
+        "configuration patterns",
+        "extension patterns",
+        "optimization patterns",
+        "workflow patterns",
+        "security patterns",
+        "troubleshooting patterns"
+      ],
+      "size_kb": 34,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_RCAM_MASTER.md",
+      "title": "Rcam Series Quick Reference",
+      "tags": [
+        "rcam",
+        "master"
+      ],
+      "summary": "## Property Naming Convention (Rcam3/4 - STANDARD) ```csharp // VFX Graph exposed properties ColorMap (Texture2D) // AR camera color",
+      "sections": [
+        "property naming convention (rcam3/4 - standard)",
+        "depth reconstruction (production pattern)",
+        "vfx binder pattern (rcam3/4)",
+        "vfxproxbuffer (spatial proximity structure)",
+        "modern blitter (unity 6 / urp)",
+        "depth format convention",
+        "body vs environment separation",
+        "rcam series evolution"
+      ],
+      "size_kb": 31,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_DEBUGGING_MASTER.md",
+      "title": "Unity Debugging & Profiling Reference",
+      "tags": [
+        "unity",
+        "debugging",
+        "master"
+      ],
+      "summary": "## Xcode Frame Debugger Integration **Source**: [XcodeFrameDebuggerIntegration](https://docs.unity3d.com/6000.2/Documentation/Manual/XcodeFrameDebuggerIntegration.html) ### Overview",
+      "sections": [
+        "xcode frame debugger integration",
+        "command line arguments reference",
+        "debugging workflows",
+        "unity console log prefixes",
+        "performance analysis workflow",
+        "unity log file locations",
+        "common issues & solutions",
+        "player command line arguments"
+      ],
+      "size_kb": 31,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_VFX_GRAPH_YAML_REFERENCE.md",
+      "title": "VFX Graph YAML Reference",
+      "tags": [
+        "vfx",
+        "graph",
+        "yaml",
+        "reference"
+      ],
+      "summary": "Unity VFX Graph assets are stored as YAML files. This document provides a comprehensive reference for understanding and programmatically manipulating VFX Graph assets. **Last Updated**: 2026-01-20 ...",
+      "sections": [
+        "file types",
+        "yaml structure overview",
+        "core components",
+        "context types",
+        "data containers",
+        "slots and properties",
+        "exposed properties (m_parameterinfo)",
+        "parameter node structure"
+      ],
+      "size_kb": 31,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_UNITY_SENTIS_ONNX_MOBILE_XR_RESEARCH_2026.md",
+      "title": "Unity Sentis & ONNX Ecosystem for Mobile/XR: Comprehensive Research (2026-01-20)",
+      "tags": [
+        "unity",
+        "sentis",
+        "onnx",
+        "mobile",
+        "xr",
+        "research",
+        "2026"
+      ],
+      "summary": "## Executive Summary Unity Sentis (formerly Barracuda, now called **Inference Engine** as of Unity 6.2) is Unity's official neural network inference library for on-device ML/CV. While ONNX Runtime ...",
+      "sections": [
+        "executive summary",
+        "1. unity sentis (inference engine)",
+        "2. onnx runtime for unity",
+        "3. yolo models for unity mobile/xr",
+        "4. model zoo for unity sentis",
+        "5. unity sentis official samples",
+        "6. webgl limitations (critical)",
+        "7. migration from unity barracuda"
+      ],
+      "size_kb": 30,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_XRAI_MASTER.md",
+      "title": "XRAI Format Research Summary (2026-02-05)",
+      "tags": [
+        "xrai",
+        "master"
+      ],
+      "summary": "## Key Decision: Consolidate XRAI + VNMF XRAI v2.0 consolidates the previous XRAI (scene) and VNMF (asset) formats into a **single glTF-based specification**. ### Why glTF 2.0 Base?",
+      "sections": [
+        "key decision: consolidate xrai + vnmf",
+        "core innovation: generative encoding",
+        "universal compression principles (cross-domain research)",
+        "platform roadmaps (2025-2035)",
+        "innovative format patterns",
+        "xrai v2.0 extension registry",
+        "key references",
+        "cross-references"
+      ],
+      "size_kb": 30,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_OPENCV_VS_MEDIAPIPE_UNITY_RESEARCH.md",
+      "title": "OpenCV vs MediaPipe for Unity Mobile/XR Development - Deep Research",
+      "tags": [
+        "opencv",
+        "vs",
+        "mediapipe",
+        "unity",
+        "research"
+      ],
+      "summary": "## Executive Summary ### Quick Decision Matrix | Use Case | Recommended Solution | Why |",
+      "sections": [
+        "executive summary",
+        "1. opencvforunity (enoxsoftware)",
+        "2. mediapipeunityplugin (homuler)",
+        "3. unity sentis (unity's ml inference engine)",
+        "4. arfoundation native tracking",
+        "5. hybrid approaches (best practices)",
+        "6. performance summary (2026)",
+        "7. decision framework"
+      ],
+      "size_kb": 29,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "KB_ARCHITECTURE_DIAGRAM.md",
+      "title": "Knowledge Base Architecture Diagrams",
+      "tags": [
+        "kb",
+        "architecture",
+        "diagram"
+      ],
+      "summary": "## System Overview ``` ┌─────────────────────────────────────────────────────────────────────────┐ │ CLIENT APPLICATIONS │",
+      "sections": [
+        "system overview",
+        "client-side architecture (offline-first)",
+        "data flow - write operation",
+        "data flow - read operation (semantic search)",
+        "sync flow - conflict resolution (crdt)",
+        "security architecture",
+        "deployment architecture (production)",
+        "technology stack summary"
+      ],
+      "size_kb": 28,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_ARFOUNDATION_VFX_MASTER_LIST.md",
+      "title": "Master List: ARFoundation → VFX Graph & WebGL Projects (500+ Projects)",
+      "tags": [
+        "arfoundation",
+        "vfx",
+        "master",
+        "list"
+      ],
+      "summary": "## 🧍 Human Depth/Stencil/Body Tracking → VFX (45+ Projects) | Project | Description | Techniques | iOS Support | |---------|-------------|------------|-------------| | [YoHana19/HumanParticleEffec...",
+      "sections": [
+        "🧍 human depth/stencil/body tracking → vfx (45+ projects)",
+        "🎵 audio reactive vfx (30+ projects)",
+        "🌍 environment depth → vfx (25+ projects)",
+        "🎨 additional vfx resources",
+        "✨ hologram shaders (for vfx output)",
+        "🌐 web-based gaussian splat viewers",
+        "📹 webcam → particle systems (web)",
+        "🧪 experimental/advanced projects"
+      ],
+      "size_kb": 28,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_COMPREHENSIVE_HOLOGRAM_PIPELINE_ARCHITECTURE.md",
+      "title": "Comprehensive Hologram Pipeline Architecture",
+      "tags": [
+        "comprehensive",
+        "hologram",
+        "pipeline",
+        "architecture"
+      ],
+      "summary": "## Executive Summary This document defines the optimal pipeline architecture for: - Ultra-fast, high-fidelity live holograms - Segmented tracking (body, hands, face, environment)",
+      "sections": [
+        "executive summary",
+        "pipeline inventory",
+        "unified architecture",
+        "vfx property reference (complete)",
+        "performance budget (iphone 15 pro @ 60fps)",
+        "implementation priority",
+        "recommended tools & dependencies",
+        "sources (triple verified)"
+      ],
+      "size_kb": 28,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_VFX_PIPELINE_COMPARISON.md",
+      "title": "VFX Pipeline Comparison",
+      "tags": [
+        "vfx",
+        "pipeline",
+        "comparison"
+      ],
+      "summary": "## Overview Comprehensive comparison of all VFX pipelines available in MetavidoVFX project for driving particle effects from AR sensor data. ---",
+      "sections": [
+        "overview",
+        "pipeline architecture diagrams",
+        "performance comparison table",
+        "scene setup instructions",
+        "vfx property standardization",
+        "audio fft frequency bands",
+        "scaling recommendations",
+        "integration checklist"
+      ],
+      "size_kb": 28,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_UNITY_MCP_MASTER.md",
+      "title": "Unity MCP Quick Reference",
+      "tags": [
+        "unity",
+        "mcp",
+        "token-optimization",
+        "debugging",
+        "master"
+      ],
+      "summary": "## Token Optimization Matrix | Default | Optimized | Savings | |---------|-----------|---------| | Individual calls | `batch_execute` | **10-100x** |",
+      "sections": [
+        "token optimization matrix",
+        "most used tools (by frequency)",
+        "gemini specific optimization patterns",
+        "resources vs tools",
+        "vfx management",
+        "rapid debug loop (mcp-powered)",
+        "anti-patterns (never do)",
+        "script editing patterns"
+      ],
+      "size_kb": 27,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_FIGMENTAR_UNITY_REUSE_ANALYSIS.md",
+      "title": "FigmentAR → Unity Composer: Reuse Analysis",
+      "tags": [
+        "figmentar",
+        "unity",
+        "reuse",
+        "analysis"
+      ],
+      "summary": "## Executive Summary The FigmentAR codebase contains **substantial reusable infrastructure** for the Unity Advanced Composer. The voice+LLM pipeline is **100% portable** since it outputs structured...",
+      "sections": [
+        "executive summary",
+        "module classification",
+        "voice+llm integration architecture",
+        "action type mapping",
+        "implementation priority",
+        "key insights",
+        "files to copy (exact paths)",
+        "gemini 2.0 integration details"
+      ],
+      "size_kb": 26,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_AKVFX_SDFVFX_BINDING_SPECIFICATION.md",
+      "title": "Akvfx & SdfVfx Binding Specification",
+      "tags": [
+        "akvfx",
+        "sdfvfx",
+        "binding",
+        "specification"
+      ],
+      "summary": "## Executive Summary This document provides comprehensive binding specifications for **keijiro's Akvfx** (Azure Kinect → VFX Graph) and **SdfVfx** (Signed Distance Field environment effects) projec...",
+      "sections": [
+        "executive summary",
+        "1. akvfx (azure kinect vfx)",
+        "2. sdfvfx (signed distance field vfx)",
+        "3. comparison: akvfx vs sdfvfx",
+        "4. metavidovfx implementation",
+        "5. cross-project compatibility",
+        "6. integration checklist",
+        "7. known issues & limitations"
+      ],
+      "size_kb": 25,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_ML_CV_CROSSPLATFORM_COMPATIBILITY_RESEARCH.md",
+      "title": "ML/CV Cross-Platform Compatibility Research for XR Development",
+      "tags": [
+        "ml",
+        "cv",
+        "crossplatform",
+        "compatibility",
+        "research"
+      ],
+      "summary": "## Executive Summary Cross-platform ML/CV deployment in Unity XR faces significant fragmentation across iOS, Android, Quest, visionOS, and WebGL. **Unity Sentis** (successor to Barracuda) emerges a...",
+      "sections": [
+        "executive summary",
+        "1. platform-specific constraints",
+        "2. unity backend comparison by platform",
+        "3. performance benchmarks",
+        "4. github projects with multi-platform ml",
+        "5. recommended stack per use case",
+        "6. platform compatibility matrix (quick reference)",
+        "7. critical warnings & gotchas"
+      ],
+      "size_kb": 25,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_RCAM_SERIES_ARCHITECTURE_RESEARCH.md",
+      "title": "Rcam Series Architecture Research: Rcam2, Rcam3, Rcam4",
+      "tags": [
+        "rcam",
+        "series",
+        "architecture",
+        "research"
+      ],
+      "summary": "## Executive Summary Keijiro's Rcam series represents a progressive evolution from HDRP (Rcam2) to URP (Rcam3/4) for real-time volumetric AR VFX streaming. The architecture follows a **Controller-V...",
+      "sections": [
+        "executive summary",
+        "1. evolution timeline",
+        "2. ar texture flow architecture",
+        "3. vfx binder pattern evolution",
+        "4. depth reconstruction methods",
+        "5. body vs environment vfx separation",
+        "6. vfxproxbuffer (rcam3 innovation)",
+        "7. urp-specific optimizations (rcam4)"
+      ],
+      "size_kb": 25,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_LASPVFX_AUDIO_BINDING_PATTERNS.md",
+      "title": "LaspVFX Audio-to-VFX Binding Patterns Research",
+      "tags": [
+        "laspvfx",
+        "audio",
+        "binding",
+        "patterns"
+      ],
+      "summary": "## Executive Summary LaspVFX provides elegant VFX Graph property binders for audio-reactive effects, but relies on **desktop-only LASP plugin** that does NOT support iOS, Android, Quest, or WebGL. ...",
+      "sections": [
+        "executive summary",
+        "1. architecture overview",
+        "2. vfx binder implementations",
+        "3. sample vfx graphs",
+        "4. platform compatibility matrix",
+        "5. comparison: laspvfx vs metavidovfx audiobridge",
+        "6. portable patterns for mobile",
+        "7. performance characteristics"
+      ],
+      "size_kb": 24,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AI_CODING_BEST_PRACTICES.md",
+      "title": "AI Coding Best Practices (2025-2026)",
+      "tags": [
+        "ai",
+        "development",
+        "claude-code",
+        "cursor",
+        "windsurf",
+        "unity",
+        "productivity",
+        "coding",
+        "best",
+        "practices"
+      ],
+      "summary": "## Rigorous Research Studies (RCTs with Statistical Significance) ### METR RCT Study (July 2025) - [arXiv:2507.09089](https://arxiv.org/abs/2507.09089) **Sample**: 16 experienced OSS developers, 24...",
+      "sections": [
+        "tool selection matrix",
+        "claude code patterns (what works)",
+        "unity + ai workflow (mcp deep dive)",
+        "production code patterns (from unity mcp repos)",
+        "multi-model workflow (production pattern)",
+        "anti-patterns (what fails)",
+        "transparency & clarity practices",
+        "context"
+      ],
+      "size_kb": 23,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_CLAUDE_CODE_TEAM_TIPS_BORIS_CHERNY.md",
+      "title": "Claude Code Team Tips & Personal Workflow (Boris Cherny)",
+      "tags": [
+        "claude",
+        "code",
+        "team",
+        "tips",
+        "boris",
+        "cherny"
+      ],
+      "summary": "## Related Resources | Topic | File | |-------|------| | Official Best Practices | `_CLAUDE_CODE_OFFICIAL_BEST_PRACTICES.md` |",
+      "sections": [
+        "related resources",
+        "thread context",
+        "tip 1: parallel execution",
+        "tip 2: plan mode discipline",
+        "tip 3: claude.md as self-improving system",
+        "tip 4: skills as institutional knowledge",
+        "tip 5: autonomous bug fixing",
+        "tip 6: adversarial prompting"
+      ],
+      "size_kb": 23,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_RCAM_VFX_BINDING_SPECIFICATION.md",
+      "title": "Rcam VFX Binding Specification: Rcam2, Rcam3, Rcam4",
+      "tags": [
+        "rcam",
+        "vfx",
+        "binding",
+        "specification"
+      ],
+      "summary": "## Executive Summary MetavidoVFX contains **73 VFX assets** across Rcam2, Rcam3, and Rcam4 categories. This specification documents the **exact property bindings** required for each category, compu...",
+      "sections": [
+        "executive summary",
+        "vfx asset inventory",
+        "property binding matrix",
+        "compute shader requirements",
+        "vfxarbinder integration",
+        "body vs environment separation",
+        "inverseprojection calculation (rcam3/4 standard)",
+        "rayparams vs inverseprojection"
+      ],
+      "size_kb": 23,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_H3M_HOLOGRAM_ROADMAP.md",
+      "title": "H3M Cross-Platform Hologram Roadmap",
+      "tags": [
+        "h3m",
+        "hologram",
+        "roadmap"
+      ],
+      "summary": "## Core Philosophy | Principle | Description | |-----------|-------------| | **Infinitely Scalable** | MMO-style architecture from day one |",
+      "sections": [
+        "core philosophy",
+        "essential pattern references",
+        "phased roadmap",
+        "mvp specification: \"man in the mirror\"",
+        "technical architecture",
+        "assembly instructions",
+        "body tracking systems",
+        "code patterns"
+      ],
+      "size_kb": 22,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_XRAI_HYPERGRAPH_WORLD_GENERATION.md",
+      "title": "XRAI World Generation from Hypergraphs",
+      "tags": [
+        "xrai",
+        "hypergraph",
+        "world",
+        "generation"
+      ],
+      "summary": "## Executive Summary This specification defines how **hypergraph knowledge structures** can be automatically transformed into **immersive XRAI worlds** - creating navigable, interactive 3D environm...",
+      "sections": [
+        "executive summary",
+        "foundational concepts",
+        "xrai format extensions for hypergraph data",
+        "world generation pipeline",
+        "use case: repository knowledge graph world",
+        "cross-platform runtime",
+        "dna-like properties",
+        "integration with existing systems"
+      ],
+      "size_kb": 22,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_REPO_GRAPH_SCHEMA.md",
+      "title": "Repository Knowledge Graph Schema",
+      "tags": [
+        "repo",
+        "graph",
+        "schema"
+      ],
+      "summary": "## Schema Overview ``` ┌─────────────────────────────────────────────────────────────────────────┐ │ REPOSITORY KNOWLEDGE GRAPH │",
+      "sections": [
+        "schema overview",
+        "level 1: repository (primary table)",
+        "level 2: codebase (secondary table)",
+        "level 3: social (tertiary table)",
+        "category definitions",
+        "graph relationships",
+        "query examples",
+        "dashboard integration"
+      ],
+      "size_kb": 21,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_DEBUGGING_REFERENCE.md",
+      "title": "Unity Debugging & Profiling Reference",
+      "tags": [
+        "unity",
+        "debugging",
+        "reference"
+      ],
+      "summary": "## Xcode Frame Debugger Integration **Source**: [XcodeFrameDebuggerIntegration](https://docs.unity3d.com/6000.2/Documentation/Manual/XcodeFrameDebuggerIntegration.html) ### Overview",
+      "sections": [
+        "xcode frame debugger integration",
+        "command line arguments reference",
+        "debugging workflows",
+        "unity console log prefixes",
+        "performance analysis workflow",
+        "unity log file locations",
+        "common issues & solutions",
+        "player command line arguments"
+      ],
+      "size_kb": 21,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_VISUALIZATION_RESOURCES_INDEX.md",
+      "title": "Visualization Resources Index",
+      "tags": [
+        "visualization",
+        "resources",
+        "index"
+      ],
+      "summary": "*Auto-generated: 2026-01-10* *Purpose: Consolidated reference for all 3D/graph visualization tools across local projects* ---",
+      "sections": [
+        "quick reference matrix",
+        "1. xrai knowledge graph dashboard (new)",
+        "2. ultra-performance 3d ai search engine",
+        "3. 5dio - react three fiber + koota",
+        "4. holovis - unity project visualizer",
+        "5. 3d-force-graph (vasturiano)",
+        "6. xrai viewer (xrai-viewer.js)",
+        "7. hyper index explorer"
+      ],
+      "size_kb": 21,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_3DVIS_INTELLIGENCE_PATTERNS.md",
+      "title": "3D Visualization Intelligence Patterns",
+      "tags": [
+        "3dvis",
+        "intelligence",
+        "patterns"
+      ],
+      "summary": "## 1. Sorting Algorithms for Rendering ### Z-Sorting (Painter's Algorithm) ```javascript // Sort objects back-to-front for transparency",
+      "sections": [
+        "1. sorting algorithms for rendering",
+        "2. clustering algorithms",
+        "3. pattern recognition",
+        "4. anomaly detection",
+        "5. force-directed graph layout",
+        "6. spatial data structures",
+        "7. semantic parsing for data vis",
+        "quick reference"
+      ],
+      "size_kb": 19,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_KEY_PEOPLE_INDEX.md",
+      "title": "Key People Index - XR, AI, HCI, and Spatial Computing Pioneers",
+      "tags": [
+        "key",
+        "people",
+        "index"
+      ],
+      "summary": "## Quick Reference by Domain | Domain | Key Figures | |--------|------------| | **Calm Computing / HCI** | Mark Weiser, Bret Victor, Alan Kay, Douglas Engelbart |",
+      "sections": [
+        "quick reference by domain",
+        "detailed profiles",
+        "knowledge graph connections",
+        "related resources by type",
+        "update protocol"
+      ],
+      "size_kb": 19,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_CLAUDE_CODE_OFFICIAL_BEST_PRACTICES.md",
+      "title": "Claude Code Official Best Practices",
+      "tags": [
+        "claude-code",
+        "best-practices",
+        "context-management",
+        "subagents",
+        "sessions",
+        "team-tips",
+        "power-user",
+        "claude",
+        "code",
+        "official",
+        "best",
+        "practices"
+      ],
+      "summary": "## Related Resources | Topic | File | |-------|------| | Architecture Deep Dive | `_archive/_CLAUDE_CODE_ARCHITECTURE_DEEP_DIVE.md` |",
+      "sections": [
+        "related resources",
+        "core constraint: context window management",
+        "highest leverage: give claude verification criteria",
+        "explore-plan-code-commit workflow",
+        "prompting strategies",
+        "claude.md best practices",
+        "modular rules (.claude/rules/)",
+        "session management commands"
+      ],
+      "size_kb": 18,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_SELF_IMPROVING_MEMORY_ARCHITECTURE.md",
+      "title": "Self-Improving Memory Architecture",
+      "tags": [
+        "self",
+        "improving",
+        "memory",
+        "architecture"
+      ],
+      "summary": "## Vision: Exponential Intelligence Growth **Goal**: Create a self-improving knowledge system where every AI interaction makes all future interactions smarter, faster, and more accurate. **Outcome*...",
+      "sections": [
+        "vision: exponential intelligence growth",
+        "architecture overview",
+        "core components",
+        "learning workflows",
+        "continuous improvement mechanisms",
+        "intelligence amplification strategies",
+        "token optimization at scale",
+        "success metrics"
+      ],
+      "size_kb": 18,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AI_MEMORY_SYSTEMS_DEEP_DIVE.md",
+      "title": "AI Memory Systems Deep Dive",
+      "tags": [
+        "ai",
+        "memory",
+        "systems",
+        "deep",
+        "dive"
+      ],
+      "summary": "## Quick Reference | Tool | Memory Type | Persistence | Readable | Bridgeable | |------|-------------|-------------|----------|------------| | Claude Code | Session-based | Per-project | Yes | Yes |",
+      "sections": [
+        "quick reference",
+        "1. claude code memory architecture",
+        "2. antigravity/gemini memory architecture",
+        "3. codex cli memory architecture",
+        "4. mcp memory server architecture",
+        "5. unified memory strategy",
+        "6. metathinking: how to think about thinking",
+        "7. bridging memories between tools"
+      ],
+      "size_kb": 17,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_HCI_SPATIAL_DESIGN_PRINCIPLES.md",
+      "title": "HCI & Spatial Design Principles for XR",
+      "tags": [
+        "hci",
+        "spatial",
+        "design",
+        "principles"
+      ],
+      "summary": "## Executive Summary This document synthesizes research on human perception, attention, spatial memory, neuroplasticity, and knowledge visualization into actionable design principles for spatial co...",
+      "sections": [
+        "executive summary",
+        "i. perception & attention",
+        "ii. spatial memory & knowledge graphs",
+        "iii. visualization & lod",
+        "iv. flow & creativity",
+        "v. collaboration & collective intelligence",
+        "vi. xrai format extensions",
+        "vii. implementation checklist"
+      ],
+      "size_kb": 17,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_WEBGL_3D_VISUALIZATION_PATTERNS.md",
+      "title": "WebGL 3D Visualization Patterns",
+      "tags": [
+        "visualization",
+        "webgl",
+        "threejs",
+        "mcp",
+        "dataviz",
+        "d3",
+        "force-graph",
+        "3d",
+        "patterns"
+      ],
+      "summary": "## Overview Patterns for interactive 3D data visualizations using WebGL, Three.js, and D3.js. Covers: - Force-directed graphs - Hierarchical layouts",
+      "sections": [
+        "overview",
+        "key libraries",
+        "3d force graph api",
+        "layout algorithms",
+        "mcp tool definition",
+        "source processing patterns",
+        "color schemes",
+        "interaction handlers"
+      ],
+      "size_kb": 17,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_XR_SCENE_FORMAT_COMPARISON.md",
+      "title": "XR Scene Format Comparison: .tilt vs USDZ vs glTF vs XRRAI",
+      "tags": [
+        "xr",
+        "scene",
+        "format",
+        "comparison"
+      ],
+      "summary": "## Executive Summary | Format | Best For | Cross-Platform | AI/ML Ready | Streaming | Recommendation | |--------|----------|----------------|-------------|-----------|----------------| | **glTF/GLB...",
+      "sections": [
+        "executive summary",
+        "1. format deep dive",
+        "2. comparative analysis matrix",
+        "3. xrrai format specification (proposed)",
+        "4. recommendations",
+        "5. references"
+      ],
+      "size_kb": 17,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "CLOUD_NATIVE_KB_ARCHITECTURE_2025.md",
+      "title": "Universal Cloud-Native Knowledge Base Architecture (2025)",
+      "tags": [
+        "cloud",
+        "native",
+        "kb",
+        "architecture",
+        "2025"
+      ],
+      "summary": "## Executive Summary ### Recommended Technology Stack | Component | Technology | Rationale |",
+      "sections": [
+        "executive summary",
+        "migration path from current local system",
+        "github repository examples",
+        "performance benchmarks (real-world)",
+        "security checklist",
+        "key recommendations",
+        "next steps",
+        "conclusion"
+      ],
+      "size_kb": 16,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_COMPREHENSIVE_AI_DEVELOPMENT_GUIDE.md",
+      "title": "Claude Project Instructions - Ultimate AI Development Assistant",
+      "tags": [
+        "comprehensive",
+        "ai",
+        "development",
+        "guide"
+      ],
+      "summary": "## Core Identity You are Claude, a prescient PhD-level engineer creating modular, minimal, fast, cross-platform realtime 3D/4D spatial & AI/ML applications. You work at genius-level speed with futu...",
+      "sections": [
+        "core identity",
+        "critical directives",
+        "unity mastery - complete documentation",
+        "webgl/threejs complete arsenal",
+        "spatial computing & format support",
+        "ai/ml integration expertise",
+        "performance patterns",
+        "project architecture"
+      ],
+      "size_kb": 16,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_LLMR_XR_AI_ARCHITECTURE_PATTERNS.md",
+      "title": "LLMR & XR+AI Architecture Patterns",
+      "tags": [
+        "llmr",
+        "xr",
+        "ai",
+        "architecture",
+        "patterns"
+      ],
+      "summary": "## LLMR (Large Language Model for Mixed Reality) **Microsoft Research** framework for real-time XR scene creation via natural language prompting. **Repository**: https://github.com/microsoft/LLMR *...",
+      "sections": [
+        "llmr (large language model for mixed reality)",
+        "unity integration (llmr technical implementation)",
+        "prompt engineering patterns for spatial content",
+        "testing without hardware",
+        "platform-agnostic design",
+        "llm integration patterns",
+        "xr+llm interaction paradigms (chi 2025)",
+        "debugging & extension"
+      ],
+      "size_kb": 16,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_MASTER_KNOWLEDGEBASE_INDEX.md",
+      "title": "Master Knowledgebase Index",
+      "tags": [
+        "master",
+        "knowledgebase",
+        "index"
+      ],
+      "summary": "## Quick Navigation | Category | Files | Token Cost | Use When | |----------|-------|------------|----------| | [Setup & Config](#setup--configuration) | 2 files | ~5K | Setting up tools, troublesh...",
+      "sections": [
+        "quick navigation",
+        "setup & configuration",
+        "unity development",
+        "web development",
+        "performance & optimization",
+        "github resources",
+        "project planning",
+        "troubleshooting & logic"
+      ],
+      "size_kb": 16,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_OPENBRUSH_BRUSH_SYSTEM_PATTERNS.md",
+      "title": "OpenBrush Brush System Patterns",
+      "tags": [
+        "openbrush",
+        "brush",
+        "system",
+        "patterns"
+      ],
+      "summary": "- `/Users/jamestunick/wkspaces/OpenBrushMobile` - `/Users/jamestunick/Documents/GitHub/Unity-XR-AI/_ref/open-brush-feature-pure-openxr` - `/Users/jamestunick/Documents/GitHub/open-brush-main` **Dat...",
+      "sections": [
+        "architecture overview",
+        "brushdescriptor scriptableobject",
+        "shader architecture",
+        "geometry generation",
+        "runtime initialization flow",
+        "audio reactive brushes",
+        "file locations",
+        "key differences: openbrush vs xrrai implementation"
+      ],
+      "size_kb": 16,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_SOURCE_REFERENCE.md",
+      "title": "Unity Source Code Reference",
+      "tags": [
+        "unity",
+        "source",
+        "reference"
+      ],
+      "summary": "## Repository Structure ``` AgentBench/ ├── UnityCsReference/ # Unity engine C# source (MIT license)",
+      "sections": [
+        "repository structure",
+        "vfx graph complete api",
+        "shader functions reference",
+        "platform detection (hlslsupport.cginc)",
+        "ios / apple device apis",
+        "xr mesh subsystem",
+        "ar depth → world position pattern",
+        "constants reference"
+      ],
+      "size_kb": 16,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "KB_IMPLEMENTATION_QUICKSTART.md",
+      "title": "Knowledge Base Implementation Quick Start",
+      "tags": [
+        "kb",
+        "implementation",
+        "quickstart"
+      ],
+      "summary": "## Day 1: Backend Setup (4-6 hours) ### Step 1: Install Qdrant (10 min) ```bash",
+      "sections": [
+        "day 1: backend setup (4-6 hours)",
+        "day 2: frontend setup (4-6 hours)",
+        "testing the complete system",
+        "migration script for existing files",
+        "production deployment checklist",
+        "troubleshooting",
+        "next steps"
+      ],
+      "size_kb": 15,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_KEIJIRO_AUDIO_VFX_RESEARCH.md",
+      "title": "Keijiro Audio-Reactive VFX Graph Projects - Research Report",
+      "tags": [
+        "keijiro",
+        "audio",
+        "vfx",
+        "research"
+      ],
+      "summary": "## Executive Summary **CRITICAL FINDING**: Keijiro's LASP (Low-latency Audio Signal Processing) plugin is **desktop-only** (Windows, macOS, Linux). It does NOT support iOS or Android mobile platfor...",
+      "sections": [
+        "executive summary",
+        "1. core projects discovered",
+        "2. key vfx binding patterns (ios metal compatible)",
+        "3. vfx techniques used",
+        "4. performance characteristics",
+        "5. mobile alternative: unity built-in audio",
+        "6. existing implementations in unity-xr-ai project",
+        "7. recommendations for metavidovfx"
+      ],
+      "size_kb": 15,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_PORTALS_UNIFIED_ARCHITECTURE.md",
+      "title": "Portals: Unified Architecture",
+      "tags": [
+        "portals",
+        "unified",
+        "architecture"
+      ],
+      "summary": "## Overview Three single sources of truth enable multi-platform publishing: ```",
+      "sections": [
+        "overview",
+        "1. single ui definition",
+        "2. single scene format",
+        "3. single asset database",
+        "platform build matrix",
+        "vfx cross-platform strategy",
+        "multiplayer architecture",
+        "development workflow"
+      ],
+      "size_kb": 15,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_MCP_DEV_HOOKS.md",
+      "title": "Unity MCP Development, Debugging & Planning Hooks",
+      "tags": [
+        "unity",
+        "mcp",
+        "dev",
+        "hooks"
+      ],
+      "summary": "## Overview This document provides comprehensive hooks for AI-assisted Unity development using Model Context Protocol (MCP) servers. These enable Claude Code and other AI assistants to interact dir...",
+      "sections": [
+        "overview",
+        "unity mcp server implementations",
+        "mcp tools reference",
+        "mcp resources reference",
+        "unity documentation quick reference",
+        "unity technologies github repos",
+        "claude code hooks for unity",
+        "mcp server"
+      ],
+      "size_kb": 15,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_CROSS_TOOL_SESSION_INSIGHTS.md",
+      "title": "Cross-Tool Session Insights",
+      "tags": [
+        "cross",
+        "tool",
+        "session",
+        "insights"
+      ],
+      "summary": "## 1. Architecture Patterns ### OpenClaw 6-Stage Agent Pipeline Source: Kilo Code session `019c4b28` (kb-cli creation)",
+      "sections": [
+        "1. architecture patterns",
+        "2. tools built",
+        "3. known bugs in kb-cli (fix before use)",
+        "4. cross-tool memory insights",
+        "5. vfx pipeline resolution (metavidovfx deep analysis)",
+        "6. normcore ar adaptation playbook",
+        "7. bridge & voice ai architecture",
+        "8. codebase cleanup patterns (jan 22 session)"
+      ],
+      "size_kb": 14,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_KB_INDEX.md",
+      "title": "KnowledgeBase Index",
+      "tags": [
+        "unity",
+        "vfx",
+        "ar",
+        "ml",
+        "tools",
+        "web",
+        "fix",
+        "claude",
+        "mcp",
+        "kb",
+        "index"
+      ],
+      "summary": "## Quick Access (Start Here) | Need | File | |------|------| | Error fix | `_QUICK_FIX.md` |",
+      "sections": [
+        "quick access (start here)",
+        "claude code (11 active + 4 archived)",
+        "unity (28 files)",
+        "vfx graph (19 files)",
+        "xr/ar (10 files)",
+        "mcp (9 files)",
+        "hologram/recording (10 files)",
+        "web/webgl (15 files)"
+      ],
+      "size_kb": 14,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_PERFORMANCE_PATTERNS_REFERENCE.md",
+      "title": "Performance Patterns Reference",
+      "tags": [
+        "performance",
+        "patterns",
+        "reference"
+      ],
+      "summary": "## Unity Performance Patterns ### Object Pooling for Mobile/XR ```csharp /// <summary>",
+      "sections": [
+        "unity performance patterns",
+        "webgl/three.js performance patterns",
+        "cross-platform optimization checklist",
+        "profiling tools",
+        "quick optimization decision tree"
+      ],
+      "size_kb": 14,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_PORTALS_V4_ARCHITECTURE.md",
+      "title": "Portals v4 - Complete Architecture Reference",
+      "tags": [
+        "portals",
+        "v4",
+        "architecture"
+      ],
+      "summary": "## Executive Summary Portals v4 is a dual-AR hybrid app combining: - **React Native (Expo SDK 54)** - Business logic, navigation, state, UI - **Unity 6 as a Library (UAAL)** - High-fidelity AR rend...",
+      "sections": [
+        "executive summary",
+        "1. navigation architecture",
+        "2. state management architecture",
+        "3. unity-react native bridge",
+        "4. recording infrastructure",
+        "5. build system",
+        "6. service architecture",
+        "7. ar architecture (dual system)"
+      ],
+      "size_kb": 14,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_PORTALS_V4_ARCHITECTURE_CRITIQUE.md",
+      "title": "Portals V4 Architecture Critique & Recommendations",
+      "tags": [
+        "portals",
+        "v4",
+        "architecture",
+        "critique"
+      ],
+      "summary": "## Executive Summary **Verdict:** The architecture is **sound but over-hedged**. You're keeping too many options open, which creates complexity without delivering value. **The Core Tension:** You w...",
+      "sections": [
+        "executive summary",
+        "honest architecture assessment",
+        "scalability & cost walls",
+        "the real question: what are you actually building?",
+        "my recommendation: the artist path",
+        "specific answers to your priorities",
+        "architecture simplifications",
+        "the minigames question"
+      ],
+      "size_kb": 14,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_PATTERNS_BY_INTEREST.md",
+      "title": "Unity Intelligence Patterns by Interest",
+      "tags": [
+        "unity",
+        "patterns",
+        "by",
+        "interest"
+      ],
+      "summary": "## 1. Particle Brush Systems (P0 Priority) ### Open Brush GeometryPool Pattern From `icosa-foundation/open-brush` - Production-tested brush pooling system.",
+      "sections": [
+        "1. particle brush systems (p0 priority)",
+        "2. hand tracking + gesture recognition (p1 priority)",
+        "3. audio reactive vfx (p1 priority)",
+        "4. lidar / depth effects (rcam style)",
+        "5. million particle optimization",
+        "6. keijiro vfx patterns",
+        "7. networking patterns (multiplayer painting)",
+        "quick reference"
+      ],
+      "size_kb": 14,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_ACE_CONTEXT_ENGINEERING_PATTERNS.md",
+      "title": "Advanced Context Engineering for Coding Agents (ACE-FCA)",
+      "tags": [
+        "ace",
+        "context",
+        "engineering",
+        "patterns"
+      ],
+      "summary": "## Quick Reference **Core Principle**: \"Contents of context window are the ONLY lever you have to affect output quality.\" **Target**: 40-60% context utilization for complex tasks",
+      "sections": [
+        "quick reference",
+        "optimization hierarchy (worst outcomes)",
+        "three-phase workflow",
+        "intentional compaction",
+        "human leverage points (roi ranking)",
+        "concrete performance metrics",
+        "anti-patterns (failure cases)",
+        "subagent pattern (knowledge gathering)"
+      ],
+      "size_kb": 13,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_ARFOUNDATION_TRACKING_CAPABILITIES.md",
+      "title": "AR Foundation 6.x Complete Tracking Capabilities Reference",
+      "tags": [
+        "arfoundation",
+        "tracking",
+        "capabilities"
+      ],
+      "summary": "## Executive Summary AR Foundation 6.x provides **16 native tracking subsystems**. iOS ARKit has superior support (body 91j, face 468pt, LiDAR meshing). This document catalogs ALL tracking capabili...",
+      "sections": [
+        "executive summary",
+        "1. human body tracking (arhumanbodymanager)",
+        "2. human segmentation / occlusion (arocclusionmanager)",
+        "3. face tracking (arfacemanager)",
+        "4. ar mesh detection (armeshmanager)",
+        "5. hand tracking (xr hands - separate package)",
+        "6. image tracking (artrackedimagemanager)",
+        "7. object tracking (artrackedobjectmanager)"
+      ],
+      "size_kb": 13,
+      "modified": "2026-01-21"
+    },
+    {
+      "file": "_AUTOMATED_MAINTENANCE_GUIDE.md",
+      "title": "Automated Knowledgebase Maintenance & Intelligence Growth",
+      "tags": [
+        "automated",
+        "maintenance",
+        "guide"
+      ],
+      "summary": "## Philosophy: Continuous Automated Improvement **Goal**: Self-maintaining, self-improving knowledgebase that gets smarter every day without manual intervention **Constraints**:",
+      "sections": [
+        "philosophy: continuous automated improvement",
+        "automated tasks overview",
+        "safety mechanisms",
+        "automation scripts",
+        "implementation",
+        "research automation",
+        "optimization strategies",
+        "metrics & monitoring"
+      ],
+      "size_kb": 13,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_PORTALS_SIMPLIFIED_PLAN.md",
+      "title": "Portals: Simplified Implementation Plan",
+      "tags": [
+        "portals",
+        "simplified",
+        "plan"
+      ],
+      "summary": "## Luma AI Lessons | What They Did | Lesson | |---------------|--------| | Started with ONE feature (3D capture) | Focus beats features |",
+      "sections": [
+        "luma ai lessons",
+        "our \"one thing\" - two options",
+        "comparison: which \"one thing\"?",
+        "decision: pick one",
+        "option b: 4-week plan",
+        "hybrid option: voice + hologram",
+        "simplified architecture",
+        "implementation: 4 weeks to magic"
+      ],
+      "size_kb": 13,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_REFERENCE_PLATFORM_COMPATIBILITY.md",
+      "title": "Platform Compatibility Matrix - Unity XR/AR/VFX Patterns",
+      "tags": [
+        "reference",
+        "platform",
+        "compatibility"
+      ],
+      "summary": "## ✅ Master Compatibility Table | Pattern | iOS | Android | Quest 3 | Quest Pro | WebGL | Vision Pro | Notes | |---------|-----|---------|---------|-----------|-------|------------|-------| | **Kei...",
+      "sections": [
+        "✅ master compatibility table",
+        "📊 platform-specific details",
+        "🔀 cross-platform pattern recommendations",
+        "🚀 platform selection decision tree",
+        "📝 implementation guidelines",
+        "🔗 related documents"
+      ],
+      "size_kb": 13,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_UNITY_RENDERING_MASTER.md",
+      "title": "Unity URP Optimization Guide",
+      "tags": [
+        "unity",
+        "rendering",
+        "master"
+      ],
+      "summary": "## Overview Performance optimization guide for Universal Render Pipeline (URP) projects. ---",
+      "sections": [
+        "overview",
+        "profiling tools",
+        "key profiler markers",
+        "performance settings quick reference",
+        "additional resources",
+        "overview",
+        "quick setup",
+        "important notes"
+      ],
+      "size_kb": 13,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_VFX25_HOLOGRAM_PORTAL_PATTERNS.md",
+      "title": "VFX25 Hologram, 3D Visualization & Portal Intelligence Patterns",
+      "tags": [
+        "vfx25",
+        "hologram",
+        "portal",
+        "patterns"
+      ],
+      "summary": "## 1. Hologram Rendering Patterns ### 1.1 BodyPix Neural Segmentation (Unity Sentis) **Source**: `BodyPixSentis-main` by Keijiro Takahashi",
+      "sections": [
+        "1. hologram rendering patterns",
+        "2. ar portal patterns",
+        "3. 3d visualization patterns",
+        "4. project index",
+        "5. unified hologram pipeline (2026-01-16 breakthrough)",
+        "6. quick reference: vfx graph depth setup",
+        "6. location reference",
+        "🔗 cross-references"
+      ],
+      "size_kb": 13,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_WEBGL_INTELLIGENCE_PATTERNS.md",
+      "title": "WebGL Intelligence Patterns",
+      "tags": [
+        "webgl",
+        "intelligence",
+        "patterns"
+      ],
+      "summary": "## 1. WebGPU Million Particles (Operation Swarm Pattern) From `shadowofaroman/Operation-Swarm` - 400K+ particles at 60FPS. ### Architecture: GPU-First Compute",
+      "sections": [
+        "1. webgpu million particles (operation swarm pattern)",
+        "2. three.js core patterns",
+        "3. react three fiber (r3f) patterns",
+        "4. glsl shader patterns",
+        "5. performance optimization",
+        "6. webxr patterns",
+        "7. gaussian splatting (web)",
+        "quick reference"
+      ],
+      "size_kb": 13,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AUTO_COMPOUNDING_INTELLIGENCE.md",
+      "title": "Auto-Compounding Intelligence Patterns",
+      "tags": [
+        "auto",
+        "compounding",
+        "intelligence"
+      ],
+      "summary": "## Core Philosophy > **\"Question everything, assume nothing, measure and auto-improve everything.\"** Auto-compounding intelligence is the principle that AI systems should learn from experience like...",
+      "sections": [
+        "core philosophy",
+        "the five pillars",
+        "intelligence architecture",
+        "goal prediction mechanisms",
+        "feedback loop architecture",
+        "measurement-driven telemetry",
+        "auto-learning triggers",
+        "spec-driven development integration"
+      ],
+      "size_kb": 12,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_CLAUDE_AI_DOCUMENTATION.md",
+      "title": "Claude AI & Claude Code Documentation Reference",
+      "tags": [
+        "claude",
+        "ai",
+        "documentation"
+      ],
+      "summary": "## Overview This document consolidates official Anthropic documentation for working with Claude AI and Claude Code effectively. ---",
+      "sections": [
+        "overview",
+        "1. claude code - official documentation",
+        "2. prompt engineering best practices",
+        "3. claude api features",
+        "4. testing & evaluation",
+        "5. prompt library & resources",
+        "6. claude cookbooks",
+        "7. claude for sheets"
+      ],
+      "size_kb": 12,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_MASTER_AI_TOOLS_REGISTRY.md",
+      "title": "Master AI Tools Configuration Registry",
+      "tags": [
+        "master",
+        "ai",
+        "tools",
+        "registry"
+      ],
+      "summary": "## Philosophy: Shared Intelligence, Zero Duplication **Core Principles**: 1. Single source of truth for all knowledge 2. Symlinked configurations for instant sync",
+      "sections": [
+        "philosophy: shared intelligence, zero duplication",
+        "ai tools installed on mac",
+        "unified knowledgebase architecture",
+        "symlink strategy for shared access",
+        "mcp server configuration (shared)",
+        "self-improving memory architecture",
+        "token optimization strategy",
+        "cross-tool memory sharing"
+      ],
+      "size_kb": 12,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_PORTALS_PRODUCT_VISION.md",
+      "title": "Portals: Product Vision",
+      "tags": [
+        "portals",
+        "product",
+        "vision"
+      ],
+      "summary": "## The Dream > **\"Minecraft in physical spaces. Say the words, see it build. Wave your hands, see magic from fingertips.\"** Zero-latency vibe world creator for the real world. AI amplifies human ex...",
+      "sections": [
+        "the dream",
+        "core promise",
+        "design principles",
+        "single source of truth",
+        "platform priority",
+        "ai+ar first features",
+        "high fidelity multiplayer",
+        "magic experiences"
+      ],
+      "size_kb": 12,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_VIDEO_TO_MAGIC_ARCHITECTURE.md",
+      "title": "Portals: Video → Magic Architecture",
+      "tags": [
+        "portals",
+        "video",
+        "to",
+        "magic",
+        "architecture"
+      ],
+      "summary": "## The Luma Pattern ``` Luma AI approach: ┌─────────────┐ ┌─────────────┐ ┌─────────────┐",
+      "sections": [
+        "the luma pattern",
+        "our pattern: video → magic",
+        "what makes it \"magic\"",
+        "modular architecture",
+        "worldstate: the glue",
+        "platform rendering",
+        "ai world model options",
+        "example experiences"
+      ],
+      "size_kb": 12,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_MCP_QUICK_REFERENCE.md",
+      "title": "Unity MCP Quick Reference",
+      "tags": [
+        "unity",
+        "mcp",
+        "token-optimization",
+        "debugging",
+        "quick",
+        "reference"
+      ],
+      "summary": "## Token Optimization Matrix | Default | Optimized | Savings | |---------|-----------|---------| | Individual calls | `batch_execute` | **10-100x** |",
+      "sections": [
+        "token optimization matrix",
+        "most used tools (by frequency)",
+        "gemini specific optimization patterns",
+        "resources vs tools",
+        "vfx management",
+        "rapid debug loop (mcp-powered)",
+        "anti-patterns (never do)",
+        "script editing patterns"
+      ],
+      "size_kb": 12,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_WEBRTC_MULTIUSER_MULTIPLATFORM_GUIDE.md",
+      "title": "WebRTC Multiuser Multiplatform Scalability Guide",
+      "tags": [
+        "webrtc",
+        "multiuser",
+        "multiplatform",
+        "guide"
+      ],
+      "summary": "## Platform Compatibility Matrix | Solution | iOS | Android | WebGL | Quest | visionOS | React-Unity | |----------|-----|---------|-------|-------|----------|-------------| | **Unity WebRTC** | ✅ |...",
+      "sections": [
+        "platform compatibility matrix",
+        "solution comparison",
+        "webgl-specific considerations",
+        "react-unity integration",
+        "visionos support",
+        "ar foundation + webrtc integration",
+        "scalability recommendations",
+        "quick start recommendations"
+      ],
+      "size_kb": 12,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_WEBXR_DEVICE_API_EXPLAINER.md",
+      "title": "WebXR Device API Explainer",
+      "tags": [
+        "webxr",
+        "device",
+        "api",
+        "explainer"
+      ],
+      "summary": "## What is WebXR? The WebXR Device API provides access to input and output capabilities commonly associated with Virtual Reality (VR) and Augmented Reality (AR) devices. It enables web-based immers...",
+      "sections": [
+        "what is webxr?",
+        "target hardware",
+        "use cases",
+        "session modes",
+        "lifetime of a webxr app",
+        "key concepts",
+        "webgl context compatibility",
+        "advanced features"
+      ],
+      "size_kb": 12,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_ZERO_LATENCY_INSTANTIATION.md",
+      "title": "Zero-Latency Instantiation Strategy",
+      "tags": [
+        "zero",
+        "latency",
+        "instantiation"
+      ],
+      "summary": "## Core Philosophy > **Experience Goal**: It should feel like magic or super powers. > Every interaction must be instant, intuitive, and awe-inspiring.",
+      "sections": [
+        "core philosophy",
+        "latency targets",
+        "asset loading hierarchy (fastest first)",
+        "vfx instantiation patterns",
+        "progressive loading strategy",
+        "predictive preloading",
+        "memory management",
+        "bridge message optimization"
+      ],
+      "size_kb": 12,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_ECHARTS_VISUALIZATION_PATTERNS.md",
+      "title": "Apache ECharts Visualization Patterns",
+      "tags": [
+        "echarts",
+        "visualization",
+        "patterns"
+      ],
+      "summary": "## Quick Reference | Feature | Library | Use Case | |---------|---------|----------| | 2D Charts | echarts | Bar, line, pie, scatter |",
+      "sections": [
+        "quick reference",
+        "installation",
+        "graphgl pattern: npm dependencies",
+        "graphgl pattern: large internet graph",
+        "performance optimization guide",
+        "forceatlas2 parameters",
+        "integration with xrai knowledge graph",
+        "resources"
+      ],
+      "size_kb": 11,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_HAND_TRACKING_MOBILE_2026.md",
+      "title": "Hand Tracking for Mobile & Web AR (2026 Research Update)",
+      "tags": [
+        "hand",
+        "tracking",
+        "mobile",
+        "2026"
+      ],
+      "summary": "## Executive Summary This document synthesizes 2026 hand tracking research for mobile AR and web applications. Key findings: - **Regular iOS/Android phones have NO native hand skeleton tracking** -...",
+      "sections": [
+        "executive summary",
+        "1. platform support matrix (2026)",
+        "2. solution comparison",
+        "3. provider priority pattern (verified)",
+        "4. joint mapping",
+        "5. gesture detection thresholds",
+        "6. hand stencil/segmentation",
+        "7. performance guidelines"
+      ],
+      "size_kb": 11,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_NOTION_MASTER.md",
+      "title": "Notion Pages Index",
+      "tags": [
+        "notion",
+        "master"
+      ],
+      "summary": "## Portals V4 / XR Development Pages ### Portals XR AI Live VFX Learning Guide (PRIMARY) **URL**: https://handsome-trillium-4b1.notion.site/Portals-XR-AI-Live-VFX-Learning-Guide-1ef5a71be33e8048a0c...",
+      "sections": [
+        "portals v4 / xr development pages",
+        "external resources",
+        "fetched documentation (saved to kb)",
+        "portals v4 spec references",
+        "quick sync checklist",
+        "key repos for notion (from kb)",
+        "key repos for kb (if missing from notion)",
+        "notion page structure suggestion"
+      ],
+      "size_kb": 11,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_V4_STRATEGIC_AUDIT_2026-02.md",
+      "title": "Portals V4: Strategic Audit & Foundation Design",
+      "tags": [
+        "portals",
+        "v4",
+        "strategic",
+        "audit",
+        "2026",
+        "02"
+      ],
+      "summary": "## Part 1: Are We On Track? ### Current State Assessment | Dimension | Where We Are | On Track? |",
+      "sections": [
+        "part 1: are we on track?",
+        "part 2: first principles",
+        "part 3: radical simplification options",
+        "part 4: what would we build differently?",
+        "part 5: recommended path forward",
+        "part 6: what to keep vs cut",
+        "part 7: foundation design principles",
+        "part 8: immediate next steps"
+      ],
+      "size_kb": 11,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_REACT_NATIVE_UNITY_PACKAGES.md",
+      "title": "React Native Unity Package Comparison",
+      "tags": [
+        "react",
+        "native",
+        "unity",
+        "packages"
+      ],
+      "summary": "## Package Overview | Aspect | @azesmway/react-native-unity | @artmajeur/react-native-unity | |--------|------------------------------|-------------------------------| | **NPM Package** | `@azesmwa...",
+      "sections": [
+        "package overview",
+        "key differences",
+        "recent @artmajeur commits (aug 2025)",
+        "feature comparison",
+        "api (both packages)",
+        "recommendation for portals_v4",
+        "known issues (both)",
+        "alternative package: react-native-unity2 (fusetools)"
+      ],
+      "size_kb": 11,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_TRUSTED_COMMUNITY_SOURCES.md",
+      "title": "Trusted Community Sources",
+      "tags": [
+        "trusted",
+        "community",
+        "sources"
+      ],
+      "summary": "## Verification Guidelines Before trusting community advice: 1. **Check user karma/reputation** - 1000+ karma on Reddit, 10K+ rep on StackOverflow 2. **Verify recency** - Prefer posts <6 months old...",
+      "sections": [
+        "verification guidelines",
+        "unity development",
+        "react native / expo",
+        "ar/xr development",
+        "ai / claude code",
+        "multiplayer / networking (normcore)",
+        "firebase / backend",
+        "vfx / shaders"
+      ],
+      "size_kb": 11,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_VFX_SOURCE_BINDINGS.md",
+      "title": "VFX Source Bindings Reference",
+      "tags": [
+        "vfx",
+        "source",
+        "bindings"
+      ],
+      "summary": "Authoritative binding specifications for all VFX categories based on original keijiro projects. ## Binding Modes | Mode | Description | AR Pipeline Required |",
+      "sections": [
+        "binding modes",
+        "category: fluo (audio-reactive)",
+        "category: rcam2/3/4 (ar depth)",
+        "category: nncam2 (keypoint)",
+        "category: akvfx (point cloud)",
+        "category: sdfvfx (environment sdf)",
+        "alias resolution",
+        "mode detection rules"
+      ],
+      "size_kb": 11,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "AI_CLI_TOOLS_REFERENCE.md",
+      "title": "AI CLI Coding Tools Reference Guide",
+      "tags": [
+        "ai",
+        "cli",
+        "tools",
+        "reference"
+      ],
+      "summary": "## Quick Comparison | Tool | Developer | Key Model | Memory System | Agent Features | |------|-----------|-----------|---------------|----------------| | **Claude Code** | Anthropic | Opus 4.5, Son...",
+      "sections": [
+        "quick comparison",
+        "1. claude code (anthropic)",
+        "2. windsurf / cascade (codeium)",
+        "3. openai codex cli",
+        "4. google gemini cli",
+        "cross-tool patterns",
+        "sources"
+      ],
+      "size_kb": 10,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "KB_ARCHITECTURE_DIAGRAMS.md",
+      "title": "KB Architecture Diagrams",
+      "tags": [
+        "kb",
+        "architecture",
+        "diagrams"
+      ],
+      "summary": "## 1. Knowledge Domain Map **25 entities, 37 relations** 13 knowledge domains with cross-references and key files.",
+      "sections": [
+        "1. knowledge domain map",
+        "2. tooling ecosystem",
+        "3. repository structure",
+        "4. cross-tool integration",
+        "5. knowledge mindmap",
+        "graph statistics"
+      ],
+      "size_kb": 10,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_3D_VISUALIZATION_KNOWLEDGEBASE.md",
+      "title": "3D Visualization Knowledge Base",
+      "tags": [
+        "3d",
+        "visualization",
+        "knowledgebase"
+      ],
+      "summary": "## Overview Comprehensive reference for 3D knowledge graph visualization, force-directed layouts, and spatial data representation. This knowledgebase connects to the following key projects: - **Glo...",
+      "sections": [
+        "overview",
+        "core visualization implementations",
+        "layout algorithms reference",
+        "integration patterns",
+        "related github projects (from arfoundation-vfx-master-list)",
+        "performance optimization",
+        "file format integration",
+        "cross-references"
+      ],
+      "size_kb": 10,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_DATAVIZ_HUB_PATTERNS.md",
+      "title": "DataViz Hub Patterns - WarpJobs",
+      "tags": [
+        "dataviz",
+        "hub",
+        "patterns"
+      ],
+      "summary": "## 1. ECharts-GL Version Lock Pattern **Pattern:** Pin compatible versions - echarts@5 + echarts-gl@2.0.9 ```html",
+      "sections": [
+        "1. echarts-gl version lock pattern",
+        "2. forceatlas2 gpu layout for large graphs",
+        "3. scatter3d multi-axis job analysis",
+        "4. globe visualization without textures",
+        "5. bar3d skill-source cross-tab",
+        "6. geo map with static city geocoding",
+        "7. gpu tier detection & fallback",
+        "8. safe dom pattern (xss prevention)"
+      ],
+      "size_kb": 10,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_MAC_UNITY_OPTIMIZATION.md",
+      "title": "Mac Optimization for Unity Development",
+      "tags": [
+        "mac",
+        "unity",
+        "optimization"
+      ],
+      "summary": "## Quick Maintenance Commands ```bash # Clear all dev caches (~60-90GB typically) rm -rf ~/Library/Caches/JetBrains/Rider*/caches",
+      "sections": [
+        "quick maintenance commands",
+        "cache locations & safe cleanup",
+        "background services to disable",
+        "spotlight optimization",
+        "unity editor settings",
+        "rider/jetbrains optimization",
+        "memory management",
+        "scheduled maintenance"
+      ],
+      "size_kb": 10,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_MCP_BUILD_SERVER_CLIENT.md",
+      "title": "MCP Build Server & Client Guide",
+      "tags": [
+        "mcp",
+        "build",
+        "server",
+        "client"
+      ],
+      "summary": "## Build an MCP Server ### Critical: Logging for STDIO Servers **NEVER write to stdout** in STDIO-based servers - it corrupts JSON-RPC messages!",
+      "sections": [
+        "build an mcp server",
+        "python server (fastmcp)",
+        "typescript server",
+        "build an mcp client",
+        "claude desktop configuration",
+        "query flow",
+        "best practices"
+      ],
+      "size_kb": 10,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_PORTALS_V4_RECORDING_AND_TRACKING.md",
+      "title": "Portals V4: Recording & Tracking Decision Framework",
+      "tags": [
+        "portals",
+        "v4",
+        "recording",
+        "tracking"
+      ],
+      "summary": "## Core Questions to Answer Before choosing any implementation, we need clarity on: ### 1. Recording - What are we capturing and why?",
+      "sections": [
+        "core questions to answer",
+        "decision framework: recording",
+        "decision framework: tracking",
+        "decision framework: audio",
+        "recommended implementation order",
+        "research questions (not answered yet)",
+        "anti-patterns to avoid",
+        "success criteria"
+      ],
+      "size_kb": 10,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PROJECT_CONFIG_REFERENCE.md",
+      "title": "Unity-XR-AI Project Configuration Reference",
+      "tags": [
+        "project",
+        "config",
+        "reference"
+      ],
+      "summary": "## Git Ignore Files ### Root `.gitignore` **Path**: [`Unity-XR-AI/.gitignore`](/Users/jamestunick/Documents/GitHub/Unity-XR-AI/.gitignore)",
+      "sections": [
+        "git ignore files",
+        "claude code configuration",
+        "mcp server",
+        "shell scripts",
+        "yaml configuration",
+        "json data files",
+        "package.json files (node projects)",
+        "typescript configs"
+      ],
+      "size_kb": 10,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_QUICK_FIX.md",
+      "title": "Quick Fix Table",
+      "tags": [
+        "quick",
+        "fix"
+      ],
+      "summary": "## C# Compiler Errors | Error | Fix | |-------|-----| | CS0246 type not found | Add `using UnityEngine.VFX;` or relevant namespace |",
+      "sections": [
+        "c compiler errors",
+        "unity runtime",
+        "ar foundation",
+        "vfx graph",
+        "compute shaders",
+        "audio vfx",
+        "hand tracking",
+        "performance"
+      ],
+      "size_kb": 10,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_UNITY_ASSET_MANAGEMENT.md",
+      "title": "Unity Asset Management Reference",
+      "tags": [
+        "unity",
+        "asset",
+        "management"
+      ],
+      "summary": "## Overview Unity provides several asset management systems for different use cases: | System | Best For | Remote Loading | Incremental Updates |",
+      "sections": [
+        "overview",
+        "build content determination",
+        "1. direct references (default)",
+        "2. resources system",
+        "3. assetbundle system",
+        "4. addressables package",
+        "5. ecs content management",
+        "comparison matrix"
+      ],
+      "size_kb": 10,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_AS_A_LIBRARY_IOS.md",
+      "title": "Unity as a Library - iOS Integration Guide",
+      "tags": [
+        "unity",
+        "as",
+        "library",
+        "ios"
+      ],
+      "summary": "## Overview Unity as a Library allows embedding Unity-powered features (3D/2D rendering, AR, mini-games) into native iOS applications. The Unity Runtime Library exposes controls to manage when and ...",
+      "sections": [
+        "overview",
+        "architecture",
+        "integration steps",
+        "critical unityframework api",
+        "react native integration (@azesmway/react-native-unity)",
+        "nativecallproxy files (required)",
+        "known limitations",
+        "build flow (recommended)"
+      ],
+      "size_kb": 10,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_UNITY_EDITOR_ERROR_LOG_ANALYSIS.md",
+      "title": "Unity Editor Error Log Analysis",
+      "tags": [
+        "unity",
+        "editor",
+        "error",
+        "log",
+        "analysis"
+      ],
+      "summary": "## Executive Summary Analysis of Unity Editor crash logs revealed **4 categories** of errors requiring attention: 1. HoloKit native plugin entry point failures 2. NullReferenceExceptions in VFX/AR ...",
+      "sections": [
+        "executive summary",
+        "1. holokit native plugin errors",
+        "2. webrtc native plugin errors",
+        "3. onnx importer conflict",
+        "4. vfx hlsl missing include",
+        "5. nullreferenceexceptions",
+        "3. package manifest warnings",
+        "4. native crash information"
+      ],
+      "size_kb": 10,
+      "modified": "2026-01-21"
+    },
+    {
+      "file": "_WEBGPU_THREEJS_2025.md",
+      "title": "WebGPU, Three.js & Web 3D Visualization (2025-2026)",
+      "tags": [
+        "webgpu",
+        "threejs",
+        "2025"
+      ],
+      "summary": "## Browser Support Status (November 2025) WebGPU now ships by default in ALL major browsers: - **Chrome**: v113+ (since 2023) - **Safari**: v26.0 (September 2025)",
+      "sections": [
+        "browser support status (november 2025)",
+        "category: libraries & frameworks",
+        "category: viewers & renderers",
+        "category: datasets & search",
+        "category: ai-powered visualization",
+        "category: simulation & digital twins",
+        "category: cutting-edge projects (2025)",
+        "webgpu performance comparison"
+      ],
+      "size_kb": 10,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AGENTSKILLS_OPEN_FORMAT_PATTERNS.md",
+      "title": "Agent Skills: Open Format Design Patterns (2026-02-08)",
+      "tags": [
+        "agentskills",
+        "open",
+        "format",
+        "patterns"
+      ],
+      "summary": "## Why This Matters Agent Skills demonstrates **how to design open formats for AI systems**. Key innovations: 1. **Progressive disclosure** architecture (metadata → full content → resources) 2. **W...",
+      "sections": [
+        "why this matters",
+        "core specification design",
+        "open format design patterns",
+        "design principles (extracted)",
+        "application to other formats",
+        "validation rules (concrete)",
+        "comparison: good vs bad open format design",
+        "key takeaways for format design"
+      ],
+      "size_kb": 9,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_AI_AGENT_PHILOSOPHY.md",
+      "title": "AI Agent Philosophy - The \"Why\" Behind Intelligence Amplification",
+      "tags": [
+        "ai",
+        "agent",
+        "philosophy"
+      ],
+      "summary": "## Core Philosophy: Compound Intelligence Growth **Principle**: Every interaction should make you smarter, faster, and more capable than before. **Why it matters**: Most people use AI transactional...",
+      "sections": [
+        "core philosophy: compound intelligence growth",
+        "1. billionaire-level thinking (musk/bezos/naval)",
+        "2. 10x learning velocity",
+        "3. expert knowledge download",
+        "4. cognitive os upgrade",
+        "5. god-tier life optimization",
+        "6. time compression (10 years → 1 year)",
+        "7. identity reprogramming"
+      ],
+      "size_kb": 9,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_AR_VFX_HUMAN_PARTICLE_PATTERNS.md",
+      "title": "AR + VFX Human Particle Patterns",
+      "tags": [
+        "ar",
+        "vfx",
+        "human",
+        "particle",
+        "patterns"
+      ],
+      "summary": "## Overview Collection of techniques for spawning VFX particles based on AR depth data (human segmentation, LiDAR, face tracking). These patterns are foundational to MetavidoVFX and similar AR+VFX ...",
+      "sections": [
+        "overview",
+        "core pattern: human depth → world positions → vfx",
+        "reference implementations",
+        "metavidovfx implementation",
+        "vfx graph setup",
+        "common issues & fixes",
+        "related repositories",
+        "open brush integration"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_CROSS_PLATFORM_ARCHITECTURE_RESEARCH_2026.md",
+      "title": "Cross-Platform Architecture Research 2026",
+      "tags": [
+        "cross",
+        "platform",
+        "architecture",
+        "research",
+        "2026"
+      ],
+      "summary": "## Executive Summary Comprehensive architecture research across Roblox, Minecraft, Needle Engine, A-Frame, PlayCanvas, Unity, Unreal, USD, NVIDIA Cosmos, and trending GitHub repos. Key finding: **P...",
+      "sections": [
+        "executive summary",
+        "1. proven patterns (steal these)",
+        "2. platform-specific findings",
+        "3. mvp multiplayer comparison",
+        "4. generative ai threat assessment",
+        "5. infrastructure megatrends (1-3 year)",
+        "6. key github repos (trending 2026)",
+        "7. metavidovfx patterns (unverified but instructive)"
+      ],
+      "size_kb": 9,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_CROSS_TOOL_ROLLOVER_GUIDE.md",
+      "title": "Cross-Tool Rollover Guide",
+      "tags": [
+        "claude-code",
+        "gemini",
+        "codex",
+        "migration",
+        "token-efficiency",
+        "cross",
+        "tool",
+        "rollover",
+        "guide"
+      ],
+      "summary": "## Quick Rollover (30 Seconds) When Claude Code hits token limits, switch to Gemini or Codex with full context: ```bash",
+      "sections": [
+        "quick rollover (30 seconds)",
+        "architecture: files are memory",
+        "tool-specific setup",
+        "rollover scenarios",
+        "what transfers vs what doesn't",
+        "context preservation patterns",
+        "token limit reference",
+        "unified knowledge access"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-21"
+    },
+    {
+      "file": "_HAND_SENSING_CAPABILITIES.md",
+      "title": "Hand Sensing Capabilities for VFX Control",
+      "tags": [
+        "hand",
+        "sensing",
+        "capabilities"
+      ],
+      "summary": "## Overview Comprehensive list of all possible gestures, measurements, and sensing capabilities available through hand tracking, pose detection, and segmentation for controlling VFX parameters. ---",
+      "sections": [
+        "overview",
+        "1. joint positions (21 joints per hand)",
+        "2. computed distances (vfx parameter control)",
+        "3. gesture recognition",
+        "4. velocity & motion data",
+        "5. hand stencil/segmentation",
+        "6. audio-reactive parameters",
+        "7. physics-enabled vfx"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_INTELLIGENCE_SYSTEMS_INDEX.md",
+      "title": "Intelligence Systems Index",
+      "tags": [
+        "intelligence",
+        "systems",
+        "index"
+      ],
+      "summary": "## System Overview ``` ┌─────────────────────────────────────────────────────────────────┐ │ INTELLIGENCE LAYER │",
+      "sections": [
+        "system overview",
+        "active systems",
+        "automation hooks (6 total)",
+        "custom agents (23 total)",
+        "shell aliases",
+        "mcp integration",
+        "quick activation",
+        "pattern categories (106 total)"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_KB_CROSS_LINKS.md",
+      "title": "Knowledgebase Cross-Links Reference",
+      "tags": [
+        "kb",
+        "cross",
+        "links"
+      ],
+      "summary": "## Domain Index | Domain | Files | Entry Point | |--------|-------|-------------| | **Unity/XR** | 20+ | `_UNITY_INTELLIGENCE_PATTERNS.md` |",
+      "sections": [
+        "domain index",
+        "unity/xr domain",
+        "webgl/web domain",
+        "3d visualization domain",
+        "ai/agent systems domain",
+        "projects domain",
+        "reference/index domain",
+        "quick navigation by topic"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_MCP_MODEL_CONTEXT_PROTOCOL.md",
+      "title": "Model Context Protocol (MCP) Knowledge Base",
+      "tags": [
+        "mcp",
+        "model",
+        "context",
+        "protocol"
+      ],
+      "summary": "## Overview The Model Context Protocol (MCP) is an open standard that enables AI applications to connect with external data sources, tools, and services. Created by Anthropic, MCP provides a standa...",
+      "sections": [
+        "overview",
+        "architecture",
+        "core primitives",
+        "official mcp servers",
+        "configuration",
+        "tool annotations (hints)",
+        "sdks",
+        "memory server: knowledge graph"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_OH_MY_CLAUDECODE_PATTERNS.md",
+      "title": "Oh-My-ClaudeCode & OpenCode Patterns Reference",
+      "tags": [
+        "oh",
+        "my",
+        "claudecode",
+        "patterns"
+      ],
+      "summary": "- https://github.com/Yeachan-Heo/oh-my-claudecode - https://github.com/code-yeongyu/oh-my-opencode **Extracted**: 2026-01-22 **Purpose**: Best practices for multi-agent orchestration without extern...",
+      "sections": [
+        "core philosophy",
+        "agent architecture patterns",
+        "magic keywords",
+        "structured output markers",
+        "3-failure circuit breaker",
+        "research workflow (5 steps)",
+        "parallel execution pattern",
+        "anti-patterns to avoid"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_REFERENCE_FIGMENT_AR.md",
+      "title": "Figment AR Screen",
+      "tags": [
+        "reference",
+        "figment",
+        "ar"
+      ],
+      "summary": "AR scene composer with 3D models, portals, and effects. Ported from the original [ViroReact Figment AR](https://github.com/viromedia/figment-ar) sample app. ## Architecture ```",
+      "sections": [
+        "architecture",
+        "core flows",
+        "debugging tips",
+        "dependencies",
+        "testing checklist",
+        "restoration instructions",
+        "animation system",
+        "version history"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_TOOL_INTEGRATION_MAP.md",
+      "title": "Tool Integration Map",
+      "tags": [
+        "tool",
+        "integration",
+        "map"
+      ],
+      "summary": "## Configuration Hierarchy ``` ~/GLOBALGLOBAL_RULES.md ← Single Source of Truth (all tools) ├── ~/.claude/CLAUDE.md ← Claude Code specific",
+      "sections": [
+        "configuration hierarchy",
+        "shared resources",
+        "tool configurations",
+        "mcp servers",
+        "cli tools",
+        "ide integration",
+        "agents (cross-tool)",
+        "workflows"
+      ],
+      "size_kb": 9,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNIFIED_AUDIO_REACTIVE_PATTERNS.md",
+      "title": "Unified Audio Reactive System Patterns",
+      "tags": [
+        "unified",
+        "audio",
+        "reactive",
+        "patterns"
+      ],
+      "summary": "## Overview The Unified Audio Reactive system consolidates all FFT audio analysis into a single pipeline, eliminating duplicate computation and providing consistent 8-band frequency data to all con...",
+      "sections": [
+        "overview",
+        "key components",
+        "8 frequency bands (logarithmic)",
+        "usage patterns",
+        "beat detection algorithm",
+        "configuration",
+        "performance",
+        "migration from legacy"
+      ],
+      "size_kb": 9,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_UNITY_INTELLIGENCE_PATTERNS.md",
+      "title": "Unity Intelligence System - Ultimate Consolidated Skill",
+      "tags": [
+        "unity",
+        "intelligence",
+        "patterns"
+      ],
+      "summary": "## 🚀 Quick Activation Say: **\"Using Unity Intelligence patterns\"** to activate all capabilities. ## 📋 Complete Pattern Library",
+      "sections": [
+        "🚀 quick activation",
+        "📋 complete pattern library",
+        "📦 required packages",
+        "🔄 common workflows",
+        "🔍 repository index",
+        "💾 memory patterns"
+      ],
+      "size_kb": 9,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_WEBGL_THREEJS_COMPREHENSIVE_GUIDE.md",
+      "title": "WebGL/Three.js Comprehensive Development Guide",
+      "tags": [
+        "webgl",
+        "threejs",
+        "comprehensive",
+        "guide"
+      ],
+      "summary": "## Philosophy: CDN > NPM, Minimal > Complex **Priority Order**: 1. Single file → 2. CDN only → 3. Minimal deps → 4. Standard libs → 5. Proven frameworks",
+      "sections": [
+        "philosophy: cdn > npm, minimal > complex",
+        "core three.js & react three fiber",
+        "critical codesandbox examples (study these)",
+        "performance patterns",
+        "3d viewers & spatial computing",
+        "shader resources",
+        "creative coding & prototyping",
+        "icosa gallery (open brush)"
+      ],
+      "size_kb": 9,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "KB_TOOLS_REFERENCE.md",
+      "title": "KB Tools Reference",
+      "tags": [
+        "kb",
+        "tools",
+        "reference"
+      ],
+      "summary": "## Overview Two tools for effortless KB management: - **`kb-add`** - Add entries (manual & automatic) - **`kb-audit`** - Health check & recommendations",
+      "sections": [
+        "overview",
+        "kb-add - easy additions",
+        "kb-audit - health check",
+        "additional aliases",
+        "workflows",
+        "integration with ai tools",
+        "troubleshooting",
+        "examples"
+      ],
+      "size_kb": 8,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_CLAUDE_CODE_UNITY_WORKFLOW.md",
+      "title": "Claude Code + Unity MCP Development Workflow",
+      "tags": [
+        "claude",
+        "code",
+        "unity",
+        "workflow"
+      ],
+      "summary": "## Overview This workflow achieves **5-10x faster iteration** compared to traditional Unity development by: 1. Eliminating context-switching between tools 2. Immediate error detection via MCP",
+      "sections": [
+        "overview",
+        "core workflow: mcp-first development",
+        "essential mcp tools",
+        "project setup requirements",
+        "quick reference",
+        "key files",
+        "build commands",
+        "architecture"
+      ],
+      "size_kb": 8,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_CLAUDE_MD_BEST_PRACTICES.md",
+      "title": "CLAUDE.md Best Practices (Official Anthropic Guidance - 2026-02-08)",
+      "tags": [
+        "claude",
+        "best",
+        "practices"
+      ],
+      "summary": "## Quick Reference **What**: Repository-level config file providing persistent project context **Where**: Repo root, parent directories (monorepos), or `~/CLAUDE.md` (universal) **When**: Multiple ...",
+      "sections": [
+        "quick reference",
+        "core insights",
+        "essential structure",
+        "about this project",
+        "key directories",
+        "standards",
+        "common commands",
+        "before architectural changes"
+      ],
+      "size_kb": 8,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_GITHUB_TRENDING_INDEX.md",
+      "title": "GitHub Trending Index - AI/XR/VFX",
+      "tags": [
+        "github",
+        "trending",
+        "ai",
+        "xr",
+        "vfx",
+        "unity",
+        "react-native",
+        "index"
+      ],
+      "summary": "## Top 10 AI Agent Repositories (2025-2026) | Rank | Repo | Stars | Description | |------|------|-------|-------------| | 1 | [Dify](https://github.com/langgenius/dify) | 114K+ | LLM app dev platfo...",
+      "sections": [
+        "top 10 ai agent repositories (2025-2026)",
+        "top 10 xr/ar/vr repositories (2025-2026)",
+        "top 50 trending keywords/subjects",
+        "project-specific: portals_v4",
+        "project-specific: metavidovfx",
+        "update schedule",
+        "sources"
+      ],
+      "size_kb": 8,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_ICOSA_GALLERY_PATTERNS.md",
+      "title": "Icosa Gallery API & Integration Patterns",
+      "tags": [
+        "icosa",
+        "gallery",
+        "patterns"
+      ],
+      "summary": "## Quick Reference | Need | Pattern | |------|---------| | Search assets | `GET /v1/assets?keywords=tree&format=GLTF2` |",
+      "sections": [
+        "quick reference",
+        "api endpoints (api.icosa.gallery/v1/)",
+        "authentication (device code flow)",
+        "unity runtime import",
+        "web viewer (three.js)",
+        "self-hosting",
+        "github repositories",
+        "licensing notes"
+      ],
+      "size_kb": 8,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_KB_SEARCH_COMMANDS.md",
+      "title": "KnowledgeBase Search Commands",
+      "tags": [
+        "search",
+        "grep",
+        "knowledgebase",
+        "all-tools",
+        "holistic",
+        "kb",
+        "commands"
+      ],
+      "summary": "## Decision Flow (Holistic - Always Check KB First) ``` Error/Question arrives │",
+      "sections": [
+        "decision flow (holistic - always check kb first)",
+        "quick lookup (zero tokens)",
+        "by use case",
+        "topic-specific searches",
+        "multi-pattern search (regex)",
+        "aliases (add to ~/.zshrc or ~/.bashrc)",
+        "ide-specific",
+        "ai tool integration"
+      ],
+      "size_kb": 8,
+      "modified": "2026-01-21"
+    },
+    {
+      "file": "_UNITY_AS_A_LIBRARY_ANDROID.md",
+      "title": "Unity as a Library - Android Integration Guide",
+      "tags": [
+        "unity",
+        "as",
+        "library",
+        "android"
+      ],
+      "summary": "## Overview Unity as a Library allows embedding Unity-powered features (3D/2D rendering, AR, mini-games) into native Android applications. The Unity Runtime Library exposes controls to manage when ...",
+      "sections": [
+        "overview",
+        "requirements",
+        "architecture",
+        "integration steps",
+        "critical android concepts",
+        "react native integration (@azesmway)",
+        "known workarounds",
+        "gradle configuration"
+      ],
+      "size_kb": 8,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_UNITY_AS_A_LIBRARY_OVERVIEW.md",
+      "title": "Unity as a Library - Cross-Platform Overview",
+      "tags": [
+        "unity",
+        "as",
+        "library",
+        "overview"
+      ],
+      "summary": "## What is Unity as a Library? Starting with Unity 2019.3, Unity can be embedded as a library in native platform applications. This allows developers to include Unity-powered features in their nati...",
+      "sections": [
+        "what is unity as a library?",
+        "requirements",
+        "architecture overview",
+        "platform-specific details",
+        "supported platforms",
+        "memory overhead",
+        "known limitations (both platforms)",
+        "messaging bridge pattern"
+      ],
+      "size_kb": 8,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_VFX_SOURCES_REGISTRY.md",
+      "title": "VFX Sources Registry",
+      "tags": [
+        "vfx",
+        "sources",
+        "registry"
+      ],
+      "summary": "## Quick Reference (Mobile AR) | Constraint | Value | Source | |------------|-------|--------| | Max particles (iPhone 12+) | 50,000 | Profiled |",
+      "sections": [
+        "quick reference (mobile ar)",
+        "vfx pipeline types",
+        "vfx sources by origin",
+        "key vfx property bindings",
+        "folder structure",
+        "github repos referenced",
+        "migration history",
+        "original names registry"
+      ],
+      "size_kb": 8,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "LEARNING_LOG.md",
+      "title": "Learning Log",
+      "tags": [
+        "learning",
+        "log"
+      ],
+      "summary": "## 2026-02-10 - Gemini CLI - Strategic Resolution: The Hybrid Bridge & Lifelike Standard **Context**: Deep analysis of Keijiro's `Metavido` and `MetavidoVFX` repositories to identify the \"Simplest ...",
+      "sections": [],
+      "size_kb": 7,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_ADVANCED_AI_INFRASTRUCTURE_GUIDE.md",
+      "title": "Advanced AI Infrastructure Guide",
+      "tags": [
+        "infrastructure",
+        "vllm",
+        "dify",
+        "ragflow",
+        "optional",
+        "advanced",
+        "ai",
+        "guide"
+      ],
+      "summary": "## When to Upgrade **Current System** (Simple, Working): ``` KB files → grep/pattern-indexer.sh → Claude Code API",
+      "sections": [
+        "when to upgrade",
+        "tool comparison",
+        "vllm setup (local llm inference)",
+        "dify setup (agent workflows)",
+        "ragflow setup (document rag)",
+        "recommended upgrade path",
+        "integration with global_rules.md",
+        "cost comparison"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_AI_CHAT_HISTORY_LOCATIONS.md",
+      "title": "AI Chat History Locations",
+      "tags": [
+        "ai",
+        "chat",
+        "history",
+        "locations"
+      ],
+      "summary": "## Claude Code | Item | Path | Size | |------|------|------| | **Session transcripts** | `~/.claude/projects/<project-hash>/*.jsonl` | ~3.1GB total |",
+      "sections": [
+        "claude code",
+        "gemini cli",
+        "codex cli",
+        "windsurf (cascade + extensions)",
+        "cursor",
+        "rider (jetbrains)",
+        "cross-tool search patterns",
+        "key insight: cross-tool knowledge loss"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_CLAUDE_API_OPTIMIZATION_PATTERNS.md",
+      "title": "Claude Code CLI Patterns (2026-02-08)",
+      "tags": [
+        "claude",
+        "api",
+        "optimization",
+        "patterns"
+      ],
+      "summary": "## Quick Reference **Skills**: Progressive disclosure architecture (metadata → full instructions → resources on demand) **Tool Selection**: Zero-token → Skills → Direct tools → Task agents → In-con...",
+      "sections": [
+        "quick reference",
+        "skills architecture (official pattern)",
+        "tool selection (claude code cli)",
+        "model routing (claude code)",
+        "claude 4.6 prompting patterns",
+        "anthropic cookbook patterns",
+        "application to portals main",
+        "official validation"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_CLAUDE_CODE_AGENT_TEAMS_PATTERNS.md",
+      "title": "Claude Code Agent Teams Patterns (2026-02-08)",
+      "tags": [
+        "claude",
+        "code",
+        "agent",
+        "teams",
+        "patterns"
+      ],
+      "summary": "## Quick Reference Agent teams = multiple Claude Code instances coordinating with shared task list and messaging. **Enable**: Add to settings.json:",
+      "sections": [
+        "quick reference",
+        "architecture",
+        "when to use",
+        "subagents vs agent teams",
+        "usage",
+        "patterns",
+        "best practices",
+        "quality gates (hooks)"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_CLAUDE_CODE_HOOKS.md",
+      "title": "Claude Code Hooks Reference",
+      "tags": [
+        "claude",
+        "code",
+        "hooks"
+      ],
+      "summary": "## Overview Hooks are user-defined shell commands that execute at various points in Claude Code's lifecycle. They provide **deterministic control** over behavior - ensuring actions always happen ra...",
+      "sections": [
+        "overview",
+        "hook events",
+        "configuration",
+        "quick examples",
+        "exit codes",
+        "hook input (json via stdin)",
+        "json output (advanced)",
+        "prompt-based hooks"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_CLAUDE_CODE_SUBAGENTS.md",
+      "title": "Claude Code Subagents Knowledge Base",
+      "tags": [
+        "claude",
+        "code",
+        "subagents"
+      ],
+      "summary": "## Overview Subagents are specialized AI assistants that handle specific types of tasks within Claude Code. Each subagent runs in its own context window with: - Custom system prompt - Specific tool...",
+      "sections": [
+        "overview",
+        "key benefits",
+        "built-in subagents",
+        "creating custom subagents",
+        "cli definition",
+        "permission modes",
+        "hooks for subagents",
+        "foreground vs background"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_CLAUDE_MEM_ARCHIVE_2026-01.md",
+      "title": "Claude-Mem Archive (Jan 2026)",
+      "tags": [
+        "claude",
+        "mem",
+        "archive",
+        "2026",
+        "01"
+      ],
+      "summary": "## Critical Rules ### Session Start Rule Always load and follow ~/GLOBAL_RULES.md at the start of every session. Contains: 1. File Safety - NEVER delete files without explicit permission",
+      "sections": [
+        "critical rules",
+        "metavidovfx architecture",
+        "key scripts & locations",
+        "critical bug fixes",
+        "testing & debugging",
+        "scene structure (hologram.unity)",
+        "vfx property bindings",
+        "debug patterns"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_CONTINUOUS_LEARNING_SYSTEM.md",
+      "title": "Continuous Learning System",
+      "tags": [
+        "continuous",
+        "learning",
+        "system"
+      ],
+      "summary": "## System Architecture ``` ┌─────────────────────────────────────────────────────────────────┐ │ LEARNING PIPELINE │",
+      "sections": [
+        "system architecture",
+        "learning triggers",
+        "pattern extraction process",
+        "pattern template",
+        "pattern categories (106 total)",
+        "knowledge flow",
+        "automation hooks",
+        "quality gates"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_CROSS_PLATFORM_ASSET_LOADING.md",
+      "title": "Cross-Platform Asset Loading Reference",
+      "tags": [
+        "cross",
+        "platform",
+        "asset",
+        "loading"
+      ],
+      "summary": "## Platform-Specific Loaders | Platform | 3D Loader | Image Loader | Score | Notes | |----------|-----------|--------------|-------|-------| | **Unity** | glTFast `com.unity.cloud.gltfast` | Addres...",
+      "sections": [
+        "platform-specific loaders",
+        "unity: gltfast",
+        "three.js: gltfloader",
+        "react native: expo-image",
+        "cdn architecture (cloudflare r2)",
+        "visionos compatibility",
+        "memory management patterns",
+        "what not to do"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_CROSS_TOOL_ARCHITECTURE.md",
+      "title": "Cross-Tool AI Architecture",
+      "tags": [
+        "cross-tool",
+        "architecture",
+        "configuration",
+        "sharing",
+        "cross",
+        "tool"
+      ],
+      "summary": "## Tool Roles | Role | Tool | Why | |------|------|-----| | **Implementation** | Claude Code | Best MCP, subagents, Unity integration |",
+      "sections": [
+        "tool roles",
+        "single source of truth",
+        "symlink architecture",
+        "what goes where",
+        "tool-specific notes",
+        "cross-tool workflow",
+        "token optimization across tools",
+        "session persistence (all tools)"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_GAUSSIAN_SPLATTING_VFX_PATTERNS.md",
+      "title": "Gaussian Splatting VFX Patterns",
+      "tags": [
+        "gaussian",
+        "splatting",
+        "vfx",
+        "patterns"
+      ],
+      "summary": "## Overview 3D Gaussian Splatting rendered via VFX Graph. Point cloud data (position, orientation, color) imported from `.splat` files and bound to VFX particles. ---",
+      "sections": [
+        "overview",
+        "architecture",
+        "core components",
+        ".splat file format",
+        "vfx graph properties",
+        "vfx graph custom blocks",
+        "shader (gaussian.shadergraph)",
+        "integration pattern"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_GLOBAL_RULES_AND_MEMORY.md",
+      "title": "Global Rules & Memory Locations",
+      "tags": [
+        "global",
+        "rules",
+        "memory"
+      ],
+      "summary": "## Memory Architecture Overview ``` ┌─────────────────────────────────────────────────────────────┐ │ AI MEMORY SYSTEM │",
+      "sections": [
+        "memory architecture overview",
+        "file locations",
+        "global_rules.md contents",
+        "mcp memory system",
+        "learning_log.md",
+        "yyyy-mm-dd hh:mm - [tool] - [topic]",
+        "memory hierarchy",
+        "self-improvement loop"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_KB_ACCESS_GUIDE.md",
+      "title": "Knowledgebase Access Guide",
+      "tags": [
+        "kb",
+        "access",
+        "guide"
+      ],
+      "summary": "## Quick Access Methods | Method | Best For | Setup | |--------|----------|-------| | **File Symlinks** | AI CLIs (Claude, Cursor, etc.) | Already configured |",
+      "sections": [
+        "quick access methods",
+        "1. file symlinks (zero setup)",
+        "2. mcp server (semantic search)",
+        "3. rest api (http access)",
+        "4. github raw access (direct urls)",
+        "5. shell aliases (terminal)",
+        "6. ide integration",
+        "7. programmatic access (python/node)"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_NOTION_SYNC_GUIDE.md",
+      "title": "Notion ↔ Knowledgebase Sync Guide",
+      "tags": [
+        "notion",
+        "sync",
+        "guide"
+      ],
+      "summary": "## Quick Sync Checklist When updating either Notion or KB, ensure both have: - [ ] All VFX Graph repos (Keijiro collection)",
+      "sections": [
+        "quick sync checklist",
+        "key repos for notion (from kb)",
+        "key repos for kb (if missing from notion)",
+        "notion page structure suggestion",
+        "cross-reference files",
+        "sync process",
+        "recently added (2026-02-05)"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_HISTORY_AND_VISION.md",
+      "title": "Portals: History, Lineage & Grand Vision",
+      "tags": [
+        "portals",
+        "history",
+        "vision"
+      ],
+      "summary": "## Lineage ### Paint-AR (2019) > **The world's first holographic storytelling app.**",
+      "sections": [
+        "lineage",
+        "the grand vision",
+        "the problem we're solving",
+        "the solution",
+        "what it looks like",
+        "who it's for",
+        "the stakes",
+        "the movement"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_NEXT_STEP.md",
+      "title": "Portals: Next Step",
+      "tags": [
+        "portals",
+        "next",
+        "step"
+      ],
+      "summary": "## THE ONE-LINE STRATEGY > **Capture is commodity. Distribution is commodity. RANKING is the moat.** ---",
+      "sections": [
+        "the one-line strategy",
+        "immediate next step (this week)",
+        "dependency actions (this week)",
+        "what's already built (metavidovfx)",
+        "the product",
+        "two proven approaches",
+        "for multiuser conference",
+        "hologram styles"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_REACT_NATIVE_UNITY_FABRIC_FIX.md",
+      "title": "React Native Unity - Fabric Component Registration Fix",
+      "tags": [
+        "react",
+        "native",
+        "unity",
+        "fabric",
+        "fix"
+      ],
+      "summary": "## Problem Unity view shows \"Waiting for Unity to initialize\" forever with no errors or crashes. The Unity scene never renders. ## Root Cause",
+      "sections": [
+        "problem",
+        "root cause",
+        "solution",
+        "diagnostic steps",
+        "caveats",
+        "related files",
+        "message queue buffering fix",
+        "performance benchmarks (feb 2026)"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_SELF_HEALING_SYSTEM.md",
+      "title": "Self-Healing System",
+      "tags": [
+        "self",
+        "healing",
+        "system"
+      ],
+      "summary": "## System Architecture ``` ┌─────────────────────────────────────────────────────────────────┐ │ SELF-HEALING PIPELINE │",
+      "sections": [
+        "system architecture",
+        "health thresholds",
+        "auto-fix actions",
+        "circuit breaker pattern",
+        "health check commands",
+        "error recovery patterns",
+        "escalation matrix",
+        "monitoring hooks"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_UNITY6_HLSL_COMPUTE_SHADER_GUIDE.md",
+      "title": "Unity 6 HLSL & Compute Shader Guide",
+      "tags": [
+        "unity6",
+        "hlsl",
+        "compute",
+        "shader",
+        "guide"
+      ],
+      "summary": "## 1. Compute Shader Fundamentals ### Thread Group Sizing ```hlsl",
+      "sections": [
+        "1. compute shader fundamentals",
+        "2. depth → world position pattern",
+        "3. vfx graph custom hlsl",
+        "4. external hlsl file reference",
+        "5. metal (ios) considerations",
+        "6. graphicsbuffer for vfx",
+        "7. safe ar texture access",
+        "8. platform compatibility"
+      ],
+      "size_kb": 7,
+      "modified": "2026-01-21"
+    },
+    {
+      "file": "_VISION_PRO_SPATIAL_PERSONAS_PATTERNS.md",
+      "title": "Vision Pro Spatial Personas: Multi-User AR Telepresence Patterns",
+      "tags": [
+        "vision",
+        "pro",
+        "spatial",
+        "personas",
+        "patterns"
+      ],
+      "summary": "## Overview Apple Vision Pro Spatial Personas represent the gold standard for multi-user AR telepresence. This document captures the key patterns and how to implement them in Unity for hologram con...",
+      "sections": [
+        "overview",
+        "core concepts",
+        "implementation components",
+        "scalability guidelines",
+        "visionos 26 persona enhancements",
+        "references",
+        "related kb files"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_WEBXR_IMMERSIVE_WEB_REFERENCE.md",
+      "title": "WebXR & Immersive Web Reference",
+      "tags": [
+        "webxr",
+        "immersive-web",
+        "browser-xr",
+        "cross-platform",
+        "web-vr",
+        "web-ar",
+        "immersive",
+        "web",
+        "reference"
+      ],
+      "summary": "## What is WebXR? The WebXR Device API enables access to input (headset/controller pose data) and output (hardware display) capabilities for virtual and augmented reality experiences on the web. It...",
+      "sections": [
+        "what is webxr?",
+        "core capabilities",
+        "browser support",
+        "key benefits",
+        "development frameworks",
+        "standards & specifications",
+        "github repository index",
+        "input handling"
+      ],
+      "size_kb": 7,
+      "modified": "2026-02-07"
+    },
+    {
+      "file": "_AI_CHARACTER_PATTERNS.md",
+      "title": "AI Character Patterns (LLMUnity)",
+      "tags": [
+        "ai",
+        "character",
+        "patterns"
+      ],
+      "summary": "## Overview Local LLM inference for Unity AI characters. Runs on device (CPU/GPU) with no internet required. Includes RAG for semantic search. ---",
+      "sections": [
+        "overview",
+        "architecture",
+        "core components",
+        "rag (retrieval-augmented generation)",
+        "function calling",
+        "multi-character setup",
+        "warmup (faster first response)",
+        "mobile configuration"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AI_ENTRY_POINT.md",
+      "title": "AI Knowledgebase Entry Point",
+      "tags": [
+        "ai",
+        "entry",
+        "point"
+      ],
+      "summary": "## Quick Navigation ### By Task Type | Need | File |",
+      "sections": [
+        "quick navigation",
+        "file naming convention",
+        "for ai tools: how to use this kb",
+        "key files summary (~tokens)",
+        "logs & state",
+        "tool-specific notes",
+        "cloud access (github)",
+        "cross-domain navigation"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AI_TOOL_SYSTEM_PROMPTS_ANALYSIS.md",
+      "title": "AI Tool System Prompts & Configuration Analysis",
+      "tags": [
+        "ai",
+        "tool",
+        "system",
+        "prompts",
+        "analysis"
+      ],
+      "summary": "## Cross-Tool Configuration Map | Tool | Config File | Rules Dir | Memory System | Priority | |------|------------|-----------|---------------|----------| | **Claude Code** | `CLAUDE.md` (project +...",
+      "sections": [
+        "cross-tool configuration map",
+        "key insights by tool",
+        "patterns that recur across all tools",
+        "actionable cross-tool insights for this setup",
+        "related resources"
+      ],
+      "size_kb": 6,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_CLAUDE_CODE_SYSTEM_PROMPT_ANALYSIS.md",
+      "title": "Claude Code System Prompt Analysis",
+      "tags": [
+        "claude-code",
+        "system-prompt",
+        "agent-design",
+        "tool-architecture",
+        "safety-patterns",
+        "claude",
+        "code",
+        "system",
+        "prompt",
+        "analysis"
+      ],
+      "summary": "## Overview Analysis of Claude Code's system prompt and tool definitions, extracting patterns for designing effective AI agent systems. ---",
+      "sections": [
+        "overview",
+        "communication design patterns",
+        "tool architecture",
+        "task management system",
+        "safety architecture",
+        "proactivity balance",
+        "code generation rules",
+        "batch operation patterns"
+      ],
+      "size_kb": 6,
+      "modified": "2026-02-07"
+    },
+    {
+      "file": "_HOLOGRAM_VERIFICATION_2026-01-15.md",
+      "title": "Hologram Knowledge Triple Verification Report",
+      "tags": [
+        "hologram",
+        "verification",
+        "2026",
+        "01",
+        "15"
+      ],
+      "summary": "## Verification Summary ### VERIFIED ACCURATE (Green) | Repository/Tech | Status | Source | Notes |",
+      "sections": [
+        "verification summary",
+        "verified code patterns",
+        "device requirements (verified)",
+        "recommended repository updates",
+        "sources used for verification"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_IDE_EXTENSIONS_AND_MODELS.md",
+      "title": "IDE Extensions, Local Models & AI Tools",
+      "tags": [
+        "ide",
+        "extensions",
+        "models"
+      ],
+      "summary": "## VS Code Extensions ### AI & MCP | Extension | ID | Purpose |",
+      "sections": [
+        "vs code extensions",
+        "lm studio",
+        "pinokio",
+        "model recommendations by task",
+        "hardware optimization",
+        "quick reference"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_KB_CLAUDE_CODE_QUICK_ACCESS.md",
+      "title": "KnowledgeBase Quick Access for Claude Code",
+      "tags": [
+        "kb",
+        "claude",
+        "code",
+        "quick",
+        "access"
+      ],
+      "summary": "## Instant Navigation by Task ### Unity XR/AR/VFX Development | Task | Primary File | Backup | |------|--------------|--------|",
+      "sections": [
+        "instant navigation by task",
+        "critical files (load these first)",
+        "code snippets directory",
+        "search patterns",
+        "knowledge categories (73 files)",
+        "token budget guidelines",
+        "file paths (absolute)",
+        "quick commands"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_LIVE_AI_STYLE_TRANSFER_NEURAL_OVERLAY.md",
+      "title": "Live AI Style Transfer / Neural Overlay Research",
+      "tags": [
+        "ai",
+        "ar",
+        "sentis",
+        "onnx",
+        "style",
+        "transfer",
+        "neural",
+        "filters",
+        "live",
+        "overlay"
+      ],
+      "summary": "## Overview Real-time neural style transfer and AR neural filters using Unity Sentis, ARFoundation, and ONNX models. Pipeline: ARF→Sentis/ONNX→Optimize. ---",
+      "sections": [
+        "overview",
+        "key repositories",
+        "live style transfer pipeline",
+        "onnx style transfer models",
+        "performance optimization",
+        "urp render features",
+        "openupm ai packages",
+        "related tools"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_ONNXRUNTIME_UNITY_EXAMPLES.md",
+      "title": "ONNX Runtime Unity Examples",
+      "tags": [
+        "onnxruntime",
+        "unity",
+        "examples"
+      ],
+      "summary": "## Overview Production-ready ONNX Runtime integration for Unity, featuring optimized inference pipelines for computer vision tasks including object detection, segmentation, and image processing. ##...",
+      "sections": [
+        "overview",
+        "available examples",
+        "architecture",
+        "yolo11 segmentation pipeline",
+        "installation",
+        "platform-specific configuration",
+        "vfx integration pattern",
+        "myakumyaku ar example"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_OPEN_MULTIBRAIN_SYNC.md",
+      "title": "open-multibrain - Cross-Tool AI Sync",
+      "tags": [
+        "tools",
+        "sync",
+        "automation",
+        "claude",
+        "codex",
+        "windsurf",
+        "antigravity",
+        "open",
+        "multibrain"
+      ],
+      "summary": "## What Is open-multibrain? Single source of truth for multiple AI development tools. Syncs configuration across: | Tool | Config Location | What's Synced |",
+      "sections": [
+        "what is open-multibrain?",
+        "architecture",
+        "how it works",
+        "configuration",
+        "setup for new users",
+        "troubleshooting",
+        "performance",
+        "why \"open-multibrain\"?"
+      ],
+      "size_kb": 6,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PATTERN_TAGS.md",
+      "title": "Pattern Tags Index",
+      "tags": [
+        "pattern",
+        "tags"
+      ],
+      "summary": "## By Tag ### vfx _3DVIS_INTELLIGENCE_PATTERNS",
+      "sections": [
+        "by tag",
+        "by file"
+      ],
+      "size_kb": 6,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_RCAM_QUICK_REFERENCE.md",
+      "title": "Rcam Series Quick Reference",
+      "tags": [
+        "rcam",
+        "quick",
+        "reference"
+      ],
+      "summary": "## Property Naming Convention (Rcam3/4 - STANDARD) ```csharp // VFX Graph exposed properties ColorMap (Texture2D) // AR camera color",
+      "sections": [
+        "property naming convention (rcam3/4 - standard)",
+        "depth reconstruction (production pattern)",
+        "vfx binder pattern (rcam3/4)",
+        "vfxproxbuffer (spatial proximity structure)",
+        "modern blitter (unity 6 / urp)",
+        "depth format convention",
+        "body vs environment separation",
+        "rcam series evolution"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_SHELL_CONFIG_REFERENCE.md",
+      "title": "Shell Configuration Reference",
+      "tags": [
+        "shell",
+        "config",
+        "reference"
+      ],
+      "summary": "## Alias Quick Reference ### MCP Profile Switching | Alias | Action |",
+      "sections": [
+        "alias quick reference",
+        "path configuration",
+        "key settings",
+        "sourced files",
+        "mcp config locations",
+        "full .zshrc contents"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_SPEC_KIT_METHODOLOGY.md",
+      "title": "Spec-Kit: Spec-Driven Development Methodology",
+      "tags": [
+        "spec",
+        "kit",
+        "methodology"
+      ],
+      "summary": "## Overview Spec-Kit is GitHub's open-source toolkit for **Spec-Driven Development** - a methodology where specifications are executable, directly generating working implementations rather than jus...",
+      "sections": [
+        "overview",
+        "core philosophy",
+        "workflow",
+        "installation",
+        "templates",
+        "core principles",
+        "quality standards",
+        "technical decisions"
+      ],
+      "size_kb": 6,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_TOOLCHAIN_OPTIMIZATION_SPEC.md",
+      "title": "Toolchain Optimization Specification (Condensed)",
+      "tags": [
+        "toolchain",
+        "optimization",
+        "spec"
+      ],
+      "summary": "## What Was Optimized ### Problem Statement The development environment accumulated significant cruft over 3 months of iteration: - **47KB GLOBAL_RULES.md** auto-loaded every session (~15K tokens w...",
+      "sections": [
+        "what was optimized",
+        "key metrics",
+        "what was changed",
+        "anti-patterns discovered",
+        "what not to do",
+        "remaining work",
+        "files changed",
+        "architecture decision: token budget model"
+      ],
+      "size_kb": 6,
+      "modified": "2026-02-12"
+    },
+    {
+      "file": "_UNITY_SENTIS_ML_INFERENCE.md",
+      "title": "Unity Sentis ML Inference Guide",
+      "tags": [
+        "unity",
+        "sentis",
+        "ml",
+        "inference"
+      ],
+      "summary": "## Overview Unity Sentis is the neural inference engine for Unity, enabling on-device AI model execution across all platforms. ### Key Capabilities",
+      "sections": [
+        "overview",
+        "package samples",
+        "chat sample (multimodal llm)",
+        "tensor conversion patterns",
+        "model optimization",
+        "platform-specific notes",
+        "vfx graph integration",
+        "references"
+      ],
+      "size_kb": 6,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "TROUBLESHOOTING_AND_LOGIC.md",
+      "title": "System Troubleshooting & Global Logic",
+      "tags": [
+        "troubleshooting",
+        "logic"
+      ],
+      "summary": "## 🔧 Spec Kit Setup & Troubleshooting ### Issue: GitHub API 401 \"Bad credentials\" When running project setup scripts (e.g., for `xrai-speckit`) that interact with the GitHub API, you may encounter...",
+      "sections": [
+        "🔧 spec kit setup & troubleshooting",
+        "🧠 optional global rules & logic",
+        "🚀 spec kit usage guide",
+        "🛠️ unity ios build troubleshooting"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_AI_CODING_TOOLS_COMPARISON.md",
+      "title": "AI Coding Tools Comparison & Key Learnings",
+      "tags": [
+        "claude-code",
+        "manus",
+        "lovable",
+        "warp",
+        "cursor",
+        "agent-patterns",
+        "tool-comparison",
+        "ai",
+        "coding",
+        "tools",
+        "comparison"
+      ],
+      "summary": "## Tools Analyzed | Tool | Focus | Unique Strength | |------|-------|-----------------| | **Claude Code** | CLI-first coding | Pre-requisite chains, atomic edits, subagent delegation |",
+      "sections": [
+        "tools analyzed",
+        "key architectural differences",
+        "patterns to adopt",
+        "anti-patterns to avoid",
+        "tool selection guide",
+        "applying to james's workflow"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-07"
+    },
+    {
+      "file": "_AI_CONFIG_FILES_REFERENCE.md",
+      "title": "AI Configuration Files Reference",
+      "tags": [
+        "ai",
+        "config",
+        "files",
+        "reference"
+      ],
+      "summary": "## Configuration Hierarchy ``` ~/GLOBAL_RULES.md # Universal rules (all AI tools) ├── ~/.claude/CLAUDE.md # Claude Code specific",
+      "sections": [
+        "configuration hierarchy",
+        "core config files",
+        "configuration hierarchy",
+        "knowledgebase",
+        "protocol (every task)",
+        "leverage",
+        "stuck >15m",
+        "mcp configuration files"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AI_MULTI_TOOL_MEMORY_ARCHITECTURE_2026.md",
+      "title": "AI Multi-Tool Memory Architecture (2026-02-09)",
+      "tags": [
+        "ai",
+        "multi",
+        "tool",
+        "memory",
+        "architecture",
+        "2026"
+      ],
+      "summary": "## Problem Solved Multi-tool AI development (Claude Code, Gemini CLI, Cursor, Windsurf) created config drift: - Duplicate project rules across tool-specific files - Inconsistent context file names ...",
+      "sections": [
+        "problem solved",
+        "solution: unified file hierarchy",
+        "implementation",
+        "gemini-specific session memories",
+        "automated drift detection",
+        "memory tier token costs",
+        "best practices",
+        "session memory pattern"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_AR_RECORDING_COMPARISON_METAVIDO_VS_RERUN.md",
+      "title": "AR Recording Comparison: Metavido vs Rerun.io",
+      "tags": [
+        "ar",
+        "recording",
+        "comparison",
+        "metavido",
+        "vs",
+        "rerun"
+      ],
+      "summary": "## Architecture Comparison | Aspect | Metavido | Rerun.io | |--------|----------|----------| | **Primary Purpose** | Volumetric hologram recording | Multimodal data logging/visualization |",
+      "sections": [
+        "architecture comparison",
+        "data flow",
+        "webgl playback",
+        "pros & cons",
+        "webgl playback feasibility",
+        "recommendation matrix",
+        "hybrid approach (future)",
+        "references"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_CLAUDE_CODE_SKILLS_PATTERNS.md",
+      "title": "Claude Code Skills Patterns (2026-02-08)",
+      "tags": [
+        "claude",
+        "code",
+        "skills",
+        "patterns"
+      ],
+      "summary": "## Quick Reference Skills = custom commands Claude can invoke automatically or via `/skill-name`. **Location priority**: Enterprise > Personal (`~/.claude/skills/`) > Project (`.claude/skills/`) > ...",
+      "sections": [
+        "quick reference",
+        "core patterns",
+        "pr context",
+        "best practices",
+        "skill ideas (0 → 10+ target)",
+        "agent skills standard",
+        "troubleshooting",
+        "related"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_COSMOS_VISUALIZATION_RESOURCES.md",
+      "title": "Cosmos & Data Visualization Resources",
+      "tags": [
+        "cosmos",
+        "visualization",
+        "resources"
+      ],
+      "summary": "## Illustris Project > **Source**: https://www.illustris-project.org/data/ ### Overview",
+      "sections": [
+        "illustris project",
+        "cosmosvr",
+        "3d-tsne",
+        "potential applications"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_DOCUMENT_GENERATION.md",
+      "title": "Document Generation & Styling",
+      "tags": [
+        "document",
+        "generation"
+      ],
+      "summary": "## Quick Reference | Format | Tool | Command | |:--|:--|:--| | **PDF (fast)** | Typst | `pandoc input.md -o output.pdf --pdf-engine=typst` |",
+      "sections": [
+        "quick reference",
+        "installed tools",
+        "pdf generation options",
+        "docx styling",
+        "mcp server: doc-ops",
+        "resume templates (ats-friendly)",
+        "template locations",
+        "professional document workflow"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_EXPO_SDK_DOCUMENTATION.md",
+      "title": "Expo & React Native Documentation Reference",
+      "tags": [
+        "expo",
+        "sdk",
+        "documentation"
+      ],
+      "summary": "## Expo **Core**: [Main Docs](https://docs.expo.dev/) | [LLM-Friendly](https://docs.expo.dev/llms-full.txt) | [Glossary](https://docs.expo.dev/more/glossary-of-terms/) **GitHub**: [expo](https://gi...",
+      "sections": [
+        "expo",
+        "react native",
+        "visionos / spatial",
+        "3d/vfx examples",
+        "usage notes"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_GAUSSIAN_SPLATTING_AND_VIZ_TOOLS.md",
+      "title": "Gaussian Splatting & Visualization Tools",
+      "tags": [
+        "gaussian",
+        "splatting",
+        "viz",
+        "tools"
+      ],
+      "summary": "## Gaussian Splatting Implementations ### keijiro/SplatVFX (Unity VFX Graph) **URL**: https://github.com/keijiro/SplatVFX **Platform**: Unity (HDRP)",
+      "sections": [
+        "gaussian splatting implementations",
+        "academic influence visualization",
+        "unity intelligence patterns",
+        "comparison table",
+        "related kb files"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_MCP_SERVER_MANAGEMENT.md",
+      "title": "MCP Server Management",
+      "tags": [
+        "mcp",
+        "server",
+        "management"
+      ],
+      "summary": "## Quick Reference ```bash mcp-kill-dupes # Kill duplicate servers (auto-runs at Claude Code session start) mcp-nuke # Kill duplicates + heavy servers (playwright, puppeteer, etc)",
+      "sections": [
+        "quick reference",
+        "problem: multi-ide mcp duplication",
+        "solution: automatic deduplication",
+        "best practice: hooks over launchagents",
+        "troubleshooting",
+        "configuration files",
+        "prevention strategies",
+        "related docs"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_MULTI_AGENT_COORDINATION.md",
+      "title": "Multi-Agent & Process Coordination Guide",
+      "tags": [
+        "multi",
+        "agent",
+        "coordination"
+      ],
+      "summary": "## Core Principles ### 1. Process Sovereignty Every running process has an owner. Before interacting with any process: - **Identify owner**: Was it started by current session, another terminal, or ...",
+      "sections": [
+        "core principles",
+        "agent parallelism decision matrix",
+        "implementation patterns",
+        "cross-tool communication",
+        "conflict recovery",
+        "best practices summary",
+        "tool-specific notes"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_OPENUSD_REFERENCE.md",
+      "title": "OpenUSD Reference",
+      "tags": [
+        "usd",
+        "openusd",
+        "3d-interchange",
+        "omniverse",
+        "usdz",
+        "scene-description",
+        "reference"
+      ],
+      "summary": "- https://openusd.org/release/tut_usd_tutorials.html - https://docs.isaacsim.omniverse.nvidia.com/5.1.0/omniverse_usd/open_usd.html **Last Updated**: 2026-02-07",
+      "sections": [
+        "what is openusd?",
+        "key benefits",
+        "core concepts",
+        "composition",
+        "file formats",
+        "schemas",
+        "units (isaac sim / omniverse)",
+        "python api quick reference"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-07"
+    },
+    {
+      "file": "_PATTERN_ARCHITECTURE.md",
+      "title": "Pattern Architecture",
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3",
+        "pattern",
+        "architecture"
+      ],
+      "summary": "## Design Principles (From Research) Based on [Claude Code Architecture](https://www.anthropic.com/engineering/claude-code-best-practices), [KB Best Practices 2026](https://www.bolddesk.com/blogs/k...",
+      "sections": [
+        "design principles (from research)",
+        "data architecture",
+        "unified pattern format",
+        "quick fix format",
+        "tag index format",
+        "vfx",
+        "performance",
+        "auto-improvement flow"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_PORTALS_FUTUREPROOF_STRATEGY_2026.md",
+      "title": "Portals Futureproof Strategy (Feb 2026)",
+      "tags": [
+        "portals",
+        "futureproof",
+        "strategy",
+        "2026"
+      ],
+      "summary": "## Infrastructure Megatrends (Beyond XR/AI) ### Adopt NOW (1-Year Critical) | Technology | Adoption | Why It Matters | |------------|----------|----------------|",
+      "sections": [
+        "infrastructure megatrends (beyond xr/ai)",
+        "dependency audit results",
+        "deprecation timeline reference",
+        "architecture principles",
+        "zero-cost stack",
+        "single points of failure (mitigated)",
+        "the moat: spatialrank",
+        "implementation priority"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_MASTER_INDEX.md",
+      "title": "Portals V4: Master Knowledge Index",
+      "tags": [
+        "portals",
+        "master",
+        "index"
+      ],
+      "summary": "## Quick Navigation | Document | Purpose | Status | |----------|---------|--------| | [_PORTALS_NEXT_STEP.md](./_PORTALS_NEXT_STEP.md) | **START HERE** - Immediate action plan | Active |",
+      "sections": [
+        "quick navigation",
+        "key strategic decisions (feb 2026)",
+        "key technical learnings",
+        "implementation phases",
+        "hologram styles",
+        "what not to build",
+        "success metrics",
+        "external references"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_SIMPLIFIED_INTELLIGENCE_CORE.md",
+      "title": "Simplified Intelligence Core",
+      "tags": [
+        "simplified",
+        "intelligence",
+        "core"
+      ],
+      "summary": "## The One Pattern ``` Search KB → Act → Log discovery → Repeat ```",
+      "sections": [
+        "the one pattern",
+        "what matters (keep)",
+        "what's overhead (simplify)",
+        "three essential agents",
+        "user patterns (james)",
+        "research-backed ai usage (rct evidence)",
+        "tool selection by domain (token-optimized)",
+        "token-free self-improvement"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_SYSTEM_ARCHITECTURE.md",
+      "title": "System Architecture (Simplified)",
+      "tags": [
+        "system",
+        "architecture"
+      ],
+      "summary": "## Core Loop ``` Error/Task → Search KB → Apply Fix → Log if new → Done ```",
+      "sections": [
+        "core loop",
+        "architecture (3 layers)",
+        "speed optimizations",
+        "auto-improvement (simple)",
+        "what we removed (over-engineering)",
+        "file count reality",
+        "key files (memorize these)",
+        "two questions (before any change)"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_USER_PATTERNS_JAMES.md",
+      "title": "User Patterns: James Tunick",
+      "tags": [
+        "user",
+        "patterns",
+        "james"
+      ],
+      "summary": "## Core Profile **Role**: XR/AR Developer, Unity + React Native hybrid apps **Primary Project**: portals_main (RN 0.81 + Unity 6000.2 UAAL, AR Foundation 6.3.2) **Tools**: Claude Code, Windsurf, Cu...",
+      "sections": [
+        "core profile",
+        "goals (observed)",
+        "work patterns (learned)",
+        "preferences (observed)",
+        "learning log (usage patterns)",
+        "optimization triggers",
+        "ai usage optimization (research-backed)",
+        "predicted needs"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_XRAI_FORMAT_RESEARCH_2026.md",
+      "title": "XRAI Format Research Summary (2026-02-05)",
+      "tags": [
+        "xrai",
+        "format",
+        "research",
+        "2026"
+      ],
+      "summary": "## Key Decision: Consolidate XRAI + VNMF XRAI v2.0 consolidates the previous XRAI (scene) and VNMF (asset) formats into a **single glTF-based specification**. ### Why glTF 2.0 Base?",
+      "sections": [
+        "key decision: consolidate xrai + vnmf",
+        "core innovation: generative encoding",
+        "universal compression principles (cross-domain research)",
+        "platform roadmaps (2025-2035)",
+        "innovative format patterns",
+        "xrai v2.0 extension registry",
+        "key references",
+        "cross-references"
+      ],
+      "size_kb": 5,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_XR_AI_INDUSTRY_ROADMAP_2025-2027.md",
+      "title": "XR + AI Industry Roadmap (2025-2027)",
+      "tags": [
+        "xr",
+        "ai",
+        "industry",
+        "roadmap",
+        "2025",
+        "2027"
+      ],
+      "summary": "## Unity AI | Timeline | Change | |----------|--------| | 2025 Q3 | Sentis → **Inference Engine** (same ONNX, new name) |",
+      "sections": [
+        "unity ai",
+        "meta xr",
+        "google / android xr",
+        "openai gpt",
+        "xai grok",
+        "patent trends: wrist-based tracking",
+        "architecture implications",
+        "voice ai for xr"
+      ],
+      "size_kb": 5,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "SESSION_CHECKPOINT_2026-01-14.md",
+      "title": "Session Checkpoint - 2026-01-14",
+      "tags": [
+        "session",
+        "checkpoint",
+        "2026",
+        "01",
+        "14"
+      ],
+      "summary": "## Session Overview High-velocity development session integrating HoloKit hand tracking with MetavidoVFX project. ## Key Accomplishments",
+      "sections": [
+        "session overview",
+        "key accomplishments",
+        "key configurations enabling speed & accuracy",
+        "portals_6 architecture insights",
+        "existing vfx assets in metavidovfx",
+        "reference rcam projects (local)",
+        "next steps",
+        "session metrics"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_COMPUTE_SHADER_PATTERNS.md",
+      "title": "Compute Shader Patterns",
+      "tags": [
+        "compute",
+        "shader",
+        "patterns"
+      ],
+      "summary": "## Core Pattern: Particle Struct All particle compute shaders use similar struct: ```hlsl",
+      "sections": [
+        "core pattern: particle struct",
+        "lorenz attractor (strange attractor)",
+        "curl noise (divergence-free flow)",
+        "sdf distance functions (raymarching)",
+        "sdf combine operations",
+        "reaction diffusion (gray-scott)",
+        "tiltbrush shader pattern",
+        "unity integration pattern"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_DEV_ITERATION_WORKFLOWS.md",
+      "title": "Dev Iteration Workflows - Best Practices",
+      "tags": [
+        "dev",
+        "iteration",
+        "workflows"
+      ],
+      "summary": "## Core Principle > Before any implementation, identify the fastest feedback loop. > 5-second test > 5-minute build > 5-hour debug session.",
+      "sections": [
+        "core principle",
+        "unity + react native projects",
+        "testing hierarchy (try in order)",
+        "unity-specific fast iteration",
+        "react native fast iteration",
+        "anti-patterns (time wasters)",
+        "debugging hierarchy",
+        "key questions to always ask"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_DIRECTIVE_CONFLICTS_RESOLUTION.md",
+      "title": "Directive Conflicts & Resolution",
+      "tags": [
+        "directive",
+        "conflicts",
+        "resolution"
+      ],
+      "summary": "## Identified Conflicts ### 1. JetBrains vs Raw Tools in Agents **Conflict**: GLOBAL_RULES says \"NEVER use raw Grep/Glob/Read when Rider open\" but agents have these tools.",
+      "sections": [
+        "identified conflicts",
+        "priority order (when rules conflict)",
+        "gaps identified",
+        "enforcement mechanisms",
+        "rule precedence table",
+        "verification checklist"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_GEMINI_UNITY_MCP_SETUP.md",
+      "title": "Gemini Unity MCP Setup Guide",
+      "tags": [
+        "gemini",
+        "unity",
+        "mcp",
+        "setup"
+      ],
+      "summary": "## Overview This document specifies the setup and optimization patterns for the Gemini CLI using the Model Context Protocol (MCP) to interact with the Unity Editor. ## Configuration (.ai/mcp/mcp.js...",
+      "sections": [
+        "overview",
+        "configuration (.ai/mcp/mcp.json)",
+        "core unity mcp commands for gemini",
+        "optimization patterns",
+        "rider + unity integration tuning",
+        "troubleshooting",
+        "memory & rules integration"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-22"
+    },
+    {
+      "file": "_HAND_VFX_PATTERNS.md",
+      "title": "Hand Tracking VFX Patterns",
+      "tags": [
+        "hand",
+        "vfx",
+        "patterns"
+      ],
+      "summary": "## VFX Categories ### Buddha VFX Library (22 effects) Statue-driven particle effects that respond to hand position.",
+      "sections": [
+        "vfx categories",
+        "hand tracking input properties",
+        "implementation patterns",
+        "scene setup",
+        "performance notes",
+        "related files"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_MCP_TYPESCRIPT_SDK.md",
+      "title": "MCP TypeScript SDK Reference",
+      "tags": [
+        "mcp",
+        "typescript",
+        "sdk"
+      ],
+      "summary": "## Overview The Model Context Protocol (MCP) TypeScript SDK provides libraries for building MCP servers and clients in TypeScript/JavaScript. ## Packages",
+      "sections": [
+        "overview",
+        "packages",
+        "installation",
+        "quick start",
+        "server example",
+        "client example",
+        "transports",
+        "documentation"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_NOTION_PAGES_INDEX.md",
+      "title": "Notion Pages Index",
+      "tags": [
+        "notion",
+        "pages",
+        "index"
+      ],
+      "summary": "## Portals V4 / XR Development Pages ### Portals XR AI Live VFX Learning Guide (PRIMARY) **URL**: https://handsome-trillium-4b1.notion.site/Portals-XR-AI-Live-VFX-Learning-Guide-1ef5a71be33e8048a0c...",
+      "sections": [
+        "portals v4 / xr development pages",
+        "external resources",
+        "fetched documentation (saved to kb)",
+        "portals v4 spec references"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_BRAND_MESSAGING.md",
+      "title": "Portals: Brand Messaging & Sound Bites",
+      "tags": [
+        "portals",
+        "brand",
+        "messaging"
+      ],
+      "summary": "## The Problem > We live in a world of tiny screens & antisocial media. > Passive doom scrolling & isolation make kids sick. > Loneliness, depression & obesity epidemics grow.",
+      "sections": [
+        "the problem",
+        "the solution",
+        "the mission",
+        "the (r)evolution",
+        "one-liners",
+        "core value props",
+        "feature sound bites",
+        "the dream (long form)"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_MINIGAME_IDEAS.md",
+      "title": "Portals V4 Minigame & Demo Ideas",
+      "tags": [
+        "portals",
+        "minigame",
+        "ideas"
+      ],
+      "summary": "## Priority Assessment > **Warning:** Each minigame is 3-6 months of dedicated work. The list below represents 5-10 years of development. **Pick ONE after the core creative tool works.** ### Recomm...",
+      "sections": [
+        "priority assessment",
+        "full minigame list",
+        "size legend",
+        "category breakdown",
+        "implementation notes",
+        "recommended sequence (if building)",
+        "references"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_V4_CURRENT.md",
+      "title": "Portals V4 - Current Architecture",
+      "tags": [
+        "portals",
+        "v4",
+        "current"
+      ],
+      "summary": "## Quick Reference | Component | Technology | Location | |-----------|------------|----------| | AR Engine | Unity 6 + AR Foundation 6.2 | `unity/` |",
+      "sections": [
+        "quick reference",
+        "core philosophy",
+        "long-term roadmap",
+        "vfx architecture (from metavidovfx)",
+        "open source strategy",
+        "build commands",
+        "key specs",
+        "references"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_REFERENCE_DECART_API.md",
+      "title": "DECART AI Video Editing Integration",
+      "tags": [
+        "reference",
+        "decart",
+        "api"
+      ],
+      "summary": "## Lucy Video Edit Edit videos with text prompts for controlled results. LucyEdit enables controlled video edits. Modify specific elements - like clothing changes and character replacements - with ...",
+      "sections": [
+        "lucy video edit"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_REPLAYKIT_VS_ARVIEWRECORDER.md",
+      "title": "ReplayKit vs ArViewRecorder Comparison",
+      "tags": [
+        "replaykit",
+        "vs",
+        "arviewrecorder"
+      ],
+      "summary": "## Current: ArViewRecorderModule.swift ### How It Works ```swift // Frame capture loop at 30 FPS",
+      "sections": [
+        "current: arviewrecordermodule.swift",
+        "better: replaykit",
+        "performance comparison",
+        "implementation",
+        "migration path",
+        "when to keep arviewrecorder",
+        "recommendation"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_STRATEGY_NORMCORE_MULTIPLAYER.md",
+      "title": "Spec: Multiplayer Architecture (Normcore Integration)",
+      "tags": [
+        "strategy",
+        "normcore",
+        "multiplayer"
+      ],
+      "summary": "## 1. Executive Summary We are choosing **Normcore** (by Normal VR) as the multiplayer backbone for Portals V4. **Why Normcore?**",
+      "sections": [
+        "1. executive summary",
+        "2. core features",
+        "3. architecture: \"the realtime model\"",
+        "4. implementation plan",
+        "5. bandwidth optimization strategy",
+        "6. resources",
+        "7. limitations",
+        "8. integration with react native"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_SYNTHETIC_DATA_GENERATION.md",
+      "title": "Synthetic Data Generation for AI/ML",
+      "tags": [
+        "synthetic-data",
+        "replicator",
+        "cosmos",
+        "domain-randomization",
+        "perception",
+        "training-data",
+        "synthetic",
+        "data",
+        "generation"
+      ],
+      "summary": "- https://docs.isaacsim.omniverse.nvidia.com/5.1.0/replicator_tutorials/tutorial_replicator_cosmos.html **Last Updated**: 2026-02-07 ## Overview",
+      "sections": [
+        "overview",
+        "nvidia replicator",
+        "nvidia cosmos",
+        "data generation pipeline",
+        "domain randomization strategies",
+        "unity alternatives",
+        "use cases for xr/ar",
+        "best practices"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-07"
+    },
+    {
+      "file": "_UNITY_URP_OPTIMIZATION.md",
+      "title": "Unity URP Optimization Guide",
+      "tags": [
+        "unity",
+        "urp",
+        "optimization"
+      ],
+      "summary": "## Overview Performance optimization guide for Universal Render Pipeline (URP) projects. ---",
+      "sections": [
+        "overview",
+        "profiling tools",
+        "key profiler markers",
+        "performance settings quick reference",
+        "additional resources"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_VOICE_COMPOSER_PATTERNS.md",
+      "title": "Voice Composer Patterns",
+      "tags": [
+        "voice",
+        "composer",
+        "patterns"
+      ],
+      "summary": "## Wire Format (Minimal Reactive Binding) Simple 3-field JSON for connecting data sources to targets: ```json",
+      "sections": [
+        "wire format (minimal reactive binding)",
+        "voice → wire translation",
+        "scene context (contextual awareness)",
+        "composer bridge actions",
+        "emitter presets (particlesystem fallback)",
+        "integration pattern",
+        "key learnings",
+        "files"
+      ],
+      "size_kb": 4,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "title": "Architecture Overview",
+      "tags": [
+        "architecture"
+      ],
+      "summary": "## System Architecture ```mermaid flowchart LR A[Chrome Extension] <--> B[Knowledge Manager]",
+      "sections": [
+        "system architecture",
+        "core components",
+        "data flow",
+        "performance considerations",
+        "security model",
+        "monitoring and maintenance",
+        "integration points"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-11"
+    },
+    {
+      "file": "DEVELOPMENT_NOTES.md",
+      "title": "Development Notes",
+      "tags": [
+        "development",
+        "notes"
+      ],
+      "summary": "## Recent Updates ### 2024-02-10: Knowledge Management System - Implemented KnowledgeManager with full-text search - Added tag-based filtering and organization",
+      "sections": [
+        "recent updates",
+        "known issues",
+        "technical decisions",
+        "performance benchmarks",
+        "development workflow",
+        "testing strategy",
+        "documentation",
+        "future improvements"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-11"
+    },
+    {
+      "file": "_AI_HEALTH_SCRIPTS.md",
+      "title": "AI Health Check Scripts",
+      "tags": [
+        "ai",
+        "health",
+        "scripts"
+      ],
+      "summary": "## Overview Two complementary scripts for validating AI tool configuration and system health. | Script | Location | Purpose |",
+      "sections": [
+        "overview",
+        "validate-ai-config.sh",
+        "ai-system-monitor.sh",
+        "when to use which",
+        "health thresholds",
+        "quick reference",
+        "troubleshooting"
+      ],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_AUTO_FIX_PATTERNS.md",
+      "title": "Auto-Fix Patterns",
+      "tags": [
+        "auto",
+        "fix",
+        "patterns"
+      ],
+      "summary": "## Quick Lookup **Use `_QUICK_FIX.md` for instant error→fix lookup.** This file contains extended patterns for complex scenarios.",
+      "sections": [
+        "quick lookup",
+        "unity/ar common fixes",
+        "react native / unity bridge",
+        "mcp tool patterns",
+        "when patterns don't work"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_BUILDING_MCP_WITH_LLMS.md",
+      "title": "Building MCP with LLMs Tutorial",
+      "tags": [
+        "building",
+        "mcp",
+        "llms"
+      ],
+      "summary": "## Overview This guide explains how to use LLMs (like Claude) to help build custom MCP servers and clients faster. ---",
+      "sections": [
+        "overview",
+        "step 1: prepare documentation",
+        "step 2: describe your server",
+        "step 3: work iteratively with claude",
+        "step 4: best practices",
+        "step 5: after building",
+        "tips",
+        "quick reference"
+      ],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_CLAUDE_CODE_MASTER.md",
+      "title": "Claude Code Reference",
+      "tags": [
+        "claude-code",
+        "tools",
+        "workflow",
+        "session",
+        "claude",
+        "code",
+        "master"
+      ],
+      "summary": "## Commands Quick Ref | Command | Use | When | |---------|-----|------| | `/clear` | Reset context | Switch tasks |",
+      "sections": [
+        "commands quick ref",
+        "shortcuts",
+        "resume patterns",
+        "workflow: explore → plan → code → commit",
+        "subagents vs skills",
+        "memory hierarchy",
+        "token efficiency",
+        "pro patterns"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_CORE.md",
+      "title": "Core System",
+      "tags": [
+        "core"
+      ],
+      "summary": "## The Only Rule ``` On error → search _QUICK_FIX.md → apply → if new fix, append it ```",
+      "sections": [
+        "the only rule",
+        "what actually gets used",
+        "auto-improvement (zero effort)",
+        "what to stop doing",
+        "what to keep doing",
+        "predicting needs",
+        "speed formula",
+        "the simplified stack"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_GEMINI_CLI_BEST_PRACTICES.md",
+      "title": "Gemini CLI: Best Practices & Patterns",
+      "tags": [
+        "gemini",
+        "cli",
+        "best",
+        "practices"
+      ],
+      "summary": "## 1. Context Management (GEMINI.md) ### Hierarchy & Precedence Gemini CLI loads context files in this order (specific overrides general): 1. **Global:** `~/.gemini/GEMINI.md` (All projects)",
+      "sections": [
+        "1. context management (gemini.md)",
+        "2. configuration (settings.json)",
+        "3. speed & efficiency",
+        "4. integration",
+        "fast command execution (2026-02-09)",
+        "speed optimization (2026-02-09)"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_IMPLEMENTATION_PLAN_COPLAY_LLMR_SYSTEM_PROMPTS_2026-02-08.md",
+      "title": "Implementation Plan: Coplay + LLMR + Prompt Hygiene",
+      "tags": [
+        "implementation",
+        "plan",
+        "coplay",
+        "llmr",
+        "system",
+        "prompts",
+        "2026",
+        "02",
+        "08"
+      ],
+      "summary": "Date: 2026-02-08 Goal: maximize delivery speed and reliability while keeping token usage predictable. ## Outcomes (What \"good\" looks like) - Single Unity MCP stack across tools (Coplay MCP pinned).",
+      "sections": [
+        "outcomes (what \"good\" looks like)",
+        "workstream a: coplay mcp standardization",
+        "workstream c: system-prompt hygiene",
+        "workstream d: model routing discipline",
+        "72-hour execution plan",
+        "metrics to track weekly",
+        "decision rules (keep it simple)",
+        "scope"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_KB_HEALTH.md",
+      "title": "KB Health & Auto-Improve",
+      "tags": [
+        "kb",
+        "health"
+      ],
+      "summary": "One file. Universal. Works everywhere. --- ## Core Loop (ALL TOOLS)",
+      "sections": [
+        "core loop (all tools)",
+        "auto-log triggers",
+        "yyyy-mm-dd: brief title",
+        "quick health check (any tool)",
+        "universal access (no local setup)",
+        "file purposes (simplified)",
+        "auto-maintenance",
+        "integration checklist"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_MCP_ARCHITECTURE_AUDIT_2026.md",
+      "title": "MCP Architecture Audit (2026-02-09)",
+      "tags": [
+        "mcp",
+        "architecture",
+        "audit",
+        "2026"
+      ],
+      "summary": "## Summary: No Conflicts Detected ✓ **Key Insight:** stdio MCP servers spawn independent processes per client. ## Architecture",
+      "sections": [
+        "summary: no conflicts detected ✓",
+        "architecture",
+        "current configuration",
+        "how stdio works (no conflict)",
+        "verified behavior",
+        "tool availability matrix",
+        "best practices",
+        "maintenance"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_MCP_LLMS_FULL_REFERENCE.txt",
+      "title": "MCP LLM-Optimized Full Reference",
+      "tags": [
+        "mcp",
+        "llms",
+        "full",
+        "reference.txt"
+      ],
+      "summary": "## Quick Navigation - Build MCP Client: Search \"Build an MCP client\" - Build MCP Server: Search \"Build an MCP server\" - Connect Local Servers: Search \"Connect to local MCP servers\" - Connect Remote...",
+      "sections": [
+        "quick navigation",
+        "key implementation languages covered",
+        "server configuration examples",
+        "build an mcp client - python quick start",
+        "build an mcp server - python quick start",
+        "configuration templates"
+      ],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_NORMCORE_MULTIPLAYER_PATTERNS.md",
+      "title": "Normcore Multiplayer Patterns",
+      "tags": [
+        "normcore",
+        "multiplayer",
+        "patterns"
+      ],
+      "summary": "## Quick Reference | Need | Pattern | |------|---------| | Basic sync | `RealtimeComponent<T>` |",
+      "sections": [
+        "quick reference",
+        "core concepts",
+        "addressables + normcore",
+        "network profiler patterns",
+        "hand tracking + normcore",
+        "trusted resources",
+        "common issues"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_RENDER_PIPELINE_DETECTION.md",
+      "title": "Unity Render Pipeline Detection Report",
+      "tags": [
+        "render",
+        "pipeline",
+        "detection"
+      ],
+      "summary": "## Executive Summary I have successfully analyzed **598 Unity projects** and detected their render pipeline configurations using a comprehensive three-tier approach: 1. **ProjectSettings/GraphicsSe...",
+      "sections": [
+        "executive summary",
+        "results summary",
+        "detection method effectiveness",
+        "key findings",
+        "notable project categories",
+        "recommendations",
+        "technical implementation"
+      ],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_STRATEGY_NEEDLE_WEB_INTEGRATION.md",
+      "title": "Spec: Needle Engine & Web Strategy",
+      "tags": [
+        "strategy",
+        "needle",
+        "web",
+        "integration"
+      ],
+      "summary": "## 1. The Strategy: \"Web-First\" via WebGPU We use **Unity 6.1 + WebGPU** as the primary renderer for the web to share VFX compatibility with the native app. **Needle Engine** is used specifically f...",
+      "sections": [
+        "1. the strategy: \"web-first\" via webgpu",
+        "2. the graphics tiering system",
+        "3. needle engine integration (specific use case)",
+        "4. built-in capabilities (verified feb 2026)",
+        "5. screensharing & collaboration",
+        "6. related documentation"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_SYSTEM_PROMPTS_LEVERAGE_2026-02-08.md",
+      "title": "System Prompts Corpus Analysis (Leverage-Only)",
+      "tags": [
+        "system",
+        "prompts",
+        "leverage",
+        "2026",
+        "02",
+        "08"
+      ],
+      "summary": "## Sources Reviewed - `x1xhlol/system-prompts-and-models-of-ai-tools` (commit `bbad8ad`, 2026-02-06) - `Piebald-AI/claude-code-system-prompts` (commit `44d0751`, 2026-02-07) - `EliFuzz/awesome-syst...",
+      "sections": [
+        "sources reviewed",
+        "corpus snapshot (for signal weighting)",
+        "reliability model (important)",
+        "high-confidence cross-tool invariants",
+        "what we should actually leverage",
+        "what to avoid",
+        "net recommendation",
+        "citations"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_UNITY_UAAL_MASTER.md",
+      "title": "Unity as a Library (UAAL)",
+      "tags": [
+        "unity",
+        "uaal",
+        "ios",
+        "android",
+        "react-native",
+        "master"
+      ],
+      "summary": "## Quick Reference | Platform | Library | API Class | Message API | Process | |----------|---------|-----------|-------------|---------| | iOS | UnityFramework.framework | `UnityFramework` | `sendM...",
+      "sections": [
+        "quick reference",
+        "api cheatsheet",
+        "react native integration",
+        "lifecycle states",
+        "debugging",
+        "common issues",
+        "docs"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_VFX_QUICK_REF.md",
+      "title": "VFX Graph Quick Reference",
+      "tags": [
+        "vfx",
+        "unity",
+        "particles",
+        "shaders",
+        "quick",
+        "ref"
+      ],
+      "summary": "## File Types | Ext | Purpose | |-----|---------| | `.vfx` | Complete VFX Graph |",
+      "sections": [
+        "file types",
+        "context pipeline",
+        "common blocks",
+        "ar properties (bind these)",
+        "performance budget",
+        "naming convention",
+        "mcp usage",
+        "keijiro patterns"
+      ],
+      "size_kb": 3,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_WARPJOBS_INTELLIGENCE_FINDINGS.md",
+      "title": "WarpJobs Intelligence Findings",
+      "tags": [
+        "warpjobs",
+        "intelligence",
+        "findings"
+      ],
+      "summary": "## Top XR/AI Market Signals (from your KB) | Keyword | Mentions | Priority | |---------|----------|----------| | Unity | 2,284 | HIGHEST |",
+      "sections": [
+        "top xr/ai market signals (from your kb)",
+        "active roadmap intelligence",
+        "patent search urls (track weekly)",
+        "job market intelligence",
+        "70/20/10 strategy reminder",
+        "agent capabilities (ollama - free/local)",
+        "auto-improvement loops (8 active)",
+        "integration points"
+      ],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_WEBXR_MODEL_VIEWER.md",
+      "title": "WebXR & Model-Viewer AR Reference",
+      "tags": [
+        "webxr",
+        "model",
+        "viewer"
+      ],
+      "summary": "## Overview `<model-viewer>` is a web component for displaying 3D models with AR support. Supports WebXR, Scene Viewer (Android), and Quick Look (iOS). ---",
+      "sections": [
+        "overview",
+        "basic usage",
+        "ar modes",
+        "key attributes",
+        "auto-generated usdz",
+        "webxr requirements",
+        "custom ar button",
+        "ar status styling"
+      ],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "xrrai_system_design (1).md",
+      "title": "Universal AI+XR Spatial Media Format (XRRAI) - System Design",
+      "tags": [
+        "xrrai",
+        "system",
+        "design (1)"
+      ],
+      "summary": "## Implementation approach The Universal AI+XR Spatial Media Format (XRRAI) aims to provide a unified container format for real-time interactive 3D/4D and procedural spatial content. This format ne...",
+      "sections": [
+        "implementation approach",
+        "data structures and interfaces",
+        "program call flow",
+        "anything unclear"
+      ],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "AUTOMATION_QUICK_START.md",
+      "title": "KB Automation - Simple Approach",
+      "tags": [
+        "automation",
+        "quick",
+        "start"
+      ],
+      "summary": "## How It Works | Trigger | What Runs | Impact | |---------|-----------|--------| | `git commit` | open-multibrain sync | <1 sec |",
+      "sections": [
+        "how it works",
+        "setup (one time)",
+        "on-demand commands",
+        "what happens automatically",
+        "faq",
+        "architecture"
+      ],
+      "size_kb": 2,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "PROJECT_STRUCTURE.md",
+      "title": "Unity XR AI - Project Structure",
+      "tags": [
+        "project",
+        "structure"
+      ],
+      "summary": "graph TD A[Unity-XR-AI] --> B[kb-cli] A --> C[MetavidoVFX-main] A --> D[PortalsV4_Migration_Staging] A --> E[KnowledgeBase]",
+      "sections": [
+        "key components",
+        "dependencies",
+        "development workflow",
+        "performance considerations",
+        "security"
+      ],
+      "size_kb": 2,
+      "modified": "2026-02-11"
+    },
+    {
+      "file": "_COPLAY_MCP_ARCHITECTURE_2026.md",
+      "title": "CoPlay MCP Architecture Research (2026-02-08)",
+      "tags": [
+        "coplay",
+        "mcp",
+        "architecture",
+        "2026"
+      ],
+      "summary": "## Ecosystem Tiers 1. **Coplay** - Premium C# plugin (86 tools, proprietary, currently free) 2. **Coplay MCP** - Python MCP server exposing 86 tools to AI clients 3. **Unity MCP** - Open-source MIT...",
+      "sections": [
+        "ecosystem tiers",
+        "standard stack",
+        "critical pattern: batching (10-100x speedup)",
+        "19 core tools",
+        "validation tiers",
+        "precondition hashes",
+        "alternative implementations",
+        "config (claude code)"
+      ],
+      "size_kb": 2,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_GEMINI_API_KEY_MANAGEMENT.md",
+      "title": "Gemini API Key Management",
+      "tags": [
+        "gemini",
+        "api",
+        "key",
+        "management"
+      ],
+      "summary": "## Key Facts | Condition | Behavior | |-----------|----------| | Normal usage | Keys remain valid indefinitely |",
+      "sections": [
+        "key facts",
+        "rotation schedule",
+        "best practices",
+        "long-term migration path",
+        "quick fix for \"api key expired\" error",
+        "example .env configuration"
+      ],
+      "size_kb": 2,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_GEMINI_CLI_MCP_SERVER_PATTERNS.md",
+      "title": "Gemini CLI: MCP Server Patterns & Configuration",
+      "tags": [
+        "gemini",
+        "cli",
+        "mcp",
+        "server",
+        "patterns"
+      ],
+      "summary": "## 1. Transport Mechanisms Gemini CLI supports three primary transport types for MCP servers: - **Stdio:** (Default) Spawns a local subprocess and communicates via standard input/output. - **SSE (S...",
+      "sections": [
+        "1. transport mechanisms",
+        "2. configuration schema (settings.json)",
+        "3. security & trust",
+        "4. execution patterns",
+        "5. troubleshooting & commands"
+      ],
+      "size_kb": 2,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_OFFICIAL_SOURCES_LATEST_UPDATES.md",
+      "title": "Official Sources + Latest Updates (AI Toolchain)",
+      "tags": [
+        "official",
+        "sources",
+        "latest",
+        "updates"
+      ],
+      "summary": "## Codex (OpenAI) **Docs** - CLI: https://developers.openai.com/codex/cli - Config basics: https://developers.openai.com/codex/config-basic",
+      "sections": [
+        "codex (openai)",
+        "claude code (anthropic)",
+        "gemini cli (google)",
+        "mcp (model context protocol)",
+        "unity mcp"
+      ],
+      "size_kb": 2,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_PORTALS_AR_FEATURES_SUMMARY.md",
+      "title": "Portals AR Features - Summary",
+      "tags": [
+        "portals",
+        "ar",
+        "features",
+        "summary"
+      ],
+      "summary": "## Feature Status | Feature | Status | Priority | |---------|--------|----------| | Particle Brush System | 🔴 Needs pooling fix | P0 |",
+      "sections": [
+        "feature status",
+        "immediate priorities",
+        "architecture pattern",
+        "key files",
+        "timeline"
+      ],
+      "size_kb": 2,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_SESSION_START_PROTOCOL_2026.md",
+      "title": "Session Start Protocol (2026-02-09)",
+      "tags": [
+        "session",
+        "start",
+        "protocol",
+        "2026"
+      ],
+      "summary": "## Efficient Read Order (Token-Optimized) **Stop reading when you have enough context.** Don't load everything. ### 1. TODO.md (ALWAYS - ~50 lines)",
+      "sections": [
+        "efficient read order (token-optimized)",
+        "total base load",
+        "tools",
+        "cross-tool recovery"
+      ],
+      "size_kb": 2,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_UNITY_URP_POST_PROCESSING.md",
+      "title": "Unity URP Post-Processing Guide",
+      "tags": [
+        "unity",
+        "urp",
+        "post",
+        "processing"
+      ],
+      "summary": "## Overview URP includes integrated post-processing effects. **No extra package needed** - URP is NOT compatible with Post Processing Stack v2. URP uses the **Volume framework** for post-processing...",
+      "sections": [
+        "overview",
+        "quick setup",
+        "important notes",
+        "mobile-friendly effects",
+        "vr considerations",
+        "volume types",
+        "common effects"
+      ],
+      "size_kb": 2,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "_EXPO_ENV_DEBUG.md",
+      "title": "Expo Environment Variable Debugging",
+      "tags": [
+        "expo",
+        "env",
+        "debug"
+      ],
+      "summary": "## Key Fact `EXPO_PUBLIC_*` variables are **baked into JS bundle at build time**, not runtime. ## Quick Debug for Env Changes",
+      "sections": [
+        "key fact",
+        "quick debug for env changes",
+        "what doesn't work"
+      ],
+      "size_kb": 1,
+      "modified": "2026-02-06"
+    },
+    {
+      "file": "_GEMINI_CLI_HIGH_VELOCITY_PATTERNS.md",
+      "title": "Gemini High-Velocity Workflows (2026)",
+      "tags": [
+        "gemini",
+        "cli",
+        "high",
+        "velocity",
+        "patterns"
+      ],
+      "summary": "## CLI Speed Patterns ### 1. The `g` Wrapper (Recommended) Use `g \"prompt\"` for all human-AI interactions. It auto-approves all tool calls via `--approval-mode yolo`.",
+      "sections": [
+        "cli speed patterns",
+        "hardened settings (~/.gemini/settings.json)",
+        "auto-recovery"
+      ],
+      "size_kb": 1,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_GEMINI_CLI_MEMORY_ISSUE_2026.md",
+      "title": "Gemini CLI Memory Issue (2026-02-09)",
+      "tags": [
+        "gemini",
+        "cli",
+        "memory",
+        "issue",
+        "2026"
+      ],
+      "summary": "## Problem Gemini CLI appears to lose context across sessions despite: - `contextFileName: \"CLAUDE.md\"` ✓ - `GEMINI.md` for tool memories ✓ - Unified architecture ✓",
+      "sections": [
+        "problem",
+        "investigation",
+        "auto-fix strategy"
+      ],
+      "size_kb": 1,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "_INDEX.md",
+      "title": "KnowledgeBase Index",
+      "tags": [
+        "index"
+      ],
+      "summary": "## Essential Files (Read First) | File | Purpose | |------|---------| | `LEARNING_LOG.md` | Append-only discoveries |",
+      "sections": [
+        "essential files (read first)",
+        "by domain",
+        "automation (no tokens)",
+        "archived"
+      ],
+      "size_kb": 1,
+      "modified": "2026-02-05"
+    },
+    {
+      "file": "_INSIGHT_REVIEW_CHECKLIST.md",
+      "title": "Insight Review Checklist (Lightweight)",
+      "tags": [
+        "insight",
+        "review",
+        "checklist"
+      ],
+      "summary": "Purpose: keep improvements proactive without adding process overhead. When to run: - End of substantial session - After repeated failures",
+      "sections": [],
+      "size_kb": 1,
+      "modified": "2026-02-08"
+    },
+    {
+      "file": "_LEARNING_SESSION_ANALYSIS.md",
+      "title": "LEARNING SESSION ANALYSIS",
+      "tags": [
+        "learning",
+        "session",
+        "analysis"
+      ],
+      "summary": "(no summary)",
+      "sections": [],
+      "size_kb": 0,
+      "modified": "2026-02-09"
+    },
+    {
+      "file": "AgentSystems/Realtime_API_Agents_Demo.md",
+      "title": "Realtime API Agents Demo (OpenAI Agents SDK)",
+      "tags": [
+        "realtime",
+        "api",
+        "agents",
+        "demo",
+        "agentsystems"
+      ],
+      "summary": "## Overview - Demonstrates advanced low-latency voice agent patterns built on the OpenAI Realtime API and Agents SDK. - Highlights integrated state management, event streaming, tool orchestration, ...",
+      "sections": [
+        "overview",
+        "setup",
+        "pattern 1 — chat-supervisor hybrid",
+        "pattern 2 — sequential handoffs",
+        "extending the demo",
+        "references"
+      ],
+      "size_kb": 4,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "AgentSystems/Responses_API_Overview.md",
+      "title": "Responses API Overview (OpenAI Cookbook Example)",
+      "tags": [
+        "responses",
+        "api",
+        "overview",
+        "agentsystems"
+      ],
+      "summary": "## Core Concepts - Successor to Chat Completions and Assistants, designed for multi-turn, multimodal, tool-rich workflows with minimal boilerplate. - API maintains conversation state automatically;...",
+      "sections": [
+        "core concepts",
+        "hosted tools integration",
+        "multimodal & tool-augmented interaction",
+        "when to use",
+        "references"
+      ],
+      "size_kb": 2,
+      "modified": "2026-01-20"
+    },
+    {
+      "file": "CodeSnippets/Unity_Projects_Enumeration.txt",
+      "title": "Unity Projects Enumeration.txt",
+      "tags": [
+        "unity",
+        "projects",
+        "enumeration.txt",
+        "codesnippets"
+      ],
+      "summary": "UNITY PROJECTS ENUMERATION RESULTS ================================== Search Location: /Users/jamestunick/Downloads/AI_Knowledge_Base_Setup Search Method: Recursive search for directories named \"Pr...",
+      "sections": [],
+      "size_kb": 3,
+      "modified": "2026-01-20"
+    }
+  ]
+}

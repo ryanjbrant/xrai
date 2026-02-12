@@ -83,9 +83,9 @@ Unity-XR-AI/
 
 ---
 
-## 📊 Statistics (Updated 2026-01-22)
+## 📊 Statistics (Updated 2026-02-12)
 
-- **KnowledgeBase**: 81 markdown files
+- **KnowledgeBase**: 257 files (8302 Chroma chunks, 245 in manifest)
 - **Auto-Fix Patterns**: 121+ (80% auto-apply rate)
 - **GitHub Repos**: 520+ curated (ARFoundation, VFX, DOTS, Networking, ML/AI)
 - **Vis Projects**: 10 (xrai-kg, HOLOVIS, cosmos-*, WarpDashboard, chalktalk)
@@ -257,27 +257,27 @@ Unity source code research workbench from keijiro/AgentBench.
 
 ## 🔌 API Access
 
+### Chroma Semantic Search (Primary)
+```
+chroma_query_documents("kb_knowledge", ["query"], n_results=5)
+# 8302 chunks, 384-dim embeddings, conceptual matching
+```
+
+### Manifest Index
+```
+KnowledgeBase/kb-manifest.json  # 245 files with tags, summaries, sections
+```
+
 ### REST API
 ```bash
 node api/kb-api.js  # Start on port 3847
-
-# Endpoints
-GET /api/search?q=query  # Search KB
-GET /api/files           # List files
+GET /api/search?q=query  # Keyword search
 GET /api/file/:name      # Get file
-GET /api/patterns        # Auto-fix patterns
-GET /api/stats           # Statistics
-```
-
-### MCP Server
-```bash
-cd mcp-server && npm start  # KB semantic search
-# Tools: kb_search, kb_get_repo, kb_get_snippet, kb_stats
 ```
 
 ### GitHub Raw Access
 ```
-https://raw.githubusercontent.com/imclab/Unity-XR-AI/main/KnowledgeBase/_AUTO_FIX_PATTERNS.md
+https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/<filename>
 ```
 
 ### Symlinks (AI CLIs)
@@ -286,20 +286,62 @@ https://raw.githubusercontent.com/imclab/Unity-XR-AI/main/KnowledgeBase/_AUTO_FI
 ~/.windsurf/knowledgebase → KnowledgeBase/
 ~/.cursor/knowledgebase → KnowledgeBase/
 ~/.codex/knowledgebase → KnowledgeBase/
+~/.gemini/knowledgebase → KnowledgeBase/
 ```
 
 **Full Guide**: `KnowledgeBase/_KB_ACCESS_GUIDE.md`
 
 ---
 
-## 🔍 For AI Assistants
+## 🔍 KnowledgeBase Access (257 files, 4.8MB, 8302 indexed chunks)
 
+### Fastest: Semantic Search (local MCP tools)
+```
+chroma_query_documents("kb_knowledge", ["your question here"], n_results=5)
+```
+Returns ranked chunks with file paths, sections, and relevance scores. One call.
+
+### Fast: Manifest Routing (any tool, including GitHub)
+Read `kb-manifest.json`, match tags/summaries, then read only matching files.
+```
+Local:   KnowledgeBase/kb-manifest.json
+GitHub:  https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/kb-manifest.json
+CDN:     https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/kb-manifest.json
+```
+
+### Read Files
+```
+Local:   ~/.claude/knowledgebase/<filename>
+GitHub:  https://raw.githubusercontent.com/imclab/xrai/main/KnowledgeBase/<filename>
+```
+
+### Fallback: Keyword Search
+```bash
+grep -ri "term" ~/.claude/knowledgebase/
+```
+
+### Write-back
+```
+Local:   Edit file, git commit & push from ~/Documents/GitHub/Unity-XR-AI/
+GitHub:  create_or_update_file API on imclab/xrai repo
+```
+
+### Refresh Pipeline
+```bash
+cd ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase
+node scripts/generate-kb-manifest.js           # Update manifest
+node scripts/ingest-kb-chroma.js               # Generate chunks
+python3 scripts/ingest-kb-chroma.py            # Re-ingest Chroma
+```
+
+### Guidelines
 1. **Search KB first** before implementing new features
 2. **Check `_MASTER_GITHUB_REPO_KNOWLEDGEBASE.md`** for existing solutions
 3. **Reference `_VFX25_HOLOGRAM_PORTAL_PATTERNS.md`** for hologram/portal work
 4. **Use `_UNITY_SOURCE_REFERENCE.md`** for Unity internals deep dive
 5. **Log discoveries** to `LEARNING_LOG.md`
-6. **Cross-tool memory**: See `KnowledgeBase/_AI_CHAT_HISTORY_LOCATIONS.md` for searching past sessions across Claude Code, Gemini CLI, Codex, Windsurf, Cursor
+6. **Cross-tool memory**: See `KnowledgeBase/_AI_CHAT_HISTORY_LOCATIONS.md` for past sessions
+7. **Full access guide**: `KnowledgeBase/_KB_ACCESS_GUIDE.md`
 
 ---
 
@@ -313,4 +355,4 @@ MIT License - Knowledge bases and code snippets attributed to original repos.
 
 **Maintained by**: James Tunick
 
-**Last Updated**: 2026-01-21
+**Last Updated**: 2026-02-12
