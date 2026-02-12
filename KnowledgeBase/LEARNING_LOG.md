@@ -106,3 +106,78 @@
 - **Category**: workflow
 - **ROI**: High - prevents context loss at transition boundaries.
 - **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+
+## Auto-extracted from claude-mem (2026-02-12)
+
+### [2026-01-16] MetavidoVFX
+**Tags**: vfx,pipeline,hybrid-bridge,ARDepthSource,VFXARBinder
+RECOMMENDED ARCHITECTURE:
+- ARDepthSource (singleton, ~80 LOC) - ONE compute dispatch
+- VFXARBinder (per-VFX, ~40 LOC) - lightweight SetTexture() binding
+
+### [2026-01-16] MetavidoVFX
+**Tags**: vfx,pipeline,hybrid-bridge,ARDepthSource,VFXARBinder
+KEY INSIGHT: VFX Graph cannot read Shader.SetGlobalTexture() - must use explicit vfx.SetTexture()
+
+### [2026-01-16] MetavidoVFX
+**Tags**: vfx,pipeline,hybrid-bridge,ARDepthSource,VFXARBinder
+PERFORMANCE:
+- 1 VFX: 1.15ms (vs 1.1ms old)
+- 10 VFX: 1.6ms (vs 11ms old)
+- 20 VFX: 2.1ms (vs 22ms old)
+
+### [2026-01-16] MetavidoVFX
+**Tags**: testing,debugging,verbose-logging,mcp,unity
+PERFORMANCE TARGETS:
+- 60 FPS on iPhone 15 Pro
+- <2ms compute per frame
+- <0.1ms binding per VFX
+
+### [2026-01-16] MetavidoVFX
+**Tags**: WebGL,VFX,react-unity,compute-shaders
+MetavidoVFX Platform Compatibility (2026-01-16): VFX Graph requires compute shaders - WebGL 2.0 NOT SUPPORTED. react-unity-webgl inherits WebGL limitations. iOS/Android/Quest = full support. WebGPU experimental in Unity 6.1+. Web alternatives: 1) WebGPU future, 2) Legacy ParticleSystem fallback, 3) WebRTC video streaming from device. Key sources: Unity docs, keijiro/VfxGraphGraphicsBufferTest (86 stars). Triple-verified against official Unity documentation and GitHub sources.
+
+### [2026-01-16] MetavidoVFX
+VFX Graph Global Property Limitation (Unity 6 VFX Graph 17.2): VFX Graph CANNOT read textures from Shader.SetGlobalTexture() - it only works for regular shaders. VFX must use explicit vfx.SetTexture() per-VFX instance. HOWEVER, GraphicsBuffers work globally via Shader.SetGlobalBuffer() because VFX can access them through HLSL includes. Vector4/Matrix4x4 globals also work. This is why Hybrid Bridge Pattern uses ARDepthSource singleton + VFXARBinder per-VFX binding. Verified via Unity Discussions Jan 2026.
+
+### [2026-01-16] MetavidoVFX
+C# Properties Cannot Be Passed as ref/out Parameters: In C#, auto-properties like 'public RenderTexture PositionMap { get; private set; }' cannot be used with ref/out. Must use backing fields: 'RenderTexture _positionMap; public RenderTexture PositionMap => _positionMap;' then 'EnsureRenderTexture(ref _positionMap, ...)'. This is a language limitation, not Unity-specific. Error CS0206.
+
+### [2026-01-16] MetavidoVFX
+Hybrid Bridge Pattern for VFX (MetavidoVFX 2026-01-16): O(1) compute dispatch + O(N) lightweight binding. ARDepthSource singleton does ONE GPU compute dispatch per frame for ALL VFX, computes PositionMap/VelocityMap. VFXARBinder per-VFX does just SetTexture() calls - no compute. Scales linearly: 1 VFX = ~2ms, 10 VFX = ~5ms, 20 VFX = ~8ms. Reference: YoHana19/HumanParticleEffect pattern (~200 lines vs VFXBinderManager 1357 lines).
+
+### [2026-01-16] MetavidoVFX
+VFX Graph WebGL 2.0 Incompatibility: VFX Graph requires compute shader support which WebGL 2.0 lacks. VFX effects will NOT work with react-unity-webgl portals or any WebGL deployment. Must use Particle Systems for WebGL or target native platforms only. Verified Jan 2026.
+
+### [2026-01-16] MetavidoVFX
+VFXPipelineDashboard Pattern (MetavidoVFX): IMGUI-based real-time debug overlay showing: FPS graph (60-frame history), pipeline flow visualization (ARDepthSource→VFXARBinder→VFX), binding status with color indicators, memory usage (RenderTexture allocations), active VFX list with particle counts. Toggle with Tab key. Uses OnGUI() for cross-platform compatibility.
+
+### [2026-01-16] MetavidoVFX
+VFXTestHarness Pattern (MetavidoVFX): Keyboard shortcuts for rapid VFX testing: 1-9=favorites, Space=cycle next, C=cycle categories, A=toggle all, P=auto-cycle profiling mode, R=refresh list. Auto-categorizes VFX by naming convention (people/human/body→People, hand/joint→Hands, audio/sound→Audio, rcam/metavido/nncam→by source). Uses InferCategory() method for smart categorization.
+
+### [2026-01-20] MetavidoVFX
+**Tags**: ARFoundation,BugFix,TryGetTexture,iOS,Unity,NullReferenceException
+MetavidoVFX Session 2026-01-20: Fixed AR Foundation Texture Access Crash (BUG 6)
+
+### [2026-01-20] MetavidoVFX
+NNCam Eyes VFX Fix (2026-01-20): eyes_any_nncam2.vfx needs world-space positioning. Solution: Wire existing 'Get Keypoint World' subgraph (Assets/VFX/NNCam2/Get Keypoint World.vfxoperator) which takes KeypointBuffer + PositionMap and outputs world Position. The subgraph already exists - just needs to be connected inside the eyes VFX. PositionMap is in the Blackboard but not wired. Key insight: Always check for existing solutions before creating new code. The compute shader approach was unnecessary since VFX subgraphs already handle UV→world position conversion.
+
+### [2026-01-20] Unity-XR-AI
+Unity-XR-AI project architecture: MetavidoVFX is the main Unity project using AR Foundation 6.2.1, VFX Graph 17.2.0, Unity 6000.2.14f1. Core systems: ARDepthSource (single compute dispatch), VFXARBinder (per-VFX texture mapping), VFXLibraryManager (73 VFX organized by category). Performance verified at 353 FPS with 10 active VFX. Key patterns: Hybrid Bridge Pattern for O(1) compute scaling, ExposedProperty for VFX Graph bindings.
+
+### [2026-01-21] MetavidoVFX
+**Tags**: hologram,vfx,hifi,positionmap,colormap,architecture
+MetavidoVFX HiFi Hologram Session 2026-01-21
+
+### [2026-02-05] WarpJobs
+**Tags**: scoring,calendar,interview,simplification,best-practice
+KEY LEARNING: For macOS reminders, use Calendar.app native alarms via AppleScript instead of creating individual LaunchAgent plists - Calendar handles lifecycle, syncs to all devices via iCloud, no cleanup needed.
+
+### [2026-02-06] Unity-XR-AI
+**Tags**: vfx-audit,memory-system,hybrid-bridge,simplification
+KEY INSIGHT - Memory Best Practice:
+- Auto-save broke silently and went unnoticed for 17 days
+- Built-in alternatives (--resume, LEARNING_LOG, KB files) work fine
+- Simpler = more reliable: manual /save + auto-load on start
+
