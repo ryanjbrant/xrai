@@ -67,15 +67,35 @@ rg "kb-cli" ~/.gemini/tmp/*/chats/ --glob "*.json" -l
 
 ---
 
-## Windsurf
+## Windsurf (Cascade + Extensions)
 
 | Item | Path |
 |------|------|
-| **App data** | `~/Library/Application Support/Windsurf/` |
+| **Cascade state DB** | `~/Library/Application Support/Windsurf/User/globalStorage/state.vscdb` (SQLite, `ItemTable`) |
+| **Cascade session index** | Key: `chat.ChatSessionStore.index` in state.vscdb |
+| **Roo Cline tasks** | `~/Library/Application Support/Windsurf/User/globalStorage/rooveterinaryinc.roo-cline/tasks/*/api_conversation_history.json` |
+| **Claude Dev (Cline) tasks** | `~/Library/Application Support/Windsurf/User/globalStorage/saoudrizwan.claude-dev/tasks/*/api_conversation_history.json` |
+| **Kilo Code tasks** | `~/Library/Application Support/Windsurf/User/globalStorage/kilocode.kilo-code/tasks/*/api_conversation_history.json` |
+| **CodeViz graphs** | `~/Library/Application Support/Windsurf/User/workspaceStorage/*/CodeViz.codeviz/graphs/history.json` |
 | **Config** | `~/.windsurf/` |
 | **Rules** | `~/.windsurf/rules/` |
 | **MCP config** | `~/.windsurf/mcp.json` |
+| **Mermaid Chart ext** | `~/.windsurf/extensions/mermaidchart.vscode-mermaid-chart-*` |
 | **Performance logs** | `~/.windsurf/performance-logs/` |
+| **Windsurf logs** | `~/Library/Application Support/Windsurf/logs/` |
+
+**Chat JSON format (Roo Cline/Kilo Code):** `[{role, content: [{type, text}]}]`
+
+**Known sessions with kb-cli/visualization work:**
+- Kilo Code `019c4b28` — kb-cli creation (147KB, 24 msgs, Feb 11 2026)
+- Kilo Code `019c4ba8` — Claude Code architecture analysis (89KB)
+- Roo Cline `019c4b1b` — visualization work (209KB)
+
+**Search example:**
+```bash
+# Search all Windsurf extension conversations
+rg "KEYWORD" ~/Library/Application\ Support/Windsurf/User/globalStorage/*/tasks/ --glob "*.json" -l
+```
 
 ---
 
@@ -93,9 +113,14 @@ rg "kb-cli" ~/.gemini/tmp/*/chats/ --glob "*.json" -l
 
 | Item | Path |
 |------|------|
+| **AI settings** | `~/Library/Application Support/JetBrains/Rider*/options/aiPluginSettings.xml` |
 | **Config** | `~/Library/Application Support/JetBrains/Rider*/` |
 | **Logs** | `~/Library/Logs/JetBrains/Rider*/` |
+| **Cline plugin** | `~/Library/Application Support/JetBrains/IntelliJIdea*/plugins/cline/` |
+| **Gemini plugin** | `~/Library/Application Support/JetBrains/IntelliJIdea*/plugins/gemini/` |
 | **MCP** | Via JetBrains MCP plugin |
+
+**Versions found:** Rider 2025.1, 2025.2, 2025.3
 
 ---
 
@@ -107,9 +132,13 @@ rg "KEYWORD" ~/.claude/projects/ --glob "*.jsonl" -l
 rg "KEYWORD" ~/.gemini/tmp/*/chats/ --glob "*.json" -l
 rg "KEYWORD" ~/.codex/history.jsonl
 rg "KEYWORD" ~/.codex/archived_sessions/ --glob "*.jsonl" -l
+rg "KEYWORD" ~/Library/Application\ Support/Windsurf/User/globalStorage/*/tasks/ --glob "*.json" -l
 
 # Find Gemini sessions by date
 ls -lt ~/.gemini/tmp/*/chats/session-2026-02-11*.json
+
+# Find Windsurf extension tasks by date (sort by modification time)
+ls -lt ~/Library/Application\ Support/Windsurf/User/globalStorage/kilocode.kilo-code/tasks/*/api_conversation_history.json
 
 # Read a specific Claude Code session transcript
 # (files are JSONL - one JSON object per line)
@@ -121,6 +150,10 @@ for line in sys.stdin:
     text = msg.get('content','')[:200] if isinstance(msg.get('content'), str) else ''
     if text: print(f'[{role}] {text}')
 "
+
+# Search Windsurf Cascade state DB
+sqlite3 ~/Library/Application\ Support/Windsurf/User/globalStorage/state.vscdb \
+  "SELECT key FROM ItemTable WHERE key LIKE '%cascade%' OR key LIKE '%chat%';"
 ```
 
 ---
