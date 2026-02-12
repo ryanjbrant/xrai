@@ -299,6 +299,7 @@ https://raw.githubusercontent.com/imclab/Unity-XR-AI/main/KnowledgeBase/_AUTO_FI
 3. **Reference `_VFX25_HOLOGRAM_PORTAL_PATTERNS.md`** for hologram/portal work
 4. **Use `_UNITY_SOURCE_REFERENCE.md`** for Unity internals deep dive
 5. **Log discoveries** to `LEARNING_LOG.md`
+6. **Cross-tool memory**: See `KnowledgeBase/_AI_CHAT_HISTORY_LOCATIONS.md` for searching past sessions across Claude Code, Gemini CLI, Codex, Windsurf, Cursor
 
 ---
 
