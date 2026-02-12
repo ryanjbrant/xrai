@@ -229,6 +229,77 @@ Code compiles -> Headless tests -> Editor tests -> Device build -> User confirms
 - **Proactive flagging** -- surface risks before asked
 - **Log key insights** -- LEARNING_LOG.md with tags
 
+## AR TESTING WORKFLOW (MANDATORY for AR Foundation Projects)
+
+After headless tests pass (L1: tsc, L2: Jest), AR projects require editor+device testing before marking anything complete.
+
+### Workflow Steps (Auto-Advance on Pass)
+
+```
+L1-L2 Pass → Open Unity Editor → Enable XR Simulation → Play Mode Tests → Device Deploy → User Confirms
+```
+
+**Step 1: Unity Editor Testing (XR Simulation)**
+- Ensure Unity Editor is open (`./scripts/ensure_unity_editor.sh`)
+- XR Simulation is built into AR Foundation 6.x (free, no plugin needed)
+- Enable via: `Project Settings > XR Plug-in Management > XR Simulation`
+- Run `BridgeVerificationTest` and any AR-specific tests via MCP
+- Take editor screenshots for verification
+
+**Step 2: Device Testing (AR Companion App)**
+- Build and deploy to device via `./scripts/build_minimal.sh`
+- Launch app on device, verify AR camera + scene rendering
+- Monitor device logs: `xcrun devicectl device copy from ...`
+- Verify bridge messages flow correctly via console logs
+
+**Step 3: Log Review**
+- Always pull and review device logs after deployment
+- Check for: crash logs, bridge errors, AR tracking failures, performance drops
+- Auto-fix any issues found, then re-run from the failed level
+
+### AR Foundation Remote (Optional, $80)
+- `com.kyrylokuzyk.arfoundationremote` is in manifest.json but plugin files are deleted
+- If reinstalled: opens companion app on phone over WiFi/USB, streams AR camera to Editor
+- Alternative: XR Simulation covers most editor testing needs for free
+
+### Key Rule
+**Never mark AR features complete until tested on a physical device with AR camera active.** XR Simulation covers logic but not real-world tracking, lighting, or performance.
+
+---
+
+## AUTO-CODIFICATION META-RULE (ALWAYS APPLY)
+
+Automatically sense when a workflow, pattern, or automation should be codified. Apply this check continuously.
+
+### When to Codify
+A workflow should be codified as a rule/skill/KB entry when ANY of these are true:
+- **Repeated manually 2+ times** across sessions
+- **Involves 3+ steps** that must happen in sequence
+- **Has been forgotten** and caused rework or errors
+- **Is environment-specific** (AR, device, platform) and easy to skip
+
+### How to Codify
+1. **Rules** (GLOBAL_RULES.md / project CLAUDE.md) -- for mandatory processes
+2. **Skills** (`.claude/skills/`) -- for multi-step automatable sequences
+3. **KB entries** (`KnowledgeBase/`) -- for reference patterns and solutions
+4. **Scripts** (`scripts/`) -- for fully automatable shell workflows
+
+### Auto-Implementation Protocol
+When you identify something to codify:
+1. **Flag it** -- mention to user: "This should be codified as [rule/skill/KB]"
+2. **Draft it** -- write the codified version inline
+3. **Place it** -- add to the correct location (rules file, KB, script)
+4. **Verify** -- ensure the codified version doesn't conflict with existing rules
+5. **Cross-reference** -- link from related rules/docs if applicable
+
+### Triple Verification (for all codified rules)
+Before committing any new rule or workflow:
+1. **No conflicts** -- grep existing rules for contradictions
+2. **No regressions** -- ensure it doesn't break existing workflows
+3. **Evidence-based** -- rule must trace to a concrete incident or repeated pattern
+
+---
+
 ## CORE MANDATE: Incrementality & Compounding
 **Priority**: User goals with increasing speed, accuracy, automation, simplicity.
 - **Simple & modular** -- minimal dependencies, never overcomplicate
