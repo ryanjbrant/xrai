@@ -84,3 +84,14 @@
 - **Category**: workflow
 - **ROI**: High - prevents context loss at transition boundaries.
 - **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+## 2026-02-12 00:00 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by SessionEnd (other) in `portals_main`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
