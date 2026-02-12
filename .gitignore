@@ -130,3 +130,10 @@ _ref/onnxruntime-unity-examples
 _ref/sentis-samples
 KnowledgeBase/KnowledgeBase
 .env
+
+# Explicit: never track kb-cli secrets
+kb-cli/.env
+
+# Allow .env.example templates (overrides .env ignore above)
+!*.env.example
+!**/.env.example
