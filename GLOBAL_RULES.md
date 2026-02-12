@@ -205,6 +205,7 @@ Never wait passively. Any stalled operation MUST be auto-detected and auto-recov
 ## VERIFICATION DISCIPLINE (NON-NEGOTIABLE)
 
 ### Enforcement Hooks (Zero Token Cost)
+**Note**: The following hooks are available in `~/.claude/hooks/archived/` but not currently active:
 - `auto-verify.sh` (PostToolUse:Edit|Write) -- auto-runs tsc + jest after edits
 - `quality-gate.sh` (Stop) -- blocks stop if compile errors or warns on uncommitted source
 - `auto-learn.sh` (PostToolUseFailure) -- logs error patterns to `.kb_buffer/ERROR_PATTERNS.md`
