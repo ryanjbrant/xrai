@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated": "2026-02-12T09:52:07.666Z",
+  "generated": "2026-02-12T10:20:46.426Z",
   "stats": {
     "entities": 245,
-    "relations": 604,
+    "relations": 773,
     "categories": {
       "Web": 10,
       "XR/AR": 52,
@@ -6082,6 +6082,676 @@
       "relationType": "related_to"
     },
     {
+      "from": "_portals_unified_architecture",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_unified_architecture",
+      "to": "_portals_ar_features_summary",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_simplified_plan",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_simplified_plan",
+      "to": "_jt_priorities",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_v4_strategic_audit_2026-02",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_v4_strategic_audit_2026-02",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_futureproof_strategy_2026",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_futureproof_strategy_2026",
+      "to": "_jt_priorities",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_master_index",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_master_index",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_next_step",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_next_step",
+      "to": "_jt_priorities",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_product_vision",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_history_and_vision",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_history_and_vision",
+      "to": "_master_github_repo_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_brand_messaging",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_brand_messaging",
+      "to": "_jt_priorities",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_v4_recording_and_tracking",
+      "to": "_portals_ar_features_summary",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_v4_recording_and_tracking",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_v4_recording_and_tracking",
+      "to": "_hand_tracking_mobile_2026",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_video_to_magic_architecture",
+      "to": "_h3m_hologram_roadmap",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_video_to_magic_architecture",
+      "to": "_vfx25_hologram_portal_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_portals_video_to_magic_architecture",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "success_log",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "success_log",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "learning_log",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "learning_log",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "development_notes",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "development_notes",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "troubleshooting_and_logic",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "troubleshooting_and_logic",
+      "to": "_unity_debugging_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_architecture_diagram",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_architecture_diagram",
+      "to": "_self_improving_memory_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_architecture_diagram",
+      "to": "_ai_memory_systems_deep_dive",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_architecture_diagrams",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_architecture_diagrams",
+      "to": "_master_github_repo_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_implementation_quickstart",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_implementation_quickstart",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_tools_reference",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "kb_tools_reference",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "cloud_native_kb_architecture_2025",
+      "to": "_self_improving_memory_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "cloud_native_kb_architecture_2025",
+      "to": "_ai_memory_systems_deep_dive",
+      "relationType": "related_to"
+    },
+    {
+      "from": "cloud_native_kb_architecture_2025",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "architecture",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "architecture",
+      "to": "_master_github_repo_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "project_structure",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "project_structure",
+      "to": "_master_github_repo_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "automation_quick_start",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "automation_quick_start",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_dev_iteration_workflows",
+      "to": "_unity_debugging_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_dev_iteration_workflows",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_toolchain_optimization_spec",
+      "to": "_global_rules_and_memory",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_toolchain_optimization_spec",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_document_generation",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_document_generation",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_session_start_protocol_2026",
+      "to": "_global_rules_and_memory",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_session_start_protocol_2026",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_learning_session_analysis",
+      "to": "_ai_memory_systems_deep_dive",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_learning_session_analysis",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
+      "from": "ai_cli_tools_reference",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "ai_cli_tools_reference",
+      "to": "_claude_code_subagents",
+      "relationType": "related_to"
+    },
+    {
+      "from": "ai_cli_tools_reference",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_ai_coding_tools_comparison",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_ai_coding_tools_comparison",
+      "to": "_claude_code_subagents",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_ai_coding_tools_comparison",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_claude_code_system_prompt_analysis",
+      "to": "_claude_code_subagents",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_claude_code_system_prompt_analysis",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_claude_code_system_prompt_analysis",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_api_key_management",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_api_key_management",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_cli_high_velocity_patterns",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_cli_high_velocity_patterns",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_cli_high_velocity_patterns",
+      "to": "_claude_code_subagents",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_cli_memory_issue_2026",
+      "to": "_ai_memory_systems_deep_dive",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_cli_memory_issue_2026",
+      "to": "_self_improving_memory_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_gemini_cli_memory_issue_2026",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_reference_platform_compatibility",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_reference_platform_compatibility",
+      "to": "_unity_intelligence_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_hand_tracking_mobile_2026",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_hand_tracking_mobile_2026",
+      "to": "_portals_ar_features_summary",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_cross_platform_architecture_research_2026",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_cross_platform_architecture_research_2026",
+      "to": "_unity_intelligence_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_cross_platform_architecture_research_2026",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_xr_ai_industry_roadmap_2025-2027",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_xr_ai_industry_roadmap_2025-2027",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_reference_figment_ar",
+      "to": "_portals_ar_features_summary",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_reference_figment_ar",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_reference_figment_ar",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_reference_decart_api",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_reference_decart_api",
+      "to": "_3d_visualization_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_openusd_reference",
+      "to": "_3d_visualization_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_openusd_reference",
+      "to": "_unity_intelligence_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_synthetic_data_generation",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_synthetic_data_generation",
+      "to": "_3d_visualization_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "xrrai_system_design (1)",
+      "to": "_3d_visualization_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "xrrai_system_design (1)",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_implementation_plan_coplay_llmr_system_prompts_2026-02-08",
+      "to": "_mcp_model_context_protocol",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_implementation_plan_coplay_llmr_system_prompts_2026-02-08",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_implementation_plan_coplay_llmr_system_prompts_2026-02-08",
+      "to": "_global_rules_and_memory",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_mcp_architecture_audit_2026",
+      "to": "_mcp_model_context_protocol",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_mcp_architecture_audit_2026",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_mcp_llms_full_reference.txt",
+      "to": "_mcp_model_context_protocol",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_mcp_llms_full_reference.txt",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_mcp_llms_full_reference.txt",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_coplay_mcp_architecture_2026",
+      "to": "_mcp_model_context_protocol",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_coplay_mcp_architecture_2026",
+      "to": "_unity_intelligence_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_coplay_mcp_architecture_2026",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_claude_mem_archive_2026-01",
+      "to": "_ai_memory_systems_deep_dive",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_claude_mem_archive_2026-01",
+      "to": "_self_improving_memory_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_claude_mem_archive_2026-01",
+      "to": "_global_rules_and_memory",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_hologram_verification_2026-01-15",
+      "to": "_h3m_hologram_roadmap",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_hologram_verification_2026-01-15",
+      "to": "_vfx25_hologram_portal_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_hologram_verification_2026-01-15",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_webxr_immersive_web_reference",
+      "to": "_webgl_intelligence_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_webxr_immersive_web_reference",
+      "to": "_webgl_threejs_comprehensive_guide",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_webxr_immersive_web_reference",
+      "to": "_arfoundation_vfx_knowledge_base",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_dataviz_hub_patterns",
+      "to": "_echarts_visualization_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_dataviz_hub_patterns",
+      "to": "_3d_visualization_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_dataviz_hub_patterns",
+      "to": "_webgl_threejs_comprehensive_guide",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_strategy_needle_web_integration",
+      "to": "_webgl_intelligence_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_strategy_needle_web_integration",
+      "to": "_webgl_threejs_comprehensive_guide",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_strategy_needle_web_integration",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_strategy_normcore_multiplayer",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_strategy_normcore_multiplayer",
+      "to": "_unity_intelligence_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_expo_env_debug",
+      "to": "_portals_v4_architecture",
+      "relationType": "related_to"
+    },
+    {
+      "from": "_expo_env_debug",
+      "to": "_auto_fix_patterns",
+      "relationType": "related_to"
+    },
+    {
+      "from": "agentsystems/realtime_api_agents_demo",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "agentsystems/realtime_api_agents_demo",
+      "to": "_claude_code_subagents",
+      "relationType": "related_to"
+    },
+    {
+      "from": "agentsystems/realtime_api_agents_demo",
+      "to": "_ai_memory_systems_deep_dive",
+      "relationType": "related_to"
+    },
+    {
+      "from": "agentsystems/responses_api_overview",
+      "to": "_ai_entry_point",
+      "relationType": "related_to"
+    },
+    {
+      "from": "agentsystems/responses_api_overview",
+      "to": "_claude_code_subagents",
+      "relationType": "related_to"
+    },
+    {
+      "from": "agentsystems/responses_api_overview",
+      "to": "_ai_config_files_reference",
+      "relationType": "related_to"
+    },
+    {
+      "from": "codesnippets/unity_projects_enumeration.txt",
+      "to": "_master_github_repo_knowledgebase",
+      "relationType": "related_to"
+    },
+    {
+      "from": "codesnippets/unity_projects_enumeration.txt",
+      "to": "_kb_index",
+      "relationType": "related_to"
+    },
+    {
       "from": "_jt_priorities",
       "to": "_portals_v4_architecture",
       "relationType": "related_to"
@@ -8089,6 +8759,181 @@
     {
       "from": "_kb_cross_links",
       "to": "_project_config_reference",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_unified_architecture",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_simplified_plan",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_auto_fix_patterns",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_futureproof_strategy_2026",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_master_index",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_next_step",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_product_vision",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_history_and_vision",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_brand_messaging",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_v4_recording_and_tracking",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_hand_tracking_mobile_2026",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_portals_video_to_magic_architecture",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_dev_iteration_workflows",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_toolchain_optimization_spec",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_document_generation",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_session_start_protocol_2026",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_learning_session_analysis",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_ai_coding_tools_comparison",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_claude_code_system_prompt_analysis",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_gemini_api_key_management",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_gemini_cli_high_velocity_patterns",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_gemini_cli_memory_issue_2026",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_reference_platform_compatibility",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_cross_platform_architecture_research_2026",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_reference_figment_ar",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_reference_decart_api",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_openusd_reference",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_synthetic_data_generation",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_mcp_architecture_audit_2026",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_coplay_mcp_architecture_2026",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_webxr_immersive_web_reference",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_dataviz_hub_patterns",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_strategy_needle_web_integration",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_strategy_normcore_multiplayer",
+      "relationType": "references"
+    },
+    {
+      "from": "_kb_cross_links",
+      "to": "_expo_env_debug",
       "relationType": "references"
     },
     {
