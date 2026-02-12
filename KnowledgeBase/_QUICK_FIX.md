@@ -22,6 +22,8 @@
 | MissingReferenceException | Check if destroyed, use `if (obj != null)` |
 | IndexOutOfRange | Check array bounds before access |
 | InvalidOperationException | Check state before operation |
+| `Destroy may not be called from edit mode` | Use `if (Application.isPlaying) Destroy(obj); else DestroyImmediate(obj);` |
+| `batch_execute: no actions array` | Regex `.+` doesn't match empty `[]`. Use `(.*)` not `(.+)` in array-content capture groups |
 
 ## AR Foundation
 
@@ -128,6 +130,8 @@
 | **High memory (>1GB MCP)** | **`mcp-nuke` kills heavy servers (playwright, puppeteer)** |
 | **MCP kill loop (endless respawn)** | **Remove `--no-cache --refresh` from mcp.json configs** |
 | **Duplicates keep returning** | **Check ALL tools: ~/.cursor/, ~/.windsurf/, ~/Library/Application Support/Claude/** |
+| Coplay MCP not consumed | Kill dupes (`pkill -f mcp-for-unity`), wait 20s+ after domain reload |
+| Coplay stalled in Play Mode | Domain reload deferred in Play Mode. Exit Play Mode first, then retry |
 | Unity MCP not responding | Window > MCP for Unity > Start Server |
 | JetBrains MCP slow | Check Rider is open and indexed |
 | **JetBrains "projectPath doesn't correspond"** | **Project not open in Rider → use Glob/Grep/Read instead** |

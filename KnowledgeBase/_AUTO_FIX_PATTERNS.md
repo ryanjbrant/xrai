@@ -55,6 +55,26 @@ foreach (var binder in FindObjectsByType<VFXARBinder>(FindObjectsSortMode.None))
 }
 ```
 
+### Edit-Mode Safe Destroy
+```csharp
+// WRONG - crashes in Edit Mode (tests, [InitializeOnLoad], etc.)
+Object.Destroy(obj);
+
+// CORRECT - works in both modes
+if (Application.isPlaying) Object.Destroy(obj);
+else Object.DestroyImmediate(obj);
+```
+
+### Regex Empty Array Matching
+```csharp
+// WRONG - .+ requires content, won't match "actions":[]
+var pattern = "\"actions\":\\s*\\[(.+)\\]";
+
+// CORRECT - .* matches empty arrays too
+var pattern = "\"actions\":\\s*\\[(.*)\\]";
+// Then check: if (string.IsNullOrEmpty(innerContent.Trim())) return early
+```
+
 ### Null-Safe Component Access
 ```csharp
 // WRONG
