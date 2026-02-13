@@ -181,3 +181,28 @@ KEY INSIGHT - Memory Best Practice:
 - Built-in alternatives (--resume, LEARNING_LOG, KB files) work fine
 - Simpler = more reliable: manual /save + auto-load on start
 
+
+## 2026-02-12 15:49 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by SessionEnd (other) in `metavidovfx-main`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+## 2026-02-13 - Portals Main - Re-Migration Execution Guardrails
+- **Discovery**: For Metavido re-migration, manifest-driven dependency closure is the reliable execution unit; raw `.vfx` tree counts overstate production scope.
+- **Evidence**:
+  - Source production index tracks 88 VFX, while source roots include additional legacy/sample/variant assets.
+  - Phase 1 manifests already expose unresolved dependencies (`_deps_unresolved_guids.txt` currently 280 entries).
+  - Origin mapping is mostly aligned, but `H3M` remains unresolved and must stay blocked until source provenance is explicitly confirmed.
+- **Execution Rules**:
+  - Copy from `specs/migration/` manifests (`_deps_full.json`, `_deps_full_paths.txt`), preserving `.meta` files.
+  - Gate Phase 2 on compile + missing GUID/script/shader scan + hologram binding spot-check.
+  - Keep `VFXARBinder` pipeline and `fresh_hologram.vfx` unchanged during migration.
+- **Project References**: `specs/migration/RE_MIGRATION_PLAN.md`, `specs/METAVIDO_MIGRATION_STRATEGY.md`, `TODO.md`
+- **Category**: migration
+- **ROI**: High - prevents asset drift and broken references during copy-heavy migration work.

@@ -1,0 +1,626 @@
+vfx_graph,dependency_count,unresolved_guid_count,dependencies,unresolved_guids
+MetavidoVFX-main/Assets/3rdparty/ARTnGAME/GIBLI/SHADING/URP-LWRP-Shaders/VFX Graph/Orb Effect.vfx,0,0,,
+MetavidoVFX-main/Assets/3rdparty/ARTnGAME/GIBLI/Scripts GIBLI/AQUA/Test/Butterfly.vfx,0,0,,
+MetavidoVFX-main/Assets/3rdparty/ARTnGAME/GIBLI/TOON SHADERS/Daniel-ilett SHADERS/rain-urp/VFX/Rain.vfx,0,0,,
+MetavidoVFX-main/Assets/3rdparty/ARTnGAME/GIBLI/TOON SHADERS/rain-urp/VFX/Rain.vfx,0,0,,
+MetavidoVFX-main/Assets/3rdparty/ARTnGAME/GIBLI/URP IMAGE EFFECTS/urp-postprocessing-examples/Examples/Particle.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/3rdparty/VFX Graph_ParticleTrail/VFX/Trail_Line.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/3rdparty/VFX Graph_ParticleTrail/VFX/Trail_Line2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/3rdparty/VFX Graph_ParticleTrail/VFX/Trail_Ribbon.vfx,0,0,,
+MetavidoVFX-main/Assets/3rdparty/VFX Graph：Particle shaping application/VFX/Fire_Particles(SDF).vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/3rdparty/VFX Graph：Particle shaping application/VFX/Scifi_Particles(SDF).vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/3rdparty/VFX Graph：Particle shaping application/VFX/Snow_Particles(SDF).vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/3rdparty/VFXGraph_Collision edge line(SDF)/VFX/Collision edge line.vfx,1,1,MetavidoVFX-main/Assets/3rdparty/VFXGraph_Collision edge line(SDF)/VFX/Random Direction.vfxoperator (de450dca584aba6458a618d31a6a68ff),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Echovision/VFX/bufferedmesh_mesh_any_echovision.vfx,1,0,MetavidoVFX-main/Assets/Echovision/VFX/BufferedMesh_CalculateWave.vfxoperator (cc44d383f6f8f46bd91d61ef2f5c9e49),
+MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Brush.vfx,0,0,,
+MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Drops.vfx,3,0,MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetRandomVelocity.vfxblock (b2ab0b9435590491a8ebe778302928c9); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Injection.shadergraph (f86e9190bc1434427b89053a6e174d8f); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Streams.vfx,3,0,MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetRandomVelocity.vfxblock (b2ab0b9435590491a8ebe778302928c9); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Injection.shadergraph (f86e9190bc1434427b89053a6e174d8f); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/Bubbles.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/FilterByCanvasAlpha.vfxblock (acb0d3c4f11bc4aeca771257c0cc8f7e); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/Confetti.vfx,3,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/Sparkles.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/FilterByCanvasAlpha.vfxblock (acb0d3c4f11bc4aeca771257c0cc8f7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/PickColorFromCanvas.vfxblock (c2d992d0c6e9a49cd8b9e5b334805edd),
+MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/Streams.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/PickColorFromCanvas.vfxblock (c2d992d0c6e9a49cd8b9e5b334805edd); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD OnPlane VFX.vfx,0,0,,
+MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD VFX.vfx,4,1,MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Logo.shadergraph (6574525383082448c894961095b2eea4); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Line.shadergraph (898982bac307c462e8f3b512a52ac594); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD SourceMonitor.shadergraph (d2008343d08ad4efeb67670da95bb97c); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Frame.shadergraph (e4c0079f8168d43b4b1bb4c0e981f30f),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/H3M/VFX/hologram_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/AngularVelocity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/BasicTexIndex.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/BoundsGizmo.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/Capacity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/CollisionAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/CollisionBasicProperties.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/CollisionSimple.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/Context&Flow.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/DecalParticles.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/FlipbookBlending.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/FlipbookMode.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripGPUEvents.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripSingleBurst.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripsPeriodicBurst.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripsSpawnRate.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultipleOutputs.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/OrientAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/OrientFaceCamera.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/OrientFixedAxis.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/PivotAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/PivotAttribute.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/RotationAngle.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleMesh.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleSDF.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleSkinnedMesh.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleTexture2D.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SpawnContext.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/StripGPUEvent.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/StripProperties.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/StripSpawnRate.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/TexIndexAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/TriggerEventCollide.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Bonfire.vfx,0,0,,
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Flames.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Lightning.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Smoke.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Sparks.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/Scripts/PeopleOcclusion/peoplevfx_stencil_people_h3m.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Akvfx/leaves_stencil_people_akvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Akvfx/lines_stencil_people_akvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Akvfx/particles_stencil_people_akvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Akvfx/point_stencil_people_akvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Akvfx/spikes_stencil_people_akvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Akvfx/voxel_stencil_people_akvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Akvfx/web_stencil_people_akvfx.vfx,1,1,_ref/Akvfx/Assets/Vfx/WebUV.vfxoperator (b02fe397a69fdf1498419fd17bc778d3),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Anomask/anomask_face.vfx,0,1,,0432b3f87a97b438b926781f80619c06
+MetavidoVFX-main/Assets/VFX/Buddha/akparticles_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/akpoint_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/bubbles_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/capture_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/cubes_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/dparticles_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/filament_mesh_buddha.vfx,1,0,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/SubVFX/Color To Grey.vfxoperator (fbb2227db3f1a4767bbfc6a496a9745c),
+MetavidoVFX-main/Assets/VFX/Buddha/hologram_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/morph_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/particles_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/petals_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/plexus_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/points_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/rain_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/scanner_mesh_buddha.vfx,1,0,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/SubVFX/Color To Grey.vfxoperator (fbb2227db3f1a4767bbfc6a496a9745c),
+MetavidoVFX-main/Assets/VFX/Buddha/simple_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/squares_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/stream_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/triangles_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/voxel_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Buddha/wiper_mesh_buddha.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/CameraProxy/cameraproxy_depth_any_metavido.vfx,10,0,PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Line.shadergraph (04621315efeba7e4eb0642734dff2d6c); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/AxisLines.shadergraph (0707e208e9e76094aa3f78a38ebb962b); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Frustum.shadergraph (2156505cf46411c4baba2f251b217844); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/RulerLines.shadergraph (2d52ec5c69f846343a61253f5d4eb658); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/CircleAnimation.vfxoperator (47a750a1c50e19f4a88f387cc938885e); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Circle.shadergraph (93b5aef278037574eb20eea68ea6b203); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Cross.shadergraph (9deacc7c60bc791489e7fc56bf890f41); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/RulerLines.vfxoperator (a80d49b97b9652d4c98f098199afa74f); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/ProjectionLine.shadergraph (ae46b3c2c7b1940488da0e1a55a923f3); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/ImagePlane.shadergraph (dbde17b61eadaae42a11968b933626ed),
+MetavidoVFX-main/Assets/VFX/Compute/indirect_compute_minimalcompute.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Compute/meshdeform_compute_minimalcompute.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Dcam/aura_people_dcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Dcam/electrify_people_dcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Dcam/eyes_people_dcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Dcam/orb_environment_dcam2.vfx,0,1,,cfdcfb0c6bb9c4053b5d39baa8a7343f
+MetavidoVFX-main/Assets/VFX/Dcam/particles_people_dcam2.vfx,1,0,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),
+MetavidoVFX-main/Assets/VFX/Dcam/petals_environment_dcam2.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Dcam/ribbons_environment_dcam2.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Dcam/sparkles_environment_dcam2.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Dcam/speedline_environment_dcam2.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Dcam/spikes_people_dcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Dcam/tentacles_people_dcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Dcam/title_environment_dcam2.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Dcam/wiper_environment_dcam2.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/DrumPad/drums_audio.vfx,0,1,,e77cbcc6ce5f9489f96ada632165449d
+MetavidoVFX-main/Assets/VFX/Environment/markers_depth_environment_h3m.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Environment/ribbons_depth_environment_h3m.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Environment/swarm_environment_rcam3.vfx,1,1,MetavidoVFX-main/Assets/VFX/Environment/Explosion.shadergraph (3a6ce14bef78343499e9335b76f459f3),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Environment/warp_environment_h3m.vfx,1,1,PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/ProjectionLine.shadergraph (ae46b3c2c7b1940488da0e1a55a923f3),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Environment/worldgrid_environment_h3m.vfx,1,0,MetavidoVFX-main/Assets/VFX/Environment/WorldGrid.shadergraph (ea71785917490744aad7bb91d8a6fe32),
+MetavidoVFX-main/Assets/VFX/Essentials/2dgrid_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 20c43ca4c51995843accf0ad35377a1c
+MetavidoVFX-main/Assets/VFX/Essentials/attractionrepulsion_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; b6d2508e9fbe66348b8c2b7cf2ac7788
+MetavidoVFX-main/Assets/VFX/Essentials/autumn_leaves_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; e8711a4678c47a2479fb99c8086a1c29
+MetavidoVFX-main/Assets/VFX/Essentials/buffers_boids_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 6cdb6c114cabe164f964768ca426d45f
+MetavidoVFX-main/Assets/VFX/Essentials/buffers_texturebuffer_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 6cdb6c114cabe164f964768ca426d45f
+MetavidoVFX-main/Assets/VFX/Essentials/burningobject_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; f5d24a48e3f16534ba146b297177fdd7
+MetavidoVFX-main/Assets/VFX/Essentials/insectsaroundalamp_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; b6d2508e9fbe66348b8c2b7cf2ac7788
+MetavidoVFX-main/Assets/VFX/Essentials/jitterpointcloud_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 6cdb6c114cabe164f964768ca426d45f
+MetavidoVFX-main/Assets/VFX/Essentials/masterbook_any_essentials.vfx,0,3,,081ffb0090424ba4cb05370a42ead6b9; 74cac6a6bc0909f4d8cd68674d41e4f8; b6d2508e9fbe66348b8c2b7cf2ac7788
+MetavidoVFX-main/Assets/VFX/Essentials/movementdirection_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; b6d2508e9fbe66348b8c2b7cf2ac7788
+MetavidoVFX-main/Assets/VFX/Essentials/noise_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Essentials/particles_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Essentials/particles_trails_falling_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Essentials/pickup_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; b6d2508e9fbe66348b8c2b7cf2ac7788
+MetavidoVFX-main/Assets/VFX/Essentials/pointcache_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; f5d24a48e3f16534ba146b297177fdd7
+MetavidoVFX-main/Assets/VFX/Essentials/smbase_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Essentials/smbase_empty_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Essentials/smbase_subemitter_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Essentials/smbase_velocity_emitter_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Essentials/statuepointcache_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 15a4193579872b749aff8c062c27b310
+MetavidoVFX-main/Assets/VFX/Essentials/texture2d_any_essentials.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 6cdb6c114cabe164f964768ca426d45f
+MetavidoVFX-main/Assets/VFX/Essentials/waveform_any_essentials.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/FaceTracking/cubeface_face_facetracking.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/FaceTracking/dokabenlogo_face_facetracking.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/FloatingHUD/projector_hud.vfx,3,2,MetavidoVFX-main/Assets/VFX/FloatingHUD/ProjectorBarcode.shadergraph (c1b87960438a14a79b171905c5180db2); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Frame.shadergraph (e4c0079f8168d43b4b1bb4c0e981f30f); MetavidoVFX-main/Assets/VFX/FloatingHUD/ProjectorAdditive.shadergraph (f9a1d56382f454d07bdf9279f6945bb6),103a729dc119c47f5bb22457ecea19d0; a7ceb1b2e66da4573a2592cbb2562881
+MetavidoVFX-main/Assets/VFX/Fluo/brush_brush_fluo.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Fluo/bubbles_environment_fluo.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/FilterByCanvasAlpha.vfxblock (acb0d3c4f11bc4aeca771257c0cc8f7e); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/VFX/Fluo/confetti_environment_fluo.vfx,3,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/VFX/Fluo/drops_brush_fluo.vfx,3,0,MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetRandomVelocity.vfxblock (b2ab0b9435590491a8ebe778302928c9); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Injection.shadergraph (f86e9190bc1434427b89053a6e174d8f); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/VFX/Fluo/hud_onplane_ui_fluo.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Fluo/hud_ui_fluo.vfx,4,1,MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Logo.shadergraph (6574525383082448c894961095b2eea4); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Line.shadergraph (898982bac307c462e8f3b512a52ac594); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD SourceMonitor.shadergraph (d2008343d08ad4efeb67670da95bb97c); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Frame.shadergraph (e4c0079f8168d43b4b1bb4c0e981f30f),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Fluo/sparkles_environment_fluo.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/FilterByCanvasAlpha.vfxblock (acb0d3c4f11bc4aeca771257c0cc8f7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/PickColorFromCanvas.vfxblock (c2d992d0c6e9a49cd8b9e5b334805edd),
+MetavidoVFX-main/Assets/VFX/Fluo/streams_environment_fluo.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/PickColorFromCanvas.vfxblock (c2d992d0c6e9a49cd8b9e5b334805edd); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+MetavidoVFX-main/Assets/VFX/FungiSync/0_EffectTemplate/0_EffectTemplate_VFX.vfx,1,1,MetavidoVFX-main/Assets/VFX/FungiSync/0_EffectTemplate/0_EffectTemplate_VFX_ShaderGraph.shadergraph (2eda7ab945b324b249623b465cb71b96),72225f708cda34912922f8da5041b0a1
+MetavidoVFX-main/Assets/VFX/FungiSync/1_Fungus/1_Effect_Fungus.vfx,1,1,MetavidoVFX-main/Assets/VFX/FungiSync/1_Fungus/Fungus.shadergraph (33b2db5b9b683409795ddc95b34ec77f),3cf774b3dfd8e467981e2b67747ee200
+MetavidoVFX-main/Assets/VFX/FungiSync/2_Crystal/2_Crystal_vfx.vfx,1,0,MetavidoVFX-main/Assets/VFX/FungiSync/2_Crystal/Crystal.shadergraph (efc30f15332cf46faa5d06a3e04b4784),
+MetavidoVFX-main/Assets/VFX/FungiSync/3_Spike/3_Effect_Spike-old.vfx,1,0,MetavidoVFX-main/Assets/VFX/FungiSync/3_Spike/Spike.shadergraph (3d2662b1aa46348f8a3d01eec85880b3),
+MetavidoVFX-main/Assets/VFX/FungiSync/3_Spike/3_Effect_Splike.vfx,1,1,MetavidoVFX-main/Assets/VFX/FungiSync/3_Spike/Spike.shadergraph (3d2662b1aa46348f8a3d01eec85880b3),72225f708cda34912922f8da5041b0a1
+MetavidoVFX-main/Assets/VFX/FungiSync/4_Lantern/4_Effect_Lantern.vfx,1,0,MetavidoVFX-main/Assets/VFX/FungiSync/4_Lantern/Lantern.shadergraph (397b013adf73c478cbf9b3c8ec751132),
+MetavidoVFX-main/Assets/VFX/FungiSync/BufferedMesh.vfx,2,1,MetavidoVFX-main/Assets/Echovision/Materials/ParticleEmissive.shadergraph (0baef10a1c5254cf18cc7570f2768566); MetavidoVFX-main/Assets/Echovision/VFX/BufferedMesh_CalculateWave.vfxoperator (cc44d383f6f8f46bd91d61ef2f5c9e49),575bab0de27a245edbb520f7c6eb5fea
+MetavidoVFX-main/Assets/VFX/FungiSync/DebugVFX_VertexAndNormal.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/FungiSync/Handshake.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/GeoVfx/population_data_geo.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/GeoVfx/temperature_data_geo.vfx,0,1,,290aae4b4f346fe41875662b4e760cca
+MetavidoVFX-main/Assets/VFX/HumanEffects/humancube_stencil_people_h3m.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Keijiro/bars_environment_keijiro.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Keijiro/cloud_environment_keijiro.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Keijiro/core_environment_keijiro.vfx,0,1,,8aa33d7d9a35d4962b832be15b3bb1f8
+MetavidoVFX-main/Assets/VFX/Keijiro/cyclone_environment_keijiro.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Keijiro/emoji_environment_keijiro.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; bdb261ad3aec0c5bdaa2db17da657fd1
+MetavidoVFX-main/Assets/VFX/Keijiro/explosion_environment_keijiro.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; f7851a8b1e5fb24e09eb7839f8a6a148
+MetavidoVFX-main/Assets/VFX/Keijiro/flower_environment_keijiro.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Keijiro/glowcube_environment_keijiro.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Keijiro/gradients_environment_keijiro.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 126917f48a4a06c429554de4e63d297c
+MetavidoVFX-main/Assets/VFX/Keijiro/ivy_environment_keijiro.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Keijiro/petal_environment_keijiro.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Keijiro/plexus_environment_keijiro.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Keijiro/rainbow_environment_keijiro.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; c76517ecea3317d41b3069b47f25b220
+MetavidoVFX-main/Assets/VFX/Keijiro/ribbon_environment_keijiro.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Keijiro/sphere_environment_keijiro.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Keijiro/tape_environment_keijiro.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 40272e1f0d6d148cca6da401af22390c
+MetavidoVFX-main/Assets/VFX/Khoreo/arch_stage_khoreo.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Khoreo/body_dancer_khoreo.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Khoreo/dust_stage_khoreo.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Khoreo/projector_hud_khoreo.vfx,1,5,MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Frame.shadergraph (e4c0079f8168d43b4b1bb4c0e981f30f),081ffb0090424ba4cb05370a42ead6b9; 103a729dc119c47f5bb22457ecea19d0; 34c6aebf3383f46478b5c0e9cd6b3a29; 41a8b7219f819420da7cdd287469f00e; a7ceb1b2e66da4573a2592cbb2562881
+MetavidoVFX-main/Assets/VFX/Khoreo/stream_stage_khoreo.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Khoreo/waveform_audio_khoreo.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Khoreo/wig_dancer_khoreo.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/LaspVfx/lissajous_audio_lasp.vfx,1,1,MetavidoVFX-main/Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/Sample Waveform.vfxoperator (7f3e35c57e2114b4d90dd54a7003db88),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/LaspVfx/particles_audio_lasp.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/LaspVfx/spectrogram_audio_lasp.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/LaspVfx/waveform_audio_lasp.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Metavido/afterimage_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Metavido/bodyparticles_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/Metavido/particles_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/Metavido/voxels_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/Myaku/VFX_MyakuMyaku.vfx,1,0,MetavidoVFX-main/Assets/VFX/Myaku/SG_MetaballPrepass.shadergraph (481b598dca2f6425cbff883dd75f7382),
+MetavidoVFX-main/Assets/VFX/Myaku/myakumyaku_ar_myaku.vfx,1,0,MetavidoVFX-main/Assets/VFX/Myaku/SG_MetaballPrepass.shadergraph (481b598dca2f6425cbff883dd75f7382),
+MetavidoVFX-main/Assets/VFX/NNCam2/electrify_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/eyes_any_nncam2 1.vfx,2,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint World.vfxoperator (69374374b83d4400db2bb56f0970b48d); MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/eyes_any_nncam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint World.vfxoperator (69374374b83d4400db2bb56f0970b48d); MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/joints_any_nncam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb); MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/mosaic_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/particle_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/petals_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/spikes_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/symbols_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/NNCam2/tentacles_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/People/bubbles_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam4/Body/Bubble.shadergraph (3d80fea2937c748b9ad57639f4c6403b),
+MetavidoVFX-main/Assets/VFX/People/fresh_hologram.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/People/glitch_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),
+MetavidoVFX-main/Assets/VFX/People/hifi_hologram_optimized.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/People/hifi_hologram_people.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/People/hifi_hologram_pointcloud.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/People/humancube_stencil_people_h3m.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/People/lifelike_hologram.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/People/particles_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/People/trails_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/aruigalaxy_environment_portals6.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Portals6/bubble_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/butterfly_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/cyclone_environment_portals6.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Portals6/fireworks1_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/fireworks2_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/fireworks3_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/galaxy_environment_portals6.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Portals6/ivy_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/lissajous_audio_portals6.vfx,1,1,MetavidoVFX-main/Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/Sample Waveform.vfxoperator (7f3e35c57e2114b4d90dd54a7003db88),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Portals6/magicball_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/particles_audio_portals6.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Portals6/portal1_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/portal2_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/rainbow_environment_portals6.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; c76517ecea3317d41b3069b47f25b220
+MetavidoVFX-main/Assets/VFX/Portals6/smoke_environment_portals6.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 87a9e8f534af7b14fac6338d8812fba6
+MetavidoVFX-main/Assets/VFX/Portals6/snow_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/solarsystem_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/spectrogram_audio_portals6.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Portals6/starfield_environment_portals6.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Portals6/sun_environment_portals6.vfx,0,2,,04a2fe8643c95c646bec651022acca98; 081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Portals6/waveform_audio_portals6.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/brush_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/bubble_depth_people_rcam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/Bubble.shadergraph (218a55e103208c9439d31b8190b50f3b); MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/dot_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/fragment_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/glitch_depth_people_rcam2.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/petal_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/point_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/spark_depth_people_rcam2 1.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/spark_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/spike_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/trail_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/voxel_depth_people_rcam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/Voxel.shadergraph (b9683a275c4d6fd4993f7ff205a182f1); MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/Eyeball/eyeball_environment_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/Eyeball/Eyeball.shadergraph (5a539c59b44bfff43982e50b38bc70f8),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/candy_environment_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/TexturelessStripMasked.shadergraph (ea2f4ee59c38c0149bd6aa3bc5483485),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/emoji_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/floor_environment_rcam2.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/Floor.shadergraph (617f1fb2adc9aa145ab053d8cd40960c),
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/particle_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/petal_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/ribbon_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/text_environment_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/Text.shadergraph (9b49675e3e7223347b4c0f1aa284ea2a),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/warp_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/brush_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/bubble_depth_people_rcam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/Bubble.shadergraph (218a55e103208c9439d31b8190b50f3b); MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/candy_environment_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/TexturelessStripMasked.shadergraph (ea2f4ee59c38c0149bd6aa3bc5483485),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/dot_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/emoji_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/eyeball_environment_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/Eyeball/Eyeball.shadergraph (5a539c59b44bfff43982e50b38bc70f8),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/floor_environment_rcam2.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/Floor.shadergraph (617f1fb2adc9aa145ab053d8cd40960c),
+MetavidoVFX-main/Assets/VFX/Rcam2/fragment_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/glitch_depth_people_rcam2.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),
+MetavidoVFX-main/Assets/VFX/Rcam2/particle_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/petal_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/petal_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/point_depth_people_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/ribbon_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/spark_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/spike_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/text_environment_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/EnvFX/Text.shadergraph (9b49675e3e7223347b4c0f1aa284ea2a),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/trail_depth_people_rcam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/voxel_depth_people_rcam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/Voxel.shadergraph (b9683a275c4d6fd4993f7ff205a182f1); MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam2/warp_environment_rcam2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam3/flame_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam3/grid_any_rcam3.vfx,1,0,MetavidoVFX-main/Assets/VFX/Environment/WorldGrid.shadergraph (ea71785917490744aad7bb91d8a6fe32),
+MetavidoVFX-main/Assets/VFX/Rcam3/particles_any_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam3/plexus_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam3/points_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam3/scanlines_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam3/sparkles_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam3/sweeper_any_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/balls_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/bubbles_depth_people_rcam4.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam4/Body/Bubble.shadergraph (3d80fea2937c748b9ad57639f4c6403b),
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/flame_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/lightning_depth_people_rcam4.vfx,2,1,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Filter.vfxoperator (3e28bb0a913dd4ce78986357bd9c92ed); _ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Sample.vfxoperator (a13ccf5fcbe0d4905b86e48e4f521d68),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/pointcloud_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/sparkles_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/spikes_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/trails_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Body/voxels_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Environment/petals_environment_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Environment/shards_environment_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/Environment/speedlines_environment_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/balls_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/bubbles_depth_people_rcam4.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam4/Body/Bubble.shadergraph (3d80fea2937c748b9ad57639f4c6403b),
+MetavidoVFX-main/Assets/VFX/Rcam4/flame_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/grid_environment_rcam4.vfx,1,0,MetavidoVFX-main/Assets/VFX/Environment/WorldGrid.shadergraph (ea71785917490744aad7bb91d8a6fe32),
+MetavidoVFX-main/Assets/VFX/Rcam4/lightning_depth_people_rcam4.vfx,2,1,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Filter.vfxoperator (3e28bb0a913dd4ce78986357bd9c92ed); _ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Sample.vfxoperator (a13ccf5fcbe0d4905b86e48e4f521d68),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Rcam4/petals_environment_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/pointcloud_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/rcam4_depth_people_rcam4.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/Rcam4/shards_environment_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/sparkles_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/speedlines_environment_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/spikes_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/trails_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Rcam4/voxels_depth_people_rcam4.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/SdfVfx/blocks_environment_sdfvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/SdfVfx/circuits_environment_sdfvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/SdfVfx/grape_environment_sdfvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/SdfVfx/stickies_environment_sdfvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/SdfVfx/trails_environment_sdfvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Smrvfx/lines_mesh_smrvfx.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 4ed9be80555ae634e94916d1c2dbfa69
+MetavidoVFX-main/Assets/VFX/Smrvfx/particles_mesh_smrvfx.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 4ed9be80555ae634e94916d1c2dbfa69
+MetavidoVFX-main/Assets/VFX/Splat/marker_any_splatvfx.vfx,1,0,_ref/SplatVFX/URP/Assets/Misc/Marker.shadergraph (c2acb8397c2093c44833a50f2b87784f),
+MetavidoVFX-main/Assets/VFX/Splat/projection_test_splatvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Splat/splat_gaussian_splatvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Tamagotchu/decal_any_tamagotchu.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Tamagotchu/flipbooks_any_tamagotchu.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Tamagotchu/human_any_tamagotchu.vfx,1,0,_ref/TamagotchU/Assets/Shaders/VatGraph.shadergraph (fe71c0dda18807344ba47508d2f1fe50),
+MetavidoVFX-main/Assets/VFX/Tamagotchu/thorn_any_tamagotchu.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Testbed4/age_env.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Testbed4/flame_env.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Testbed4/random_env.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/UnitySamples/arradar_ar_unity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/UnitySamples/bonfire_environment_bonfire.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; b0fc71eacd48a9f43947c48d630a7ca2
+MetavidoVFX-main/Assets/VFX/UnitySamples/book_environment_magicbook.vfx,0,4,,081ffb0090424ba4cb05370a42ead6b9; 661085011ecd51e4eb9919f98c7ce977; a9c5a3587ffe1b342b45f891cb0d0ec0; e623b5371724fab4b98f08c2523366c1
+MetavidoVFX-main/Assets/VFX/UnitySamples/butterflies_environment_unity.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/UnitySamples/chain_environment_magicbook.vfx,0,1,,0f55f867ac9350f45864c8a19670b26b
+MetavidoVFX-main/Assets/VFX/UnitySamples/clouds_environment_bonfire.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; b2a4ee630d2043d44906908a3703ad7d
+MetavidoVFX-main/Assets/VFX/UnitySamples/fireembers_environment_magicbook.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/UnitySamples/floatingrock_environment_magicbook.vfx,0,2,,04082d27d7b80744a83dbf766a680d32; 0f55f867ac9350f45864c8a19670b26b
+MetavidoVFX-main/Assets/VFX/UnitySamples/flyingleaves_environment_bonfire.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; d7b8de4299b5e51498519b52bb4a3da3
+MetavidoVFX-main/Assets/VFX/UnitySamples/geniefx_environment_unity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/UnitySamples/grass_environment_unity.vfx,0,1,,197a881ae2a73b7478cb2f371ecfa61a
+MetavidoVFX-main/Assets/VFX/UnitySamples/jacobsladder_environment_magicbook.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/UnitySamples/liquid_environment_magicbook.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/UnitySamples/morphingface_face_unity.vfx,0,1,,26585bf43ba57c441b1ecfef4562f603
+MetavidoVFX-main/Assets/VFX/UnitySamples/portal1_environment_unity.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; a00ea9360a500a046b7289ccddea56d6
+MetavidoVFX-main/Assets/VFX/UnitySamples/portal2_environment_unity.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; b32553a490760bc4bb9017cf711f9195
+MetavidoVFX-main/Assets/VFX/UnitySamples/ribbonpack_environment_unity.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/UnitySamples/sandfx_environment_unity.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; e07e1c4a20ad77547bb9ffbe108d2a19
+MetavidoVFX-main/Assets/VFX/UnitySamples/volumetric_environment_unity.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/UnitySamples/voxelizedterrain_environment_unity.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/WebRTC/collision_edge_sdf_webrtc.vfx,1,1,MetavidoVFX-main/Assets/3rdparty/VFXGraph_Collision edge line(SDF)/VFX/Random Direction.vfxoperator (de450dca584aba6458a618d31a6a68ff),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/WebRTC/fire_sdf_webrtc.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/WebRTC/scifi_sdf_webrtc.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/WebRTC/snow_sdf_webrtc.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/WebRTC/trail_line2_webrtc.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/WebRTC/trail_line_webrtc.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/WebRTC/trail_ribbon_webrtc.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_A.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_A_Single.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_B.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_B_Single.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_Logo.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_Logo_Single.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_Polar.vfx,0,1,,a987030efe71b4b9b97b83fd8997e27b
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_Text.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Fireworks/V_Firework_Text_Single.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Ladder/MoonLadder.vfx,1,1,MetavidoVFX-main/Assets/VFX/Zuzaland/Ladder/EnergyFlow.shadergraph (b67e4288ca2ff483ab041db1c69e3fef),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Zuzaland/Ladder/MoonLadderWithHand.vfx,1,1,MetavidoVFX-main/Assets/VFX/Zuzaland/Ladder/EnergyFlow.shadergraph (b67e4288ca2ff483ab041db1c69e3fef),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Zuzaland/Monument/Monument_0.vfx,2,1,MetavidoVFX-main/Assets/VFX/Zuzaland/Monument/CubexLine.shadergraph (07f1725b607c943bb831c1fdb738a2dd); MetavidoVFX-main/Assets/VFX/Zuzaland/Monument/Monument_Flare.shadergraph (a1d98124984094694b1c60f42548c23a),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Zuzaland/Monument/Monument_0_BU05201405.vfx,1,1,MetavidoVFX-main/Assets/VFX/Zuzaland/Monument/CubexLine.shadergraph (07f1725b607c943bb831c1fdb738a2dd),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/Zuzaland/Monument/Monument_TextChain.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/Zuzaland/Whisper/WhisperWind.vfx,1,1,MetavidoVFX-main/Assets/VFX/Zuzaland/Whisper/TypoBubble.shadergraph (7c591cdee51fc4c5caea7b1d2d4ab916),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/blocks_environment_sdfvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/bodyparticles_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/bubble_depth_people_metavido.vfx,2,1,MetavidoVFX-main/Assets/VFX/Rcam2/BodyFX/Bubble.shadergraph (218a55e103208c9439d31b8190b50f3b); MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/bubbles_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam4/Body/Bubble.shadergraph (3d80fea2937c748b9ad57639f4c6403b),
+MetavidoVFX-main/Assets/VFX/circuits_environment_sdfvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/electrify_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/eyes_any_nncam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint World.vfxoperator (69374374b83d4400db2bb56f0970b48d); MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/flame_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/flame_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/glitch_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Rcam2/Subgraph/Hue Animation.vfxoperator (e356402c160b5314caa50bad6ae260ca),
+MetavidoVFX-main/Assets/VFX/grape_environment_sdfvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/grid_any_rcam3.vfx,1,0,MetavidoVFX-main/Assets/VFX/Environment/WorldGrid.shadergraph (ea71785917490744aad7bb91d8a6fe32),
+MetavidoVFX-main/Assets/VFX/humancube_stencil_people_h3m.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/joints_any_nncam2.vfx,2,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb); MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/leaves_stencil_people_akvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/lines_stencil_people_akvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/markers_depth_environment_h3m.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/mosaic_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/particle_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/particles_any_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/particles_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/particles_stencil_people_akvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/petals_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/plexus_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/point_stencil_people_akvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/pointcloud_depth_people_metavido 1.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/pointcloud_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/points_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/rcam3flame_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/rcam3sparkles_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/rcam4_depth_people_rcam4.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/ribbons_depth_environment_h3m.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/scanlines_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/sparkles_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/sparkles_depth_people_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/spikes_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/spikes_stencil_people_akvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/stickies_environment_sdfvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/swarm_environment_rcam3.vfx,1,1,MetavidoVFX-main/Assets/VFX/Environment/Explosion.shadergraph (3a6ce14bef78343499e9335b76f459f3),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/sweeper_any_rcam3.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/symbols_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/tentacles_any_nncam2.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/trails_depth_people_metavido.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/trails_environment_sdfvfx.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/voxel_stencil_people_akvfx.vfx,0,0,,
+MetavidoVFX-main/Assets/VFX/voxels_depth_people_metavido.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+MetavidoVFX-main/Assets/VFX/warp_environment_h3m.vfx,1,1,PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/ProjectionLine.shadergraph (ae46b3c2c7b1940488da0e1a55a923f3),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/web_stencil_people_akvfx.vfx,1,1,_ref/Akvfx/Assets/Vfx/WebUV.vfxoperator (b02fe397a69fdf1498419fd17bc778d3),081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/VFX/worldgrid_environment_h3m.vfx,1,0,MetavidoVFX-main/Assets/VFX/Environment/WorldGrid.shadergraph (ea71785917490744aad7bb91d8a6fe32),
+MetavidoVFX-main/Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/VfxGraphTestbed/Plex-Ribbons-21-Sketch201210/Plexus 1.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+MetavidoVFX-main/Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/VfxGraphTestbed/Plex-Ribbons-21-Sketch201210/Ribbon 1.vfx,0,0,,
+MetavidoVFX-main/Assets/__Procedural VFX Library 1.0 Prototypes/VFX Graphs/LissajousPlex 2.vfx,1,0,MetavidoVFX-main/Assets/__Procedural VFX Library 1.0 Prototypes/Extra sketches/Common/Sample Waveform.vfxoperator (7f3e35c57e2114b4d90dd54a7003db88),
+PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/cameraproxy_depth_any_metavido.vfx,10,0,PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Line.shadergraph (04621315efeba7e4eb0642734dff2d6c); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/AxisLines.shadergraph (0707e208e9e76094aa3f78a38ebb962b); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Frustum.shadergraph (2156505cf46411c4baba2f251b217844); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/RulerLines.shadergraph (2d52ec5c69f846343a61253f5d4eb658); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/CircleAnimation.vfxoperator (47a750a1c50e19f4a88f387cc938885e); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Circle.shadergraph (93b5aef278037574eb20eea68ea6b203); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/Cross.shadergraph (9deacc7c60bc791489e7fc56bf890f41); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/RulerLines.vfxoperator (a80d49b97b9652d4c98f098199afa74f); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/ProjectionLine.shadergraph (ae46b3c2c7b1940488da0e1a55a923f3); PortalsV4_Migration_Staging/Assets/VFX/CameraProxy/ImagePlane.shadergraph (dbde17b61eadaae42a11968b933626ed),
+PortalsV4_Migration_Staging/Assets/VFX/People/hifi_hologram_people.vfx,1,0,MetavidoVFX-main/Assets/VFX/Metavido/UpdateMetavidoDepth.vfxblock (5de35a2c3246e4dd88146d76abd9deed),
+PortalsV4_Migration_Staging/Assets/VFX/People/lifelike_hologram.vfx,0,0,,
+_ref/Akvfx/Assets/Vfx/Leaves.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; c6841bdef989b6d408d7298703cfde75
+_ref/Akvfx/Assets/Vfx/Lines.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/Akvfx/Assets/Vfx/Particles.vfx,2,1,_ref/Akvfx/Assets/Texture/Disk.png (30a7a1b9969420f6cafa1afd027b8c8a); _ref/Akvfx/Assets/Texture/Stretched.png (85a0a40e93e5e7d95ba547f4c0598e2a),081ffb0090424ba4cb05370a42ead6b9
+_ref/Akvfx/Assets/Vfx/Point.vfx,1,1,_ref/Rsvfx/Assets/Test/Misc/Dot.png (0f2c630f714d8338083dc7d763249d4a),081ffb0090424ba4cb05370a42ead6b9
+_ref/Akvfx/Assets/Vfx/Spikes.vfx,1,2,_ref/NNCam2/Assets/VFX/Spike.obj (c048c8a9824a9db47899461552258cb9),081ffb0090424ba4cb05370a42ead6b9; c6841bdef989b6d408d7298703cfde75
+_ref/Akvfx/Assets/Vfx/Voxel.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; c6a3b07e33d5ca746aef56156b9a4e4b
+_ref/Akvfx/Assets/Vfx/Web.vfx,1,1,_ref/Akvfx/Assets/Vfx/WebUV.vfxoperator (b02fe397a69fdf1498419fd17bc778d3),081ffb0090424ba4cb05370a42ead6b9
+_ref/FaceTrackingVFX/Assets/FaceTracking-VFX/VFXGraph/CubeFace.vfx,2,0,_ref/FaceTrackingVFX/Assets/FaceTracking-VFX/Textures/white.png (038f2e31064246a4c93b36953c4e5bf1); _ref/FaceTrackingVFX/Assets/FaceTracking-VFX/Textures/Position.renderTexture (f2ecc2af3fc446546acb74b50b7695d8),
+_ref/FaceTrackingVFX/Assets/FaceTracking-VFX/VFXGraph/DokabenLogoFace.vfx,3,0,_ref/FaceTrackingVFX/Assets/FaceTracking-VFX/Textures/DokabenLogo/DokabenAnimation.png (1d52cbd29302ebe48854082de75c161b); _ref/FaceTrackingVFX/Assets/FaceTracking-VFX/Textures/DokabenLogo/dokaben.png (4243098b544f3448e97b8720bfbf101d); _ref/FaceTrackingVFX/Assets/FaceTracking-VFX/Textures/Position.renderTexture (f2ecc2af3fc446546acb74b50b7695d8),
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/02 Brush/VFX/Brush.vfx,0,0,,
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/02 Brush/VFX/Drops.vfx,3,0,MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetRandomVelocity.vfxblock (b2ab0b9435590491a8ebe778302928c9); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Injection.shadergraph (f86e9190bc1434427b89053a6e174d8f); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/02 Brush/VFX/Streams.vfx,3,0,MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetRandomVelocity.vfxblock (b2ab0b9435590491a8ebe778302928c9); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/Injection.shadergraph (f86e9190bc1434427b89053a6e174d8f); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/04 Visualizer/VFX/Bubbles.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/FilterByCanvasAlpha.vfxblock (acb0d3c4f11bc4aeca771257c0cc8f7e); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/04 Visualizer/VFX/Confetti.vfx,3,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/04 Visualizer/VFX/Sparkles.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/FilterByCanvasAlpha.vfxblock (acb0d3c4f11bc4aeca771257c0cc8f7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/PickColorFromCanvas.vfxblock (c2d992d0c6e9a49cd8b9e5b334805edd),
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/04 Visualizer/VFX/Streams.vfx,4,0,MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/MoveByVelocityField.vfxblock (a552faef346c74b509c0f0a99896e6e9); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/KillOutsideCanvas.vfxblock (a5ef18f6f70ad4d3d82b313771a71c7e); MetavidoVFX-main/Assets/Fluo/04 Visualizer/VFX/PickColorFromCanvas.vfxblock (c2d992d0c6e9a49cd8b9e5b334805edd); MetavidoVFX-main/Assets/Fluo/02 Brush/VFX/SetAnimatedColor.vfxblock (fb8362c8eda1847988634c75ae70404b),
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/05 HUD/VFX/HUD OnPlane VFX.vfx,0,0,,
+_ref/Fluo-GHURT-main/FluoVisualizer/Assets/05 HUD/VFX/HUD VFX.vfx,4,1,MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Logo.shadergraph (6574525383082448c894961095b2eea4); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Line.shadergraph (898982bac307c462e8f3b512a52ac594); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD SourceMonitor.shadergraph (d2008343d08ad4efeb67670da95bb97c); MetavidoVFX-main/Assets/Fluo/05 HUD/VFX/HUD Frame.shadergraph (e4c0079f8168d43b4b1bb4c0e981f30f),081ffb0090424ba4cb05370a42ead6b9
+_ref/MinimalCompute-6000.0/Assets/04_Indirect/04_3_ComputeParticlesIndirect_VFX/ComputeParticlesIndirect_VFX.vfx,0,0,,
+_ref/MinimalCompute-6000.0/Assets/06_Compute_Mesh/06_5_VFXGraphMeshDeform/VFXGraphMeshDeform.vfx,0,0,,
+_ref/MyakuMyakuAR-main-plantblobs/Assets/Prefabs/VFX/VFX_MyakuMyaku.vfx,1,0,MetavidoVFX-main/Assets/VFX/Myaku/SG_MetaballPrepass.shadergraph (481b598dca2f6425cbff883dd75f7382),
+_ref/NNCam2/Assets/VFX/Electrify.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Eyes.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Joints.vfx,2,1,MetavidoVFX-main/Assets/VFX/NNCam2/Get Keypoint.vfxoperator (d165f6ed4dc68443e9de23907e00d7bb); MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Mosaic.vfx,2,1,_ref/NNCam2/Assets/VFX/Mosaic.shadergraph (92e3d499ce20048fcbeb131c2e60cf93); MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Particle.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Petals.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Spikes.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Symbols.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+_ref/NNCam2/Assets/VFX/Tentacles.vfx,1,1,MetavidoVFX-main/Assets/VFX/NNCam2/UV To Position.vfxoperator (e00f0db16b1a44dc6ba36ebfaa80819e),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Environment/Grid.vfx,1,0,MetavidoVFX-main/Assets/VFX/Environment/WorldGrid.shadergraph (ea71785917490744aad7bb91d8a6fe32),
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Environment/Particles.vfx,0,0,,
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Environment/Sweeper.vfx,0,0,,
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Rcam/Flame.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Rcam/Plexus.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Rcam/Points.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Size.vfxblock (2dc02ad58b9804099b1cfa59a4a1845c),
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Rcam/Scanlines.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alpha.vfxblock (bcd3f312eef5c4364b54d6653c07f666),
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Rcam/Sparkles.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Rcam/Sweeper.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Balls.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Bubbles.vfx,2,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4); MetavidoVFX-main/Assets/VFX/Rcam4/Body/Bubble.shadergraph (3d80fea2937c748b9ad57639f4c6403b),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Flame.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Lightning.vfx,2,1,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Filter.vfxoperator (3e28bb0a913dd4ce78986357bd9c92ed); _ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Sample.vfxoperator (a13ccf5fcbe0d4905b86e48e4f521d68),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/PointCloud.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Size.vfxblock (2dc02ad58b9804099b1cfa59a4a1845c),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Sparkles.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Spikes.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Trails.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Body/Voxels.vfx,1,0,_ref/Rcam3/Rcam3Visualizer/Assets/VFX/Subgraphs/Rcam Modulate Alive.vfxblock (2b307190013f14053aa461dc7c3da7e4),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Environment/Grid.vfx,1,0,MetavidoVFX-main/Assets/VFX/Environment/WorldGrid.shadergraph (ea71785917490744aad7bb91d8a6fe32),
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Environment/Petals.vfx,0,0,,
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Environment/Shards.vfx,0,0,,
+_ref/Rcam4/Rcam4Visualizer/Assets/VFX/Environment/Speedlines.vfx,0,0,,
+_ref/Rsvfx/Assets/Test/Vfx/Bubbles.vfx,4,2,_ref/Rsvfx/Assets/Test/Misc/White.png (029e37fd0dd872420a994b30e051e33b); _ref/Rsvfx/Assets/Test/Misc/Icosphere.obj (71570a94aa698d236a530af90e27d8b1); _ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9; c6841bdef989b6d408d7298703cfde75
+_ref/Rsvfx/Assets/Test/Vfx/Capture.vfx,3,1,_ref/Rsvfx/Assets/Test/Misc/Dot.png (0f2c630f714d8338083dc7d763249d4a); _ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Cubes.vfx,3,2,_ref/Rsvfx/Assets/Test/Misc/White.png (029e37fd0dd872420a994b30e051e33b); _ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9; c6a3b07e33d5ca746aef56156b9a4e4b
+_ref/Rsvfx/Assets/Test/Vfx/Particles.vfx,2,1,_ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Petals.vfx,3,2,_ref/Rsvfx/Assets/Test/Misc/White.png (029e37fd0dd872420a994b30e051e33b); _ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9; c6841bdef989b6d408d7298703cfde75
+_ref/Rsvfx/Assets/Test/Vfx/Plexus.vfx,2,1,_ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Rain.vfx,2,1,_ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Scanner.vfx,2,1,_ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Simple.vfx,3,1,_ref/Rsvfx/Assets/Test/Misc/Dot.png (0f2c630f714d8338083dc7d763249d4a); _ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Squares.vfx,3,2,_ref/Rsvfx/Assets/Test/Misc/White.png (029e37fd0dd872420a994b30e051e33b); _ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9; d1622f1b21236b9418846ede6cf6bd40
+_ref/Rsvfx/Assets/Test/Vfx/Stream.vfx,2,1,_ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Triangles.vfx,2,1,_ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/Rsvfx/Assets/Test/Vfx/Wiper.vfx,2,1,_ref/Rsvfx/Assets/Test/Common/PositionVGA.renderTexture (d8e773d5bbad0c05c965e6b888e86b55); _ref/Rsvfx/Assets/Test/Common/ColorVGA.renderTexture (e96cdc3b37ad79be39d14ce547fe0da1),081ffb0090424ba4cb05370a42ead6b9
+_ref/SplatVFX/URP/Assets/Misc/Marker.vfx,1,0,_ref/SplatVFX/URP/Assets/Misc/Marker.shadergraph (c2acb8397c2093c44833a50f2b87784f),
+_ref/SplatVFX/URP/Assets/Misc/ProjectionTest.vfx,0,0,,
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/AngularVelocity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/BasicTexIndex.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/BoundsGizmo.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/Capacity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/CollisionAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/CollisionBasicProperties.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/CollisionSimple.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/Context&Flow.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/DecalParticles.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/FlipbookBlending.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/FlipbookMode.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripGPUEvents.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripSingleBurst.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripsPeriodicBurst.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultiStripsSpawnRate.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/MultipleOutputs.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/OrientAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/OrientFaceCamera.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/OrientFixedAxis.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/PivotAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/PivotAttribute.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/RotationAngle.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleMesh.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleSDF.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleSkinnedMesh.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SampleTexture2D.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/SpawnContext.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/StripGPUEvent.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/StripProperties.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/StripSpawnRate.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/TexIndexAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/Learning Templates/VFX/TriggerEventCollide.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Bonfire.vfx,0,0,,
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Flames.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Lightning.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Smoke.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/Samples/Visual Effect Graph/17.2.0/VisualEffectGraph Additions/VFX/Sparks.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/VFX/Decal_VFX.vfx,0,0,,
+_ref/TamagotchU/Assets/VFX/FlipBooks_VFX.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TamagotchU/Assets/VFX/Human_VFX.vfx,1,0,_ref/TamagotchU/Assets/Shaders/VatGraph.shadergraph (fe71c0dda18807344ba47508d2f1fe50),
+_ref/TamagotchU/Assets/VFX/Thorn_VFX.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/AkParticles.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/AkPoint.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Bubbles.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Capture.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Cubes.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/DParticles.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Filament.vfx,1,0,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/SubVFX/Color To Grey.vfxoperator (fbb2227db3f1a4767bbfc6a496a9745c),
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Hologram.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Morph.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Particles 1.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Particles.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Petals.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Plexus.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Points.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Rain.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Scanner.vfx,1,0,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/SubVFX/Color To Grey.vfxoperator (fbb2227db3f1a4767bbfc6a496a9745c),
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Simple.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Squares.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Stream.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Triangles.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Voxel.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/BuddhaVFX/Wiper.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/SeatVFX/Location Sample Circle.vfx,0,0,,
+_ref/TouchingHologram/Assets/Art Resources/Thumbnails/V_Squares_Thumbnail.vfx,0,0,,
+_ref/TouchingHologram/Assets/HoloKit/GUI/Assets/AR Placement/V_Placement Hook.vfx,0,0,,
+_ref/TouchingHologram/Assets/HoloKit/GUI/Assets/AR Placement/V_Placement Indicator.vfx,0,0,,
+_ref/TouchingHologram/Assets/HoloKit/GUI/Assets/Direction Indicator/Indicator.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/GUI/Assets/Hand/Hand Hook.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/PixelatedBirth/V_PixelatedBirth.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_PixelatedBirth_Cell.shadergraph (2e0fae7f375b24588837098bae561705),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_ARPlacementIndicator.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_ARPlacementIndicator_Birth.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_ARPlacementIndicator_Cell.shadergraph (c53b48519345844248cb3120da097731),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Beam.vfx,1,2,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_Beam.shadergraph (d58ecd5cb3570144096707cec12bd079),081ffb0090424ba4cb05370a42ead6b9; 9e7ed6d127c57c042bbce069a541b28a
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Bolt.vfx,1,0,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/SubVFX/Random Shaking.vfxoperator (c94e106c8a02c4646a11067261ae7233),
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_ChargingBar.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_ChargingBar.shadergraph (4f99dff5e81b54e4ba92619c78923a9b),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_ConstantImpulse.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/Legacy/SH_ConstantImpulse.shadergraph (b0bdf840ab28dcf4b81d87647a2d6988),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_DeathCountdown.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_DeathCountdown.shadergraph (2212b44b2fad344e5a3ad4357929284d),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_DeathCountdown_Enemy.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_DeathCountdown.shadergraph (2212b44b2fad344e5a3ad4357929284d),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_EnergyImpluse_Process.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_EnergyImpluse_Process.shadergraph (8873425ae32174079b1e023572e43c91),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Flare_Explosion.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Flare_Follow.vfx,2,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_Particle.shadergraph (0666067f8fba38c4d8421d994e8f92be); _ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/SubVFX/Random Shaking.vfxoperator (c94e106c8a02c4646a11067261ae7233),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Flare_Ground.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Fog.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/SubVFX/Random Direction(Cone).vfxoperator (9980aca94f2635342a4a8a51a30a4bf1),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_LifeCircle.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_LifeCircle_Backup.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Particle_Explosion.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_Particle.shadergraph (0666067f8fba38c4d8421d994e8f92be),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Particle_Follow.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_Particle.shadergraph (0666067f8fba38c4d8421d994e8f92be),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Particle_Linear_Explosion.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_Particle.shadergraph (0666067f8fba38c4d8421d994e8f92be),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Particle_Linear_Follow.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_Particle.shadergraph (0666067f8fba38c4d8421d994e8f92be),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Roundresult_Win.vfx,2,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_RoundReault_Win_Major.shadergraph (0842f4ad2817248519c37aaf2f620949); _ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_RoundReault_Win_Minor.shadergraph (29c76418abab54e31a57d2600212eafe),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_ScreenEffect_OnHit.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_ScreenEffect_OnHit.shadergraph (146a7fcbb62394416ba8cf24676a98c8),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_ScreenEffect_OnHit_WithTexture.vfx,1,1,_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/Shader/SH_ScreenEffect_OnHit_WithTexture.shadergraph (f48fd101fee7e4eed9771ce8fb5fef12),081ffb0090424ba4cb05370a42ead6b9
+_ref/TouchingHologram/Assets/HoloKit/VFXAssets/Assets/VFX/V_Trail.vfx,0,2,,081ffb0090424ba4cb05370a42ead6b9; 7a28ad8581ed63240b7940ab3e1768fb
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/AngularVelocity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/BasicTexIndex.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/BoundsGizmo.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/Capacity.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/CollisionAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/CollisionBasicProperties.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/CollisionSimple.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/Context&Flow.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/DecalParticles.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/FlipbookBlending.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/FlipbookMode.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/MultiStripGPUEvents.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/MultiStripSingleBurst.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/MultiStripsPeriodicBurst.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/MultiStripsSpawnRate.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/MultipleOutputs.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/OrientAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/OrientFaceCamera.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/OrientFixedAxis.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/PivotAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/PivotAttribute.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/RotationAngle.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/SampleMesh.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/SampleSDF.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/SampleSkinnedMesh.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/SampleTexture2D.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/SpawnContext.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/StripGPUEvent.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/StripProperties.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/StripSpawnRate.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/TexIndexAdvanced.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/Learning Templates/VFX/TriggerEventCollide.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/VisualEffectGraph Additions/VFX/Bonfire.vfx,0,0,,
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/VisualEffectGraph Additions/VFX/Flames.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/VisualEffectGraph Additions/VFX/Lightning.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/VisualEffectGraph Additions/VFX/Smoke.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/Samples/Visual Effect Graph/17.0.3/VisualEffectGraph Additions/VFX/Sparks.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/VFX Graph_ParticleTrail/VFX/Trail_Line.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/VFX Graph_ParticleTrail/VFX/Trail_Line2.vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/VFX Graph_ParticleTrail/VFX/Trail_Ribbon.vfx,0,0,,
+_ref/URP-WebRTC-Convai-2025/Assets/VFX Graph：Particle shaping application/VFX/Fire_Particles(SDF).vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/VFX Graph：Particle shaping application/VFX/Scifi_Particles(SDF).vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/VFX Graph：Particle shaping application/VFX/Snow_Particles(SDF).vfx,0,1,,081ffb0090424ba4cb05370a42ead6b9
+_ref/URP-WebRTC-Convai-2025/Assets/VFXGraph_Collision edge line(SDF)/VFX/Collision edge line.vfx,1,1,MetavidoVFX-main/Assets/3rdparty/VFXGraph_Collision edge line(SDF)/VFX/Random Direction.vfxoperator (de450dca584aba6458a618d31a6a68ff),081ffb0090424ba4cb05370a42ead6b9
