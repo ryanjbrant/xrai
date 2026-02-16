@@ -17,6 +17,23 @@
 - ✅ Non-blocking (works while you code)
 - ✅ Rollback-capable (instant restore)
 - ✅ Simple & maintainable
+- ✅ No login items/daemons required for KB access checks
+
+---
+
+## System Librarian (Access Reliability)
+
+Use `scripts/kb_system_librarian.sh` for periodic KB access verification across Claude/Codex/Gemini and related tools.
+
+```bash
+# Read-only pass
+~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --dry-run
+
+# Apply safe checks
+~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --execute
+```
+
+Recommended schedule: cron every 1-12 hours.
 
 ---
 

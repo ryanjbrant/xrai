@@ -1,6 +1,6 @@
 # KnowledgeBase Index
 
-**Files**: 270 | **Size**: ~4MB | **Updated**: 2026-02-12
+**Files**: 281 | **Size**: ~4MB | **Updated**: 2026-02-16
 
 > **On audits**: Verify Quick Access matches current projects. Check `ls -lt ~/Documents/GitHub/ | head -10` for active work. Archive stale files (>6 months). See GLOBAL_RULES.md §KB Relevance Check.
 
@@ -31,6 +31,7 @@
 | Keijiro patterns | `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` (**Updated 2026-02-08: Full architecture research**) |
 | Icosa Gallery API | `_ICOSA_GALLERY_PATTERNS.md` |
 | Normcore multiplayer | `_NORMCORE_MULTIPLAYER_PATTERNS.md` |
+| XRAI voice/intelligence arch | `_XRAI_VOICE_ARCHITECTURE_PATTERNS.md` |
 
 **Online KB**: `https://cdn.jsdelivr.net/gh/imclab/xrai@main/KnowledgeBase/`
 
@@ -51,6 +52,7 @@
 | `_CLAUDE_CODE_HOOKS.md` | Hooks reference & patterns |
 | `_CLAUDE_CODE_SUBAGENTS.md` | Subagent patterns |
 | `_CLAUDE_CODE_UNITY_WORKFLOW.md` | Unity-specific workflows |
+| `_TEST_DEBUG_AUTOMATION_PATTERNS.md` | **Pre-agent vs agent-era test/debug patterns** |
 
 **Archived** (in `_archive/`):
 - `_CLAUDE_CODE_ARCHITECTURE_DEEP_DIVE.md` - Deep dive (superseded by OFFICIAL)
@@ -67,6 +69,7 @@
 | `_UNITY_MCP_DEV_HOOKS.md` | MCP development hooks |
 | `_UNITY_DEBUGGING_MASTER.md` | Console, errors, analysis |
 | `_UNITY_DEBUGGING_REFERENCE.md` | Debugging reference |
+| `_UNITY_TEST_FRAMEWORK_PATTERNS.md` | **UTF patterns, CI/CD, scene tests, command line, Portals strategy** |
 | `_UNITY_EDITOR_ERROR_LOG_ANALYSIS.md` | Error log analysis |
 | `_UNITY_INTELLIGENCE_PATTERNS.md` | AI integration patterns |
 | `_UNITY_PATTERNS_BY_INTEREST.md` | Patterns by topic |
@@ -82,6 +85,8 @@
 | `_UNITY_AS_A_LIBRARY_OVERVIEW.md` | UAAL overview |
 | `_REACT_NATIVE_UNITY_PACKAGES.md` | RN Unity packages comparison |
 | `_REACT_NATIVE_UNITY_FABRIC_FIX.md` | Fabric fix documentation |
+| `_UNITY_PREBUILT_LIBRARY_DISTRIBUTION.md` | Git LFS for pre-built Unity libraries (iOS framework + Android unityLibrary) |
+| `_GIT_HOOKS_ENV_VARS.md` | Git hooks + env vars (Discord webhook persistence, file-based resolution) |
 
 ### Rendering
 | File | Content |
@@ -143,12 +148,13 @@
 | `_KEIJIRO_AUDIO_VFX_RESEARCH.md` | Keijiro audio VFX |
 | `_KEIJIRO_METAVIDO_VFX_RESEARCH.md` | Keijiro Metavido research |
 
-## XR/AR (10 files)
+## XR/AR (11 files)
 
 | File | Content |
 |------|---------|
 | `_XR_CAPABILITIES_MASTER.md` | AR Foundation, hand tracking |
 | `_XRAI_MASTER.md` | XRAI format spec |
+| `_XRAI_VOICE_ARCHITECTURE_PATTERNS.md` | **Voice pipeline, Gemini Live, memory, multiplayer, spatial intelligence (2026-02-13)** |
 | `_XRAI_FORMAT_RESEARCH_2026.md` | XRAI format research |
 | `_XRAI_HYPERGRAPH_WORLD_GENERATION.md` | Hypergraph world gen |
 | `_XR_SCENE_FORMAT_COMPARISON.md` | Scene format comparison |
@@ -245,7 +251,7 @@
 | `AI_CLI_TOOLS_REFERENCE.md` | AI CLI tools |
 | `KB_TOOLS_REFERENCE.md` | KB tools reference |
 
-## Operations (12 files)
+## Operations (13 files)
 
 | File | Content |
 |------|---------|
@@ -261,6 +267,7 @@
 | `LEARNING_LOG.md` | Session discoveries |
 | `AUTOMATION_QUICK_START.md` | Automation scripts |
 | `_AUTOMATED_MAINTENANCE_GUIDE.md` | Maintenance guide |
+| `_AUTOMATED_ORG_LIBRARIAN_GUIDE.md` | KB access librarian |
 
 ## Reference (30+ files)
 

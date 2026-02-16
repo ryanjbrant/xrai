@@ -614,6 +614,17 @@ public class MyComponent : MonoBehaviour
 
 ---
 
+## See Also — Test/Debug Automation Network
+
+- `_TEST_DEBUG_AUTOMATION_PATTERNS.md` - Pre-agent vs agent-era patterns, 5 mandatory questions, frontier gaps
+- `_DEV_ITERATION_WORKFLOWS.md` - Fastest feedback loops + Auto Workflow Matrix (trigger→action→tool)
+- `_AUTO_FIX_PATTERNS.md` - Error→fix lookup, agents check this on CI failure
+- `_CLAUDE_CODE_UNITY_WORKFLOW.md` - MCP-first dev loop with compile/console/fix cycle
+- `~/GLOBAL_RULES.md` §Test/Debug Philosophy - Enforcement rules applied globally
+- `~/GLOBAL_RULES.md` §Stall Detection - Recovery ladder for hung processes/repeated failures
+
+---
+
 ## VS Code Unity Setup
 
 **Source**: [VS Code Unity Docs](https://code.visualstudio.com/docs/other/unity)

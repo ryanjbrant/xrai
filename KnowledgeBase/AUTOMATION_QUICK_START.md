@@ -36,6 +36,10 @@ git clone git@github.com:imclab/xrai.git ~/Documents/GitHub/Unity-XR-AI
 # Health check
 ./KnowledgeBase/KB_AUDIT.sh
 
+# KB system librarian (access + discoverability checks)
+./KnowledgeBase/scripts/kb_system_librarian.sh --dry-run
+./KnowledgeBase/scripts/kb_system_librarian.sh --execute
+
 # Manual sync to all AI tools
 ./modules/open-multibrain/sync.sh
 
@@ -72,6 +76,9 @@ A: Use cron for specific needs:
 ```bash
 # Optional: Daily audit at 6am
 0 6 * * * ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/KB_AUDIT.sh
+
+# Optional: KB librarian every 4h (supported: 1-12h)
+0 */4 * * * ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --execute >> ~/Library/Logs/kb-system-librarian.log 2>&1
 ```
 
 ---

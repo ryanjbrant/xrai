@@ -4,6 +4,20 @@ This document provides the necessary context for the Gemini Code Assistant to ef
 
 **Last Updated**: Wednesday, January 21, 2026
 
+## KB Access (Mandatory)
+
+Treat KB access as always-on:
+1. Read `~/KnowledgeBase/_KB_INDEX.md`
+2. Read `~/KnowledgeBase/_KB_ACCESS_GUIDE.md`
+3. Run `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --dry-run`
+
+If user asks about KB, provide a quick tour and examples:
+- `kb "unity vfx depth binding"`
+- `kbfix "CS0246"`
+- `rg -n "VFXARBinder|ARDepthSource" ~/KnowledgeBase`
+
+Prefer on-demand checks or cron (1-12h), not login items/daemons.
+
 ## Project Overview
 
 This repository is a comprehensive infrastructure for "intelligence amplification" in Unity XR (AR/VR/MR) development. It combines a vast, token-optimized knowledge base with a suite of tools, AI agent configurations, and example projects to accelerate learning and development.

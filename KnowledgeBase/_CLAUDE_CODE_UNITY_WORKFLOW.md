@@ -315,6 +315,11 @@ mcp__UnityMCP__read_console(count: 5, types: ["error"])
 - `_ARFOUNDATION_VFX_KNOWLEDGE_BASE.md` - AR/VFX patterns
 - `MetavidoVFX-main/CLAUDE.md` - Project-specific patterns
 - `QUICK_REFERENCE.md` - VFX properties cheat sheet
+- `_TEST_DEBUG_AUTOMATION_PATTERNS.md` - Pre-agent vs agent-era test/debug patterns, 5 mandatory questions
+- `_DEV_ITERATION_WORKFLOWS.md` - Fastest feedback loops per change type + Auto Workflow Matrix
+- `_AUTO_FIX_PATTERNS.md` - Error→fix lookup for common Unity/RN/MCP issues
+- `_UNITY_DEBUGGING_MASTER.md` - Unity debugging, profiling, log locations, device debugging
+- `~/GLOBAL_RULES.md` §Test/Debug Philosophy - Enforcement rules for all tools/sessions
 
 ---
 

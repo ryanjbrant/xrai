@@ -206,3 +206,20 @@ KEY INSIGHT - Memory Best Practice:
 - **Project References**: `specs/migration/RE_MIGRATION_PLAN.md`, `specs/METAVIDO_MIGRATION_STRATEGY.md`, `TODO.md`
 - **Category**: migration
 - **ROI**: High - prevents asset drift and broken references during copy-heavy migration work.
+
+## 2026-02-13 - Pending follow-up sync test
+- Sync test from portals_main session.
+
+## 2026-02-13 - Pending follow-up sync test
+- Sync test from portals_main session.
+
+## 2026-02-13 00:08 EST - Claude Hook - Auto Session Persistence
+- **Discovery**: Pre-compact/session-end checkpointing now runs automatically.
+- **Context**: Triggered by PreCompact (manual) in `portals_main`.
+- **Impact**:
+  - Reduces manual "save session" follow-ups.
+  - Preserves resume context across '/compact' and session exits.
+- **Pattern**: `~/.claude/hooks/auto-session-persist.sh` via `PreCompact` + `SessionEnd` hooks.
+- **Category**: workflow
+- **ROI**: High - prevents context loss at transition boundaries.
+- **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`

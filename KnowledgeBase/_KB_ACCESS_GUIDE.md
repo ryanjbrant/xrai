@@ -357,7 +357,30 @@ ln -sf ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase ~/.claude/knowledgebase
 node ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/generate-kb-manifest.js
 ```
 
+### Run System Librarian (No Daemon)
+```bash
+# Read-only health pass
+~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --dry-run
+
+# Execute checks now
+~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --execute
+
+# Optional cron schedule every 1-12h (example: 4h)
+0 */4 * * * ~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --execute >> ~/Library/Logs/kb-system-librarian.log 2>&1
+```
+
+### Agent Tour Response Template
+If user asks about KB in any tool:
+1. Report status: `KB access is ready` or list missing links.
+2. Offer quick tour.
+3. Provide examples:
+   - `kb "unity vfx depth binding"`
+   - `kbfix "CS0246"`
+   - `rg -n "VFXARBinder|ARDepthSource" ~/KnowledgeBase`
+4. Offer memory compounding:
+   - “Say: auto-recognize this insight/problem and add to KB + rules.”
+
 ---
 
-**Last Updated**: 2026-02-12
-**Maintained By**: system-improver agent
+**Last Updated**: 2026-02-13
+**Maintained By**: system-improver agent + system-librarian agent

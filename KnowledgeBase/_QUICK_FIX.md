@@ -156,6 +156,21 @@
 | Android SDK not found | Set ANDROID_HOME, check SDK Manager |
 | IL2CPP error | Check scripting backend settings |
 | WebGL memory | Increase memory size in Player Settings |
+| **`Could not resolve project :unityLibrary`** | **Android Unity export missing. Need `unity/builds/android/unityLibrary/` — export from Unity Editor (Android platform)** |
+| **Unity Editor has project locked** | **Close Unity: `osascript -e 'tell application "Unity" to quit'` then wait for process exit before build** |
+| **LFS objects rejected on push** | **Run `git lfs push --all origin main` first, then `git push`** |
+| **Discord webhook not firing** | **`DISCORD_COMMITS_WEBHOOK` not in `~/.zshrc`. Git hooks don't inherit terminal env vars — must be in a file** |
+| **`.gitignore` negation not working** | **Can't re-include files under ignored dir. Use `dir/*` + `!dir/sub/` + `dir/sub/*` + `!dir/sub/file/` pattern** |
+
+## Git LFS / Unity Library Distribution
+
+| Scenario | Fix |
+|----------|-----|
+| iOS builds without Unity | Pre-built `UnityFramework.framework` in `unity/builds/ios/` via Git LFS |
+| Android builds without Unity | Need pre-built `unityLibrary/` in `unity/builds/android/` (NOT YET IN REPO) |
+| Framework not in node_modules after clone | Run `git lfs pull && ./scripts/sync-unity-framework.sh` |
+| LFS not pulling on clone | Run `git lfs install && git lfs pull` (git-lfs must be installed: `brew install git-lfs`) |
+| Binary plist parse error (CocoaPods) | Run `plutil -convert xml1` on framework Info.plist files |
 
 ## Memory
 

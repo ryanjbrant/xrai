@@ -32,10 +32,18 @@ Explore -> Plan -> Code -> Commit -> Log discovery
 - **On error**: Check `_QUICK_FIX.md`
 - **Discovery**: Append to `LEARNING_LOG.md`
 - **KB Index**: `~/KnowledgeBase/_KB_INDEX.md`
+- **KB Access Guide**: `~/KnowledgeBase/_KB_ACCESS_GUIDE.md`
+- **KB Librarian**: `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --dry-run`
 - **Search:** Always use the Grep tool (ripgrep-based) or `rg` in bash. Never use `grep` in bash -- `rg` is faster and supports the same syntax.
 
 ### Session Start Defaults
 - Defaults: `toolchain=auto-detect`, `scope=project-only`, `verbosity=concise`.
+- Mandatory KB checks:
+1. Read `~/KnowledgeBase/_KB_INDEX.md`
+2. Read `~/KnowledgeBase/_KB_ACCESS_GUIDE.md`
+3. Run `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --dry-run`
+4. Run a cross-agent rule compliance check (Claude/Codex/Gemini + project rules) and confirm new global rules are being followed.
+5. If compliance cannot be confirmed, the session must `/compact` or end before proceeding with implementation.
 
 ### Tool Version Check (MANDATORY at Session Start)
 ```bash
@@ -52,6 +60,8 @@ Automatically add to `LEARNING_LOG.md` when you discover: architecture patterns,
 
 ### KnowledgeBase Access (Default)
 - **Read access**: ON by default. **Write/commit/PR**: ONLY at 99% confidence + evidence. **On-demand fetch**: don't preload.
+- Treat KB access drift as P0 recurring issue; if rules/access are out of sync, fix them first.
+- Use no-daemon scheduling (on-demand or cron every 1-12h), not login items.
 
 ---
 

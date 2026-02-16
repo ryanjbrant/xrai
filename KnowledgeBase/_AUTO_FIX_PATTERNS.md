@@ -160,3 +160,11 @@ read_console({action: "get", types: ["error"], count: 10})
 **Primary Reference**: `_QUICK_FIX.md` (error→fix table)
 **Extended Patterns**: This file
 **Archived Verbose**: `_archive/_AUTO_FIX_PATTERNS_VERBOSE.md`
+
+## See Also
+
+- `_TEST_DEBUG_AUTOMATION_PATTERNS.md` - When/how to use auto-fix patterns in agent workflows
+- `_DEV_ITERATION_WORKFLOWS.md` §Auto Workflow Matrix - CI failure triggers auto-triage via this file
+- `_CLAUDE_CODE_UNITY_WORKFLOW.md` - MCP-first dev loop (compile→console→fix→verify)
+- `_UNITY_DEBUGGING_MASTER.md` - Log locations, device debugging, profiler workflows
+- `~/GLOBAL_RULES.md` §Test/Debug Philosophy - "Reproduce before fix" enforcement

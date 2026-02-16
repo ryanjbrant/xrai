@@ -92,3 +92,21 @@ Location: `~/KnowledgeBase/`
 
 ---
 See `GLOBAL_RULES.md` (repo root) or `~/GLOBAL_RULES.md` for full rules.
+
+## PARAMOUNT: Cross-Tool Rule Drift (Major Recurring Issue)
+- This is a recurring failure mode: "always remember" and KB-first instructions drift across tools.
+- Treat this as P0 process breakage.
+- Required at session start and after context compaction/new thread:
+1. Read `~/GLOBAL_RULES.md`
+2. Read `<project>/CLAUDE.md`
+3. Read `~/KnowledgeBase/_KB_INDEX.md`
+4. Read `~/KnowledgeBase/_KB_ACCESS_GUIDE.md`
+5. Confirm Codex/Claude/Gemini rule files still contain this same section
+6. Run `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --dry-run`
+- If any are missing or out of sync, sync rules first, then continue implementation.
+
+## KB Access Is Non-Optional
+- KB access must be automatic for all agents and developers (Claude, Codex, Gemini, Rider, Cursor, Windsurf).
+- If user asks about KB, offer a quick tour and example searches immediately.
+- Prefer no-daemon scheduling: use on-demand runs or cron (every 1-12 hours).
+- Reference: `~/KnowledgeBase/_AUTOMATED_ORG_LIBRARIAN_GUIDE.md`.

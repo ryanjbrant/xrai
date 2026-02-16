@@ -6,6 +6,20 @@ This repository contains production-ready code patterns, 520+ GitHub repo refere
 
 **Global Rules:** Load `GLOBAL_RULES.md` at session start (repo root or `~/GLOBAL_RULES.md`). If your tool doesn't auto-load it, open it manually first.
 
+## KB Access (Paramount, Recurring Issue)
+
+Before implementation and after any compaction/new thread:
+1. Read `~/KnowledgeBase/_KB_INDEX.md`
+2. Read `~/KnowledgeBase/_KB_ACCESS_GUIDE.md`
+3. Run `~/Documents/GitHub/Unity-XR-AI/KnowledgeBase/scripts/kb_system_librarian.sh --dry-run`
+
+If user asks about KB, provide quick tour + examples:
+- `kb "unity vfx depth binding"`
+- `kbfix "CS0246"`
+- `rg -n "VFXARBinder|ARDepthSource" ~/KnowledgeBase`
+
+Use on-demand/cron scheduling (1-12h), not login items or background daemons.
+
 ---
 
 ## ⚡ Proactive Action (CRITICAL)
