@@ -245,3 +245,5 @@ KEY INSIGHT - Memory Best Practice:
 - **Category**: workflow
 - **ROI**: High - prevents context loss at transition boundaries.
 - **Related**: `~/.claude/session_memories/`, `~/KnowledgeBase/_AGENT_HANDOFF.md`
+
+- 2026-02-19: `KB_AUDIT.sh` should avoid `set -e` for probe-style audits; use `set -o pipefail` + explicit counters, and expose `--soft-exit` for interactive aliases like `kb-full` to prevent false “command failed” UX while preserving strict mode.
