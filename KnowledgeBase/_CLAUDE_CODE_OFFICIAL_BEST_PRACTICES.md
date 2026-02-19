@@ -557,4 +557,151 @@ Memory modes: `none` (default), `session`, `project`
 
 ---
 
-**Tags**: #claude-code #best-practices #context-management #subagents #sessions #team-tips #power-user
+## MEMORY.md Auto-Memory System (Feb 2026)
+
+**What it is**: Claude-written auto-memory that persists between sessions. Separate from CLAUDE.md (human-written).
+
+### How it works
+- Claude writes observations/learnings to `.claude/MEMORY.md` (per-project, private)
+- **First 200 lines** loaded at session startup automatically
+- Topic-specific memory files loaded on-demand when relevant
+- NOT version-controlled (private to the user)
+
+### MEMORY.md vs CLAUDE.md
+
+| Aspect | MEMORY.md | CLAUDE.md |
+|--------|-----------|-----------|
+| Author | Claude (auto) | Human |
+| Loaded | First 200 lines at startup | Full file at startup |
+| Scope | Per-project, private | Per-project, shared (git) |
+| Content | Observations, preferences, learned patterns | Rules, conventions, build commands |
+| Control | `CLAUDE_CODE_DISABLE_AUTO_MEMORY: "0"` | Always loaded |
+
+### Best Practice
+Let MEMORY.md handle preferences and observations. Keep CLAUDE.md for rules and commands. Don't duplicate between them.
+
+---
+
+## Plugin Marketplace Ecosystem (Feb 2026)
+
+### Official Plugins (claude-plugins-official)
+Auto-available to all users. Curated by Anthropic.
+
+### Community Marketplaces
+Add via `extraKnownMarketplaces` in settings.json. 130+ expert agents across 20+ plugin packs.
+
+### Installed Plugin Types
+
+| Type | Example | What it does |
+|------|---------|--------------|
+| Feature dev | `feature-dev@claude-code-plugins` | Guided architecture + implementation |
+| Code review | `code-review@claude-code-plugins` | PR review workflows |
+| Security | `security-guidance@claude-code-plugins` | Security analysis |
+| LSP | `swift-lsp@claude-plugins-official` | Language-specific intelligence |
+| Output style | `explanatory-output-style` | Changes response tone |
+| Stop control | `ralph-wiggum` | Long-running task management |
+
+### Configuration
+```json
+{
+  "enabledPlugins": {
+    "feature-dev@claude-code-plugins": true,
+    "code-review@claude-code-plugins": true
+  }
+}
+```
+
+---
+
+## Sandboxing (Feb 2026)
+
+### Key stat: 84% fewer permission prompts
+
+**What it does**: Filesystem + network isolation for Claude Code sessions.
+
+### How to enable
+- `/sandbox` command in session
+- Or start with `--sandbox` flag
+
+### What's isolated
+- File system access restricted to project directory
+- Network access controlled
+- Shell commands sandboxed
+
+### When to use
+- Working on unfamiliar codebases
+- Running untrusted scripts
+- Reducing permission fatigue during long sessions
+- When you want Claude to work more autonomously with guardrails
+
+---
+
+## Agent Teams (Experimental, Feb 2026)
+
+### Enable
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
+
+### Architecture
+- **Team Lead** (main session) spawns **Teammates** (independent Claude Code instances)
+- Each teammate gets its own full context window with project context
+- Shared task list with dependency tracking (pending -> in_progress -> completed)
+- Teammates can communicate with each other (unlike subagents)
+
+### Limitations
+- No session resumption with in-process teammates
+- Task status can lag
+- One team per session
+- No nested teams
+- Experimental: active bugs being filed
+
+### Real-world benchmark
+16 agents built a C compiler (100K lines) that compiles Linux 6.9 — cost $20K in API tokens.
+
+---
+
+## Context Budget Formula (Feb 2026)
+
+```
+200K total context
+- 33K buffer (reserved by Claude Code, down from 45K)
+- 15-20K system prompt + tool definitions
+- MCP definitions (variable, aim for <10K)
+- CLAUDE.md + rules (aim for <5K total)
+- MEMORY.md (first 200 lines)
+= ~130-140K available for actual work
+```
+
+**The ~150 instruction limit**: Frontier LLMs reliably follow ~150-200 instructions. System prompt uses ~50. That leaves ~100-150 for your CLAUDE.md + rules before quality degrades silently.
+
+---
+
+## Skills Progressive Disclosure Architecture (Feb 2026)
+
+Three-tier loading minimizes context cost:
+
+```
+Tier 1: Metadata (~100 tokens per skill)
+  → Name + description loaded at startup
+  → Zero context cost until needed
+
+Tier 2: Full SKILL.md (<5K tokens)
+  → Loaded when Claude decides skill is relevant
+  → "Reading [skill-name]" appears in thinking
+
+Tier 3: Bundled Resources (unlimited)
+  → Reference docs, examples, scripts
+  → Only loaded when skill explicitly references them
+  → NO context penalty for unused content
+```
+
+**Cross-platform**: Agent Skills standard (agentskills.io) adopted by both Claude Code and Codex CLI. Most promising path for multi-IDE portability.
+
+---
+
+**Tags**: #claude-code #best-practices #context-management #subagents #sessions #team-tips #power-user #memory #plugins #sandboxing #agent-teams #skills
