@@ -24,7 +24,7 @@
         "claude-mem",
         "claude-mem",
         "--db-path",
-        "/Users/jamestunick/.claude-mem/chroma_db"
+        "${HOME}/.claude-mem/chroma_db"
       ]
     }
   }

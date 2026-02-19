@@ -31,7 +31,7 @@
     "onboard:ai": "npm run setup && npm run verify:ai",
     "kb": "./scripts/kb-search.sh",
     "kb:access": "./scripts/kb-access.sh",
-    "kb:fix": "./scripts/kbfix.sh",
+    "kb:fix": "./scripts/kb-cli.sh fix",
     "verify:ai": "./scripts/verify-ai-token-setup.sh",
     "sync:ai": "./scripts/ai-sync.sh",
     "test:editor": "node scripts/test_editor_playmode.js",
