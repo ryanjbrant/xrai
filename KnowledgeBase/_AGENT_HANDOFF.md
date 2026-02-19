@@ -858,3 +858,53 @@ Use this format:
 - evidence: Trigger SessionEnd/other; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/276b2bb9-e88b-4e36-8a2d-019416cb3ecf.jsonl`.
 - next_check: Resume from checkpoint and verify pending priorities.
 - next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 12:07 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-19.md`.
+- evidence: Trigger SessionEnd/clear; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/3a8d2f2a-c2f2-4738-bfef-974c760a4a42.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 12:10 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/warpjobs-2026-02-19.md`.
+- evidence: Trigger PreCompact/auto; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Applications-WarpJobs/13b51bf6-dc74-4e0a-9f4a-abb4691af2a1.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 12:10 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-19.md`.
+- evidence: Trigger PreCompact/manual; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/9b5bb6b5-1e72-476d-93c3-91fd11010916.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 12:38 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-19.md`.
+- evidence: Trigger PreCompact/manual; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/9b5bb6b5-1e72-476d-93c3-91fd11010916.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 12:53 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-19.md`.
+- evidence: Trigger PreCompact/auto; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/9b5bb6b5-1e72-476d-93c3-91fd11010916.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 13:34 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/warpjobs-2026-02-19.md`.
+- evidence: Trigger PreCompact/auto; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Applications-WarpJobs/13b51bf6-dc74-4e0a-9f4a-abb4691af2a1.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 13:39 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-19.md`.
+- evidence: Trigger PreCompact/auto; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/9b5bb6b5-1e72-476d-93c3-91fd11010916.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 13:44 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/warpjobs-2026-02-19.md`.
+- evidence: Trigger PreCompact/auto; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Applications-WarpJobs/13b51bf6-dc74-4e0a-9f4a-abb4691af2a1.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 13:59 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/portals_main-2026-02-19.md`.
+- evidence: Trigger PreCompact/auto; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Documents-GitHub-portals-main/9b5bb6b5-1e72-476d-93c3-91fd11010916.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.
+
+## 2026-02-19 14:02 EST - Claude hook
+- what_changed: Auto-saved session checkpoint to `/Users/jamestunick/.claude/session_memories/warpjobs-2026-02-19.md`.
+- evidence: Trigger PreCompact/auto; transcript `/Users/jamestunick/.claude/projects/-Users-jamestunick-Applications-WarpJobs/13b51bf6-dc74-4e0a-9f4a-abb4691af2a1.jsonl`.
+- next_check: Resume from checkpoint and verify pending priorities.

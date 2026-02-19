@@ -1,6 +1,6 @@
 # KnowledgeBase Index
 
-**Files**: 281 | **Size**: ~4MB | **Updated**: 2026-02-16
+**Files**: 284 | **Size**: ~4MB | **Updated**: 2026-02-19
 
 > **On audits**: Verify Quick Access matches current projects. Check `ls -lt ~/Documents/GitHub/ | head -10` for active work. Archive stale files (>6 months). See GLOBAL_RULES.md §KB Relevance Check.
 
@@ -53,6 +53,7 @@
 | `_CLAUDE_CODE_SUBAGENTS.md` | Subagent patterns |
 | `_CLAUDE_CODE_UNITY_WORKFLOW.md` | Unity-specific workflows |
 | `_TEST_DEBUG_AUTOMATION_PATTERNS.md` | **Pre-agent vs agent-era test/debug patterns** |
+| `~/.claude/skills/research/SKILL.md` | **Hardened research skill** (priority chain, caching, structured output) |
 
 **Archived** (in `_archive/`):
 - `_CLAUDE_CODE_ARCHITECTURE_DEEP_DIVE.md` - Deep dive (superseded by OFFICIAL)

@@ -3,7 +3,7 @@
 # Version: 2.0 - Added self-healing + history tracking
 # Last Updated: 2026-01-12
 
-set -eo pipefail
+set -o pipefail
 # Note: Using || true after ((var++)) to prevent exit on increment from 0
 
 GREEN='\033[0;32m'
@@ -17,6 +17,23 @@ KB_PATH=~/Documents/GitHub/Unity-XR-AI/KnowledgeBase
 PASS=0
 FAIL=0
 WARN=0
+
+MODE="full"
+SOFT_EXIT=0
+
+for arg in "$@"; do
+  case "$arg" in
+    --quick) MODE="quick" ;;
+    --full) MODE="full" ;;
+    --security) MODE="security" ;;
+    --soft-exit) SOFT_EXIT=1 ;;
+    --strict-exit) SOFT_EXIT=0 ;;
+    -h|--help)
+      echo "Usage: KB_AUDIT.sh [--quick|--full|--security] [--soft-exit|--strict-exit]"
+      exit 0
+      ;;
+  esac
+done
 
 check() {
     if [ $? -eq 0 ]; then
@@ -271,5 +288,9 @@ else
     echo ""
     echo "Please review failures above."
     echo "Metrics saved to: $METRICS_FILE"
+    if [ $SOFT_EXIT -eq 1 ]; then
+        echo "Soft-exit enabled: returning success for interactive alias usage."
+        exit 0
+    fi
     exit 1
 fi
